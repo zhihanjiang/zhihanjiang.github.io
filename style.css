@@ -547,7 +547,7 @@ th, td, caption {
 th, td {
     padding: 20px 8px;
     vertical-align: top;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0 #ddd;
 }
 
 th {
@@ -558,9 +558,10 @@ th {
 table > thead > tr > th {
     color: #757575;
     font-size: 0.8em;
-    line-height: 1.1;
+    line-height: 0;
     padding-top: 0;
-    padding-bottom: 8px;
+    padding-bottom: 0;
+    border:0 solid;
 }
 
 .table-fixed {
@@ -576,12 +577,14 @@ table > thead > tr > th {
         position: absolute;
         top: -9999px;
         left: -9999px;
+        border:0;
+        border-bottom: 0;
     }
 
     .table-responsive tbody th,
     .table-responsive tbody td {
         border: none;
-        border-bottom: 1px solid #eee;
+        border-bottom: 0 #eee;
         position: relative;
         padding: 0.5em 0 0.5em 50%;
     }
