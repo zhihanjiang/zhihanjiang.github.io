@@ -1,33 +1,332 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en" class="ace ace-card-on ace-tab-nav-on ace-main-nav-on ace-sidebar-on" data-theme-color="#c0e3e7">
 <head>
-    <meta charset="UTF-8">
-    <title>Traffic Violation-Prone Location Inference System</title>
-        <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
-        <script type="text/javascript" src="https://assets.pyecharts.org/assets/bmap.min.js"></script>
-        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=dlo1edizBEcDLzNDTyHQoLmxgnZTdHBC"></script>
-        <script type="text/javascript" src="https://api.map.baidu.com/getscript?v=2.0&ak=dlo1edizBEcDLzNDTyHQoLmxgnZTdHBC"></script>
-        <link href="index.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Certy</title>
+    <meta name="description" content="">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+    <!-- Icon Fonts -->
+    <link href="fonts/icomoon/style.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="js/plugins/highlight/solarized-light.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Modernizer -->
+    <script type="text/javascript" src="js/vendor/modernizr-3.3.1.min.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b142c6a3bca82c3a13855a660322a11d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
 </head>
-<body>
-    <nav class="navbar navbar-default" id="header">
-            <div class="container">
-                <h2>Traffic Violation-Prone Location Inference System</h2>
-                <h4 id="time"></h4>
+  <body>
+     <div class="ace-wrapper">
+         <header id="ace-header" class="ace-container-shift ace-logo-in ace-head-boxed ace-nav-right">
+             <div class="ace-head-inner">
+                 <div class="ace-head-container ace-container">
+                     <div class="ace-head-row">
+                         <div id="ace-head-col1" class="ace-head-col text-left">
+                             <a id="ace-logo" class="ace-logo" href="index.html">
+                                <img src="img/uploads/brand/logo.svg" alt="ace resume"><span>.Certy</span>
+                             </a>
+                         </div>
+
+                     </div>
+                 </div><!-- .ace-container -->
+             </div><!-- .ace-head-inner -->
+        </header><!-- #ace-header -->
+
+
+        <article id="ace-card" class="ace-card bg-primary">
+			<div class="ace-card-inner text-center">
+				<img class="avatar avatar-195" src="img/me.jpg" width="195" height="195" alt="">
+				<h1>唐姣</h1>
+				<p class="text-muted">博彦科技 | 前端开发工程师</p>
+				<!-- <ul class="ace-social clear-list">
+					<li><a><span class="ace-icon ace-icon-facebook"></span></a></li>
+					<li><a><span class="ace-icon ace-icon-twitter"></span></a></li>
+					<li><a><span class="ace-icon ace-icon-google-plus"></span></a></li>
+					<li><a><span class="ace-icon ace-icon-instagram"></span></a></li>
+					<li><a><span class="ace-icon ace-icon-pinterest"></span></a></li>
+				</ul> -->
+			</div>
+		</article><!-- #ace-card -->
+
+        <div id="ace-content" class="ace-container-shift">
+            <div class="ace-container">
+
+
+                    <div id="ace-nav-wrap" class="hidden-sm hidden-xs">
+                        <div class="ace-nav-cont">
+                            <div id="ace-nav-scroll">
+                            </div>
+
+                            <div id="ace-nav-tools" class="hidden">
+                                <span class="ace-icon ace-icon-dots-three-horizontal"></span>
+
+                                <button id="ace-nav-arrow" class="clear-btn">
+                                    <span class="ace-icon ace-icon-chevron-thin-down"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ace-nav-btm"></div>
+                    </div><!-- .ace-nav-wrap -->
+
+                <div class="ace-paper-stock">
+                    <main class="ace-paper clearfix">
+                        <div class="ace-paper-cont clear-mrg">
+
+						<!-- START: PAGE CONTENT -->
+    <div class="padd-box clear-mrg">
+        <section class="section brd-btm">
+            <div class="row">
+                <div class="col-sm-12 clear-mrg text-box">
+                    <h2 class="title-lg text-upper">About Me</h2>
+
+                    <p><b>我是唐姣~</b><br>
+                        2016年本科毕业，电子信息工程专业。 有3年的前端开发工作经验，一直在不断的学习前端发展的技术，熟练使用vue2.0开发项目，并有丰富的实战经验，现在的工作内容主要是负责腾讯安全中心的官网、公众号系统的迭代开发，还有王者荣耀、绝地求生等游戏的实名认证功能，视频审判系统开发。
+
+                    </p>
+
+                </div>
             </div>
-    </nav>
-    <input type="radio"  name="city" id="xm" value=0 checked="true" onclick="update_center()" style="position: absolute;margin-left: 130px;top:70px;" /> <p id="p1" style="position: absolute;margin-left: 150px;top:70px;font-size: 18px;font-weight: bolder;">Xiamen</p>
-    <input type="radio"  name="city" id="cd" value=1 onclick="update_center()" style="position: absolute;margin-left:400px;top:70px;" /> <p id="p1" style="position: absolute;margin-left:420px;top:70px;font-size: 18px;font-weight: bolder;">Chengdu</p>
-    <div class="container" id="content">
-<!--             <div class="note" id="note"></div> -->
-            <div class="scroll" id="scrollBar">
-                <div class="bar"></div>
-                <div class="mask"></div>
+        </section><!-- .section -->
+
+        <section class="section brd-btm">
+            <div class="row">
+                <div class="col-sm-6 clear-mrg">
+                    <h2 class="title-thin text-muted">个人信息</h2>
+
+                    <dl class="dl-horizontal clear-mrg">
+                        <dt class="text-upper">姓名</dt>
+                        <dd>唐姣</dd>
+
+                        <dt class="text-upper">出生年月</dt>
+                        <dd>1995 04</dd>
+
+                        <dt class="text-upper">地址</dt>
+                        <dd>深圳</dd>
+
+                        <dt class="text-upper">e-mail</dt>
+                        <dd><a href="t1296724559@gmail.com">t1296724559@gmail.com</a></dd>
+
+                        <dt class="text-upper">phone</dt>
+                        <dd>17670627606</dd>
+                    </dl>
+                </div><!-- .col-sm-6 -->
+
+                <div class="col-sm-6 clear-mrg">
+                    <h2 class="title-thin text-muted">languages</h2>
+
+                    <div class="progress-bullets ace-animate" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10">
+                        <strong class="progress-title">English</strong>
+                        <span class="progress-bar">
+                            <span class="bullet fill"></span>
+                            <span class="bullet fill"></span>
+                            <span class="bullet fill"></span>
+                            <span class="bullet fill"></span>
+                            <span class="bullet fill"></span>
+                            <span class="bullet fill"></span>
+                            <span class="bullet "></span>
+                            <span class="bullet "></span>
+                            <span class="bullet "></span>
+                            <span class="bullet "></span>
+                        </span>
+                        <span class="progress-text text-muted">能简单读写</span>
+                    </div>
+                </div><!-- .col-sm-6 -->
+            </div><!-- .row -->
+        </section><!-- .section -->
+
+        <section class="section brd-btm">
+            <div class="row">
+                <div class="col-sm-6 clear-mrg">
+                    <h2 class="title-thin text-muted">专业技能</h2>
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="progress-chart ace-animate" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" data-text="90%" data-value="0.9"></div>
+                                <strong class="progress-title">HTML5</strong>
+                            </div>
+                        </div><!-- .col-xs-4 -->
+
+                        <div class="col-xs-4">
+                            <div class="progress-chart ace-animate" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" data-text="81%" data-value="0.81"></div>
+                                <strong class="progress-title">Javascript</strong>
+                            </div>
+                        </div><!-- .col-xs-4 -->
+
+                        <div class="col-xs-4">
+                            <div class="progress-chart ace-animate" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" data-text="66%" data-value="0.66"></div>
+                                <strong class="progress-title">CSS3</strong>
+                            </div>
+                        </div><!-- .col-xs-4 -->
+                    </div><!-- .row -->
+                </div><!-- .col-sm-6 -->
+
+                <div class="col-sm-6 clear-mrg">
+                    <h2 class="title-thin text-muted"></h2>
+
+                    <div class="progress-line ace-animate" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                        <strong class="progress-title">Vue2.0</strong>
+                        <div class="progress-bar" data-text="90%" data-value="0.9"></div>
+                    </div>
+
+                    <div class="progress-line ace-animate" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                        <strong class="progress-title">Angularjs</strong>
+                        <div class="progress-bar" data-text="80%" data-value="0.8"></div>
+                    </div>
+
+                    <div class="progress-line ace-animate" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                        <strong class="progress-title">webpack</strong>
+                        <div class="progress-bar" data-text="80%" data-value="0.8"></div>
+                    </div>
+
+                    <div class="progress-line ace-animate" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                        <strong class="progress-title">es6</strong>
+                        <div class="progress-bar" data-text="70%" data-value="0.7"></div>
+                    </div>
+                </div><!-- .col-sm-6 -->
+            </div><!-- .row -->
+        </section><!-- .section -->
+        <section class="section">
+            <h2 class="title-thin text-muted">工作经历</h2>
+
+            <div class="row">
+                <div class="col-sm-12 clear-mrg">
+                    <div class="award-box">
+                        <h3 class="award-title">博彦科技有限公司 (前端开发)</h3>
+<div class="award-text text-muted clear-mrg">
+                            <p>工作职责:</p>
+                            <p>1.独立负责腾讯游戏安全中心网站及公众号、客户端项目开发与重构，已上线 </p>
+                            <p>2.独立负责腾讯游戏信用官网、公众号、游戏内项目开发与重构，已上线 </p>
+                            <p>3.独立负责王者荣耀、绝地求生视频审判功能，已上线</p>
+                            <p>4.使用 Vue/Angular,开发应用 5.通过工具与组件的开发与持续优化，提升团队工作效率</p>
+                            <p>项目一:腾讯游戏信用官网 </p>
+                            <p>项目简介:腾讯游戏信用官网主要向用户展示他的游戏信用详情，包含常玩的游戏、日均时长、月活跃天数、实名认证情况、游戏历史处罚列表和详情。</p>
+                            <p>责任描述:独立开发，搭建 Vue 框架，负责算法维度、信用详情、提升信用等模块开发。使用Vue2.0 框架，Vue-cli 搭建系统，Vuex 管理用户状态，组件化开发，axios 实现 http 请求，mock.js 控制模拟数据，前后台分离。</p>
+                            <p>项目链接:http://gamecredit.qq.com/static/index.htm</p>
+                            <p>项目二:腾讯游戏安全中心门户 </p>
+                            <p>项目简介:腾讯游戏安全中心作为腾讯游戏唯一的安全门户网站，主要向用户提供腾讯游戏的安全服务功能及安全工具、安全知识专题、游戏安全解决办法、安全举报反馈及与游戏安全主题相关的用户互动活动等。</p>
+                            <p>责任描述:独立开发，负责系统中游戏安全评测，处罚查询，处罚申诉，实名认证功能的实现。 以及后续所有优化工作。使用 angularJs 开发。运用 html+css 写静态页面和基础动画，用 Javascript,cookie 完成 qq 登录和微信登录功能。完成游戏安全评测，处罚查询，处罚申诉，实名 认证页面的实现。</p>
+                            <p>项目链接:http://gamesafe.qq.com/</p>
+                            <p>项目三:腾讯游戏安全中心公众号 </p>
+                                                            <p>项目简介:腾讯游戏安全中心公众号作为腾讯游戏唯一的安全门户微信公众号，主要向用户提
+供腾讯游戏的处罚查询、安全模式、举报查询、冻结解冻、被盗服务、通用申诉、实名认证等。</p>
+                            <p>责任描述:独立开发，使用 VueJs 搭建框架，用到 component 组件化开发，用 css(zoom)的缩
+放功能解决了不同屏幕尺寸的适配问题，mobiscroll 组件实现自定义滚动条。 完成自助服务首页， 被盗服务，通用申诉，实名认证页面的实现。</p>
+
+                            <p>取得业绩:关注用户 1500 万+</p>
+                        </div>
+                    </div>
+                </div><!-- .col-sm-6 -->
+
+                <div class="col-sm-12 clear-mrg">
+                    <div class="award-box">
+                        <h3 class="award-title">小牛普惠投资管理有限公司 (Web 前端开发工程师) 2016.9-2017.4</h3>
+
+                        <div class="award-text text-muted clear-mrg">
+                            <p>工作职责:</p>
+                            <p>1.负责公司内部系统开发，负责公司微信公众号开发;</p>
+                            <p>2.使用svn或git分工合作，利用html5+css3实现设计图效果，利用原生 js+jquery+ajax+angularjs 等技术实现与后端开发人员对接进行数据渲染的效果，实现产品的界 面及功能;</p>
+                            <p>3.持续优化前端界面和页面响应速度，处理各主流浏览器的兼容问题，提升用户体验; </p>
+                            <p>4.提炼公用代码，封装通用组件，便于代码复用;</p>
+                            <p>5.保证前端代码的可扩展性，便于后期维护和版本升级;</p>
+                            <p>项目一:小牛资本集团员工管理系统 </p>
+                            <p>项目简介:员工管理系统是小牛资本集团旗下的人事管理系统，用于减少人事大部分繁杂重复
+的工作，也供普通员工查看考勤、加班、假期等等个人数据，包含员工管理、考勤管理、考勤统计， 安全配置、基础数据等功能，除了展示之外，HR 权限可增删改查员工的数据。
+责任描述:使用angularJs框架，mvvm模式搭建框架，directive 自定义指令，controller 控 制器来写逻辑等，配合使用bootstrap 的表单验证插件，栅格系统来实现页面布局，使用commonJs 模 块化开发，html5的本地存储实现客户端存储数据，用fis3来进行项目自动化构建，完成压缩文件减 少http 请求等工作。版本控制使用svn 工具。使用chorme 浏览器开发工具进行调试。</p>
+                            <p>取得业绩:3个月内项目初始版本上线，达到预期目标，更便于员工管理工作。</p>
+                            <p>项目二:小牛普惠官网</p>
+                            <p>项目简介:小牛普惠官网是小牛资本集团旗下普惠分公司的官方网站，主要用于处理公司的金融业务操作，包括最新产品介绍、在线申请、营业网点、关于我们等模块，用户可通过该网站，对普惠有全面的了解，也有通过该网站进行金融产品的申请。</p>
+                            <p>责任描述:使用less 和html5来完成UI 需求，使用JavaScript、jQuery、less 实现动态效果， 使用ajax 实现数据渲染，版本控制使用svn 工具。还使用fis3来进行项目自动化构建，完成压缩文 件减少http 请求等工作，通过分支来进行多版本同时开发。</p>
+                            <p>项目链接: https://www.xnph66.com/</p>
+                        </div>
+                    </div>
+                </div><!-- .col-sm-6 -->
+            </div><!-- .row -->
+        </section>
+        <!-- <section class="section brd-btm">
+            <div class="row">
+                <div class="col-sm-12 clear-mrg">
+                    <h2 class="title-thin text-muted">interests</h2>
+
+                    <ul class="icon-list icon-list-col3 clearfix">
+                        <li><span class="ace-icon ace-icon-music"></span> North Adella</li>
+                        <li><span class="ace-icon ace-icon-blog"></span> North Adella</li>
+                        <li><span class="ace-icon ace-icon-blog"></span> North Adella</li>
+                        <li><span class="ace-icon ace-icon-blog"></span> North Adella</li>
+                        <li><span class="ace-icon ace-icon-blog"></span> North Adella</li>
+                        <li><span class="ace-icon ace-icon-music"></span> North Adella</li>
+                        <li><span class="ace-icon ace-icon-blog"></span> North Adella</li>
+                        <li><span class="ace-icon ace-icon-blog"></span> North Adella</li>
+                    </ul>
+                </div>
             </div>
-            <div class="text" id="text"></div>
-            <div id="map" style="width: 600px;height:600px;"></div>
-            <div id="line" style="width: 600px;height:300px;"></div> 
-            <div id="violation" style="width: 600px;height:300px;"></div> 
-    <script src='index.js'></script>
+        </section> --><!-- .section -->
+
+        <!-- .section -->
+    </div><!-- .padd-box -->
+<!-- END: PAGE CONTENT -->
+
+                </div><!-- .ace-paper-cont -->
+            </main><!-- .ace-paper -->
+        </div><!-- .ace-paper-stock -->
+
+        </div><!-- .ace-container -->
+    </div><!-- #ace-content -->
+
+
+
+    <footer id="ace-footer" class="ace-container-shift">
+        <div class="ace-container">
+			<div class="ace-footer-cont clear-mrg">
+				<p class="text-center">Copyright &copy; 2019</p>
+			</div>
+        </div><!-- .ace-container -->
+    </footer><!-- #ace-footer -->
+
+    <!-- Triangle Shapes -->
+    <svg id="ace-bg-shape-1" class="hidden-sm hidden-xs" height="519" width="758">
+        <polygon points="0,455,693,352,173,0,92,0,0,71" style="fill:#d2d2d2;stroke:purple;stroke-width:0; opacity: 0.5">
+    </svg>
+
+    <svg id="ace-bg-shape-2" class="hidden-sm hidden-xs" height="536" width="633">
+        <polygon points="0,0,633,0,633,536" style="fill:#c0e3e7;stroke:purple;stroke-width:0" />
+    </svg>
+</div><!-- .ace-wrapper -->
+
+<!-- Scripts -->
+<script type="text/javascript" src="js/vendor/jquery-1.12.4.min.js"></script>
+
+
+<!---<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyDiwY_5J2Bkv2UgSeJa4NOKl6WUezSS9XA"></script>--->
+<script type="text/javascript" src="js/plugins/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.mCustomScrollbar.min.js"></script>
+<script type="text/javascript" src="js/plugins/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="js/plugins/progressbar.min.js"></script>
+<script type="text/javascript" src="js/plugins/slick.min.js"></script>
+
+<script type="text/javascript" src="js/options.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
