@@ -10271,10 +10271,10 @@ request.send(null);/*不发送数据到服务器*/
 request.onload = function () {/*XHR对象获取到返回信息后执行*/
 if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
     mapstyle = JSON.parse(request.responseText);
-    for(var i=0;i<mapstyle.length;i++){
-        console.log(mapstyle[i].name);
-    }
-    console.log(mapstyle);
+    // for(var i=0;i<mapstyle.length;i++){
+    //     console.log(mapstyle[i].name);
+    // }
+    // console.log(mapstyle);
     chart_map = echarts.init(document.getElementById('map'), 'white', {renderer: 'canvas'});
     update_map(h);
 }}
