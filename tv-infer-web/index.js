@@ -10296,7 +10296,7 @@ text.innerHTML = "Scroll the bar to get traffic violation heatmap at different t
 var bar = scrollBar.children[0];
 var mask = scrollBar.children[1];
 
-function update_center(){
+update_center = function (){
     var radios = document.getElementsByName("city");
     var value = 0;
     for(var i=0;i<radios.length;i++){
