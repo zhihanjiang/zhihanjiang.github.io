@@ -10361,7 +10361,7 @@ function update_map(h){
                 return seg.coord.concat([seg.elevation]);
             });
         }));
-        console.log(h.toString());
+        // console.log(h.toString());
         
         // fs.readFile('../custom_map_config-3.json', 'utf-8', function(err, data) {
         //     mapstyle = JSON.parse(data);
