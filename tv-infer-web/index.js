@@ -10264,7 +10264,7 @@ var h=0;
 var zoom=13;
 var mapstyle;
 var chart_map;
-var url = "custom_map_config-3.json"/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
+var url = "data/custom_map_config-3.json"/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
 var request = new XMLHttpRequest();
 request.open("get", url);/*设置请求方法与路径*/
 request.send(null);/*不发送数据到服务器*/
@@ -10348,7 +10348,7 @@ bar.onmousedown = function(event){
 }
 
 function update_map(h){
-    var url = '../data/bd_xm_'+h.toString()+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
+    var url = 'data/location/bd_'+h.toString()+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
     var request = new XMLHttpRequest();
     request.open("get", url);/*设置请求方法与路径*/
     request.send(null);/*不发送数据到服务器*/
