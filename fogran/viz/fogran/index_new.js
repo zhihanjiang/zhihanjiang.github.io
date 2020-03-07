@@ -19370,7 +19370,7 @@ $(function() {
         zeroline: true
       }
     };
-    Plotly.purge('chart_view');
+    // Plotly.purge('chart_view');
     Plotly.newPlot('chart_view', chart_layer.data, layout);
   }
 
@@ -19426,7 +19426,7 @@ chart_layer.plot_traffic = function() {
             zeroline: true
         }
     };
-    plotly.purge('chart_view');
+    // plotly.purge('chart_view');
     plotly.plot('chart_view', data, layout);
 }
 
