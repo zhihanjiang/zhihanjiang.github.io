@@ -10264,6 +10264,9 @@ var h=0;
 var zoom=13;
 var mapstyle;
 var chart_map;
+var max_n;
+var min_n=0;
+var city='xm';
 var url = "data/custom_map_config-3.json"/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
 var request = new XMLHttpRequest();
 request.open("get", url);/*设置请求方法与路径*/
@@ -10271,21 +10274,9 @@ request.send(null);/*不发送数据到服务器*/
 request.onload = function () {/*XHR对象获取到返回信息后执行*/
 if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
     mapstyle = JSON.parse(request.responseText);
-    // for(var i=0;i<mapstyle.length;i++){
-    //     console.log(mapstyle[i].name);
-    // }
-    // console.log(mapstyle);
     chart_map = echarts.init(document.getElementById('map'), 'white', {renderer: 'canvas'});
     update_map(h);
 }}
-
-// fs.readFile('../custom_map_config-3.json', 'utf-8', function(err, data) {
-//             mapstyle = JSON.parse(data);
-//             chart_map = echarts.init(document.getElementById('map'), 'white', {renderer: 'canvas'});
-//             update_map(h);
-// });
-
-
 
 // 获取元素
 var scrollBar = document.getElementById("scrollBar");
@@ -10307,10 +10298,12 @@ update_center = function (){
     if(value=='0'){
         center=[118.131624,24.492368];
         zoom=13;
+        city='xm';
     }
     else{
-        center=[104.1,30.7];
+        center=[104.09,30.69];
         zoom=14;
+        city='cd';
     }
     update_map(h);
 }
@@ -10334,8 +10327,8 @@ bar.onmousedown = function(event){
         // 移动的距离为遮罩的宽度
         mask.style.width = that.style.left;
         // 显示百分比
-        h = parseInt(parseInt(that.style.left) / 570 * 24)
-        
+        h = parseInt(parseInt(that.style.left) / 570 * 24);
+        update_map(h);
         // console.log("移动了:"+ parseInt(parseInt(that.style.left) / 390 * 100) + "%")
         text.innerHTML = "Scroll the bar to get traffic violation heatmap at different time: "+ h + ":00";
         // 清除拖动 --- 防止鼠标已经弹起时还在拖动
@@ -10344,7 +10337,6 @@ bar.onmousedown = function(event){
     // 鼠标抬起停止拖动
     document.onmouseup = function(){
         document.onmousemove = null;
-        update_map(h);
     }
 }
 
@@ -10362,6 +10354,10 @@ function update_map(h){
                 return seg.coord.concat([seg.elevation]);
             });
         }));
+        if(city=='xm')
+            max_n = thre_xm[h,1];
+        else
+            max_n = thre_cd[h,1];
         // console.log(h.toString());
         
         // fs.readFile('../custom_map_config-3.json', 'utf-8', function(err, data) {
@@ -10386,8 +10382,8 @@ function update_map(h){
                 visualMap: {
                     "show": true,
                     "type": "continuous",
-                    "min": 0,
-                    "max": 40,
+                    "min": min_n,
+                    "max": max_n,
                     inRange: {
                         color: ['blue', 'blue', 'green', 'yellow', 'red']
                     },
