@@ -10358,6 +10358,7 @@ function update_map(h){
             max_n = thre_xm[h,1];
         else
             max_n = thre_cd[h,1];
+        console.log(thre_xm);
         console.log(max_n);
         
         // fs.readFile('../custom_map_config-3.json', 'utf-8', function(err, data) {
