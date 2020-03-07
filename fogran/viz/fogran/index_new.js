@@ -18919,7 +18919,7 @@ $(function() {
           data_layer.traffic = {};
           url = "../../data/"+city+"/traffic.bin"/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
           request.open("get", url);/*设置请求方法与路径*/
-          request.responseType = 'arraybuffer';
+          request.responseType = 'text';
           request.send(null);/*不发送数据到服务器*/
           request.onload = function () {/*XHR对象获取到返回信息后执行*/
             if (request.status == 200) {
@@ -18935,38 +18935,12 @@ $(function() {
               }
               util.log("load_handover");
               data_layer.handover = {};
-              url = "../../data/"+city+"/handover.bin"/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
+              url = "../../data/"+city+"/handover_geojson_"+city+".json"/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
               request.open("get", url);/*设置请求方法与路径*/
-              request.responseType = 'arraybuffer';
               request.send(null);/*不发送数据到服务器*/
               request.onload = function () {/*XHR对象获取到返回信息后执行*/
-                if (request.status == 200) {
-                  var bin = request.response;
-                  var arr = new Float64Array(bin);
-                  // console.log(arr.length);
-                  data_layer.handover.ndarray = ndarray(arr, [data_layer.base_station.number, data_layer.base_station.number, null], [1, data_layer.base_station.number,
-                    data_layer.base_station.number * data_layer.base_station.number
-                  ]);
-                  util.log("update_handover: id %d", data_layer.frame_id);
-                  data_layer.handover.frame = data_layer.handover.ndarray.pick(null, null, data_layer.frame_id);
-                  // data_layer.handover.frame.set(113, 33, 10); // TODO: temp inject
-                  // generate geojson
-                  var handover_list = [];
-                  for (var j = 0; j < data_layer.base_station.number; j++) {
-                    for (var i = j; i < data_layer.base_station.number; i++) {
-                      if (data_layer.handover.frame.get(i, j) > 0) {
-                        var line = turf.lineString(
-                          [
-                            [data_layer.base_station.ndarray.get(i, 1), data_layer.base_station.ndarray.get(i, 2)],
-                            [data_layer.base_station.ndarray.get(j, 1), data_layer.base_station.ndarray.get(j, 2)]
-                          ], {
-                            weight: data_layer.handover.frame.get(i, j)
-                          });
-                        handover_list.push(line);
-                      }
-                    }
-                  }
-                  data_layer.handover.geojson = turf.featureCollection(handover_list);
+              if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
+                  data_layer.handover.geojson = JSON.parse(request.responseText);
                   util.log("load_cluster");
                   data_layer.cluster = {};
                   url = "../../data/"+city+"/cluster.bin"/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
