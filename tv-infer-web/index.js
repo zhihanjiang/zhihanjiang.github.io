@@ -10340,7 +10340,7 @@ bar.onmousedown = function(event){
         document.onmousemove = null;
     }
 }
-
+max_n = 100;
 function update_map(h){
 	var request = new XMLHttpRequest();
     var url = 'data/location/bd_'+h.toString()+'.json'
@@ -10357,13 +10357,10 @@ function update_map(h){
 	                return seg.coord.concat([seg.elevation]);
 	            });
 	        }));
-	        if(city=='xm')
-	            max_n = mean_xm[h][1];
-	        else
-	            max_n = mean_cd[h][1];
-	        // console.log(h);
-	        // console.log(thre_xm);
-	        // console.log(max_n);
+	        // if(city=='xm')
+	        //     max_n = mean_xm[h][1];
+	        // else
+	        //     max_n = mean_cd[h][1];
 	        
 	        // fs.readFile('../custom_map_config-3.json', 'utf-8', function(err, data) {
 	        //     mapstyle = JSON.parse(data);
