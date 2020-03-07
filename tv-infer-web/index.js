@@ -10340,124 +10340,126 @@ bar.onmousedown = function(event){
         document.onmousemove = null;
     }
 }
-
+var request = new XMLHttpRequest();
 function update_map(h){
-    var url = 'data/location/bd_'+h.toString()+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
-    var request = new XMLHttpRequest();
+    var url = 'data/location/bd_'+h.toString()+'.json'
     request.open("get", url);/*设置请求方法与路径*/
     request.send(null);/*不发送数据到服务器*/
     request.onload = function () {/*XHR对象获取到返回信息后执行*/
-    if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
-        data = JSON.parse(request.responseText);
-        points = [].concat.apply([], data.map(function (track) {
-            return track.map(function (seg) {
-                // console.log(seg.coord.concat([1]));
-                return seg.coord.concat([seg.elevation]);
-            });
-        }));
-        if(city=='xm')
-            max_n = mean_xm[h][1];
-        else
-            max_n = mean_cd[h][1];
-        // console.log(h);
-        // console.log(thre_xm);
-        // console.log(max_n);
-        
-        // fs.readFile('../custom_map_config-3.json', 'utf-8', function(err, data) {
-        //     mapstyle = JSON.parse(data);
-            chart_map.setOption(option = {
-                "animation": true,
-                "animationThreshold": 2000,
-                "animationDuration": 1000,
-                "animationEasing": "cubicOut",
-                "animationDelay": 0,
-                "animationDurationUpdate": 300,
-                "animationEasingUpdate": "cubicOut",
-                "animationDelayUpdate": 0,
-                bmap: {
-                    center: center,
-                    zoom: zoom,
-                    roam: true,
-                    "mapStyle": {
-                    "styleJson":mapstyle
-                    }
-                },
-                visualMap: {
-                    "show": true,
-                    "type": "continuous",
-                    "min": min_n,
-                    "max": max_n,
-                    inRange: {
-                        color: ['blue', 'blue', 'green', 'yellow', 'red']
-                    },
-                    "calculable": true,
-                    "inverse": false,
-                    "splitNumber": 5,
-                    "orient": "vertical",
-                    "showLabel": true,
-                    "itemWidth": 20,
-                    "itemHeight": 140,
-                    "borderWidth": 0
-                },
-                series: [{
-                    type: 'heatmap',
-                    coordinateSystem: 'bmap',
-                    data: points,
-                    pointSize: 5,
-                    blurSize: 6,
-                    "label": {
-                        "show": false,
-                        "position": "top",
-                        "margin": 8
-                    },
-                    "rippleEffect": {
-                        "show": true,
-                        "brushType": "stroke",
-                        "scale": 2.5,
-                        "period": 4
-                    }
-                }],
-                "legend": [{
-                    "data": [
-                        "traffic violations"
-                    ],
-                    "selected": {
-                        "traffic violations": true
-                    },
-                    "show": false,
-                    "padding": 5,
-                    "itemGap": 10,
-                    "itemWidth": 25,
-                    "itemHeight": 14
-                }],
-                "tooltip": {
-                    "show": true,
-                    "trigger": "item",
-                    "triggerOn": "mousemove|click",
-                    "axisPointer": {
-                        "type": "line"
-                    },
-                    "formatter": function (params) {        return params.name + ' : ' + params.value[2];    },
-                    "textStyle": {
-                        "fontSize": 14
-                    },
-                    "borderWidth": 0
-                },
-                "title": [{
-                        "text": "",
-                        "padding": 5,
-                        "itemGap": 10
-                    }],
-            });
-            // 添加百度地图插件
-            // chart_map.on('click',function(params){
-            //     console.log(params);
-            // });
-            // chart_map.setOption(option);
-            // var bmap = chart_map.getModel().getComponent('bmap').getBMap();
-            bmap = chart_map.getModel().getComponent('bmap').getBMap();
-        // });
-    }}
+    	console.log(request.status);
+	    if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
+
+	        data = JSON.parse(request.responseText);
+	        points = [].concat.apply([], data.map(function (track) {
+	            return track.map(function (seg) {
+	                // console.log(seg.coord.concat([1]));
+	                return seg.coord.concat([seg.elevation]);
+	            });
+	        }));
+	        if(city=='xm')
+	            max_n = mean_xm[h][1];
+	        else
+	            max_n = mean_cd[h][1];
+	        // console.log(h);
+	        // console.log(thre_xm);
+	        // console.log(max_n);
+	        
+	        // fs.readFile('../custom_map_config-3.json', 'utf-8', function(err, data) {
+	        //     mapstyle = JSON.parse(data);
+	            chart_map.setOption(option = {
+	                "animation": true,
+	                "animationThreshold": 2000,
+	                "animationDuration": 1000,
+	                "animationEasing": "cubicOut",
+	                "animationDelay": 0,
+	                "animationDurationUpdate": 300,
+	                "animationEasingUpdate": "cubicOut",
+	                "animationDelayUpdate": 0,
+	                bmap: {
+	                    center: center,
+	                    zoom: zoom,
+	                    roam: true,
+	                    "mapStyle": {
+	                    "styleJson":mapstyle
+	                    }
+	                },
+	                visualMap: {
+	                    "show": true,
+	                    "type": "continuous",
+	                    "min": min_n,
+	                    "max": max_n,
+	                    inRange: {
+	                        color: ['blue', 'blue', 'green', 'yellow', 'red']
+	                    },
+	                    "calculable": true,
+	                    "inverse": false,
+	                    "splitNumber": 5,
+	                    "orient": "vertical",
+	                    "showLabel": true,
+	                    "itemWidth": 20,
+	                    "itemHeight": 140,
+	                    "borderWidth": 0
+	                },
+	                series: [{
+	                    type: 'heatmap',
+	                    coordinateSystem: 'bmap',
+	                    data: points,
+	                    pointSize: 5,
+	                    blurSize: 6,
+	                    "label": {
+	                        "show": false,
+	                        "position": "top",
+	                        "margin": 8
+	                    },
+	                    "rippleEffect": {
+	                        "show": true,
+	                        "brushType": "stroke",
+	                        "scale": 2.5,
+	                        "period": 4
+	                    }
+	                }],
+	                "legend": [{
+	                    "data": [
+	                        "traffic violations"
+	                    ],
+	                    "selected": {
+	                        "traffic violations": true
+	                    },
+	                    "show": false,
+	                    "padding": 5,
+	                    "itemGap": 10,
+	                    "itemWidth": 25,
+	                    "itemHeight": 14
+	                }],
+	                "tooltip": {
+	                    "show": true,
+	                    "trigger": "item",
+	                    "triggerOn": "mousemove|click",
+	                    "axisPointer": {
+	                        "type": "line"
+	                    },
+	                    "formatter": function (params) {        return params.name + ' : ' + params.value[2];    },
+	                    "textStyle": {
+	                        "fontSize": 14
+	                    },
+	                    "borderWidth": 0
+	                },
+	                "title": [{
+	                        "text": "",
+	                        "padding": 5,
+	                        "itemGap": 10
+	                    }],
+	            });
+	            // 添加百度地图插件
+	            // chart_map.on('click',function(params){
+	            //     console.log(params);
+	            // });
+	            // chart_map.setOption(option);
+	            // var bmap = chart_map.getModel().getComponent('bmap').getBMap();
+	            bmap = chart_map.getModel().getComponent('bmap').getBMap();
+	        // });
+	    }
+	}
 }
 
 
