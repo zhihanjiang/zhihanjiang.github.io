@@ -10309,7 +10309,7 @@ update_center = function (){
         zoom=13;
     }
     else{
-        center=[104.08,30.7];
+        center=[104.1,30.7];
         zoom=14;
     }
     update_map(h);
@@ -10335,7 +10335,7 @@ bar.onmousedown = function(event){
         mask.style.width = that.style.left;
         // 显示百分比
         h = parseInt(parseInt(that.style.left) / 570 * 24)
-        update_map(h);
+        
         // console.log("移动了:"+ parseInt(parseInt(that.style.left) / 390 * 100) + "%")
         text.innerHTML = "Scroll the bar to get traffic violation heatmap at different time: "+ h + ":00";
         // 清除拖动 --- 防止鼠标已经弹起时还在拖动
@@ -10344,6 +10344,7 @@ bar.onmousedown = function(event){
     // 鼠标抬起停止拖动
     document.onmouseup = function(){
         document.onmousemove = null;
+        update_map(h);
     }
 }
 
