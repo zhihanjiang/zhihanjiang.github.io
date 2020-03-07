@@ -10264,6 +10264,7 @@ var h=0;
 var zoom=13;
 var mapstyle;
 var chart_map;
+var bmap;
 var max_n;
 var min_n=0;
 var city='xm';
@@ -10452,11 +10453,12 @@ function update_map(h){
             // chart_map.on('click',function(params){
             //     console.log(params);
             // });
-            chart_map.setOption(option);
-            var bmap = chart_map.getModel().getComponent('bmap').getBMap();
+            // chart_map.setOption(option);
+            // var bmap = chart_map.getModel().getComponent('bmap').getBMap();
         // });
     }}
 }
+bmap = chart_map.getModel().getComponent('bmap').getBMap();
 
 var mean_xm=new Array()
 var mean_cd=new Array()
