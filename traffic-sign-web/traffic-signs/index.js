@@ -134,7 +134,7 @@ $(function() {
           //      imgContainer2.removeChild(img2)
           map_layer.show_pic_flag = false
         }
-        img1.src = '../../data/to1/' + id + '.jpg';
+        img1.src = '../data/to1/' + id + '.jpg';
         //  img2.src = '../../data/signs/' + id + '_' + type + '.jpg';
         imgContainer1.appendChild(img1);
         //  imgContainer2.appendChild(img2);
