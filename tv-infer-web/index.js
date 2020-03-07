@@ -10455,10 +10455,11 @@ function update_map(h){
             // });
             // chart_map.setOption(option);
             // var bmap = chart_map.getModel().getComponent('bmap').getBMap();
+            bmap = chart_map.getModel().getComponent('bmap').getBMap();
         // });
     }}
 }
-bmap = chart_map.getModel().getComponent('bmap').getBMap();
+
 
 var mean_xm=new Array()
 var mean_cd=new Array()
