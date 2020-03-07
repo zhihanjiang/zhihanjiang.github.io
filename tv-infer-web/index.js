@@ -10355,9 +10355,10 @@ function update_map(h){
             });
         }));
         if(city=='xm')
-            max_n = thre_xm[h,1];
+            max_n = thre_xm[h][1];
         else
-            max_n = thre_cd[h,1];
+            max_n = thre_cd[h][1];
+        console.log(h);
         console.log(thre_xm);
         console.log(max_n);
         
