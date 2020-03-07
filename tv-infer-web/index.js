@@ -10355,12 +10355,12 @@ function update_map(h){
             });
         }));
         if(city=='xm')
-            max_n = thre_xm[h][1];
+            max_n = mean_xm[h][1];
         else
-            max_n = thre_cd[h][1];
-        console.log(h);
-        console.log(thre_xm);
-        console.log(max_n);
+            max_n = mean_cd[h][1];
+        // console.log(h);
+        // console.log(thre_xm);
+        // console.log(max_n);
         
         // fs.readFile('../custom_map_config-3.json', 'utf-8', function(err, data) {
         //     mapstyle = JSON.parse(data);
