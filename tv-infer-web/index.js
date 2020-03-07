@@ -10340,8 +10340,9 @@ bar.onmousedown = function(event){
         document.onmousemove = null;
     }
 }
-var request = new XMLHttpRequest();
+
 function update_map(h){
+	var request = new XMLHttpRequest();
     var url = 'data/location/bd_'+h.toString()+'.json'
     request.open("get", url);/*设置请求方法与路径*/
     request.send(null);/*不发送数据到服务器*/
