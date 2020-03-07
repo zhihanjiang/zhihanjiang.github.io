@@ -69,7 +69,7 @@ $(function() {
     request.send(null);/*不发送数据到服务器*/
     request.onload = function () {/*XHR对象获取到返回信息后执行*/
       if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
-        var temp = JSON.parse(request.responseText)
+        var temp = JSON.parse(request.responseText);
         data_layer.signs[i] = temp[0];
         // console.log(i);
         // console.log(data_layer.signs[i]);
