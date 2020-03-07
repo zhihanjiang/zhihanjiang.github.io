@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="jquery/dist/jquery.js"></script>
+		<script src="jquery/dist/jquery.min.js"></script>
+		<title>Mobile Network</title>
+		<link href="index.css" rel="stylesheet">
+		<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+		<link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+		<script src="plotly.js/dist/plotly.js"></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default" id="header">
+			<div class="container">
+				<h2>Fog-RAN Optimization Demo System</h2>
+				<h4 id="time"></h4>
+			</div>
+		</nav>
+		<div class="container" id="content">
+			<div id="map_view">
+				<!-- <button class="map_overlay btn-success" id="center">Center</button> -->
+			</div>
+			<div id="action_view">
+				<!-- buttons -->
+				<div class="container">
+					<div class="info">
+						<form>
+						  <label >Handover : %</label>
+						  <br />
+						  <label >Utilization : %</label>
+							<br />
+							<label >Utilization before: %</label>
+							<br/>
+							<br/>
+							<form>
+									<div id="BBU_Pool_ID"></div>
+									<div id="BBU_Number"></div>
+									<div id="RRH_Number"></div>
+							</form>
+						</form>
+					</div>
+				</div>
+				<br>
+				<div class="container">
+					<div id="BBUs"></div>
+				</div>
+				<br>
+			</div>
+			<br><br>
+			<div id="chart_view"></div>
+			<script src="index_new.js"></script>
+		</body>
+	</html>

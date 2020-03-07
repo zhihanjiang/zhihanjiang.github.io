@@ -1,0 +1,62 @@
+@import "../_res/css/bootstrap.css";
+@import "../_res/css/mapbox-gl.css";
+@import "../_res/css/smalltalk.css";
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    position: relative;
+    margin: 30px;
+}
+
+#footer {
+		display: none;
+    position: relative;
+    top: 630px;
+    text-align: center;
+}
+
+#map_view {
+    position: absolute;
+    top: 0;
+    left: 0;
+		/* width: 750px; */
+		width: 600px;
+		height: 550px;
+		border: 1px solid #ccc;
+}
+
+#action_view {
+    position: absolute;
+    top: 0;
+		/* left: 750px; */
+		left: 600px;
+    border-radius: 5px;
+    padding: 0 20px;
+    height:auto;
+}
+
+#chart_view {
+    position: absolute;
+    top: 200px;
+    left: 600px;
+    width: 650px;
+    height: 400px;
+		display: none;
+}
+
+#util_row{
+	padding: 10px 0;
+}
+
+.map_overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px;
+	z-index: 999;
+}
