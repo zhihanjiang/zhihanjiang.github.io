@@ -18925,18 +18925,16 @@ $(function() {
           // request.responseType = 'text';
           request.onload = function () {/*XHR对象获取到返回信息后执行*/
             if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
-              var arr = new Float64Array(bin);
-                data_layer.traffic.ndarray = ndarray(arr, [data_layer.base_station.number, null], [1, data_layer.base_station.number]);
-                util.log("update_traffic: id %d", data_layer.frame_id);
-                data_layer.traffic.frame = data_layer.traffic.ndarray.pick(null, data_layer.frame_id);
-                util.log('overall traffic: %d', ops.sum(data_layer.traffic.frame));
-                for (var i in data_layer.base_station.geojson.features) {
-                  data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
-                }
-
-                // data_layer.base_station.geojson=JSON.parse(request.responseText);
-
-
+              bin = request.response;
+              arr = new Float64Array(bin);
+              data_layer.traffic.ndarray = ndarray(arr, [data_layer.base_station.number, null], [1, data_layer.base_station.number]);
+              util.log("update_traffic: id %d", data_layer.frame_id);
+              data_layer.traffic.frame = data_layer.traffic.ndarray.pick(null, data_layer.frame_id);
+              util.log('overall traffic: %d', ops.sum(data_layer.traffic.frame));
+              for (var i in data_layer.base_station.geojson.features) {
+                data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
+              }
+              // data_layer.base_station.geojson=JSON.parse(request.responseText);
               util.log("load_handover");
               data_layer.handover = {};
               url = path+city+'/handover_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
@@ -19069,7 +19067,7 @@ $(function() {
 
   function init(){
     util.log("show_city_border");
-    // map_layer.map.on("load", function() {
+    map_layer.map.on("load", function() {
       map_layer.map.addLayer({
         id: "city_border_layer",
         type: "line",
@@ -19112,14 +19110,6 @@ $(function() {
           "circle-stroke-opacity": .5
         }
       });
-      map_layer.map.on("click", "base_station_layer", function(e) {
-        var p = e.features[0].properties;
-        data_layer.traffic.series_id = p.bid;
-        chart_layer.base_station_id = p.bid;
-        util.log(util.format("\nbase_station: %d\nname: %d\n",
-          p.bid, p.name));
-        chart_layer.plot_traffic();
-      });
       util.log("show_handover");
       map_layer.map.addLayer({
         id: "handover_layer",
@@ -19154,9 +19144,6 @@ $(function() {
           "line-color": "#337ab7"
         }
       }, "base_station_layer");
-      map_layer.map.on("click", function(e) {
-        cancelAnimationFrame(map_layer.animation_frame);
-      });
       util.log("show_cluster");
       map_layer.map.addLayer({
         id: "cluster_layer",
@@ -19172,6 +19159,17 @@ $(function() {
       });
       show_cluster_border();
 
+    });
+    map_layer.map.on("click", "base_station_layer", function(e) {
+      var p = e.features[0].properties;
+      data_layer.traffic.series_id = p.bid;
+      chart_layer.base_station_id = p.bid;
+      util.log(util.format("\nbase_station: %d\nname: %d\n",
+        p.bid, p.name));
+      chart_layer.plot_traffic();
+    });
+    // map_layer.map.on("click", function(e) {
+    //   cancelAnimationFrame(map_layer.animation_frame);
     // });
 
     
@@ -19447,46 +19445,6 @@ data_layer.load_grid = function() {
   ));
 };
 
-// data_layer.load_base_station = function() {
-//   util.log("load_base_station");
-//   // load binary data
-//   data_layer.base_station = {};
-//   var bin = fs.readFileSync(util.format(
-//     "%s/data/%s/base_station.bin",
-//     process.cwd(),
-//     map_layer.param.city
-//   ));
-//   var arr = new Float64Array(bin.buffer);
-//   data_layer.base_station.number = arr.length / 3;
-//   data_layer.base_station.ndarray = ndarray(arr, [data_layer.base_station.number, null], [1, data_layer.base_station.number]);
-//   // generate geojson
-//   var point_list = [];
-//   for (var i = 0; i < data_layer.base_station.number; i++) {
-//     var point = turf.point([
-//       data_layer.base_station.ndarray.get(i, 1), data_layer.base_station.ndarray.get(i, 2)
-//     ], {
-//       name: data_layer.base_station.ndarray.get(i, 0),
-//       bid: i
-//     });
-//     point_list.push(point);
-//   }
-//   data_layer.base_station.geojson = turf.featureCollection(point_list);
-// };
-
-// data_layer.load_traffic = function() {
-//   util.log("load_traffic");
-//   data_layer.traffic = {};
-//   var bin = fs.readFileSync(util.format(
-//     "%s/data/%s/traffic.bin",
-//     process.cwd(),
-//     map_layer.param.city
-//   ));
-//   var arr = new Float64Array(bin.buffer);
-//   data_layer.traffic.ndarray = ndarray(arr, [data_layer.base_station.number, null], [1, data_layer.base_station.number]);
-
-//   data_layer.update_traffic();
-// };
-
 data_layer.update_traffic = function() {
   util.log("update_traffic: id %d", data_layer.frame_id);
 
@@ -19497,20 +19455,6 @@ data_layer.update_traffic = function() {
   }
 }
 
-// data_layer.load_handover = function() {
-//   util.log("load_handover");
-//   data_layer.handover = {};
-//   var bin = fs.readFileSync(util.format(
-//     "%s/data/%s/handover.bin",
-//     process.cwd(),
-//     map_layer.param.city
-//   ));
-//   var arr = new Float64Array(bin.buffer);
-//   data_layer.handover.ndarray = ndarray(arr, [data_layer.base_station.number, data_layer.base_station.number, null], [1, data_layer.base_station.number,
-//     data_layer.base_station.number * data_layer.base_station.number
-//   ]);
-//   data_layer.update_handover();
-// };
 
 data_layer.update_handover = function() {
   util.log("update_handover: id %d", data_layer.frame_id);
