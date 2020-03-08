@@ -19730,7 +19730,9 @@ time_layer.init = function() {
     time_layer.end_time = new Date(time_layer.param.end_time);
     time_layer.current_time = new Date(time_layer.param.current_time);
     time_layer.step = 6e4 * time_layer.param.step; // 6e4 = 1 minute
-    time_layer.ticks = Array(Math.floor((time_layer.end_time - time_layer.start_time) / time_layer.step)).fill().map((_, idx) => (new Date(time_layer.start_time.getTime() + idx * time_layer.step)));
+    var temp = Math.floor((time_layer.end_time - time_layer.start_time) / time_layer.step);
+    console.log(temp);
+    time_layer.ticks = Array(temp).fill().map((_, idx) => (new Date(time_layer.start_time.getTime() + idx * time_layer.step)));
 }
 
 time_layer.update_time = function() {
