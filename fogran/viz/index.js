@@ -195,6 +195,7 @@ $(function() {
           for (var i in data_layer.base_station.geojson.features) {
             data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
           }
+          console.log('load_traffic_ndarray: OK');
         }
       }
   }
