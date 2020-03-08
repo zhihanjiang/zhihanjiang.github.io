@@ -90,17 +90,32 @@ $(function() {
           util.log("load_traffic");
           data_layer.traffic = {};
 
-          url = path+city+'/basestation_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
+          url = path+city+'/traffic.bin';
           request.open("get", url);/*设置请求方法与路径*/
           request.send(null);/*不发送数据到服务器*/
-          request.responseType = 'text';
+          request.responseType = 'arraybuffer';
+          // url = path+city+'/basestation_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
+          // request.open("get", url);/*设置请求方法与路径*/
+          // request.send(null);/*不发送数据到服务器*/
+          // request.responseType = 'text';
           request.onload = function () {/*XHR对象获取到返回信息后执行*/
             if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
-              data_layer.base_station.geojson = JSON.parse(request.responseText);
+              bin = request.response;
+              arr = new Float64Array(bin);
+              data_layer.traffic.ndarray = ndarray(arr, [data_layer.base_station.number, null], [1, data_layer.base_station.number]);
+              util.log("update_traffic: id %d", data_layer.frame_id);
+
+              data_layer.traffic.frame = data_layer.traffic.ndarray.pick(null, data_layer.frame_id);
+              util.log('overall traffic: %d', ops.sum(data_layer.traffic.frame));
+              for (var i in data_layer.base_station.geojson.features) {
+                data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
+              }
+              // data_layer.base_station.geojson = JSON.parse(request.responseText);
               util.log("load_handover");
               data_layer.handover = {};
               url = path+city+'/handover_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
               request.open("get", url);/*设置请求方法与路径*/
+              request.responseType = 'text';
               request.send(null);/*不发送数据到服务器*/
               request.onload = function () {/*XHR对象获取到返回信息后执行*/
               if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
@@ -243,11 +258,7 @@ $(function() {
           "line-width": 2
         }
       });
-    });
-
-
-    util.log("show_base_station");
-    map_layer.map.on("load", function() {
+      util.log("show_base_station");
       map_layer.map.addLayer({
         id: "base_station_layer",
         type: "circle",
@@ -283,12 +294,7 @@ $(function() {
           p.bid, p.name));
         chart_layer.plot_traffic();
       });
-    });
-
-
-
-    util.log("show_handover");
-    map_layer.map.on("load", function() {
+      util.log("show_handover");
       map_layer.map.addLayer({
         id: "handover_layer",
         type: "line",
@@ -322,13 +328,10 @@ $(function() {
           "line-color": "#337ab7"
         }
       }, "base_station_layer");
-    });
-    map_layer.map.on("click", function(e) {
-      cancelAnimationFrame(map_layer.animation_frame);
-    });
-    //
-    util.log("show_cluster");
-    map_layer.map.on("load", function() {
+      map_layer.map.on("click", function(e) {
+        cancelAnimationFrame(map_layer.animation_frame);
+      });
+      util.log("show_cluster");
       map_layer.map.addLayer({
         id: "cluster_layer",
         type: "fill",
@@ -341,8 +344,11 @@ $(function() {
           "fill-opacity": .2,
         }
       });
+      show_cluster_border();
+
     });
-    show_cluster_border();
+
+    
     data_layer.checkbox = new Array();
     map_layer.map.on("click", "cluster_layer", function(e) {
       var p = e.features[0].properties;
@@ -514,7 +520,7 @@ $(function() {
 
   function show_cluster_border() {
     util.log("show_cluster_border");
-    map_layer.map.on("load", function() {
+    // map_layer.map.on("load", function() {
       map_layer.map.addLayer({
         id: "cluster_layer_border",
         type: "line",
@@ -527,7 +533,7 @@ $(function() {
           "line-opacity": .3,
         }
       });
-    });
+    // });
   }
   time_layer.update_time();
 });
@@ -564,8 +570,8 @@ chart_layer.plot_traffic = function() {
             zeroline: true
         }
     };
-    // plotly.purge('chart_view');
-    plotly.plot('chart_view', data, layout);
+    // Plotly.purge('chart_view');
+    Plotly.plot('chart_view', data, layout);
 }
 
 chart_layer.plot_prediction = function() {
@@ -586,7 +592,7 @@ chart_layer.plot_prediction = function() {
             title: 'Volume'
         }
     };
-    plotly.plot('chart_view', data, layout);
+    Plotly.plot('chart_view', data, layout);
 }
 
 chart_layer.hide = function() {
