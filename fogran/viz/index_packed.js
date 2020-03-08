@@ -19731,6 +19731,8 @@ time_layer.init = function() {
     time_layer.current_time = new Date(time_layer.param.current_time);
     time_layer.step = 6e4 * time_layer.param.step; // 6e4 = 1 minute
     var temp = Math.floor((time_layer.end_time - time_layer.start_time) / time_layer.step);
+    console.log(time_layer.end_time);
+    console.log(time_layer.start_time);
     console.log(temp);
     time_layer.ticks = Array(temp).fill().map((_, idx) => (new Date(time_layer.start_time.getTime() + idx * time_layer.step)));
 }
