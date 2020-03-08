@@ -18938,10 +18938,7 @@ $(function() {
               //   data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
               // }
               data_layer.base_station.geojson=JSON.parse(request.responseText);
-
               load_traffic_series_list();
-
-
               util.log("load_handover");
               data_layer.handover = {};
               url = path+city+'/handover_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
