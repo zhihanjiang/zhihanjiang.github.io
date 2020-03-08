@@ -18878,6 +18878,7 @@ $(function() {
   time_layer.init();
   data_layer.init();
   map_layer.init();
+  chart_layer.init();
 
   util.log("load_city_border");
 
@@ -18937,6 +18938,10 @@ $(function() {
               //   data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
               // }
               data_layer.base_station.geojson=JSON.parse(request.responseText);
+
+              load_traffic_series_list();
+
+
               util.log("load_handover");
               data_layer.handover = {};
               url = path+city+'/handover_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
@@ -19361,21 +19366,52 @@ $(function() {
   time_layer.update_time();
 });
 
-chart_layer.init = function() {}
+chart_layer.init = function(){}
+
+load_traffic_series_list = function() {
+    console.log("load_traffic_series_list");
+    data_layer.traffic.series_list=[];
+    var request = new XMLHttpRequest();
+    var url = path + city + '/traffic_series_list_'+city+'.txt';
+    request.open("get", url);/*设置请求方法与路径*/
+    request.send(null);/*不发送数据到服务器*/
+    request.onload = function () 
+    {/*XHR对象获取到返回信息后执行*/
+      if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
+        var level = request.responseText;
+    // fs.readFile(path + city + '/traffic.txt', 'utf-8', function(err, level) {
+    //   if (err) throw err;
+        level = level.toString();
+        level = level.split('\n');
+        for (var i = 0; i < level.length; ++i) {
+          line = level[i].split(',');
+          data_layer.traffic.series_list[i]=[];
+          for(var j=0;j<line.length;++j){
+            data_layer.traffic.series_list[i].push(parseInt(line[j]));
+          }
+        }
+      }
+    }
+}
+
+
+
 
 chart_layer.plot_traffic = function() {
-    util.log('plot_traffic');
+    util.log('plot basestation traffic');
     $('#chart_view').show();
 
-    data_layer.traffic.series = [];
-    var t = data_layer.traffic.ndarray.pick(data_layer.traffic.series_id, null);
-    console.log(t);
-    var i = 0;
-    while (t.get(i) != undefined) {
-        data_layer.traffic.series.push(t.get(i));
-        i++;
-    }
-
+    data_layer.traffic.series = data_layer.traffic.series_list[data_layer.traffic.series_id];
+    // data_layer.traffic.series = [];
+    // var t = data_layer.traffic.ndarray.pick(data_layer.traffic.series_id, null);
+    // // console.log(data_layer.traffic.series_id);
+    // // console.log(t);
+    // var i = 0;
+    // while (t.get(i) != undefined) {
+    //     data_layer.traffic.series.push(t.get(i));
+    //     i++;
+    // }
+    // console.log(data_layer.traffic.series);
     var data = [{
         x: time_layer.ticks,
         y: data_layer.traffic.series,
@@ -19479,58 +19515,6 @@ data_layer.update_handover = function() {
   }
   data_layer.handover.geojson = turf.featureCollection(handover_list);
 }
-
-// data_layer.load_cluster = function() {
-//   util.log("load_cluster");
-//   data_layer.cluster = {};
-//   var bin = fs.readFileSync(util.format(
-//     "%s/data/%s/cluster.bin",
-//     process.cwd(),
-//     map_layer.param.city
-//   ));
-
-//   // var bin = fs.readFileSync(util.format(
-//   //   "/Volumes/zhizhi/projects_new/network-optimization/data/%s/cluster" + tpday + ".bin",
-//   //   //  process.cwd(),
-//   //   city
-//   // ));
-
-//   var arr = new Float64Array(bin.buffer, bin.byteOffset, bin.byteLength / Float64Array.BYTES_PER_ELEMENT);
-//   //console.log(arr);
-//   data_layer.cluster.number = arr.length / 5;
-//   data_layer.cluster.ndarray = ndarray(arr, [data_layer.cluster.number, null], [1, data_layer.cluster.number]);
-//   var point_list = [];
-//   data_layer.cluster.handover_rate = 0;
-//   var cm = colormap({
-//     colormap: 'hsv',
-//     nshades: data_layer.cluster.number + 1,
-//     format: 'hex'
-//   });
-//   cm = _.shuffle(cm);
-//   for (var i = 0; i < data_layer.cluster.number; i++) {
-//     var point = turf.point([
-//       data_layer.cluster.ndarray.get(i, 0), data_layer.cluster.ndarray.get(i, 1)
-//     ], {
-//       util: data_layer.cluster.ndarray.get(i, 2),
-//       bbu: data_layer.cluster.ndarray.get(i, 3),
-//       hand: data_layer.cluster.ndarray.get(i, 4),
-//       cid: i,
-//       color: cm[i]
-//     });
-//     data_layer.cluster.handover_rate +=
-//       data_layer.cluster.ndarray.get(i, 4);
-//     point_list.push(point);
-//   }
-//   data_layer.cluster.geojson = turf.featureCollection(point_list);
-//   data_layer.cluster.voronoi = turf.voronoi(data_layer.cluster.geojson, {
-//     bbox: turf.bbox(data_layer.city_border)
-//   });
-//   // intersect with city border
-//   for (var i in data_layer.cluster.voronoi.features) {
-//     data_layer.cluster.voronoi.features[i] = turf.intersect(data_layer.cluster.voronoi.features[i], data_layer.city_border);
-//     data_layer.cluster.voronoi.features[i].properties = data_layer.cluster.geojson.features[i].properties;
-//   }
-// };
 
 map_layer.init = function() {
   map_layer.map = new mapboxgl.Map({
