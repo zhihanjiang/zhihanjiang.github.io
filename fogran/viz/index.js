@@ -172,10 +172,10 @@ $(function() {
                       data_layer.cluster2 = new Array();
                       data_layer.BBUpool = new Array();
                       load_cluster2();
-                      init();
-                      // map_layer.map.on("load", function() {
-                      //   init();
-                      // });
+                      //init();
+                      map_layer.map.on("load", function() {
+                        init();
+                      });
                     }
                   }
                 }
