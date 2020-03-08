@@ -18843,6 +18843,8 @@ mapboxgl.accessToken =
 var time_layer = {};
 time_layer.param = {};
 
+// Safari 不能接受"2013-04-01 00:00:00"这样的时间格式，得换成"2013/04/01 00:00:00";
+
 // settings: Abidjan
 city = "abidjan";
 map_layer.param.center = [-3.991019, 5.351848];
@@ -18851,7 +18853,6 @@ time_layer.param.start_time = "2011/12/19 00:00:00";
 time_layer.param.end_time = "2012/01/30 00:00:00";
 time_layer.param.current_time = "2012/01/09 09:00:00";
 time_layer.param.step = 60; // in minutes
-// time_layer.param.tick_num = 1008;
 chart_layer.param.start_time = "2012/01/02 00:00:00";
 chart_layer.param.end_time = "2012/01/17 00:00:00";
 data_layer.capacity = 200000;
@@ -18860,13 +18861,12 @@ data_layer.capacity = 200000;
 // city = "dakar";
 // map_layer.param.center = [-17.466667, 14.710778];
 // map_layer.param.zoom = 11.5;
-// time_layer.param.start_time = "2013-04-01 00:00:00";
-// time_layer.param.end_time = "2014-07-01 00:00:00";
-// time_layer.param.current_time = "2013-04-11 11:00:00";
-// time_layer.param.tick_num = 10944;
+// time_layer.param.start_time = "2013/04/01 00:00:00";
+// time_layer.param.end_time = "2014/07/01 00:00:00";
+// time_layer.param.current_time = "2013/04/11 11:00:00";
 // time_layer.param.step = 60; // in minutes
-// chart_layer.param.start_time = "2013-04-01 00:00:00";
-// chart_layer.param.end_time = "2013-04-15 00:00:00";
+// chart_layer.param.start_time = "2013/04/01 00:00:00";
+// chart_layer.param.end_time = "2013/04/15 00:00:00";
 // data_layer.capacity = 300000;
 
 // mode = 'day';
@@ -19069,7 +19069,7 @@ $(function() {
 
   function init(){
     util.log("show_city_border");
-    map_layer.map.on("load", function() {
+    // map_layer.map.on("load", function() {
       map_layer.map.addLayer({
         id: "city_border_layer",
         type: "line",
@@ -19161,7 +19161,7 @@ $(function() {
       });
       show_cluster_border();
 
-    });
+    // });
     map_layer.map.on("click", "base_station_layer", function(e) {
       var p = e.features[0].properties;
       data_layer.traffic.series_id = p.bid;
@@ -19170,9 +19170,9 @@ $(function() {
         p.bid, p.name));
       chart_layer.plot_traffic();
     });
-    // map_layer.map.on("click", function(e) {
-    //   cancelAnimationFrame(map_layer.animation_frame);
-    // });
+    map_layer.map.on("click", function(e) {
+      cancelAnimationFrame(map_layer.animation_frame);
+    });
 
     
     data_layer.checkbox = new Array();
@@ -19732,14 +19732,8 @@ time_layer.init = function() {
     time_layer.end_time = new Date(time_layer.param.end_time);
     time_layer.current_time = new Date(time_layer.param.current_time);
     time_layer.step = 6e4 * time_layer.param.step; // 6e4 = 1 minute
-
     var temp = Math.floor((time_layer.end_time - time_layer.start_time) / time_layer.step);
-    // console.log(time_layer.end_time);
-    // console.log(time_layer.start_time);
-    // console.log(temp);
     time_layer.ticks = Array(temp).fill().map((_, idx) => (new Date(time_layer.start_time.getTime() + idx * time_layer.step)));
-    // console.log(time_layer.ticks);
-
 }
 
 time_layer.update_time = function() {
