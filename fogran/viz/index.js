@@ -359,7 +359,7 @@ $(function() {
       var p = e.features[0].properties;
       util.log(util.format("\ncluster: %d\nhand: %f\n",
         p.cid, p.hand));
-      console.log(data_layer.BBUpool);
+      // console.log(data_layer.BBUpool);
       util.log("BBU_number: " + data_layer.BBUpool[p.cid].BBUnumber);
       util.log("BBU_id: " + data_layer.BBUpool[p.cid].BBUs);
       var rrh_number = 0;
