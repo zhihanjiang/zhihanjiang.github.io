@@ -18821,7 +18821,6 @@ function unique(list, compare, sorted) {
 module.exports = unique
 
 },{}],14:[function(require,module,exports){
-(function (process){
 // Initialization =========================================================
 // var $ = require("jquery");
 var util = require("util");
@@ -18939,6 +18938,7 @@ $(function() {
               // }
               data_layer.base_station.geojson=JSON.parse(request.responseText);
               load_traffic_series_list();
+              load_traffic2();
               util.log("load_handover");
               data_layer.handover = {};
               url = path+city+'/handover_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
@@ -19161,7 +19161,19 @@ $(function() {
           "fill-opacity": .2,
         }
       });
-      show_cluster_border();
+      util.log("show_cluster_border");
+      map_layer.map.addLayer({
+        id: "cluster_layer_border",
+        type: "line",
+        source: {
+          type: "geojson",
+          data: data_layer.cluster.voronoi
+        },
+        paint: {
+          "line-color": "#282c34",
+          "line-opacity": .3,
+        }
+      });
 
     });
 
@@ -19183,7 +19195,6 @@ $(function() {
       var p = e.features[0].properties;
       util.log(util.format("\ncluster: %d\nhand: %f\n",
         p.cid, p.hand));
-      // console.log(data_layer.BBUpool);
       util.log("BBU_number: " + data_layer.BBUpool[p.cid].BBUnumber);
       util.log("BBU_id: " + data_layer.BBUpool[p.cid].BBUs);
       var rrh_number = 0;
@@ -19239,13 +19250,11 @@ $(function() {
       'width': data_layer.cluster.handover_rate / 784.7 * 100 + '%'
     });
     chart_layer.data = [];
-    data_layer.traffic.series2 = [];
-
-    util.log('load_traffic2');
-    load_traffic2();
   }
 
   function load_traffic2() {
+    util.log('load_traffic2');
+    data_layer.traffic.series2 = [];
     var request = new XMLHttpRequest();
     var url = path + city + '/traffic.txt';
     request.open("get", url);/*设置请求方法与路径*/
@@ -19343,24 +19352,6 @@ $(function() {
     // Plotly.purge('chart_view');
     Plotly.newPlot('chart_view', chart_layer.data, layout);
   }
-
-  function show_cluster_border() {
-    util.log("show_cluster_border");
-    // map_layer.map.on("load", function() {
-      map_layer.map.addLayer({
-        id: "cluster_layer_border",
-        type: "line",
-        source: {
-          type: "geojson",
-          data: data_layer.cluster.voronoi
-        },
-        paint: {
-          "line-color": "#282c34",
-          "line-opacity": .3,
-        }
-      });
-    // });
-  }
   time_layer.update_time();
 });
 
@@ -19391,9 +19382,6 @@ load_traffic_series_list = function() {
       }
     }
 }
-
-
-
 
 chart_layer.plot_traffic = function() {
     util.log('plot basestation traffic');
@@ -19461,59 +19449,6 @@ data_layer.init = function() {
   data_layer.frame_id = (time_layer.current_time.getTime() - time_layer.start_time.getTime()) / time_layer.step;
 };
 
-// data_layer.load_city_border = function() {
-//   util.log("load_city_border");
-//   data_layer.city_border = require(util.format(
-//     "%s/data/%s/city_border",
-//     process.cwd(),
-//     map_layer.param.city
-//   ));
-// };
-
-data_layer.load_grid = function() {
-  util.log("load_grid");
-  data_layer.grid = require(util.format(
-    "%s/data/%s/grid_color",
-    process.cwd(),
-    map_layer.param.city
-  ));
-};
-
-// data_layer.update_traffic = function() {
-//   util.log("update_traffic: id %d", data_layer.frame_id);
-
-//   data_layer.traffic.frame = data_layer.traffic.ndarray.pick(null, data_layer.frame_id);
-//   util.log('overall traffic: %d', ops.sum(data_layer.traffic.frame));
-//   for (var i in data_layer.base_station.geojson.features) {
-//     data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
-//   }
-// }
-
-
-// data_layer.update_handover = function() {
-//   util.log("update_handover: id %d", data_layer.frame_id);
-
-//   data_layer.handover.frame = data_layer.handover.ndarray.pick(null, null, data_layer.frame_id);
-//   // data_layer.handover.frame.set(113, 33, 10); // TODO: temp inject
-//   // generate geojson
-//   var handover_list = [];
-//   for (var j = 0; j < data_layer.base_station.number; j++) {
-//     for (var i = j; i < data_layer.base_station.number; i++) {
-//       if (data_layer.handover.frame.get(i, j) > 0) {
-//         var line = turf.lineString(
-//           [
-//             [data_layer.base_station.ndarray.get(i, 1), data_layer.base_station.ndarray.get(i, 2)],
-//             [data_layer.base_station.ndarray.get(j, 1), data_layer.base_station.ndarray.get(j, 2)]
-//           ], {
-//             weight: data_layer.handover.frame.get(i, j)
-//           });
-//         handover_list.push(line);
-//       }
-//     }
-//   }
-//   data_layer.handover.geojson = turf.featureCollection(handover_list);
-// }
-
 map_layer.init = function() {
   map_layer.map = new mapboxgl.Map({
     container: "map_view",
@@ -19528,186 +19463,6 @@ map_layer.init = function() {
   });
 };
 
-map_layer.show_city_border = function() {
-  util.log("show_city_border");
-  map_layer.map.on("load", function() {
-    map_layer.map.addLayer({
-      id: "city_border_layer",
-      type: "line",
-      source: {
-        type: "geojson",
-        data: data_layer.city_border
-      },
-      paint: {
-        "line-dasharray": [3, 3],
-        // "line-color": "#db4437",
-        "line-color": "#333",
-        "line-width": 2
-      }
-    });
-  });
-};
-
-map_layer.show_grid = function() {
-  util.log("show_grid");
-  map_layer.map.on("load", function() {
-    map_layer.map.addLayer({
-      id: "grid_layer",
-      type: "fill",
-      source: {
-        type: "geojson",
-        data: data_layer.grid
-      },
-      paint: {
-        "fill-color": "#099",
-        "fill-color": ["get", "color"],
-        "fill-opacity": 0.5,
-        "fill-outline-color": "#000"
-      }
-    });
-    map_layer.map.on("click", "grid_layer", function(e) {
-      var gid = e.features[0].properties.cellId;
-      console.log(gid);
-    });
-  });
-};
-
-map_layer.show_base_station = function() {
-  util.log("show_base_station");
-  map_layer.map.on("load", function() {
-    map_layer.map.addLayer({
-      id: "base_station_layer",
-      type: "circle",
-      source: {
-        type: "geojson",
-        data: data_layer.base_station.geojson
-      },
-      // filter: ["==", "cluster", 4],
-      paint: {
-        //"circle-radius": 5,
-        "circle-radius": {
-          property: "color",
-          type: "exponential",
-          stops: [
-            [0, 1],
-            [1, 6]
-          ]
-        },
-        "circle-color": "#f00",
-        "circle-color": "#ec423c",
-        "circle-opacity": ["get", "color"],
-        "circle-stroke-width": .5,
-        "circle-stroke-color": "#ccc",
-        "circle-stroke-opacity": .5
-      }
-    });
-    map_layer.map.on("click", "base_station_layer", function(e) {
-      var p = e.features[0].properties;
-      data_layer.traffic.series_id = p.bid;
-      chart_layer.base_station_id = p.bid;
-      util.log(util.format("\nbase_station: %d\nname: %d\n",
-        p.bid, p.name));
-      chart_layer.plot_traffic();
-    });
-  });
-};
-
-map_layer.show_handover = function() {
-  util.log("show_handover");
-  map_layer.map.addLayer({
-    id: "handover_layer",
-    type: "line",
-    source: {
-      type: "geojson",
-      data: data_layer.handover.geojson
-    },
-    // filter: ["==", "bid", "177"],
-    "paint": {
-      "line-opacity": {
-        property: "weight",
-        type: "exponential",
-        stops: [
-          [0, 0],
-          [50, 1]
-        ]
-      },
-      "line-width": {
-        property: "weight",
-        type: "exponential",
-        stops: [
-          [1, 1],
-          [50, 5]
-        ]
-      },
-      // "line-color": "#00caff"
-      "line-color": "#337ab7"
-    }
-  }, "base_station_layer");
-  map_layer.map.on("click", function(e) {
-    cancelAnimationFrame(map_layer.animation_frame);
-  });
-}
-
-map_layer.show_cluster = function() {
-  util.log("show_cluster");
-  map_layer.map.addLayer({
-    id: "cluster_layer",
-    type: "fill",
-    source: {
-      type: "geojson",
-      data: data_layer.cluster.voronoi
-    },
-    paint: {
-      "fill-color": ["get", "color"],
-      "fill-opacity": .2,
-    }
-  }, "handover_layer");
-
-  map_layer.map.addLayer({
-    id: "cluster_layer_border",
-    type: "line",
-    source: {
-      type: "geojson",
-      data: data_layer.cluster.voronoi
-    },
-    paint: {
-      "line-color": "#282c34",
-      "line-opacity": .3,
-    }
-  }, "handover_layer");
-
-  map_layer.map.on("click", "cluster_layer", function(e) {
-    var p = e.features[0].properties;
-    util.log(util.format("\ncluster: %d\nutil: %f\nbbu: %d\nhand: %f\n",
-      p.cid, p.util, p.bbu, p.hand));
-    $('.progress-bar').css({
-      'width': 0
-    });
-    $('#bbu_' + p.bbu).css({
-      'width': p.util * 100 + '%'
-    });
-    $('#handover').css({
-      'width': data_layer.cluster.handover_rate * 100 + '%'
-    });
-  });
-  $('#handover').css({
-    'width': data_layer.cluster.handover_rate * 100 + '%'
-  });
-}
-
-// map_layer.update_map = function() {
-//   util.log("update_map");
-
-//   data_layer.update_traffic();
-//   data_layer.update_handover();
-//   map_layer.map.getSource("base_station_layer")
-//     .setData(data_layer.base_station.geojson);
-//   map_layer.map.getSource("handover_layer")
-//     .setData(data_layer.handover.geojson);
-
-//   // map_layer.animation_frame = requestAnimationFrame(map_layer.update_map);
-// }
-
 time_layer.init = function() {
     // Fiat Lux [Genesis 1:3]
     time_layer.start_time = new Date(time_layer.param.start_time);
@@ -19720,13 +19475,11 @@ time_layer.init = function() {
 
 time_layer.update_time = function() {
     util.log("update_time");
-
     time_layer.current_time = new Date(time_layer.start_time.getTime() + data_layer.frame_id * 60 * 60 * 1e3);
     $('#time').html(time_layer.current_time);
 }
 
-}).call(this,require('_process'))
-},{"@turf/turf":1,"_process":17,"colormap":3,"lodash":10,"ndarray":12,"ndarray-ops":11,"os":16,"util":19}],15:[function(require,module,exports){
+},{"@turf/turf":1,"colormap":3,"lodash":10,"ndarray":12,"ndarray-ops":11,"os":16,"util":19}],15:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
