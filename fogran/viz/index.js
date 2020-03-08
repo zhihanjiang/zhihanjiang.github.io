@@ -179,6 +179,7 @@ $(function() {
   }
 
   function load_traffic_ndarray(){
+    console.log('load_traffic_ndarray');
     var url = path+city+'/traffic.bin';
     request.open("get", url);/*设置请求方法与路径*/
     request.send(null);/*不发送数据到服务器*/
