@@ -19067,7 +19067,7 @@ $(function() {
 
   function init(){
     util.log("show_city_border");
-    map_layer.map.on("load", function() {
+    // map_layer.map.on("load", function() {
       map_layer.map.addLayer({
         id: "city_border_layer",
         type: "line",
@@ -19170,7 +19170,7 @@ $(function() {
       });
       show_cluster_border();
 
-    });
+    // });
 
     
     data_layer.checkbox = new Array();
