@@ -91,26 +91,26 @@ $(function() {
           util.log("load_traffic");
           data_layer.traffic = {};
 
-          url = path+city+'/traffic.bin';
-          request.open("get", url);/*设置请求方法与路径*/
-          request.send(null);/*不发送数据到服务器*/
-          request.responseType = 'arraybuffer';
-          // url = path+city+'/basestation_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
+          // url = path+city+'/traffic.bin';
           // request.open("get", url);/*设置请求方法与路径*/
           // request.send(null);/*不发送数据到服务器*/
-          // request.responseType = 'text';
+          // request.responseType = 'arraybuffer';
+          url = path+city+'/basestation_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
+          request.open("get", url);/*设置请求方法与路径*/
+          request.send(null);/*不发送数据到服务器*/
+          request.responseType = 'text';
           request.onload = function () {/*XHR对象获取到返回信息后执行*/
             if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
-              bin = request.response;
-              arr = new Float64Array(bin);
-              data_layer.traffic.ndarray = ndarray(arr, [data_layer.base_station.number, null], [1, data_layer.base_station.number]);
-              util.log("update_traffic: id %d", data_layer.frame_id);
-              data_layer.traffic.frame = data_layer.traffic.ndarray.pick(null, data_layer.frame_id);
-              util.log('overall traffic: %d', ops.sum(data_layer.traffic.frame));
-              for (var i in data_layer.base_station.geojson.features) {
-                data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
-              }
-              // data_layer.base_station.geojson=JSON.parse(request.responseText);
+              // bin = request.response;
+              // arr = new Float64Array(bin);
+              // data_layer.traffic.ndarray = ndarray(arr, [data_layer.base_station.number, null], [1, data_layer.base_station.number]);
+              // util.log("update_traffic: id %d", data_layer.frame_id);
+              // data_layer.traffic.frame = data_layer.traffic.ndarray.pick(null, data_layer.frame_id);
+              // util.log('overall traffic: %d', ops.sum(data_layer.traffic.frame));
+              // for (var i in data_layer.base_station.geojson.features) {
+              //   data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
+              // }
+              data_layer.base_station.geojson=JSON.parse(request.responseText);
               util.log("load_handover");
               data_layer.handover = {};
               url = path+city+'/handover_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
@@ -398,9 +398,6 @@ $(function() {
         data_layer.checkbox[i].id = bbu;
       }
 
-
-
-
       var label1 = document.getElementById("BBU_Pool_ID");
       label1.innerHTML = "BBU Pool ID : " + p.cid;
       var label2 = document.getElementById("BBU_Number");
@@ -546,6 +543,7 @@ chart_layer.plot_traffic = function() {
 
     data_layer.traffic.series = [];
     var t = data_layer.traffic.ndarray.pick(data_layer.traffic.series_id, null);
+    console.log(t);
     var i = 0;
     while (t.get(i) != undefined) {
         data_layer.traffic.series.push(t.get(i));
@@ -571,7 +569,7 @@ chart_layer.plot_traffic = function() {
         }
     };
     // Plotly.purge('chart_view');
-    Plotly.plot('chart_view', data, layout);
+    Plotly.newPlot('chart_view', data, layout);
 }
 
 chart_layer.plot_prediction = function() {
