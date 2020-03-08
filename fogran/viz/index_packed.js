@@ -18847,12 +18847,13 @@ time_layer.param = {};
 city = "abidjan";
 map_layer.param.center = [-3.991019, 5.351848];
 map_layer.param.zoom = 10.3;
-time_layer.param.start_time = "2011-12-19 00:00:00";
-time_layer.param.end_time = "2012-01-30 00:00:00";
-time_layer.param.current_time = "2012-01-09 09:00:00";
+time_layer.param.start_time = "2011/12/19 00:00:00";
+time_layer.param.end_time = "2012/01/30 00:00:00";
+time_layer.param.current_time = "2012/01/09 09:00:00";
 time_layer.param.step = 60; // in minutes
-chart_layer.param.start_time = "2012-01-02 00:00:00";
-chart_layer.param.end_time = "2012-01-17 00:00:00";
+// time_layer.param.tick_num = 1008;
+chart_layer.param.start_time = "2012/01/02 00:00:00";
+chart_layer.param.end_time = "2012/01/17 00:00:00";
 data_layer.capacity = 200000;
 
 //settings: Daker
@@ -18862,6 +18863,7 @@ data_layer.capacity = 200000;
 // time_layer.param.start_time = "2013-04-01 00:00:00";
 // time_layer.param.end_time = "2014-07-01 00:00:00";
 // time_layer.param.current_time = "2013-04-11 11:00:00";
+// time_layer.param.tick_num = 10944;
 // time_layer.param.step = 60; // in minutes
 // chart_layer.param.start_time = "2013-04-01 00:00:00";
 // chart_layer.param.end_time = "2013-04-15 00:00:00";
@@ -19730,11 +19732,14 @@ time_layer.init = function() {
     time_layer.end_time = new Date(time_layer.param.end_time);
     time_layer.current_time = new Date(time_layer.param.current_time);
     time_layer.step = 6e4 * time_layer.param.step; // 6e4 = 1 minute
+
     var temp = Math.floor((time_layer.end_time - time_layer.start_time) / time_layer.step);
-    console.log(time_layer.end_time);
-    console.log(time_layer.start_time);
-    console.log(temp);
+    // console.log(time_layer.end_time);
+    // console.log(time_layer.start_time);
+    // console.log(temp);
     time_layer.ticks = Array(temp).fill().map((_, idx) => (new Date(time_layer.start_time.getTime() + idx * time_layer.step)));
+    // console.log(time_layer.ticks);
+
 }
 
 time_layer.update_time = function() {
