@@ -89,22 +89,30 @@ $(function() {
           data_layer.base_station.geojson = turf.featureCollection(point_list);
           util.log("load_traffic");
           data_layer.traffic = {};
-          url = path+city+'/traffic.bin'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
+
+          url = path+city+'/basestation_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
           request.open("get", url);/*设置请求方法与路径*/
-          request.responseType = 'text';
           request.send(null);/*不发送数据到服务器*/
+          request.responseType = 'text';
           request.onload = function () {/*XHR对象获取到返回信息后执行*/
-            if (request.status == 200) {
-              var bin = request.response;
-              var arr = new Float64Array(bin);
-              // console.log(arr.length);
-              data_layer.traffic.ndarray = ndarray(arr, [data_layer.base_station.number, null], [1, data_layer.base_station.number]);
-              util.log("update_traffic: id %d", data_layer.frame_id);
-              data_layer.traffic.frame = data_layer.traffic.ndarray.pick(null, data_layer.frame_id);
-              util.log('overall traffic: %d', ops.sum(data_layer.traffic.frame));
-              for (var i in data_layer.base_station.geojson.features) {
-                data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
-              }
+            if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
+                data_layer.base_station.geojson = JSON.parse(request.responseText);
+          // url = path+city+'/traffic.bin'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
+          // request.open("get", url);/*设置请求方法与路径*/
+          // request.responseType = 'text';
+          // request.send(null);/*不发送数据到服务器*/
+          // request.onload = function () {/*XHR对象获取到返回信息后执行*/
+          //   if (request.status == 200) {
+          //     var bin = request.response;
+          //     var arr = new Float64Array(bin);
+          //     // console.log(arr.length);
+          //     data_layer.traffic.ndarray = ndarray(arr, [data_layer.base_station.number, null], [1, data_layer.base_station.number]);
+          //     util.log("update_traffic: id %d", data_layer.frame_id);
+          //     data_layer.traffic.frame = data_layer.traffic.ndarray.pick(null, data_layer.frame_id);
+          //     util.log('overall traffic: %d', ops.sum(data_layer.traffic.frame));
+          //     for (var i in data_layer.base_station.geojson.features) {
+          //       data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
+          //     }
               util.log("load_handover");
               data_layer.handover = {};
               url = path+city+'/handover_geojson_'+city+'.json'/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
