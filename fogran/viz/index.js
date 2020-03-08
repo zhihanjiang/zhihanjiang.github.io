@@ -340,7 +340,7 @@ $(function() {
       show_cluster_border();
 
     });
-    
+
     map_layer.map.on("click", "base_station_layer", function(e) {
       var p = e.features[0].properties;
       data_layer.traffic.series_id = p.bid;
@@ -359,7 +359,7 @@ $(function() {
       var p = e.features[0].properties;
       util.log(util.format("\ncluster: %d\nhand: %f\n",
         p.cid, p.hand));
-      //util.log(data_layer.cluster2[p.cid]);
+      console.log(data_layer.BBUpool);
       util.log("BBU_number: " + data_layer.BBUpool[p.cid].BBUnumber);
       util.log("BBU_id: " + data_layer.BBUpool[p.cid].BBUs);
       var rrh_number = 0;
