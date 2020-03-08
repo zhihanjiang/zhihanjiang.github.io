@@ -247,7 +247,7 @@ $(function() {
 
   function init(){
     util.log("show_city_border");
-    // map_layer.map.on("load", function() {
+    map_layer.map.on("load", function() {
       map_layer.map.addLayer({
         id: "city_border_layer",
         type: "line",
@@ -339,7 +339,8 @@ $(function() {
       });
       show_cluster_border();
 
-    // });
+    });
+    
     map_layer.map.on("click", "base_station_layer", function(e) {
       var p = e.features[0].properties;
       data_layer.traffic.series_id = p.bid;
@@ -654,40 +655,40 @@ data_layer.load_grid = function() {
   ));
 };
 
-data_layer.update_traffic = function() {
-  util.log("update_traffic: id %d", data_layer.frame_id);
+// data_layer.update_traffic = function() {
+//   util.log("update_traffic: id %d", data_layer.frame_id);
 
-  data_layer.traffic.frame = data_layer.traffic.ndarray.pick(null, data_layer.frame_id);
-  util.log('overall traffic: %d', ops.sum(data_layer.traffic.frame));
-  for (var i in data_layer.base_station.geojson.features) {
-    data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
-  }
-}
+//   data_layer.traffic.frame = data_layer.traffic.ndarray.pick(null, data_layer.frame_id);
+//   util.log('overall traffic: %d', ops.sum(data_layer.traffic.frame));
+//   for (var i in data_layer.base_station.geojson.features) {
+//     data_layer.base_station.geojson.features[i].properties.color = data_layer.traffic.frame.get(i) / 2e5;
+//   }
+// }
 
 
-data_layer.update_handover = function() {
-  util.log("update_handover: id %d", data_layer.frame_id);
+// data_layer.update_handover = function() {
+//   util.log("update_handover: id %d", data_layer.frame_id);
 
-  data_layer.handover.frame = data_layer.handover.ndarray.pick(null, null, data_layer.frame_id);
-  // data_layer.handover.frame.set(113, 33, 10); // TODO: temp inject
-  // generate geojson
-  var handover_list = [];
-  for (var j = 0; j < data_layer.base_station.number; j++) {
-    for (var i = j; i < data_layer.base_station.number; i++) {
-      if (data_layer.handover.frame.get(i, j) > 0) {
-        var line = turf.lineString(
-          [
-            [data_layer.base_station.ndarray.get(i, 1), data_layer.base_station.ndarray.get(i, 2)],
-            [data_layer.base_station.ndarray.get(j, 1), data_layer.base_station.ndarray.get(j, 2)]
-          ], {
-            weight: data_layer.handover.frame.get(i, j)
-          });
-        handover_list.push(line);
-      }
-    }
-  }
-  data_layer.handover.geojson = turf.featureCollection(handover_list);
-}
+//   data_layer.handover.frame = data_layer.handover.ndarray.pick(null, null, data_layer.frame_id);
+//   // data_layer.handover.frame.set(113, 33, 10); // TODO: temp inject
+//   // generate geojson
+//   var handover_list = [];
+//   for (var j = 0; j < data_layer.base_station.number; j++) {
+//     for (var i = j; i < data_layer.base_station.number; i++) {
+//       if (data_layer.handover.frame.get(i, j) > 0) {
+//         var line = turf.lineString(
+//           [
+//             [data_layer.base_station.ndarray.get(i, 1), data_layer.base_station.ndarray.get(i, 2)],
+//             [data_layer.base_station.ndarray.get(j, 1), data_layer.base_station.ndarray.get(j, 2)]
+//           ], {
+//             weight: data_layer.handover.frame.get(i, j)
+//           });
+//         handover_list.push(line);
+//       }
+//     }
+//   }
+//   data_layer.handover.geojson = turf.featureCollection(handover_list);
+// }
 
 map_layer.init = function() {
   map_layer.map = new mapboxgl.Map({
@@ -870,18 +871,18 @@ map_layer.show_cluster = function() {
   });
 }
 
-map_layer.update_map = function() {
-  util.log("update_map");
+// map_layer.update_map = function() {
+//   util.log("update_map");
 
-  data_layer.update_traffic();
-  data_layer.update_handover();
-  map_layer.map.getSource("base_station_layer")
-    .setData(data_layer.base_station.geojson);
-  map_layer.map.getSource("handover_layer")
-    .setData(data_layer.handover.geojson);
+//   data_layer.update_traffic();
+//   data_layer.update_handover();
+//   map_layer.map.getSource("base_station_layer")
+//     .setData(data_layer.base_station.geojson);
+//   map_layer.map.getSource("handover_layer")
+//     .setData(data_layer.handover.geojson);
 
-  // map_layer.animation_frame = requestAnimationFrame(map_layer.update_map);
-}
+//   // map_layer.animation_frame = requestAnimationFrame(map_layer.update_map);
+// }
 
 time_layer.init = function() {
     // Fiat Lux [Genesis 1:3]
