@@ -323,12 +323,12 @@ hr {
 }
 
 ul, ol {
-    margin: 0 0 22px 0;
+    margin: 0 0 22px 22px;
     padding: 0 0 0 1.6em;
 }
 
 ol ol, ol ul, ul ol, ul ul {
-    margin-bottom: 0;
+    margin-bottom: 15px;
 }
 
 ul {
@@ -535,9 +535,9 @@ dd {
 table {
     width: 100%;
     max-width: 100%;
-    border-spacing: 0;
+    border-spacing: 0px;
     border-collapse: collapse;
-    margin-bottom: 22px;
+    margin-bottom: 0px;
 }
 
 th, td, caption {
@@ -545,7 +545,7 @@ th, td, caption {
 }
 
 th, td {
-    padding: 20px 8px;
+    padding: 5px 8px;
     vertical-align: top;
     border-bottom: 0 #ddd;
 }
@@ -5556,7 +5556,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .award-img {
-    height: 95px;
+    height: auto;
+    width: auto;
     margin-bottom: 15px;
 }
 
@@ -5569,7 +5570,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .award-img img {
-    max-height: 95px;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
     vertical-align: middle;
 }
 
@@ -5577,6 +5580,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.125em;
     margin-top: 0;
     margin-bottom: 25px;
+    text-align:center;
 }
 
 .award-text {
