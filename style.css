@@ -5556,14 +5556,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .award-img {
-    height: auto;
     width: auto;
+    height: auto;
+    position: relative;
+/*    margin-left: 25%;*/
+/*    margin: 0 auto;*/
     margin-bottom: 15px;
 }
 
 .award-img:before {
     content: '';
     display: inline-block;
+/*    display: table-cell;
+    text-align: center;*/
     width: 1px;
     height: 100%;
     vertical-align: middle;
@@ -5573,6 +5578,9 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: auto;
     max-height: 100%;
+/*    display: table-cell;
+    text-align: center;*/
+/*    margin: 0 auto;*/
     vertical-align: middle;
 }
 
