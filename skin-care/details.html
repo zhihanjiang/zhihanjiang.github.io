@@ -9,6 +9,7 @@
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
    		<meta name="viewport" content="width=device-width, initial-scale=1">
+   		<script src="js/getparam.js"></script>
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
 	</head>
@@ -60,7 +61,25 @@
 						$("span.menu").click(function(){
 							$(".top-nav ul").slideToggle(300);
 						});
+						get_pic();
 					});
+					function get_pic(){
+						var pic=$.Request("pic");
+						window.pic_path="images/"+pic;
+						console.log(pic_path);
+						document.getElementById("pic11").src=pic_path;
+						document.getElementById("pic12").src=pic_path;
+						document.getElementById("pic21").src=pic_path;
+						document.getElementById("pic22").src=pic_path;
+						document.getElementById("pic31").src=pic_path;
+						document.getElementById("pic32").src=pic_path;
+						document.getElementById("pic41").src=pic_path;
+						document.getElementById("pic42").src=pic_path;
+						document.getElementById("pic51").src=pic_path;
+						document.getElementById("pic52").src=pic_path;
+						document.getElementById("pic61").src=pic_path;
+						document.getElementById("pic62").src=pic_path;
+					}
 				</script>
 				<!-- script-for-nav -->
 				<!-- search-form -->
@@ -116,44 +135,60 @@
 							$('.dropdownlist').change(function(){
 								etalage_show( $(this).find('option:selected').attr('class') );
 							});
-
 					});
+
 				</script>
-				<!----//details-product-slider--->
+				<!--//details-product-slider-->
 				<div class="details-left">
 					<div class="details-left-slider">
 						<ul id="etalage" class="etalage" style="display: block; width: 314px; height: 552px;">
 							<li class="etalage_thumb thumb_1" style="display: none; opacity: 0; background-image: none;">
 								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="images/product-slide/image1_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-									<img class="etalage_source_image" src="images/product-slide/image1_large.jpg">
+									<img id="pic11" class="etalage_thumb_image" src="" style="display: inline; width: 300px; height: 400px; opacity: 1;">
+									<img id="pic12" class="etalage_source_image" src="">
 								</a>
 							</li>
 							<li class="etalage_thumb thumb_2" style="display: none; opacity: 0; background-image: none;">
-								<img class="etalage_thumb_image" src="images/product-slide/image2_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="images/product-slide/image2_large.jpg">
+								<img id="pic21" class="etalage_thumb_image" src="" style="display: inline; width: 300px; height: 400px; opacity: 1;">
+								<img id="pic22" class="etalage_source_image" src="">
 							</li>
 							<li class="etalage_thumb thumb_3 etalage_thumb_active" style="display: list-item; opacity: 1; background-image: none;">
-								<img class="etalage_thumb_image" src="images/product-slide/image3_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="images/product-slide/image3_large.jpg">
+								<img id="pic31" class="etalage_thumb_image" src="" style="display: inline; width: 300px; height: 400px; opacity: 1;">
+								<img id="pic32" class="etalage_source_image" src="">
 							</li>
 							<li class="etalage_thumb thumb_4" style="display: none; opacity: 0; background-image: none;">
-								<img class="etalage_thumb_image" src="images/product-slide/image4_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="images/product-slide/image4_large.jpg">
+								<img id="pic41" class="etalage_thumb_image" src="" style="display: inline; width: 300px; height: 400px; opacity: 1;">
+								<img id="pic42" class="etalage_source_image" src="">
 							</li>
 							<li class="etalage_thumb thumb_5" style="display: none; opacity: 0; background-image: none;">
-								<img class="etalage_thumb_image" src="images/product-slide/image5_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="images/product-slide/image5_large.jpg">
+								<img id="pic51" class="etalage_thumb_image" src="" style="display: inline; width: 300px; height: 400px; opacity: 1;">
+								<img id="pic52" class="etalage_source_image" src="">
 							</li>
 							<li class="etalage_thumb thumb_6" style="display: none; opacity: 0; background-image: none;">
-								<img class="etalage_thumb_image" src="images/product-slide/image6_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="images/product-slide/image6_large.jpg">
+								<img id="pic61" class="etalage_thumb_image" src="" style="display: inline; width: 300px; height: 400px; opacity: 1;">
+								<img id="pic62" class="etalage_source_image" src="">
 							</li>
-							<li class="etalage_thumb thumb_7" style="display: none; opacity: 0; background-image: none;">
+<!-- 							<li class="etalage_thumb thumb_7" style="display: none; opacity: 0; background-image: none;">
 								<img class="etalage_thumb_image" src="images/product-slide/image1_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
 								<img class="etalage_source_image" src="images/product-slide/image1_large.jpg">
-							</li>
-						<li class="etalage_magnifier" style="margin: 0px; padding: 0px; left: 6px; top: 6px; display: none; opacity: 0.05449673905968666;"><div style="margin: 0px; padding: 0px; width: 195px; height: 215px;"><img src="http://192.168.2.7/chaitanya/spike_shoes/images/product-slide/image3_thumb.jpg" style="margin: 0px; padding: 0px; width: 300px; height: 400px; display: inline; left: 0px; top: 0px;"></div></li><li class="etalage_icon" style="display: list-item; top: 380px; left: 20px; opacity: 1;">　</li><li class="etalage_hint" style="display: none; margin: 0px; top: -15px; right: -15px;">　</li><li class="etalage_zoom_area" style="margin: 0px; opacity: 0; left: 324px; display: none; background-image: none;"><div class="etalage_description" style="width: 546px; bottom: 6px; left: 6px; opacity: 0.7; display: none;"></div><div style="width: 586px; height: 538px;"><img class="etalage_zoom_img" src="images/product-slide/image3_large.jpg" style="width: 900px; height: 1000px; left: -157.34166420232418px; top: 0px;"></div></li><li class="etalage_small_thumbs" style="width: 314px; top: 424px;"><ul style="width: 1072px;"><li class="etalage_smallthumb_navtoend" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/images/product-slide/image7_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/images/product-slide/image1_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="etalage_smallthumb_first" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/images/product-slide/image2_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="etalage_smallthumb_active" style="opacity: 1; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/images/product-slide/image3_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="etalage_smallthumb_last" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/images/product-slide/image4_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/images/product-slide/image5_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/images/product-slide/image6_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/images/product-slide/image7_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li><li class="etalage_smallthumb_navtostart" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="http://192.168.2.7/chaitanya/spike_shoes/images/product-slide/image1_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li></ul></li></ul>
+							</li> -->
+<!-- 						<li class="etalage_magnifier" style="margin: 0px; padding: 0px; left: 6px; top: 6px; display: none; opacity: 0.05449673905968666;"><div style="margin: 0px; padding: 0px; width: 195px; height: 215px;"><img src="images/product-slide/image3_thumb.jpg" style="margin: 0px; padding: 0px; width: 300px; height: 400px; display: inline; left: 0px; top: 0px;"></div></li>
+						<li class="etalage_icon" style="display: list-item; top: 380px; left: 20px; opacity: 1;">　</li>
+						<li class="etalage_hint" style="display: none; margin: 0px; top: -15px; right: -15px;">　</li>
+						<li class="etalage_zoom_area" style="margin: 0px; opacity: 0; left: 324px; display: none; background-image: none;"><div class="etalage_description" style="width: 546px; bottom: 6px; left: 6px; opacity: 0.7; display: none;"></div><div style="width: 586px; height: 538px;"><img class="etalage_zoom_img" src="images/product-slide/image3_large.jpg" style="width: 900px; height: 1000px; left: -157.34166420232418px; top: 0px;"></div></li> -->
+						<!-- <li class="etalage_small_thumbs" style="width: 314px; top: 424px;"> --><!-- <ul style="width: 1072px;">
+							<li class="etalage_smallthumb_navtoend" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image7_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
+							<li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image1_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
+							<li class="etalage_smallthumb_first" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image2_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
+							<li class="etalage_smallthumb_active" style="opacity: 1; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image3_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
+							<li class="etalage_smallthumb_last" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image4_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
+							<li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image5_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
+							<li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image6_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
+							<li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image7_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
+							<li class="etalage_smallthumb_navtostart" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image1_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
+						</ul> -->
+					<!-- </li> -->
+					</ul>
 					</div>
 					</div>
 				</div>

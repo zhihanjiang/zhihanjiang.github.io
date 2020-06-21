@@ -138,6 +138,56 @@
 			<div class="clearfix"> </div>
 		</div>
 		<!-- Welcome-note -->
+
+		<div align="center">
+			<input type="file" id="file" style="margin-top: 50px">
+    		<img src="" alt="" id="file_img" width="42" height="42">
+    		<script>
+        		var input  = document.getElementById("file");
+        		input.onchange = function(){
+            	// 这个方法是输入框进行改变时触发的方法
+	            	var file = this.files[0];
+	            	// 这里取的是传入文件的信息
+	            	if(!!file){
+	                	var reader = new FileReader();
+	                	reader.readAsDataURL(file);
+	                	// 将文件变为base64格式
+	                	reader.onload = function(){
+	                    	// 当文件操作完成就会返回一个result
+	                    	document.getElementById("file_img").src = this.result
+	                	}
+	            	}
+        		}
+    		</script>
+    		<input id="upload" type="button" value="upload file" onclick="JavaScript:upload_click();"/>
+    		<script>
+    			function upload_click(){
+    				alert("test");
+    	// 			$.ajax({
+					// 	url: '向后台发送请求地址',
+					// 	type: 'post',
+					// 	data: formData,
+					// 	dataType: 'json',
+					// 	async: false,
+					// 	cache: false,
+					// 	contentType: false,
+					// 	processData: false,
+					// 	success: function (res) {
+					// 		if (res.errorMessage) {
+					// 			alert(res.errorMessage);
+					// 		} else {
+					// 			$("#headvideo").attr("src", res.url);
+					// 			videoupload = res.url;
+					// 			layer.closeAll('loading');
+					// 	}
+					// 	}
+					// });
+    			}
+    		</script>
+
+
+		</div>
+
 		<!-- content -->
 		<div class="content">
 			<!-- top-grids -->
@@ -288,7 +338,7 @@
 						<ul>
 							<li><a href="#">About us</a></li>
 							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Terms & COndition</a></li>
+							<li><a href="#">Terms & Condition</a></li>
 							<li><a href="#">Secure payment</a></li>
 							<li><a href="#">Site map</a></li>
 						</ul>
