@@ -60,7 +60,19 @@
 						$("span.menu").click(function(){
 							$(".top-nav ul").slideToggle(300);
 						});
+						get_plan();
 					});
+					function get_plan(){
+						var plan=$.Request("plan");
+						window.plan=plan;
+						if(plan==1 || plan==2){
+							window.pic_path='essence/';
+						}
+						else{
+							window.pic_path='eye/';
+						}
+						
+					}
 				</script>
 				<!-- script-for-nav -->
 				<!-- search-form -->
@@ -77,7 +89,7 @@
 		<!-- /sub-header -->
 		<!-- content -->
 		<div class="collections">
-				<div class="collections-head">
+<!-- 				<div class="collections-head">
 					<div class="container">
 						<div class="collections-head-left">
 							<img src="images/iteam.png" title="name" />
@@ -87,7 +99,7 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-				</div>
+				</div> -->
 				<!-- categories -->
 				<div class="categories">
 					<div class="container">
