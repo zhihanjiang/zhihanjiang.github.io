@@ -22,20 +22,21 @@
 			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
 			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
 			}); 
+			localStorage.getItem('AV',AV);
 		</script>
 	</head>
 	<body>
 		<script type="text/javascript">
 			window.pageOpen=new Date();
 			window.count=0;
-			window.onunload = function(e){
+			window.onbeforeunload = function(e){
 				// e = e ||window.event;
 				// if(e){
 				// 	e.returnValue='leave or not ?';
 				// }
 				upload_data();
-				setTimeout(function(){},2000);
-				return null;
+				setTimeout(function(){},1000);
+				return 'test';
 			} 
 
 			function upload_data() {
@@ -44,6 +45,7 @@
  				var seconds = (pageClose.getSeconds() - pageOpen.getSeconds());
  				var time = (seconds + (minutes * 60)); 
  				console.log(time);
+ 				AV=localStorage.getItem('AV');
  				const Todo = AV.Object.extend('Todo');
 				const todo = new Todo();
 				todo.set('time',time);
