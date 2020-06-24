@@ -26,21 +26,24 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			var pageOpen=new Date();
+			window.pageOpen=new Date();
+			window.count=0;
 			window.onbeforeunload = function(e){
-				upload_data();
 				e = e ||window.event;
 				if(e){
-					e.returnValue='test';
+					e.returnValue='leave or not ?';
 				}
-				return 'test22';
+				upload_data();
+				setTimeout(function(){},1000);
+				return 'leave or not ?';
 			} 
 
-			function upload_data(pageOpen) {
+			function upload_data() {
 				var pageClose = new Date();
 				var minutes = (pageClose.getMinutes() - pageOpen.getMinutes());
  				var seconds = (pageClose.getSeconds() - pageOpen.getSeconds());
  				var time = (seconds + (minutes * 60)); 
+ 				console.log(time);
  				const Todo = AV.Object.extend('Todo');
 				const tode = new Todo();
 				todo.set('time',time);
