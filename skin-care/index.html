@@ -66,23 +66,18 @@
 				  }
 				});
 
-
-
-				var xmlHttp = createXMLHttpRequest();
-				xmlHttp.open("POST", "", false);
-				xmlHttp.send(null); 
- 				// AV=localStorage.getItem('AV');
- 				const Todo = AV.Object.extend('Todo');
-				const todo = new Todo();
-				todo.set('time',time);
-				// 将对象保存到云端
-				todo.save().then((todo) => {
-				  // 成功保存之后，执行其他逻辑
-				  console.log(`保存成功。objectId：${todo.id}`);
-				}, (error) => {
-					console.log(error);
-				  // 异常处理
-				});
+ 			// 	// AV=localStorage.getItem('AV');
+ 			// 	const Todo = AV.Object.extend('Todo');
+				// const todo = new Todo();
+				// todo.set('time',time);
+				// // 将对象保存到云端
+				// todo.save().then((todo) => {
+				//   // 成功保存之后，执行其他逻辑
+				//   console.log(`保存成功。objectId：${todo.id}`);
+				// }, (error) => {
+				// 	console.log(error);
+				//   // 异常处理
+				// });
 			}
 
 		</script>
