@@ -45,7 +45,7 @@
  				var time = (seconds + (minutes * 60)); 
  				console.log(time);
  				const Todo = AV.Object.extend('Todo');
-				const tode = new Todo();
+				const todo = new Todo();
 				todo.set('time',time);
 				// 将对象保存到云端
 				todo.save().then((todo) => {
