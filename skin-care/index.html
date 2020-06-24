@@ -50,33 +50,33 @@
  					'time':time,
  				}
 
- 				$.ajax({
-				  type: "POST",
-				  url: "https://lawk7pnd.lc-cn-n1-shared.com/1.1/classes/Post",
-				  data: {'time':10},
-				  dataType: "json",
-				  headers: {
-				    "x-lc-id": "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
-				    "x-lc-key": "bJSjx6pAu5cIrPvxknTKBD2O",
-				    "content-type": "application/json",
-				  },
-				  success: function (data) {
-				      console.log(data.header.status);
-				  }
-				});
-
- 			// 	// AV=localStorage.getItem('AV');
- 			// 	const Todo = AV.Object.extend('Todo');
-				// const todo = new Todo();
-				// todo.set('time',time);
-				// // 将对象保存到云端
-				// todo.save().then((todo) => {
-				//   // 成功保存之后，执行其他逻辑
-				//   console.log(`保存成功。objectId：${todo.id}`);
-				// }, (error) => {
-				// 	console.log(error);
-				//   // 异常处理
+ 			// 	$.ajax({
+				//   type: "POST",
+				//   url: "https://lawk7pnd.lc-cn-n1-shared.com/1.1/classes/Post",
+				//   data: {'time':10},
+				//   dataType: "json",
+				//   headers: {
+				//     "x-lc-id": "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
+				//     "x-lc-key": "bJSjx6pAu5cIrPvxknTKBD2O",
+				//     "content-type": "application/json",
+				//   },
+				//   success: function (data) {
+				//       console.log(data.header.status);
+				//   }
 				// });
+
+ 				// AV=localStorage.getItem('AV');
+ 				const Todo = AV.Object.extend('Todo');
+				const todo = new Todo();
+				todo.set('time',time);
+				// 将对象保存到云端
+				todo.save().then((todo) => {
+				  // 成功保存之后，执行其他逻辑
+				  console.log(`保存成功。objectId：${todo.id}`);
+				}, (error) => {
+					console.log(error);
+				  // 异常处理
+				});
 			}
 
 		</script>
