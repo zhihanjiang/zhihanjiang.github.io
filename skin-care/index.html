@@ -29,13 +29,13 @@
 			window.pageOpen=new Date();
 			window.count=0;
 			window.onbeforeunload = function(e){
-				e = e ||window.event;
-				if(e){
-					e.returnValue='leave or not ?';
-				}
+				// e = e ||window.event;
+				// if(e){
+				// 	e.returnValue='leave or not ?';
+				// }
 				upload_data();
 				setTimeout(function(){},1000);
-				return 'leave or not ?';
+				return 'test';
 			} 
 
 			function upload_data() {
