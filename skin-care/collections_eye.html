@@ -9,21 +9,22 @@
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
    		<meta name="viewport" content="width=device-width, initial-scale=1">
+   		<script src="js/getparam.js"></script>
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
 	</head>
 	<body>
 		<!-- container -->
 			<!-- header -->
-			<div class="header">
-				<div class="container">
+<!-- 			<div class="header">
+				<div class="container"> -->
 				<!-- logo -->
-				<div class="logo">
+<!-- 				<div class="logo">
 					<a href="index.html"><img src="images/logo.png" title="baku" /></a>
-				</div>
+				</div> -->
 				<!-- logo -->
 				<!-- cart-info -->
-				<div class="cart-info">
+<!-- 				<div class="cart-info">
 					<ul>
 						<li><a href="#">Login</a></li>
 						<li><a href="#">Help</a></li>
@@ -31,11 +32,11 @@
 						<li class="cartinfo"><a href="#"><span> </span>My bag (0) items</a></li>
 						<div class="clearfix"> </div>
 					</ul>
-				</div>
+				</div> -->
 				<!-- /cart-info -->
-			</div>
+<!-- 			</div> -->
 			<!-- header -->
-		</div>
+<!-- 		</div> -->
 		<!-- sub-header -->
 		<div class="sub-header">
 			<div class="container">
@@ -45,10 +46,12 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="404.html">About</a></li>
-						<li><a href="collections.html">What's new</a></li>
-						<li class="active"><a href="collections.html">Collections</a></li>
-						<li><a href="404.html">Baku Club</a></li>
-						<li><a href="404.html">Store Loation</a></li>
+						<li><a href="collections_ess.html">eye</a></li>
+						<li><a href="collections_eye.html">EYE CREAM</a></li>
+					<!-- 	<li><a href="collections.html">What's new</a></li> -->
+				<!-- 		<li class="active"><a href="collections_ess.html">Collections</a></li> -->
+						<!-- <li><a href="404.html">Baku Club</a></li> -->
+				<!-- 		<li><a href="404.html">Store Loation</a></li> -->
 						<li><a href="contact.html">Contact</a></li>
 						<div class="clearfix"> </div>
 					</ul>
@@ -60,19 +63,28 @@
 						$("span.menu").click(function(){
 							$(".top-nav ul").slideToggle(300);
 						});
-						get_plan();
+						// get_plan();
 					});
-					function get_plan(){
-						var plan=$.Request("plan");
-						window.plan=plan;
-						if(plan==1 || plan==2){
-							window.pic_path='essence/';
-						}
-						else{
-							window.pic_path='eye/';
-						}
+					// function get_plan(){
+					// 	var plan=$.Request("plan");
+					// 	window.plan=plan;
+					// 	if(plan==1 || plan==2){
+					// 		window.pic_path='images/eye/';
+					// 	}
+					// 	else{
+					// 		window.pic_path='images/eye/';
+					// 	}
+					// 	document.getElementById("11").src=pic_path+'iteam1.jpg';
+					// 	document.getElementById("12").src=pic_path+'iteam2.jpg';
+					// 	document.getElementById("13").src=pic_path+'iteam3.jpg';
+					// 	document.getElementById("14").src=pic_path+'iteam4.jpg';
+					// 	document.getElementById("21").src=pic_path+'iteam5.jpg';
+					// 	document.getElementById("22").src=pic_path+'iteam6.jpg';
+					// 	document.getElementById("23").src=pic_path+'iteam7.jpg';
+					// 	document.getElementById("24").src=pic_path+'iteam8.jpg';
+
 						
-					}
+					// }
 				</script>
 				<!-- script-for-nav -->
 				<!-- search-form -->
@@ -136,100 +148,100 @@
 				<div class="iteam-grids">
 					<div class="container">
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=iteam1.jpg';" class="iteam-grid text-center">
-								<img src="images/iteam1.jpg" title="name" />
-								<span>Wing Earrings</span>
-								<label>PRICE AU$ 180.00</label>
-								<ul>
+							<div onclick="location.href='details.html?pic=eye/iteam1.jpg';" class="iteam-grid text-center">
+								<img id='11' src="images/eye/iteam1.jpg" title="name" width="250" height="250" />
+								<span>SK-II GENOPTICS AURA eye</span>
+								<label>PRICE 1540 RMB</label>
+						<!-- 		<ul>
 									<li><a class="cart" href="#">Add to cart</a></li>
 									<li><a class="more" href="#">More</a></li>
 									<div class="clearfix"> </div>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=iteam2.jpg';" class="iteam-grid text-center">
-								<img src="images/iteam2.jpg" title="name" />
-								<span>Wing Earrings</span>
-								<label>PRICE AU$ 180.00</label>
-								<ul>
+							<div onclick="location.href='details.html?pic=eye/iteam2.jpg';" class="iteam-grid text-center">
+								<img id='12' src="images/eye/iteam2.jpg" title="name" width="250" height="250"/>
+								<span>ABEILLE ROYALE HUILE-EN-EAU JEUNESSE YOUTH WATERY OIL</span>
+								<label>PRICE 690 RMB</label>
+						<!-- 		<ul>
 									<li><a class="cart" href="#">Add to cart</a></li>
 									<li><a class="more" href="#">More</a></li>
 									<div class="clearfix"> </div>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=iteam3.jpg';" class="iteam-grid text-center">
-								<img src="images/iteam3.jpg" title="name" />
-								<span>Wing Earrings</span>
-								<label>PRICE AU$ 180.00</label>
-								<ul>
+							<div onclick="location.href='details.html?pic=eye/iteam3.jpg';" class="iteam-grid text-center">
+								<img id='13' src="images/eye/iteam3.jpg" title="name" width="250" height="250"/>
+								<span>ESTEE LAUDER ADVANCED NIGHT REPAIR</span>
+								<label>PRICE 590 RMB</label>
+					<!-- 			<ul>
 									<li><a class="cart" href="#">Add to cart</a></li>
 									<li><a class="more" href="#">More</a></li>
 									<div class="clearfix"> </div>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=iteam4.jpg';" class="iteam-grid text-center">
-								<img src="images/iteam4.jpg" title="name" />
-								<span>Wing Earrings</span>
-								<label>PRICE AU$ 180.00</label>
-								<ul>
+							<div onclick="location.href='details.html?pic=eye/iteam4.jpg';" class="iteam-grid text-center">
+								<img id='14' src="images/eye/iteam4.jpg" title="name" width="250" height="250"/>
+								<span>CLARINS BRIGHT PLUS</span>
+								<label>PRICE 720 RMB</label>
+						<!-- 		<ul>
 									<li><a class="cart" href="#">Add to cart</a></li>
 									<li><a class="more" href="#">More</a></li>
 									<div class="clearfix"> </div>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 						<div class="clearfix"> </div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=iteam5.jpg';" class="iteam-grid text-center">
-								<img src="images/iteam5.jpg" title="name" />
-								<span>Wing Earrings</span>
-								<label>PRICE AU$ 180.00</label>
-								<ul>
+							<div onclick="location.href='details.html?pic=eye/iteam5.jpg';" class="iteam-grid text-center">
+								<img id='21' src="images/eye/iteam5.jpg" title="name" width="250" height="250"/>
+								<span>CLINQUE EVEN BETTER CLINICAL</span>
+								<label>PRICE 495 RMB</label>
+							<!-- 	<ul>
 									<li><a class="cart" href="#">Add to cart</a></li>
 									<li><a class="more" href="#">More</a></li>
 									<div class="clearfix"> </div>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=iteam6.jpg';" class="iteam-grid text-center">
-								<img src="images/iteam6.jpg" title="name" />
-								<span>Wing Earrings</span>
-								<label>PRICE AU$ 180.00</label>
-								<ul>
+							<div onclick="location.href='details.html?pic=eye/iteam6.jpg';" class="iteam-grid text-center">
+								<img id='22' src="images/eye/iteam6.jpg" title="name" width="250" height="250"/>
+								<span>SULWHASOO FIRST CARE ACTIVATING SERUM</span>
+								<label>PRICE 610 RMB</label>
+						<!-- 		<ul>
 									<li><a class="cart" href="#">Add to cart</a></li>
 									<li><a class="more" href="#">More</a></li>
 									<div class="clearfix"> </div>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=iteam7.jpg';" class="iteam-grid text-center">
-								<img src="images/iteam7.jpg" title="name" />
-								<span>Wing Earrings</span>
-								<label>PRICE AU$ 180.00</label>
-								<ul>
+							<div onclick="location.href='details.html?pic=eye/iteam7.jpg';" class="iteam-grid text-center">
+								<img id='23' src="images/eye/iteam7.jpg" title="name" width="250" height="250"/>
+								<span>KIEHL'S CLEARLY CORRECTIVE DARK SPOT SOLUTION</span>
+								<label>PRICE 540 RMB</label>
+							<!-- 	<ul>
 									<li><a class="cart" href="#">Add to cart</a></li>
 									<li><a class="more" href="#">More</a></li>
 									<div class="clearfix"> </div>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=iteam8.jpg';" class="iteam-grid text-center">
-								<img src="images/iteam8.jpg" title="name" />
-								<span>Wing Earrings</span>
-								<label>PRICE AU$ 180.00</label>
-								<ul>
+							<div onclick="location.href='details.html?pic=eye/iteam8.jpg';" class="iteam-grid text-center">
+								<img id='24' src="images/eye/iteam8.jpg" title="name" width="250" height="250"/>
+								<span>SHISEIDO ULTIMATE POWER INFUSING CONCENTRATE</span>
+								<label>PRICE 1040 RMB</label>
+					<!-- 			<ul>
 									<li><a class="cart" href="#">Add to cart</a></li>
 									<li><a class="more" href="#">More</a></li>
 									<div class="clearfix"> </div>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 						<div class="clearfix"> </div>

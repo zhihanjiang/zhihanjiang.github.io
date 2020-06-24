@@ -48,8 +48,9 @@
 						<li><a href="404.html">About</a></li>
 						<li><a href="collections_ess.html">ESSENCE</a></li>
 						<li><a href="collections_eye.html">EYE CREAM</a></li>
-						<!-- <li class="active"><a href="collections.html">Collections</a></li> -->
-						<!-- <li><a href="404.html">Baku Club</a></li>
+<!-- 						<li><a href="collections.html">What's new</a></li>
+						<li class="active"><a href="collections.html">Collections</a></li>
+						<li><a href="404.html">Baku Club</a></li>
 						<li><a href="404.html">Store Loation</a></li> -->
 						<li><a href="contact.html">Contact</a></li>
 						<div class="clearfix"> </div>
@@ -58,17 +59,23 @@
 				<!-- top-nav -->
 				<!-- script-for-nav -->
 				<script>
-					window.product_info={"essence/iteam1.jpg":{"name":"SK-II GENOPTICS AURA ESSENCE","price":"1540 RMB","description":"Packed with radiance-enhancing ingredients, this lightweight serum absorbs quickly to improve dullness and help reduce appearance of dark spots caused by sun damage for even, glowing skin."},"essence/iteam2.jpg":{"name":"ABEILLE ROYALE HUILE-EN-EAU JEUNESSE YOUTH WATERY OIL","price":"690 RMB","description":"Abeille Royale Youth Watery Oil offers the skin all the power of Guerlain-exclusive ingredients: Ouessant Black Bee Honey and exclusive Royal Jelly. "},"essence/iteam3.jpg":{"name":"ESTEE LAUDER ADVANCED NIGHT REPAIR","price":"590 RMB","description":"Powerful nighttime renewal serum for radiant, youthful-looking skin. Instantly adds radiance. Intensely hydrates. Advanced Night Repair significantly reduces the look of key signs of aging."},"essence/iteam4.jpg":{"name":"CLARINS BRIGHT PLUS","price":"720 RMB","description":"Powerful illuminating serum that helps revive dull skin and targets all types of dark spots for a visibly brighter, more even complexion."},"essence/iteam5.jpg":{"name":"CLINQUE EVEN BETTER CLINICAL","price":"495 RMB","description":"A powerful brightening serum that helps visibly correct discoloration and acne scars, while interrupting future dark spots."},"essence/iteam6.jpg":{"name":"SULWHASOO FIRST CARE ACTIVATING SERUM","price":"610 RMB","description":"Formulated with JAUM Balancing Complex, a potent cocktail of five Korean herbs, this unique prepping serum designed to be the first step post-cleanse that hydrates, nourishes and visibly firms, while boosting absorption of subsequent products that are applied on top."},"essence/iteam7.jpg":{"name":"KIEHL'S CLEARLY CORRECTIVE DARK SPOT SOLUTION","price":"540 RMB","description":"This brightening face serum is formulated with a potent form of vitamin C, peony extract, and white birch extract. After use, skin is left appearing even and the look of dark spots appear reduced."},"essence/iteam8.jpg":{"name":"SHISEIDO ULTIMATE POWER INFUSING CONCENTRATE","price":"1040 RMB","description":"Strengthen Skin. Resist Damage. The Ultimune serum strengthens skin against daily damage and visible signs of aging for skin that’s 28% stronger in just 1 week."},"eye/iteam1.jpg":{"name":"ESTEE LAUDER ADVANCED NIGHT REPAIR EYE","price":"510 RMB","description":"test"}};
+					window.comments_data={"essence/iteam1.jpg":{"pos":"pos","neg":"neg","neu":"neu"},"essence/iteam2.jpg":{"pos":"pos","neg":"neg","neu":"neu"}};
+					window.product_info={"essence/iteam1.jpg":{"name":"SK-II GENOPTICS AURA ESSENCE","price":"1540 RMB","description":"Packed with radiance-enhancing ingredients, this lightweight serum absorbs quickly to improve dullness and help reduce appearance of dark spots caused by sun damage for even, glowing skin."},"essence/iteam2.jpg":{"name":"ABEILLE ROYALE HUILE-EN-EAU JEUNESSE YOUTH WATERY OIL","price":"690 RMB","description":"Abeille Royale Youth Watery Oil offers the skin all the power of Guerlain-exclusive ingredients: Ouessant Black Bee Honey and exclusive Royal Jelly. "},"essence/iteam3.jpg":{"name":"ESTEE LAUDER ADVANCED NIGHT REPAIR","price":"590 RMB","description":"Powerful nighttime renewal serum for radiant, youthful-looking skin. Instantly adds radiance. Intensely hydrates. Advanced Night Repair significantly reduces the look of key signs of aging."},"essence/iteam4.jpg":{"name":"CLARINS BRIGHT PLUS","price":"720 RMB","description":"Powerful illuminating serum that helps revive dull skin and targets all types of dark spots for a visibly brighter, more even complexion."},"essence/iteam5.jpg":{"name":"CLINQUE EVEN BETTER CLINICAL","price":"495 RMB","description":"A powerful brightening serum that helps visibly correct discoloration and acne scars, while interrupting future dark spots."},"essence/iteam6.jpg":{"name":"SULWHASOO FIRST CARE ACTIVATING SERUM","price":"610 RMB","description":"Formulated with JAUM Balancing Complex, a potent cocktail of five Korean herbs, this unique prepping serum designed to be the first step post-cleanse that hydrates, nourishes and visibly firms, while boosting absorption of subsequent products that are applied on top."},"essence/iteam7.jpg":{"name":"KIEHL'S CLEARLY CORRECTIVE DARK SPOT SOLUTION","price":"540 RMB","description":"This brightening face serum is formulated with a potent form of vitamin C, peony extract, and white birch extract. After use, skin is left appearing even and the look of dark spots appear reduced."},"essence/iteam8.jpg":{"name":"SHISEIDO ULTIMATE POWER INFUSING CONCENTRATE","price":"1040 RMB","description":"Strengthen Skin. Resist Damage. The Ultimune serum strengthens skin against daily damage and visible signs of aging for skin that’s 28% stronger in just 1 week."}};
 					$(document).ready(function(){
 						$("span.menu").click(function(){
 							$(".top-nav ul").slideToggle(300);
 						});
 						var pic=$.Request("pic");
 						get_pic(pic);
+						console.log(pic);
+						console.log(comments_data[pic]);
+						console.log(product_info[pic]);
 						document.getElementById("name").innerText=product_info[pic]["name"];
-						document.getElementById("price").innerText='Price: '+product_info[pic]["price"];
-						// document.getElementById("code").innerText='Product Code: '+product_info[pic]["code"];
 						document.getElementById("description").innerText=product_info[pic]["description"];
+						document.getElementById("comments_pos").innerText=comments_data[pic]["pos"];
+						document.getElementById("comments_neu").innerText=comments_data[pic]["neu"];
+						document.getElementById("comments_neg").innerText=comments_data[pic]["neg"];
+						
 					});
 					function get_pic(pic){
 						window.pic_path="images/"+pic;
@@ -85,25 +92,10 @@
 						document.getElementById("pic52").src=pic_path;
 						document.getElementById("pic61").src=pic_path;
 						document.getElementById("pic62").src=pic_path;
-						comments_path="details_com.html?pic="+pic;
+						home_path="details.html?pic="+pic;
 						// var href=$('comments').attr('href');
-						document.getElementById("comments").setAttribute("href",comments_path);
-						// console.log(href);
+						document.getElementById("home").setAttribute("href",home_path);
 					}
-					// function get_comments(){
-					// 	var img_name=pic_path.split('/');
-					// 	img_name=img_name[2];
-					// 	img_name=img_name.split('.');
-					// 	img_name=img_name[0];
-					// 	var url = 'comments/'+img_name;
-					// 	var request = new XMLHttpRequest();
-					// 	request.open("get", url);
-					// 	request.send(null);/*不发送数据到服务器*/
-					// 	request.onload = function () {/*XHR对象获取到返回信息后执行*/
-					// 	if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
-					// 	    mapstyle = request.responseText;
-					// 	}}
-					// }
 				</script>
 				<!-- script-for-nav -->
 				<!-- search-form -->
@@ -127,9 +119,8 @@
 			<div class="details-cate">
 				<div class="container">
 					<ul>
-						<li><a href="#" id="home">Home</a></li>
-						<li><a href="#" id='comments'>Comments</a></li>
-
+						<li><a id="home" href="#">Home</a></li>
+						<li><a id="comments" href="#">Comments</a></li>
 				<!-- 		<li><a href="#">Fern Clamper Bracelet</a></li> -->
 					</ul>
 				</div>
@@ -220,51 +211,43 @@
 					<div class="product-single-details-right">
 						<h2 style="line-height: 30px;" id="name">Fern Clamper Bracelet</h2>
 						<p id="description">Description:<span> Mexican Silver Fern Clamper Bracelet. 7 1/4INCH </span></p>
-<!-- 						<ul class="r-list">
+			<!-- 			<ul class="r-list">
 							<li class="rating"><span> </span>340 Ratings</li>
 							<li class="heart"><span> </span>Add to Watchlist</li>
 						</ul> -->
 						<!-- price-details -->
-						<div class="price-details">
+		<!-- 				<div class="price-details">
 							<div class="price-details-left">
-							<!-- 	<p id="code">Product Code 	: C425001A</p> -->
-								<p id="price">Price: $ 820.00</p>
+								<p>Product Code 	: C425001A</p>
+								<p>Best price: $ 820.00</p>
 							</div>
 							<div class="price-details-right">
 								<input type="button" value="Add to cart" />
 							</div>
 							<div class="clearfix"> </div>
-						</div>
+						</div> -->
 						<!-- price-details -->
 						<!-- product-description -->
 						<div class="product-description">
-							<h3>Skin Care</h3>
+							<h3>Comments:</h3>
 							<!-- des-tabs -->
-							<div class="col-md-3">
-								<span>After</span>
-								<img src="">
-							</div>
-							<div class="col-md-3">
-								<span>After:</span>
-								<img src="">
-							</div>
-							<!-- <div class="des-tabs">
+							<div class="des-tabs">
 								<div class="tab1 tab">
-									<img id="pic22" class="etalage_source_image" src="">
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p>
+									<h4>Positive Feedback</h4>
+									<p id="comments_pos">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p>
 								</div>
 								<div class="tab2 tab">
-									<h4>Product Details</h4>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p>
+									<h4>Neutral Feedback</h4>
+									<p id="comments_neu">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p>
 								</div>
 								<div class="tab3 tab">
-									<h4>Material & Care</h4>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p>
+									<h4>Negative Feedback</h4>
+									<p id="comments_neg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p>
 								</div>
-							</div> -->
+							</div>
 							<!-- des-tabs -->
 							<!-- script-for-tabs -->
-		<!-- 					<script>
+							<script>
 								$(document).ready(function(){
 									$(".tab2 p").hide();
 									$(".tab3 p").hide();
@@ -284,7 +267,7 @@
 										$(".tab1 p").hide();
 									});
 								});
-							</script> -->
+							</script>
 							<!-- script-for-tabs -->
 						</div>
 						<!-- product-description -->

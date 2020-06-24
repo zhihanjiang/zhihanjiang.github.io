@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Collection</title>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		 <!-- Custom Theme files -->
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+   		 <!-- Custom Theme files -->
+   		<meta name="viewport" content="width=device-width, initial-scale=1">
+   		<script src="js/getparam.js"></script>
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+	</head>
+	<body>
+		<!-- container -->
+			<!-- header -->
+<!-- 			<div class="header">
+				<div class="container"> -->
+				<!-- logo -->
+<!-- 				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" title="baku" /></a>
+				</div> -->
+				<!-- logo -->
+				<!-- cart-info -->
+<!-- 				<div class="cart-info">
+					<ul>
+						<li><a href="#">Login</a></li>
+						<li><a href="#">Help</a></li>
+						<li><a href="#">Stores</a></li>
+						<li class="cartinfo"><a href="#"><span> </span>My bag (0) items</a></li>
+						<div class="clearfix"> </div>
+					</ul>
+				</div> -->
+				<!-- /cart-info -->
+<!-- 			</div> -->
+			<!-- header -->
+<!-- 		</div> -->
+		<!-- sub-header -->
+		<div class="sub-header">
+			<div class="container">
+				<!-- top-nav -->
+				<div class="top-nav">
+					<span class="menu"> </span>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="404.html">About</a></li>
+						<li><a href="collections_ess.html">ESSENCE</a></li>
+						<li><a href="collections_eye.html">EYE CREAM</a></li>
+					<!-- 	<li><a href="collections.html">What's new</a></li> -->
+				<!-- 		<li class="active"><a href="collections_ess.html">Collections</a></li> -->
+						<!-- <li><a href="404.html">Baku Club</a></li> -->
+				<!-- 		<li><a href="404.html">Store Loation</a></li> -->
+						<li><a href="contact.html">Contact</a></li>
+						<div class="clearfix"> </div>
+					</ul>
+				</div>
+				<!-- top-nav -->
+				<!-- script-for-nav -->
+				<script>
+					$(document).ready(function(){
+						$("span.menu").click(function(){
+							$(".top-nav ul").slideToggle(300);
+						});
+						// get_plan();
+					});
+					// function get_plan(){
+					// 	var plan=$.Request("plan");
+					// 	window.plan=plan;
+					// 	if(plan==1 || plan==2){
+					// 		window.pic_path='images/essence/';
+					// 	}
+					// 	else{
+					// 		window.pic_path='images/eye/';
+					// 	}
+					// 	document.getElementById("11").src=pic_path+'iteam1.jpg';
+					// 	document.getElementById("12").src=pic_path+'iteam2.jpg';
+					// 	document.getElementById("13").src=pic_path+'iteam3.jpg';
+					// 	document.getElementById("14").src=pic_path+'iteam4.jpg';
+					// 	document.getElementById("21").src=pic_path+'iteam5.jpg';
+					// 	document.getElementById("22").src=pic_path+'iteam6.jpg';
+					// 	document.getElementById("23").src=pic_path+'iteam7.jpg';
+					// 	document.getElementById("24").src=pic_path+'iteam8.jpg';
+
+						
+					// }
+				</script>
+				<!-- script-for-nav -->
+				<!-- search-form -->
+				<div class="search-form">
+					<form>
+						<input type="text" class="text" value="Keyword or product code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Keyword or product code';}">
+						<input type="submit" value="" />
+					</form>
+				</div>
+				<div class="clearfix"> </div>
+				<!-- /search-form -->
+			</div>
+		</div>
+		<!-- /sub-header -->
+		<!-- content -->
+		<div class="collections">
+<!-- 				<div class="collections-head">
+					<div class="container">
+						<div class="collections-head-left">
+							<img src="images/iteam.png" title="name" />
+						</div>
+						<div class="collections-head-right">
+							<h2><span>Arizume</span></br><span>Mexican Silver</span></h2>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div> -->
+				<!-- categories -->
+				<div class="categories">
+					<div class="container">
+						<div class="categories-left">
+							<ul>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Collections</a></li>
+								<li><a href="#">Arizume  Mexican Silver</a></li>
+							</ul>
+						</div>
+						<div class="categories-right">
+							<ul>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li class="view"><a href="#">View All</a></li>
+								<li class="options">
+									<select>
+										<option>Sorted by</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+									</select>
+								</li>
+								<div class="clearfix"> </div>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<!-- categories -->
+				<!-- iteam-grids -->
+				<div class="iteam-grids">
+					<div class="container">
+						<div class="col-md-3">
+							<div onclick="location.href='details.html?pic=essence/iteam1.jpg';" class="iteam-grid text-center">
+								<img id='11' src="images/essence/iteam1.jpg" title="name" width="250" height="250" />
+								<span>SK-II GENOPTICS AURA ESSENCE</span>
+								<label>PRICE 1540 RMB</label>
+						<!-- 		<ul>
+									<li><a class="cart" href="#">Add to cart</a></li>
+									<li><a class="more" href="#">More</a></li>
+									<div class="clearfix"> </div>
+								</ul> -->
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div onclick="location.href='details.html?pic=essence/iteam2.jpg';" class="iteam-grid text-center">
+								<img id='12' src="images/essence/iteam2.jpg" title="name" width="250" height="250"/>
+								<span>ABEILLE ROYALE HUILE-EN-EAU JEUNESSE YOUTH WATERY OIL</span>
+								<label>PRICE 690 RMB</label>
+						<!-- 		<ul>
+									<li><a class="cart" href="#">Add to cart</a></li>
+									<li><a class="more" href="#">More</a></li>
+									<div class="clearfix"> </div>
+								</ul> -->
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div onclick="location.href='details.html?pic=essence/iteam3.jpg';" class="iteam-grid text-center">
+								<img id='13' src="images/essence/iteam3.jpg" title="name" width="250" height="250"/>
+								<span>ESTEE LAUDER ADVANCED NIGHT REPAIR</span>
+								<label>PRICE 590 RMB</label>
+					<!-- 			<ul>
+									<li><a class="cart" href="#">Add to cart</a></li>
+									<li><a class="more" href="#">More</a></li>
+									<div class="clearfix"> </div>
+								</ul> -->
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div onclick="location.href='details.html?pic=essence/iteam4.jpg';" class="iteam-grid text-center">
+								<img id='14' src="images/essence/iteam4.jpg" title="name" width="250" height="250"/>
+								<span>CLARINS BRIGHT PLUS</span>
+								<label>PRICE 720 RMB</label>
+						<!-- 		<ul>
+									<li><a class="cart" href="#">Add to cart</a></li>
+									<li><a class="more" href="#">More</a></li>
+									<div class="clearfix"> </div>
+								</ul> -->
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+						<div class="col-md-3">
+							<div onclick="location.href='details.html?pic=essence/iteam5.jpg';" class="iteam-grid text-center">
+								<img id='21' src="images/essence/iteam5.jpg" title="name" width="250" height="250"/>
+								<span>CLINQUE EVEN BETTER CLINICAL</span>
+								<label>PRICE 495 RMB</label>
+							<!-- 	<ul>
+									<li><a class="cart" href="#">Add to cart</a></li>
+									<li><a class="more" href="#">More</a></li>
+									<div class="clearfix"> </div>
+								</ul> -->
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div onclick="location.href='details.html?pic=essence/iteam6.jpg';" class="iteam-grid text-center">
+								<img id='22' src="images/essence/iteam6.jpg" title="name" width="250" height="250"/>
+								<span>SULWHASOO FIRST CARE ACTIVATING SERUM</span>
+								<label>PRICE 610 RMB</label>
+						<!-- 		<ul>
+									<li><a class="cart" href="#">Add to cart</a></li>
+									<li><a class="more" href="#">More</a></li>
+									<div class="clearfix"> </div>
+								</ul> -->
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div onclick="location.href='details.html?pic=essence/iteam7.jpg';" class="iteam-grid text-center">
+								<img id='23' src="images/essence/iteam7.jpg" title="name" width="250" height="250"/>
+								<span>KIEHL'S CLEARLY CORRECTIVE DARK SPOT SOLUTION</span>
+								<label>PRICE 540 RMB</label>
+							<!-- 	<ul>
+									<li><a class="cart" href="#">Add to cart</a></li>
+									<li><a class="more" href="#">More</a></li>
+									<div class="clearfix"> </div>
+								</ul> -->
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div onclick="location.href='details.html?pic=essence/iteam8.jpg';" class="iteam-grid text-center">
+								<img id='24' src="images/essence/iteam8.jpg" title="name" width="250" height="250"/>
+								<span>SHISEIDO ULTIMATE POWER INFUSING CONCENTRATE</span>
+								<label>PRICE 1040 RMB</label>
+					<!-- 			<ul>
+									<li><a class="cart" href="#">Add to cart</a></li>
+									<li><a class="more" href="#">More</a></li>
+									<div class="clearfix"> </div>
+								</ul> -->
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<!-- iteam-grids -->
+		</div>
+		<!-- content -->
+		<!-- footer -->
+		<div class="footer">
+			<div class="footer-grids">
+				<div class="container">
+					<div class="col-md-3 footer-grid">
+						<h4>Services</h4>
+						<ul>
+							<li><a href="#">Contact Customer Service</a></li>
+							<li><a href="#">Free Delivery over $150</a></li>
+							<li><a href="#">View your Wishlist</a></li>
+							<li><a href="#">Ring Size Guide</a></li>
+							<li><a href="#">Returns</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid">
+						<h4>Information (FAQ)</h4>
+						<ul>
+							<li><a href="#">Gift certificates</a></li>
+							<li><a href="#">Jewellery care guide</a></li>
+							<li><a href="#">International customers</a></li>
+							<li><a href="#">Wholesale enquires</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid">
+						<h4>More details</h4>
+						<ul>
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Terms & COndition</a></li>
+							<li><a href="#">Secure payment</a></li>
+							<li><a href="#">Site map</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid contact-grid">
+						<h4>Contact us</h4>
+						<ul>
+							<li><span class="c-icon"> </span>Baku international Pty LTD</li>
+							<li><span class="c-icon1"> </span><a href="#">info@baku.com.au</a></li>
+							<li><span class="c-icon2"> </span>AUSTRALIA  (02) 9283 2280</li>
+						</ul>
+						<ul class="social-icons">
+							<li><a href="#"><span class="facebook"> </span></a></li>
+							<li><a href="#"><span class="twitter"> </span></a></li>
+							<li><a href="#"><span class="thumb"> </span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- news-letter -->
+			<div class="container">
+			<div class="news-letter">
+					<div class="news-letter-left">
+						<a href="#"><span> </span> News letter</a>
+					</div>
+					<div class="news-letter-right">
+						<p>Subscribe to notification about disconunts anf Offers from our store enter your Email id :</p>
+						<form>
+							<input type="text" class="text" value="Enter your mail id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your mail id';}">
+							<input type="submit" value="" />
+						</form>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<!-- news-letter -->
+		</div>
+		<!-- footer -->
+		<!-- copy-right -->
+		<div class="copy-right">
+				<p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">免费模板网</a></p>
+		</div>
+		<!-- copy-right -->
+		<!-- container -->
+	
+</body>
+</html>
+
