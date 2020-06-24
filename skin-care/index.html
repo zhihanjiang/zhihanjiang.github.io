@@ -13,27 +13,30 @@
    		 <!-- Custom Theme files -->
    		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> 
-			// var second = 0;
-			// window.setInterval(function () {
-			//     second ++;
-			// }, 1000);
-			// var tjArr = localStorage.getItem("jsArr") ? localStorage.getItem("jsArr") : '[{}]';
-			// $.cookie('tjRefer', getReferrer() ,{expires:1,path:'/'});
+			addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); 
+			function hideURLbar(){ window.scrollTo(0,1); }
+
 			const { Query, User } = AV;
 			AV.init({
 			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
 			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
 			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
 			}); 
-			window.onload=function(){
-				pageOpen=new Date();
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var pageOpen=new Date();
+			window.onbeforeunload = function(e){
+				upload_data();
+				e = e ||window.event;
+				if(e){
+					e.returnValue='test';
+				}
+				return 'test22';
+			} 
 
-			}
-
-
-			window.onbeforeunload = function() {
-			  
-					// e.returnValue=(params.time);
+			function upload_data(pageOpen) {
 				var pageClose = new Date();
 				var minutes = (pageClose.getMinutes() - pageOpen.getMinutes());
  				var seconds = (pageClose.getSeconds() - pageOpen.getSeconds());
@@ -44,53 +47,14 @@
 				// 将对象保存到云端
 				todo.save().then((todo) => {
 				  // 成功保存之后，执行其他逻辑
-				  alert(`保存成功。objectId：${todo.id}`);
+				  console.log(`保存成功。objectId：${todo.id}`);
 				}, (error) => {
-					alert(error);
+					console.log(error);
 				  // 异常处理
 				});
-				var e = window.event||e;  
-				e.returnValue=(time);
 			}
-			// window.unload()=function(){
-
-			// function getReferrer() {
-			//     var referrer = '';
-			//     try {
-			//         referrer = window.top.document.referrer;
-			//     } catch(e) {
-			//         if(window.parent) {
-			//             try {
-			//                 referrer = window.parent.document.referrer;
-			//             } catch(e2) {
-			//                 referrer = '';
-			//             }
-			//         }
-			//     }
-			//     if(referrer === '') {
-			//         referrer = document.referrer;
-			//     }
-			//     return referrer;
-			// }
-			// localStorage.setItem('debug', 'leancloud*');
-			// window.onbeforeunload=function(e){     
-			// 	var end_ts=new Date();
-			// 	// var params={};
-			// 	// params.url = location.href;
-			// 	// params.time = seconds;
-			// 	// params.timeIn = Date.parse(new Date())-(seconds*1000);
-			// 	// params.timeOut = Date.parse(new Date());
-			// 	console.log(params.time);
-
-
-
-			// 	// upload data
-			// }
 
 		</script>
-		</script>
-	</head>
-	<body>
 		<!-- container -->
 			<!-- header -->
 <!-- 			<div class="header">
