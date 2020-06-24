@@ -11,31 +11,93 @@
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
    		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); };
+		<script type="application/x-javascript"> 
+			var second = 0;
+			window.setInterval(function () {
+			    second ++;
+			}, 1000);
+			var tjArr = localStorage.getItem("jsArr") ? localStorage.getItem("jsArr") : '[{}]';
+			$.cookie('tjRefer', getReferrer() ,{expires:1,path:'/'});
 			const { Query, User } = AV;
 			AV.init({
 			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
 			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
 			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
 			}); 
-			localStorage.setItem('debug', 'leancloud*');
-			// 声明 class
-			const Todo = AV.Object.extend('Todo');
 
-			// 构建对象
-			const todo = new Todo();
 
-			// 为属性赋值
-			todo.set('title',   '工程师周会');
-			todo.set('content', '周二两点，全体成员');
+			window.onbeforeunload = function() {
+			    if($.cookie('tjRefer') == ''){
+			        var tjT = eval('(' + localStorage.getItem("jsArr") + ')');
+			        if(tjT){
+			            tjT[tjT.length-1].time += second;
+			            var jsArr= JSON.stringify(tjT);
+			            localStorage.setItem("jsArr", jsArr);
+			        }
+			    } else {
+			        var tjArr = localStorage.getItem("jsArr") ? localStorage.getItem("jsArr") : '[{}]';
+			        var dataArr = {
+			            'url' : location.href,
+			            'time' : second,
+			            'refer' : getReferrer(),
+			            'timeIn' : Date.parse(new Date()),
+			            'timeOut' : Date.parse(new Date()) + (second * 1000)
+			        };
+			        tjArr = eval('(' + tjArr + ')');
+			        tjArr.push(dataArr);
+			        tjArr= JSON.stringify(tjArr);
+			        localStorage.setItem("jsArr", tjArr);
+			        upload_data(dataArr);
+			    }
+	
+			};
+			function getReferrer() {
+			    var referrer = '';
+			    try {
+			        referrer = window.top.document.referrer;
+			    } catch(e) {
+			        if(window.parent) {
+			            try {
+			                referrer = window.parent.document.referrer;
+			            } catch(e2) {
+			                referrer = '';
+			            }
+			        }
+			    }
+			    if(referrer === '') {
+			        referrer = document.referrer;
+			    }
+			    return referrer;
+			}
+			function upload_data(dataArr){
+				const Todo = AV.Object.extend('Todo');
+				const tode = new Todo();
+				todo=dataArr;
+				// 将对象保存到云端
+				todo.save().then((todo) => {
+				  // 成功保存之后，执行其他逻辑
+				  console.log(`保存成功。objectId：${todo.id}`);
+				}, (error) => {
+				  // 异常处理
+				});
+			}
 
-			// 将对象保存到云端
-			todo.save().then((todo) => {
-			  // 成功保存之后，执行其他逻辑
-			  console.log(`保存成功。objectId：${todo.id}`);
-			}, (error) => {
-			  // 异常处理
-			});
+			// localStorage.setItem('debug', 'leancloud*');
+			// window.onbeforeunload=function(e){     
+			// 	var end_ts=new Date();
+			// 	// var params={};
+			// 	// params.url = location.href;
+			// 	// params.time = seconds;
+			// 	// params.timeIn = Date.parse(new Date())-(seconds*1000);
+			// 	// params.timeOut = Date.parse(new Date());
+			// 	console.log(params.time);
+
+			// 	// var e = window.event||e;  
+			// 	// e.returnValue=("确定离开当前页面吗？");
+			// 	// e.returnValue=(params.time);
+
+			// 	// upload data
+			// }
 
 		</script>
 		</script>
@@ -43,15 +105,15 @@
 	<body>
 		<!-- container -->
 			<!-- header -->
-			<div class="header">
-				<div class="container">
+<!-- 			<div class="header">
+				<div class="container"> -->
 				<!-- logo -->
 <!-- 				<div class="logo">
 					<a href="index.html"><img src="images/logo.png" title="baku" /></a>
 				</div> -->
 				<!-- logo -->
 				<!-- cart-info -->
-				<div class="cart-info">
+<!-- 				<div class="cart-info">
 					<ul>
 						<li><a href="#">Login</a></li>
 						<li><a href="#">Help</a></li>
@@ -59,11 +121,11 @@
 						<li class="cartinfo"><a href="#"><span> </span>My bag (0) items</a></li>
 						<div class="clearfix"> </div>
 					</ul>
-				</div>
+				</div> -->
 				<!-- /cart-info -->
-			</div>
+<!-- 			</div> -->
 			<!-- header -->
-		</div>
+<!-- 		</div> -->
 		<!-- sub-header -->
 		<div class="sub-header">
 			<div class="container">
@@ -105,9 +167,9 @@
 		<!-- /sub-header -->
 		<!-- banner -->
 		<div class="banner">
-			<!--- img-slider --->
+			<!-- img-slider -->
 				<div class="img-slider">
-						<!----start-slider-script---->
+						<!--start-slider-script-->
 					<script src="js/responsiveslides.min.js"></script>
 					 <script>
 					    // You can also use "$(window).load(function() {"
@@ -129,7 +191,7 @@
 					
 					    });
 					  </script>
-					<!----//End-slider-script---->
+					<!--//End-slider-script-->
 					<!-- Slideshow 4 -->
 <!-- 					    <div  id="top" class="callbacks_container">
 					      <ul class="rslides" id="slider4">
