@@ -28,14 +28,14 @@
 		<script type="text/javascript">
 			window.pageOpen=new Date();
 			window.count=0;
-			window.onbeforeunload = function(e){
+			window.onunload = function(e){
 				// e = e ||window.event;
 				// if(e){
 				// 	e.returnValue='leave or not ?';
 				// }
-				// upload_data();
+				upload_data();
 				setTimeout(function(){},1000);
-				return upload_data();
+				return null;
 			} 
 
 			function upload_data() {
