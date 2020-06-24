@@ -47,10 +47,26 @@
 			        tjArr.push(dataArr);
 			        tjArr= JSON.stringify(tjArr);
 			        localStorage.setItem("jsArr", tjArr);
-			        upload_data(dataArr);
+			  
+			  //       var e = window.event||e;  
+					// e.returnValue=("确定离开当前页面吗？");
+					// e.returnValue=(params.time);
 			    }
 	
 			};
+			window.onload()=function(){
+				const Todo = AV.Object.extend('Todo');
+				const tode = new Todo();
+				todo=dataArr;
+				// 将对象保存到云端
+				todo.save().then((todo) => {
+				  // 成功保存之后，执行其他逻辑
+				  alert(`保存成功。objectId：${todo.id}`);
+				}, (error) => {
+					alert(error);
+				  // 异常处理
+				});
+			}
 			function getReferrer() {
 			    var referrer = '';
 			    try {
@@ -69,19 +85,6 @@
 			    }
 			    return referrer;
 			}
-			function upload_data(dataArr){
-				const Todo = AV.Object.extend('Todo');
-				const tode = new Todo();
-				todo=dataArr;
-				// 将对象保存到云端
-				todo.save().then((todo) => {
-				  // 成功保存之后，执行其他逻辑
-				  console.log(`保存成功。objectId：${todo.id}`);
-				}, (error) => {
-				  // 异常处理
-				});
-			}
-
 			// localStorage.setItem('debug', 'leancloud*');
 			// window.onbeforeunload=function(e){     
 			// 	var end_ts=new Date();
@@ -92,9 +95,7 @@
 			// 	// params.timeOut = Date.parse(new Date());
 			// 	console.log(params.time);
 
-			// 	// var e = window.event||e;  
-			// 	// e.returnValue=("确定离开当前页面吗？");
-			// 	// e.returnValue=(params.time);
+
 
 			// 	// upload data
 			// }
