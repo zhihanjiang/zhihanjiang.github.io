@@ -13,52 +13,34 @@
    		 <!-- Custom Theme files -->
    		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> 
-			var second = 0;
-			window.setInterval(function () {
-			    second ++;
-			}, 1000);
-			var tjArr = localStorage.getItem("jsArr") ? localStorage.getItem("jsArr") : '[{}]';
-			$.cookie('tjRefer', getReferrer() ,{expires:1,path:'/'});
+			// var second = 0;
+			// window.setInterval(function () {
+			//     second ++;
+			// }, 1000);
+			// var tjArr = localStorage.getItem("jsArr") ? localStorage.getItem("jsArr") : '[{}]';
+			// $.cookie('tjRefer', getReferrer() ,{expires:1,path:'/'});
 			const { Query, User } = AV;
 			AV.init({
 			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
 			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
 			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
 			}); 
+			window.onload=function(){
+				pageOpen=new Date();
+
+			}
 
 
 			window.onbeforeunload = function() {
-			    if($.cookie('tjRefer') == ''){
-			        var tjT = eval('(' + localStorage.getItem("jsArr") + ')');
-			        if(tjT){
-			            tjT[tjT.length-1].time += second;
-			            var jsArr= JSON.stringify(tjT);
-			            localStorage.setItem("jsArr", jsArr);
-			        }
-			    } else {
-			        var tjArr = localStorage.getItem("jsArr") ? localStorage.getItem("jsArr") : '[{}]';
-			        var dataArr = {
-			            'url' : location.href,
-			            'time' : second,
-			            'refer' : getReferrer(),
-			            'timeIn' : Date.parse(new Date()),
-			            'timeOut' : Date.parse(new Date()) + (second * 1000)
-			        };
-			        tjArr = eval('(' + tjArr + ')');
-			        tjArr.push(dataArr);
-			        tjArr= JSON.stringify(tjArr);
-			        localStorage.setItem("jsArr", tjArr);
 			  
-			  //       var e = window.event||e;  
-					// e.returnValue=("确定离开当前页面吗？");
 					// e.returnValue=(params.time);
-			    }
-	
-			};
-			window.onload()=function(){
-				const Todo = AV.Object.extend('Todo');
+				var pageClose = new Date();
+				var minutes = (pageClose.getMinutes() - pageOpen.getMinutes());
+ 				var seconds = (pageClose.getSeconds() - pageOpen.getSeconds());
+ 				var time = (seconds + (minutes * 60)); 
+ 				const Todo = AV.Object.extend('Todo');
 				const tode = new Todo();
-				todo=dataArr;
+				todo.set('time',time);
 				// 将对象保存到云端
 				todo.save().then((todo) => {
 				  // 成功保存之后，执行其他逻辑
@@ -67,25 +49,29 @@
 					alert(error);
 				  // 异常处理
 				});
+				var e = window.event||e;  
+				e.returnValue=(time);
 			}
-			function getReferrer() {
-			    var referrer = '';
-			    try {
-			        referrer = window.top.document.referrer;
-			    } catch(e) {
-			        if(window.parent) {
-			            try {
-			                referrer = window.parent.document.referrer;
-			            } catch(e2) {
-			                referrer = '';
-			            }
-			        }
-			    }
-			    if(referrer === '') {
-			        referrer = document.referrer;
-			    }
-			    return referrer;
-			}
+			// window.unload()=function(){
+
+			// function getReferrer() {
+			//     var referrer = '';
+			//     try {
+			//         referrer = window.top.document.referrer;
+			//     } catch(e) {
+			//         if(window.parent) {
+			//             try {
+			//                 referrer = window.parent.document.referrer;
+			//             } catch(e2) {
+			//                 referrer = '';
+			//             }
+			//         }
+			//     }
+			//     if(referrer === '') {
+			//         referrer = document.referrer;
+			//     }
+			//     return referrer;
+			// }
 			// localStorage.setItem('debug', 'leancloud*');
 			// window.onbeforeunload=function(e){     
 			// 	var end_ts=new Date();
