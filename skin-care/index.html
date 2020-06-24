@@ -40,11 +40,37 @@
 			} 
 
 			function upload_data() {
+
+
 				var pageClose = new Date();
 				var minutes = (pageClose.getMinutes() - pageOpen.getMinutes());
  				var seconds = (pageClose.getSeconds() - pageOpen.getSeconds());
  				var time = (seconds + (minutes * 60)); 
  				console.log(time);
+ 				time={
+ 					'time':time,
+ 				}
+
+ 				$.ajax({
+				  type: "POST",
+				  url: "https://lawk7pnd.lc-cn-n1-shared.com/1.1/classes/Post",
+				  data: {'time':10},
+				  dataType: "json",
+				  headers: {
+				    "x-lc-id": "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
+				    "x-lc-key": "bJSjx6pAu5cIrPvxknTKBD2O",
+				    "content-type": "application/json",
+				  }
+				  success: function (data) {
+				      console.log(data.header.status);
+				  }
+				});
+
+
+
+				var xmlHttp = createXMLHttpRequest();
+				xmlHttp.open("POST", "", false);
+				xmlHttp.send(null); 
  				// AV=localStorage.getItem('AV');
  				const Todo = AV.Object.extend('Todo');
 				const todo = new Todo();
