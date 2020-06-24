@@ -41,7 +41,6 @@
 
 			function upload_data() {
 
-
 				var pageClose = new Date();
 				var minutes = (pageClose.getMinutes() - pageOpen.getMinutes());
  				var seconds = (pageClose.getSeconds() - pageOpen.getSeconds());
@@ -60,7 +59,7 @@
 				    "x-lc-id": "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
 				    "x-lc-key": "bJSjx6pAu5cIrPvxknTKBD2O",
 				    "content-type": "application/json",
-				  }
+				  },
 				  success: function (data) {
 				      console.log(data.header.status);
 				  }
