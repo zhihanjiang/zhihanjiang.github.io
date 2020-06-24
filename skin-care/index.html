@@ -22,7 +22,7 @@
 			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
 			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
 			}); 
-			localStorage.getItem('AV',AV);
+			// localStorage.getItem('AV',AV);
 		</script>
 	</head>
 	<body>
@@ -45,7 +45,7 @@
  				var seconds = (pageClose.getSeconds() - pageOpen.getSeconds());
  				var time = (seconds + (minutes * 60)); 
  				console.log(time);
- 				AV=localStorage.getItem('AV');
+ 				// AV=localStorage.getItem('AV');
  				const Todo = AV.Object.extend('Todo');
 				const todo = new Todo();
 				todo.set('time',time);
