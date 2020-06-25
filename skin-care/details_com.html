@@ -9,6 +9,7 @@
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
    		<meta name="viewport" content="width=device-width, initial-scale=1">
+   		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
    		<script src="js/getparam.js"></script>
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
@@ -59,7 +60,10 @@
 				<!-- top-nav -->
 				<!-- script-for-nav -->
 				<script>
-					window.comments_data={"essence/iteam1.jpg":{"pos":"pos","neg":"neg","neu":"neu"},"essence/iteam2.jpg":{"pos":"pos","neg":"neg","neu":"neu"}};
+					window.comments_data={"essence/iteam1.jpg":{"pos":["超喜欢，第二次购买，坚持用，会变白。美白效果：美白效果明显，能很快提亮均匀肤色。 吸收效果：吸收效果好，不油腻。","第一次买这个精华，希望能带来惊喜。第一抹感觉还好，不油腻，期待后续","这个小灯泡真的超级好用。已经用完一瓶了，之前30mm 用了大概2个月，这次买50mm 的能用3个月左右。保湿好推开，美白效果见效很快！一瓶用完能明显看出来比之前白了一个度！用完会继续买它的！"],"neg":["neg"],"neu":["neu"]},"essence/iteam2.jpg":{"pos":["pos"],"neg":["neg"],"neu":["neu"]}};
+
+					
+
 					window.product_info={"essence/iteam1.jpg":{"name":"SK-II GENOPTICS AURA ESSENCE","price":"1540 RMB","description":"Packed with radiance-enhancing ingredients, this lightweight serum absorbs quickly to improve dullness and help reduce appearance of dark spots caused by sun damage for even, glowing skin."},"essence/iteam2.jpg":{"name":"ABEILLE ROYALE HUILE-EN-EAU JEUNESSE YOUTH WATERY OIL","price":"690 RMB","description":"Abeille Royale Youth Watery Oil offers the skin all the power of Guerlain-exclusive ingredients: Ouessant Black Bee Honey and exclusive Royal Jelly. "},"essence/iteam3.jpg":{"name":"ESTEE LAUDER ADVANCED NIGHT REPAIR","price":"590 RMB","description":"Powerful nighttime renewal serum for radiant, youthful-looking skin. Instantly adds radiance. Intensely hydrates. Advanced Night Repair significantly reduces the look of key signs of aging."},"essence/iteam4.jpg":{"name":"CLARINS BRIGHT PLUS","price":"720 RMB","description":"Powerful illuminating serum that helps revive dull skin and targets all types of dark spots for a visibly brighter, more even complexion."},"essence/iteam5.jpg":{"name":"CLINQUE EVEN BETTER CLINICAL","price":"495 RMB","description":"A powerful brightening serum that helps visibly correct discoloration and acne scars, while interrupting future dark spots."},"essence/iteam6.jpg":{"name":"SULWHASOO FIRST CARE ACTIVATING SERUM","price":"610 RMB","description":"Formulated with JAUM Balancing Complex, a potent cocktail of five Korean herbs, this unique prepping serum designed to be the first step post-cleanse that hydrates, nourishes and visibly firms, while boosting absorption of subsequent products that are applied on top."},"essence/iteam7.jpg":{"name":"KIEHL'S CLEARLY CORRECTIVE DARK SPOT SOLUTION","price":"540 RMB","description":"This brightening face serum is formulated with a potent form of vitamin C, peony extract, and white birch extract. After use, skin is left appearing even and the look of dark spots appear reduced."},"essence/iteam8.jpg":{"name":"SHISEIDO ULTIMATE POWER INFUSING CONCENTRATE","price":"1040 RMB","description":"Strengthen Skin. Resist Damage. The Ultimune serum strengthens skin against daily damage and visible signs of aging for skin that’s 28% stronger in just 1 week."}};
 					$(document).ready(function(){
 						$("span.menu").click(function(){
@@ -72,9 +76,34 @@
 						console.log(product_info[pic]);
 						document.getElementById("name").innerText=product_info[pic]["name"];
 						document.getElementById("description").innerText=product_info[pic]["description"];
-						document.getElementById("comments_pos").innerText=comments_data[pic]["pos"];
-						document.getElementById("comments_neu").innerText=comments_data[pic]["neu"];
-						document.getElementById("comments_neg").innerText=comments_data[pic]["neg"];
+						var ul_pos=document.getElementById("pos_list");
+						var ul_neu=document.getElementById("neu_list");
+						var ul_neg=document.getElementById("neg_list");
+
+				        for (var i = 0; i < comments_data[pic]["pos"].length; i++) {
+				            var liObj = document.createElement("li");
+				            //设置li中的文字
+				            liObj.innerHTML = comments_data[pic]["pos"][i];
+				            //将li追加到ul中
+				            ul_pos.appendChild(liObj);
+				        }
+				        for (var i = 0; i < comments_data[pic]["neu"].length; i++) {
+				            var liObj = document.createElement("li");
+				            //设置li中的文字
+				            liObj.innerHTML = comments_data[pic]["neu"][i];
+				            //将li追加到ul中
+				            ul_neu.appendChild(liObj);
+				        }
+				        for (var i = 0; i < comments_data[pic]["neg"].length; i++) {
+				            var liObj = document.createElement("li");
+				            //设置li中的文字
+				            liObj.innerHTML = comments_data[pic]["neg"][i];
+				            //将li追加到ul中
+				            ul_neg.appendChild(liObj);
+				        }
+						// document.getElementById("comments_pos").innerText=comments_data[pic]["pos"];
+						// document.getElementById("comments_neu").innerText=comments_data[pic]["neu"];
+						// document.getElementById("comments_neg").innerText=comments_data[pic]["neg"];
 						
 					});
 					function get_pic(pic){
@@ -99,12 +128,12 @@
 				</script>
 				<!-- script-for-nav -->
 				<!-- search-form -->
-				<div class="search-form">
+<!-- 				<div class="search-form">
 					<form>
 						<input type="text" class="text" value="Keyword or product code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Keyword or product code';}">
 						<input type="submit" value="" />
 					</form>
-				</div>
+				</div> -->
 				<div class="clearfix"> </div>
 				<!-- /search-form -->
 			</div>
@@ -228,43 +257,51 @@
 						</div> -->
 						<!-- price-details -->
 						<!-- product-description -->
+
 						<div class="product-description">
 							<h3>Comments:</h3>
 							<!-- des-tabs -->
 							<div class="des-tabs">
 								<div class="tab1 tab">
 									<h4>Positive Feedback</h4>
-									<p id="comments_pos">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p>
+									<ul id="pos_list">
+									</ul>
+									
+						<!-- 			<p id="comments_pos"></p> -->
 								</div>
 								<div class="tab2 tab">
 									<h4>Neutral Feedback</h4>
-									<p id="comments_neu">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p>
+									<ul id="neu_list">
+									</ul>
+							<!-- 		<p id="comments_neu">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p> -->
 								</div>
 								<div class="tab3 tab">
 									<h4>Negative Feedback</h4>
-									<p id="comments_neg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p>
+									<ul id="neg_list">
+									</ul>
+							<!-- 		<p id="comments_neg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. I</p> -->
 								</div>
 							</div>
 							<!-- des-tabs -->
 							<!-- script-for-tabs -->
 							<script>
 								$(document).ready(function(){
-									$(".tab2 p").hide();
-									$(".tab3 p").hide();
+									$(".tab2 ul").hide();
+									$(".tab3 ul").hide();
 									$(".tab2 h4").click(function(){
-										$(".tab2 p").slideToggle(300);
-										$(".tab1 p").hide();
-										$(".tab3 p").hide();
+										$(".tab2 ul").slideToggle(300);
+										$(".tab1 ul").hide();
+										$(".tab3 ul").hide();
 									});
 									$(".tab1 h4").click(function(){
-										$(".tab1 p").slideToggle(300);
-										$(".tab2 p").hide();
-										$(".tab3 p").hide();
+										$(".tab1 ul").slideToggle(300);
+										$(".tab2 ul").hide();
+										$(".tab3 ul").hide();
 									});
 									$(".tab3 h4").click(function(){
-										$(".tab3 p").slideToggle(300);
-										$(".tab2 p").hide();
-										$(".tab1 p").hide();
+										$(".tab3 ul").slideToggle(300);
+										$(".tab2 ul").hide();
+										$(".tab1 ul").hide();
 									});
 								});
 							</script>
