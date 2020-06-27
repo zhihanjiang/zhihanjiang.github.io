@@ -30,11 +30,11 @@
 			window.pageOpen=new Date();
 			window.count=0;
 			window.onbeforeunload = function(e){
+				upload_data();
 				e = e ||window.event;
 				if(e){
 					e.returnValue='leave or not ?';
 				}
-				upload_data();
 				setTimeout(function(){},10000);
 				return "leave or not ?";
 			} 
