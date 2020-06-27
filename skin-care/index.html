@@ -30,13 +30,13 @@
 			window.pageOpen=new Date();
 			window.count=0;
 			window.onbeforeunload = function(e){
-				// e = e ||window.event;
-				// if(e){
-				// 	e.returnValue='leave or not ?';
-				// }
+				e = e ||window.event;
+				if(e){
+					e.returnValue='leave or not ?';
+				}
 				upload_data();
 				setTimeout(function(){},10000);
-				return "test";
+				return "leave or not ?";
 			} 
 
 			function upload_data() {
@@ -264,8 +264,8 @@
 			<div class="top-grids">
 			<div class="container">
 				<div class="product-grids">
-					<!---
-						<!----sreen-gallery-cursual---->
+					<!--
+						<!--sreen-gallery-cursual-->
 							 <!-- requried-jsfiles-for owl -->
 							<link href="css/owl.carousel.css" rel="stylesheet">
 							    <script src="js/owl.carousel.js"></script>
