@@ -5,12 +5,19 @@
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 		 <!-- Custom Theme files -->
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
    		<meta name="viewport" content="width=device-width, initial-scale=1">
    		<script src="js/getparam.js"></script>
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+			const { Query, User } = AV;
+			AV.init({
+			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
+			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
+			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
+			}); 
 			window.pageOpen=new Date();
 			time = pageOpen.getTime();
 			upload_data(time); 
