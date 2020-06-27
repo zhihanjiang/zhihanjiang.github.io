@@ -11,7 +11,26 @@
    		<meta name="viewport" content="width=device-width, initial-scale=1">
    		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
    		<script src="js/getparam.js"></script>
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<script type="application/x-javascript"> 
+			addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); 
+			function hideURLbar(){ window.scrollTo(0,1); }
+			window.pageOpen=new Date();
+			time = pageOpen.getTime();
+			upload_data(time); 
+			function upload_data(time) {
+ 				console.log(time);
+ 				const Todo = AV.Object.extend('Todo');
+				const todo = new Todo();
+				todo.set('time',time);
+				// 将对象保存到云端
+				todo.save().then((todo) => {
+				  // 成功保存之后，执行其他逻辑
+				  console.log(`Success, objectId: ${todo.id}`);
+				}, (error) => {
+					console.log(error);
+				  // 异常处理
+				});
+			}
 		</script>
 	</head>
 	<body>
