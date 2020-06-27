@@ -28,44 +28,30 @@
 	<body>
 		<script type="text/javascript">
 			window.pageOpen=new Date();
-			window.count=0;
+			time = pageOpen.getTime();
+			upload_data(time);
 			window.onbeforeunload = function(e){
-				upload_data();
+				//upload_data();
 				e = e ||window.event;
 				if(e){
 					e.returnValue='leave or not ?';
 				}
-				setTimeout(function(){},10000);
+				// setTimeout(function(){},10000);
 				return "leave or not ?";
 			} 
 
-			function upload_data() {
+			function upload_data(time) {
 
-				var pageClose = new Date();
-				var minutes = (pageClose.getMinutes() - pageOpen.getMinutes());
- 				var seconds = (pageClose.getSeconds() - pageOpen.getSeconds());
- 				var time = (seconds + (minutes * 60)); 
+				// var pageClose = new Date();
+				// var minutes = (pageClose.getMinutes() - pageOpen.getMinutes());
+ 			// 	var seconds = (pageClose.getSeconds() - pageOpen.getSeconds());
+ 			// 	var time = (seconds + (minutes * 60)); 
  				// var userid = 
  				// var pageid = 
  				console.log(time);
  				// time={
  				// 	'time':time,
  				// }
-
- 			// 	$.ajax({
-				//   type: "POST",
-				//   url: "https://lawk7pnd.lc-cn-n1-shared.com/1.1/classes/Post",
-				//   data: {'time':10},
-				//   dataType: "json",
-				//   headers: {
-				//     "x-lc-id": "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
-				//     "x-lc-key": "bJSjx6pAu5cIrPvxknTKBD2O",
-				//     "content-type": "application/json",
-				//   },
-				//   success: function (data) {
-				//       console.log(data.header.status);
-				//   }
-				// });
 
  				// AV=localStorage.getItem('AV');
  				const Todo = AV.Object.extend('Todo');
