@@ -6,7 +6,6 @@
 		<script src="js/jquery.min.js"></script>
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-min.js"></script>
 		 <!-- Custom Theme files -->
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -88,14 +87,15 @@
 
 		    }
 		    else{
-		    	//jump to acknowledgement
-		    	window.location.href="#";
+		    	//jump to finish.html
+		    	window.location.href="finish.html";
 
 		    }
 		    
 		    set_userid = function(){
 		    	var user_id=document.getElementById("userid_select").value;
 		    	window.userid = user_id;
+		    	// upload userid ?
 		    }
 		    next = function(){
 		    	// check choose user id or not
@@ -106,7 +106,7 @@
 		    	else{
 		    		// jump to corresponding page according to user id
 		    		// if(userid>...)
-		    		window.location.href="#?userid="+userid;
+		    		window.location.href="collections_ess.html?userid="+userid;
 		    	}
 
 		    }
