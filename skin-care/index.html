@@ -68,10 +68,10 @@
     		<p style="position: absolute;margin-top: 400px;margin-left: 350px;">请选择您的编码：</p>
     		<select id="userid_select" style="position: absolute;margin-top: 400px;margin-left: 470px;" onchange="set_userid()" >
     		  <option value="" selected:disabled style="diaplay:none">None</option>
-			  <option value="volvo">Volvo</option>
-			  <option value="saab">Saab</option>
-			  <option value="opel">Opel</option>
-			  <option value="audi">Audi</option>
+			  <option value="1">1</option>
+			  <option value="2">2</option>
+			  <option value="3">3</option>
+			  <option value="4">4</option>
 			</select>
 			<input type="button" name="next" onclick="next()" style="position: absolute;margin-top: 400px;margin-left: 550px;" value="next">
   
@@ -105,8 +105,11 @@
 		    	}
 		    	else{
 		    		// jump to corresponding page according to user id
-		    		// if(userid>...)
-		    		window.location.href="collections_ess.html?userid="+userid;
+		    		if(userid=="1"){
+		    			window.groupid="1";
+		    			window.location.href="collections_eye.html?userid="+userid+"&groupid="+groupid;
+		    		}
+		    		
 		    	}
 
 		    }

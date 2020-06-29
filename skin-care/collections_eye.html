@@ -12,29 +12,37 @@
    		<meta name="viewport" content="width=device-width, initial-scale=1">
    		<script src="js/getparam.js"></script>
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+			window.userid = $.Request("userid");
+			window.groupid = $.Request("groupid");
+			window.type = 1;
+			console.log(window.userid);
+			console.log(window.groupid);
 			const { Query, User } = AV;
 			AV.init({
 			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
 			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
 			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
 			}); 
-			window.pageOpen=new Date();
-			time = pageOpen.getTime();
-			upload_data(time); 
-			function upload_data(time) {
+			upload_data(); 
+			function upload_data() {
+				window.pageOpen=new Date();
+				time = pageOpen.getTime();
  				console.log(time);
- 				const Todo = AV.Object.extend('Todo');
-				const todo = new Todo();
-				todo.set('time',time);
+ 				const Track = AV.Object.extend('track_'+window.userid);
+				const track = new Track();
+				track.set('userid',window.userid);
+				track.set('pageid',4);
+				track.set('time',time);
+				track.set('products',window.type);
 				// 将对象保存到云端
-				todo.save().then((todo) => {
+				track.save().then((track) => {
 				  // 成功保存之后，执行其他逻辑
-				  console.log(`Success, objectId: ${todo.id}`);
+				  console.log(`Success, objectId: ${track.id}`);
 				}, (error) => {
 					console.log(error);
 				  // 异常处理
 				});
-			} 
+			}
 		</script>
 	</head>
 	<body>
@@ -70,8 +78,8 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="404.html">About</a></li>
-						<li><a href="collections_ess.html">ESSENCE</a></li>
-						<li><a href="collections_eye.html">EYE CREAM</a></li>
+					<!-- 	<li><a href="collections_ess.html">ESSENCE</a></li>
+						<li><a href="collections_eye.html">EYE CREAM</a></li> -->
 					<!-- 	<li><a href="collections.html">What's new</a></li> -->
 				<!-- 		<li class="active"><a href="collections_ess.html">Collections</a></li> -->
 						<!-- <li><a href="404.html">Baku Club</a></li> -->
@@ -137,7 +145,7 @@
 					</div>
 				</div> -->
 				<!-- categories -->
-				<div class="categories">
+<!-- 				<div class="categories">
 					<div class="container">
 						<div class="categories-left">
 							<ul>
@@ -166,13 +174,18 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-				</div>
+				</div> -->
 				<!-- categories -->
 				<!-- iteam-grids -->
+				<script type="text/javascript">
+					jump_to_details = function(img_click){
+						window.location.href=img_click+"&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
+					}
+				</script>
 				<div class="iteam-grids">
 					<div class="container">
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=eye/iteam1.jpg';" class="iteam-grid text-center">
+							<div onclick="jump_to_details('details.html?pic=eye/iteam1.jpg')" class="iteam-grid text-center">
 								<img id='11' src="images/eye/iteam1.jpg" title="name" width="250" height="250" />
 								<span>SK-II GENOPTICS AURA eye</span>
 								<label>PRICE 1540 RMB</label>
@@ -184,7 +197,7 @@
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=eye/iteam2.jpg';" class="iteam-grid text-center">
+							<div onclick="jump_to_details('details.html?pic=eye/iteam2.jpg')" class="iteam-grid text-center">
 								<img id='12' src="images/eye/iteam2.jpg" title="name" width="250" height="250"/>
 								<span>ABEILLE ROYALE HUILE-EN-EAU JEUNESSE YOUTH WATERY OIL</span>
 								<label>PRICE 690 RMB</label>
@@ -196,7 +209,7 @@
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=eye/iteam3.jpg';" class="iteam-grid text-center">
+							<div onclick="jump_to_details('details.html?pic=eye/iteam3.jpg')" class="iteam-grid text-center">
 								<img id='13' src="images/eye/iteam3.jpg" title="name" width="250" height="250"/>
 								<span>ESTEE LAUDER ADVANCED NIGHT REPAIR</span>
 								<label>PRICE 590 RMB</label>
@@ -208,7 +221,7 @@
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=eye/iteam4.jpg';" class="iteam-grid text-center">
+							<div onclick="jump_to_details('details.html?pic=eye/iteam4.jpg')" class="iteam-grid text-center">
 								<img id='14' src="images/eye/iteam4.jpg" title="name" width="250" height="250"/>
 								<span>CLARINS BRIGHT PLUS</span>
 								<label>PRICE 720 RMB</label>
@@ -221,7 +234,7 @@
 						</div>
 						<div class="clearfix"> </div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=eye/iteam5.jpg';" class="iteam-grid text-center">
+							<div onclick="jump_to_details('details.html?pic=eye/iteam5.jpg')" class="iteam-grid text-center">
 								<img id='21' src="images/eye/iteam5.jpg" title="name" width="250" height="250"/>
 								<span>CLINQUE EVEN BETTER CLINICAL</span>
 								<label>PRICE 495 RMB</label>
@@ -233,7 +246,7 @@
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=eye/iteam6.jpg';" class="iteam-grid text-center">
+							<div onclick="jump_to_details('details.html?pic=eye/iteam6.jpg')" class="iteam-grid text-center">
 								<img id='22' src="images/eye/iteam6.jpg" title="name" width="250" height="250"/>
 								<span>SULWHASOO FIRST CARE ACTIVATING SERUM</span>
 								<label>PRICE 610 RMB</label>
@@ -245,7 +258,7 @@
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=eye/iteam7.jpg';" class="iteam-grid text-center">
+							<div onclick="jump_to_details('details.html?pic=eye/iteam7.jpg')" class="iteam-grid text-center">
 								<img id='23' src="images/eye/iteam7.jpg" title="name" width="250" height="250"/>
 								<span>KIEHL'S CLEARLY CORRECTIVE DARK SPOT SOLUTION</span>
 								<label>PRICE 540 RMB</label>
@@ -257,7 +270,7 @@
 							</div>
 						</div>
 						<div class="col-md-3">
-							<div onclick="location.href='details.html?pic=eye/iteam8.jpg';" class="iteam-grid text-center">
+							<div onclick="jump_to_details('details.html?pic=eye/iteam8.jpg')" class="iteam-grid text-center">
 								<img id='24' src="images/eye/iteam8.jpg" title="name" width="250" height="250"/>
 								<span>SHISEIDO ULTIMATE POWER INFUSING CONCENTRATE</span>
 								<label>PRICE 1040 RMB</label>
@@ -275,76 +288,21 @@
 		</div>
 		<!-- content -->
 		<!-- footer -->
-		<div class="footer">
-			<div class="footer-grids">
-				<div class="container">
-					<div class="col-md-3 footer-grid">
-						<h4>Services</h4>
-						<ul>
-							<li><a href="#">Contact Customer Service</a></li>
-							<li><a href="#">Free Delivery over $150</a></li>
-							<li><a href="#">View your Wishlist</a></li>
-							<li><a href="#">Ring Size Guide</a></li>
-							<li><a href="#">Returns</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 footer-grid">
-						<h4>Information (FAQ)</h4>
-						<ul>
-							<li><a href="#">Gift certificates</a></li>
-							<li><a href="#">Jewellery care guide</a></li>
-							<li><a href="#">International customers</a></li>
-							<li><a href="#">Wholesale enquires</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 footer-grid">
-						<h4>More details</h4>
-						<ul>
-							<li><a href="#">About us</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Terms & COndition</a></li>
-							<li><a href="#">Secure payment</a></li>
-							<li><a href="#">Site map</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 footer-grid contact-grid">
-						<h4>Contact us</h4>
-						<ul>
-							<li><span class="c-icon"> </span>Baku international Pty LTD</li>
-							<li><span class="c-icon1"> </span><a href="#">info@baku.com.au</a></li>
-							<li><span class="c-icon2"> </span>AUSTRALIA  (02) 9283 2280</li>
-						</ul>
-						<ul class="social-icons">
-							<li><a href="#"><span class="facebook"> </span></a></li>
-							<li><a href="#"><span class="twitter"> </span></a></li>
-							<li><a href="#"><span class="thumb"> </span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!-- news-letter -->
-			<div class="container">
-			<div class="news-letter">
-					<div class="news-letter-left">
-						<a href="#"><span> </span> News letter</a>
-					</div>
-					<div class="news-letter-right">
-						<p>Subscribe to notification about disconunts anf Offers from our store enter your Email id :</p>
-						<form>
-							<input type="text" class="text" value="Enter your mail id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your mail id';}">
-							<input type="submit" value="" />
-						</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-			<!-- news-letter -->
+		<!-- content -->
+		<div style="text-align: center;float: center;margin-right: 100px;">
+			<input type="button" name="finish" onclick="next()" value="Finish" style="float: right;"><p style="float: right;margin-right: 10px;">Click the "finish" button when you finish the selection of eye cream:</p>
 		</div>
-		<!-- footer -->
-		<!-- copy-right -->
-		<div class="copy-right">
-				<p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">免费模板网</a></p>
-		</div>
+		<script type="text/javascript">
+			next = function(){
+				if(window.groupid==2){
+					window.location.href="acknowledgement.html?userid="+window.userid;
+				}
+				else{
+					window.location.href="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;
+				}
+
+			}
+		</script>
 		<!-- copy-right -->
 		<!-- container -->
 	

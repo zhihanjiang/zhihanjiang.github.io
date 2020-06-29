@@ -15,24 +15,33 @@
 		<script type="application/x-javascript"> 
 			addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); 
 			function hideURLbar(){ window.scrollTo(0,1); }
+			window.userid = $.Request("userid");
+			window.groupid = $.Request("groupid");
+			window.type = $.Request("type");
+			console.log(userid);
+			console.log(groupid);
 			const { Query, User } = AV;
 			AV.init({
 			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
 			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
 			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
 			}); 
-			window.pageOpen=new Date();
-			time = pageOpen.getTime();
-			upload_data(time); 
-			function upload_data(time) {
+			
+			upload_data(); 
+			function upload_data() {
+				window.pageOpen=new Date();
+				time = pageOpen.getTime();
  				console.log(time);
- 				const Todo = AV.Object.extend('Todo');
-				const todo = new Todo();
-				todo.set('time',time);
+ 				const Track = AV.Object.extend('track_'+window.userid);
+				const track = new Track();
+				track.set('userid',window.userid);
+				track.set('pageid',4);
+				track.set('time',time);
+				track.set('products',window.type);
 				// 将对象保存到云端
-				todo.save().then((todo) => {
+				track.save().then((track) => {
 				  // 成功保存之后，执行其他逻辑
-				  console.log(`Success, objectId: ${todo.id}`);
+				  console.log(`Success, objectId: ${track.id}`);
 				}, (error) => {
 					console.log(error);
 				  // 异常处理
@@ -41,29 +50,7 @@
 		</script>
 	</head>
 	<body>
-		<!-- container -->
-			<!-- header -->
-<!-- 			<div class="header">
-				<div class="container"> -->
-				<!-- logo -->
-<!-- 				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" title="baku" /></a>
-				</div> -->
-				<!-- logo -->
-				<!-- cart-info -->
-<!-- 				<div class="cart-info">
-					<ul>
-						<li><a href="#">Login</a></li>
-						<li><a href="#">Help</a></li>
-						<li><a href="#">Stores</a></li>
-						<li class="cartinfo"><a href="#"><span> </span>My bag (0) items</a></li>
-						<div class="clearfix"> </div>
-					</ul>
-				</div> -->
-				<!-- /cart-info -->
-<!-- 			</div> -->
-			<!-- header -->
-	<!-- 	</div> -->
+
 		<!-- sub-header -->
 		<div class="sub-header">
 			<div class="container">
@@ -73,12 +60,6 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="404.html">About</a></li>
-						<li><a href="collections_ess.html">ESSENCE</a></li>
-						<li><a href="collections_eye.html">EYE CREAM</a></li>
-<!-- 						<li><a href="collections.html">What's new</a></li>
-						<li class="active"><a href="collections.html">Collections</a></li>
-						<li><a href="404.html">Baku Club</a></li>
-						<li><a href="404.html">Store Loation</a></li> -->
 						<li><a href="contact.html">Contact</a></li>
 						<div class="clearfix"> </div>
 					</ul>
@@ -127,9 +108,6 @@
 				            //将li追加到ul中
 				            ul_neg.appendChild(liObj);
 				        }
-						// document.getElementById("comments_pos").innerText=comments_data[pic]["pos"];
-						// document.getElementById("comments_neu").innerText=comments_data[pic]["neu"];
-						// document.getElementById("comments_neg").innerText=comments_data[pic]["neg"];
 						
 					});
 					function get_pic(pic){
@@ -147,39 +125,39 @@
 						document.getElementById("pic52").src=pic_path;
 						document.getElementById("pic61").src=pic_path;
 						document.getElementById("pic62").src=pic_path;
-						home_path="details.html?pic="+pic;
+						home_path="details.html?pic="+pic+"&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
 						// var href=$('comments').attr('href');
 						document.getElementById("home").setAttribute("href",home_path);
 					}
 				</script>
-				<!-- script-for-nav -->
-				<!-- search-form -->
-<!-- 				<div class="search-form">
-					<form>
-						<input type="text" class="text" value="Keyword or product code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Keyword or product code';}">
-						<input type="submit" value="" />
-					</form>
-				</div> -->
 				<div class="clearfix"> </div>
-				<!-- /search-form -->
 			</div>
 		</div>
 		<!-- /sub-header -->
 		<!-- content -->
 		<!-- details -->
 		<div class="details">
-<!-- 			<div class="details-head">
-				
-			</div> -->
+
 			<div class="details-cate">
 				<div class="container">
 					<ul>
-						<li><a id="home" href="#">Home</a></li>
+						<li><a id="home" href="#">Product</a></li>
 						<li><a id="comments" href="#">Comments</a></li>
+						<li><a id="back" href="#">Back</a></li>
 				<!-- 		<li><a href="#">Fern Clamper Bracelet</a></li> -->
 					</ul>
 				</div>
 			</div>
+			<script type="text/javascript">
+				if(window.type==0){
+				back_path="collections_ess.html?&userid="+window.userid+"&groupid="+window.groupid;
+				}
+				else if(window.type==1){
+					back_path="collections_eye.html?&userid="+window.userid+"&groupid="+window.groupid;
+				}
+				document.getElementById('back').setAttribute("href",back_path);
+				console.log(back_path);
+			</script>
 			<!-- product-single-details -->
 			<div class="product-single-details">
 				<div class="container">
@@ -239,26 +217,6 @@
 								<img id="pic61" class="etalage_thumb_image" src="" style="display: inline; width: 300px; height: 400px; opacity: 1;">
 								<img id="pic62" class="etalage_source_image" src="">
 							</li>
-<!-- 							<li class="etalage_thumb thumb_7" style="display: none; opacity: 0; background-image: none;">
-								<img class="etalage_thumb_image" src="images/product-slide/image1_thumb.jpg" style="display: inline; width: 300px; height: 400px; opacity: 1;">
-								<img class="etalage_source_image" src="images/product-slide/image1_large.jpg">
-							</li> -->
-<!-- 						<li class="etalage_magnifier" style="margin: 0px; padding: 0px; left: 6px; top: 6px; display: none; opacity: 0.05449673905968666;"><div style="margin: 0px; padding: 0px; width: 195px; height: 215px;"><img src="images/product-slide/image3_thumb.jpg" style="margin: 0px; padding: 0px; width: 300px; height: 400px; display: inline; left: 0px; top: 0px;"></div></li>
-						<li class="etalage_icon" style="display: list-item; top: 380px; left: 20px; opacity: 1;">¡¡</li>
-						<li class="etalage_hint" style="display: none; margin: 0px; top: -15px; right: -15px;">¡¡</li>
-						<li class="etalage_zoom_area" style="margin: 0px; opacity: 0; left: 324px; display: none; background-image: none;"><div class="etalage_description" style="width: 546px; bottom: 6px; left: 6px; opacity: 0.7; display: none;"></div><div style="width: 586px; height: 538px;"><img class="etalage_zoom_img" src="images/product-slide/image3_large.jpg" style="width: 900px; height: 1000px; left: -157.34166420232418px; top: 0px;"></div></li> -->
-						<!-- <li class="etalage_small_thumbs" style="width: 314px; top: 424px;"> --><!-- <ul style="width: 1072px;">
-							<li class="etalage_smallthumb_navtoend" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image7_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
-							<li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image1_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
-							<li class="etalage_smallthumb_first" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image2_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
-							<li class="etalage_smallthumb_active" style="opacity: 1; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image3_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
-							<li class="etalage_smallthumb_last" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image4_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
-							<li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image5_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
-							<li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image6_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
-							<li class="" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image7_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
-							<li class="etalage_smallthumb_navtostart" style="opacity: 0.4; margin: 0px 10px 0px 0px; left: -216px;"><img class="etalage_small_thumb" src="images/product-slide/image1_thumb.jpg" width="90" style="width: 90px; height: 120px;"></li>
-						</ul> -->
-					<!-- </li> -->
 					</ul>
 					</div>
 					</div>
@@ -266,22 +224,7 @@
 					<div class="product-single-details-right">
 						<h2 style="line-height: 30px;" id="name">Fern Clamper Bracelet</h2>
 						<p id="description">Description:<span> Mexican Silver Fern Clamper Bracelet. 7 1/4INCH </span></p>
-			<!-- 			<ul class="r-list">
-							<li class="rating"><span> </span>340 Ratings</li>
-							<li class="heart"><span> </span>Add to Watchlist</li>
-						</ul> -->
-						<!-- price-details -->
-		<!-- 				<div class="price-details">
-							<div class="price-details-left">
-								<p>Product Code 	: C425001A</p>
-								<p>Best price: $ 820.00</p>
-							</div>
-							<div class="price-details-right">
-								<input type="button" value="Add to cart" />
-							</div>
-							<div class="clearfix"> </div>
-						</div> -->
-						<!-- price-details -->
+
 						<!-- product-description -->
 
 						<div class="product-description">
@@ -342,79 +285,24 @@
 		</div>
 		<!-- details -->
 		<!-- content -->
-		<!-- footer -->
-		<div class="footer">
-			<div class="footer-grids">
-				<div class="container">
-					<div class="col-md-3 footer-grid">
-						<h4>Services</h4>
-						<ul>
-							<li><a href="#">Contact Customer Service</a></li>
-							<li><a href="#">Free Delivery over $150</a></li>
-							<li><a href="#">View your Wishlist</a></li>
-							<li><a href="#">Ring Size Guide</a></li>
-							<li><a href="#">Returns</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 footer-grid">
-						<h4>Information (FAQ)</h4>
-						<ul>
-							<li><a href="#">Gift certificates</a></li>
-							<li><a href="#">Jewellery care guide</a></li>
-							<li><a href="#">International customers</a></li>
-							<li><a href="#">Wholesale enquires</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 footer-grid">
-						<h4>More details</h4>
-						<ul>
-							<li><a href="#">About us</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Terms & COndition</a></li>
-							<li><a href="#">Secure payment</a></li>
-							<li><a href="#">Site map</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3 footer-grid contact-grid">
-						<h4>Contact us</h4>
-						<ul>
-							<li><span class="c-icon"> </span>Baku international Pty LTD</li>
-							<li><span class="c-icon1"> </span><a href="#">info@baku.com.au</a></li>
-							<li><span class="c-icon2"> </span>AUSTRALIA  (02) 9283 2280</li>
-						</ul>
-						<ul class="social-icons">
-							<li><a href="#"><span class="facebook"> </span></a></li>
-							<li><a href="#"><span class="twitter"> </span></a></li>
-							<li><a href="#"><span class="thumb"> </span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!-- news-letter -->
-			<div class="container">
-			<div class="news-letter">
-					<div class="news-letter-left">
-						<a href="#"><span> </span> News letter</a>
-					</div>
-					<div class="news-letter-right">
-						<p>Subscribe to notification about disconunts anf Offers from our store enter your Email id :</p>
-						<form>
-							<input type="text" class="text" value="Enter your mail id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your mail id';}">
-							<input type="submit" value="" />
-						</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-			<!-- news-letter -->
+		<div style="text-align: center;float: center;margin-right: 100px;">
+			<input type="button" name="finish" onclick="next()" value="Finish" style="float: right;"><p style="float: right;margin-right: 10px;">Click the "finish" button when you finish the selection of eye cream:</p>
 		</div>
-		<!-- footer -->
-		<!-- copy-right -->
-		<div class="copy-right">
-				<p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">Ãâ·ÑÄ£°åÍø</a></p>
-		</div>
-		<!-- copy-right -->
-		<!-- container -->
+		<script type="text/javascript">
+			next = function(){
+				if(window.groupid==1 && window.type==0){
+					window.location.href="acknowledgement.html?userid="+window.userid;
+				}
+				else if(window.groupid==2){
+					window.location.href="acknowledgement.html?userid="+window.userid;
+				}
+				else{
+					window.location.href="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;
+				}
+
+			}
+		</script>
+
 	
 </body>
 </html>
