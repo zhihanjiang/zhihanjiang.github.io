@@ -16,6 +16,10 @@
 			window.groupid = $.Request("groupid");
 			window.pageid = 2;
 			window.type = -1;
+			about_path="about.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
+			contact_path="contact.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
+			document.getElementById("about").setAttribute("href",about_path);
+			document.getElementById("contact").setAttribute("href",contact_path);
 			console.log(window.userid);
 			console.log(window.groupid);
 			const { Query, User } = AV;
@@ -54,8 +58,8 @@
 					<span class="menu"> </span>
 					<ul>
 						<li><a id="collections" href="#">Collections</a></li>
-						<li><a href="404.html">About</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a id="about" href="#">About</a></li>
+						<li><a id="contact" href="#">Contact</a></li>
 						<div class="clearfix"> </div>
 					</ul>
 				</div>

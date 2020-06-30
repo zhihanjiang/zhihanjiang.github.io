@@ -20,8 +20,11 @@
 			window.pic=$.Request("pic");
 			window.type = product_info[pic]["id"];
 			// window.type = $.Request("type");
-
 			window.pageid = 3;
+			about_path="about.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
+			contact_path="contact.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
+			document.getElementById("about").setAttribute("href",about_path);
+			document.getElementById("contact").setAttribute("href",contact_path);
 			console.log(userid);
 			console.log(groupid);
 			// console.log(type);
@@ -63,8 +66,8 @@
 					<span class="menu"> </span>
 					<ul>
 						<li><a id="collections" href="#">Collections</a></li>
-						<li><a href="404.html">About</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a id="about" href="#">About</a></li>
+						<li><a id="contact" href="#">Contact</a></li>
 						<div class="clearfix"> </div>
 					</ul>
 				</div>

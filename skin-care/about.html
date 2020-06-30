@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+		<title>Skin Care</title>
+		<script src="js/jquery.min.js"></script>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-min.js"></script>
+		 <!-- Custom Theme files -->
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+   		 <!-- Custom Theme files -->
+   		<meta name="viewport" content="width=device-width, initial-scale=1">
+   		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<script type="application/x-javascript"> 
+			addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); 
+			function hideURLbar(){ window.scrollTo(0,1); }
+
+			// const { Query, User } = AV;
+			// AV.init({
+			//   appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
+			//   appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
+			//   serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
+			// }); 
+			// localStorage.getItem('AV',AV);
+		</script>
+	</head>
+	<body>
+
+	    <nav class="navbar navbar-default" id="header">
+	            <div class="container">
+	                <h2 style="text-align: center;">说明</h2>
+	            </div>
+	    </nav>
+		<div style="position:absolute;text-align: left;margin-left:250px;width: 600px;height: 500px;">
+            <table cellSpacing="0" cellpadding="1" width="80%" class="ctl" border=1 >
+                
+                <p style="text-align: left;">本网站用于研究xxx。为保证被试者的隐私，我们不要求提供真实姓名。在这项研究中，研究人员将采取以下步骤来保护参与者的身份：<br/>（1）为每个参与者分配一个号码；<br/>（2）研究人员将按此号码记录研究期间收集的所有数据，而不是按名称记录；<br/>（3）分析过程中您在网页上的操作数据会被收集用于特征提取，但研究者不会查看其具体内容；<br/>（4）分析过程中您的个人信息/隐私将被预先移除，您的身份标识将被隐藏；<br/>（5）任何数据将被存储在安全的位置，只能由授权的研究人员访问，不会透露给第三方；<br/>（6）一旦研究结束，数据将会被全部删除。</p>
+            </table>
+        </div>
+        <input type="button" name="next" onclick="next()" style="position: absolute;margin-top: 300px;margin-left: 250px;" value="next">
+        <p style="text-align: left;position: absolute; width: 600px;margin-top: 300px;margin-left: 250px;">我自愿参加这个实验，并且理解收集的数据将被用于学术研究的目的，我允许研究者在保护我的隐私的情况下使用我的数据。</p>
+        <input type="radio"  name="choose" id="disagree" value=0 checked="true" style="position: absolute;margin-top: 350px;margin-left: 300px;" /> <p id="p1" style="position: absolute;margin-top: 350px;margin-left: 320px;">不同意</p>
+    	<input type="radio"  name="choose" id="agree" value=1 style="position: absolute;margin-top: 350px;margin-left: 390px;" /> <p id="p2" style="position: absolute;margin-top: 350px;margin-left: 410px;">同意</p>
+    	<input type="button" name="submit" onclick="submit()" style="position: absolute;margin-top: 350px;margin-left: 600px;" value="提交">
+    	<div id="input_userid" style="display: none;">
+    		<p style="position: absolute;margin-top: 400px;margin-left: 350px;">您的编码为</p>
+    		<select id="userid_select" style="position: absolute;margin-top: 400px;margin-left: 470px;" onchange="set_userid()" >
+    		  <option value="" selected:disabled style="diaplay:none">None</option>
+			  <option value="1">1</option>
+			  <option value="2">2</option>
+			  <option value="3">3</option>
+			  <option value="4">4</option>
+			</select>
+			
+  
+    	</div>
+    	<script type="text/javascript">
+    		window.userid="";
+    		submit = function (){
+		    var radios = document.getElementById("agree");
+		    if(radios.checked==true){
+		    	// display user id selection list
+		    	var user_id=document.getElementById("input_userid");
+		    	user_id.style.display="inline";
+		    }
+		    else{
+		    	//jump to finish.html
+		    	window.location.href="finish.html";
+		    }
+		    
+		    set_userid = function(){
+		    	var user_id=document.getElementById("userid_select").value;
+		    	window.userid = user_id;
+		    }
+		    next = function(){
+		    	// check choose user id or not
+		    	console.log(window.userid)
+		    	if(window.userid==""){
+		    		alert("请选择您的编号！")
+		    	}
+		    	else{
+		    		// jump to corresponding page according to user id
+		    		if(window.userid=="1"){
+		    			window.groupid=1;
+		    			window.location.href="collections_eye.html?userid="+userid+"&groupid="+groupid;
+		    		}
+		    		
+		    	}
+
+		    }
+
+		}
+    	</script>
+	
+	</body>
+</html>
+
