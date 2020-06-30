@@ -62,7 +62,7 @@
 				<div class="top-nav">
 					<span class="menu"> </span>
 					<ul>
-						<li><a href="index.html">Home</a></li>
+						<li><a id="collections" href="#">Collections</a></li>
 						<li><a href="404.html">About</a></li>
 						<li><a href="contact.html">Contact</a></li>
 						<div class="clearfix"> </div>
@@ -137,6 +137,7 @@
 					back_path="collections_eye.html?userid="+window.userid+"&groupid="+window.groupid;
 				}
 				document.getElementById('back').setAttribute("href",back_path);
+				document.getElementById('collections').setAttribute("href",back_path);
 				console.log(back_path);
 			</script>
 			<!-- product-single-details -->
