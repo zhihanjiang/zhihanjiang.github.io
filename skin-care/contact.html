@@ -16,15 +16,6 @@
 			window.groupid = $.Request("groupid");
 			window.type = parseInt($.Request("type"));
 			window.pageid = 6;
-			about_path="about.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
-			if(window.type==0 || (window.type>0 && window.type<=8)){
-				collections_path="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;
-			}
-			else{
-				collections_path="collections_eye.html?userid="+window.userid+"&groupid="+window.groupid;
-			}
-			document.getElementById("about").setAttribute("href",about_path);
-			document.getElementById("collections").setAttribute("href",collections_path);
 			const { Query, User } = AV;
 			AV.init({
 			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
@@ -66,6 +57,17 @@
 						<div class="clearfix"> </div>
 					</ul>
 				</div>
+				<script type="text/javascript">
+					about_path="about.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
+					if(window.type==0 || (window.type>0 && window.type<=8)){
+						collections_path="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;
+					}
+					else{
+						collections_path="collections_eye.html?userid="+window.userid+"&groupid="+window.groupid;
+					}
+					document.getElementById("about").setAttribute("href",about_path);
+					document.getElementById("collections").setAttribute("href",collections_path);
+				</script>
 				<!-- top-nav -->
 				<!-- script-for-nav -->
 				<script>
