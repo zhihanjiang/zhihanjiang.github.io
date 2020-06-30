@@ -5,6 +5,7 @@
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-min.js"></script>
 		 <!-- Custom Theme files -->
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
@@ -14,7 +15,7 @@
 			window.userid = $.Request("userid");
 			window.groupid = $.Request("groupid");
 			window.type = parseInt($.Request("type"));
-			window.pageid = 1;
+			window.pageid = 6;
 			about_path="about.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
 			if(window.type==0 || (window.type>0 && window.type<=8)){
 				collections_path="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;
@@ -24,7 +25,31 @@
 			}
 			document.getElementById("about").setAttribute("href",about_path);
 			document.getElementById("collections").setAttribute("href",collections_path);
-
+			const { Query, User } = AV;
+			AV.init({
+			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
+			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
+			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
+			}); 
+			upload_data(); 
+			function upload_data() {
+				window.pageOpen=new Date();
+				time = pageOpen.getTime();
+ 				console.log(time);
+ 				const Track = AV.Object.extend('track_'+window.userid);
+				const track = new Track();
+				track.set('userid',parseInt(window.userid));
+				track.set('pageid',parseInt(window.pageid));
+				track.set('time',time);
+				// 将对象保存到云端
+				track.save().then((track) => {
+				  // 成功保存之后，执行其他逻辑
+				  console.log(`Success, objectId: ${track.id}`);
+				}, (error) => {
+					console.log(error);
+				  // 异常处理
+				});
+			}
 		</script>
 	</head>
 	<body>
