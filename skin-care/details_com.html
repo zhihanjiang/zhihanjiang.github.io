@@ -43,7 +43,7 @@
 				track.set('userid',parseInt(window.userid));
 				track.set('pageid',parseInt(window.pageid));
 				track.set('time',time);
-				track.set('products',parseInt(window.type));
+				track.set('productid',parseInt(window.type));
 				// 将对象保存到云端
 				track.save().then((track) => {
 				  // 成功保存之后，执行其他逻辑
@@ -154,10 +154,10 @@
 			</div>
 			<script type="text/javascript">
 				if(window.type<=8){
-					back_path="collections_ess.html?&userid="+window.userid+"&groupid="+window.groupid;
+					back_path="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;
 				}
 				else if{
-					back_path="collections_eye.html?&userid="+window.userid+"&groupid="+window.groupid;
+					back_path="collections_eye.html?userid="+window.userid+"&groupid="+window.groupid;
 				}
 				document.getElementById('back').setAttribute("href",back_path);
 				console.log(back_path);

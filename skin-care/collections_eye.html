@@ -34,7 +34,7 @@
 				track.set('userid',parseInt(window.userid));
 				track.set('pageid',parseInt(window.pageid));
 				track.set('time',time);
-				track.set('products',parseInt(window.type));
+				track.set('productid',parseInt(window.type));
 				// 将对象保存到云端
 				track.save().then((track) => {
 				  // 成功保存之后，执行其他逻辑
