@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Details</title>
-		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-min.js"></script>
@@ -15,6 +15,7 @@
 			window.userid = $.Request("userid");
 			window.groupid = $.Request("groupid");
 			window.type = $.Request("type");
+			window.pageid = 3;
 			console.log(userid);
 			console.log(groupid);
 			console.log(type);
@@ -24,18 +25,21 @@
 			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
 			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
 			}); 
-			window.pageOpen=new Date();
-			time = pageOpen.getTime();
-			upload_data(time); 
-			function upload_data(time) {
+			upload_data(); 
+			function upload_data() {
+				window.pageOpen=new Date();
+				time = pageOpen.getTime();
  				console.log(time);
- 				const Todo = AV.Object.extend('Todo');
-				const todo = new Todo();
-				todo.set('time',time);
+ 				const Track = AV.Object.extend('track_'+window.userid);
+				const track = new Track();
+				track.set('userid',window.userid);
+				track.set('pageid',window.pageid);
+				track.set('time',time);
+				track.set('products',window.type);
 				// 将对象保存到云端
-				todo.save().then((todo) => {
+				track.save().then((track) => {
 				  // 成功保存之后，执行其他逻辑
-				  console.log(`Success, objectId: ${todo.id}`);
+				  console.log(`Success, objectId: ${track.id}`);
 				}, (error) => {
 					console.log(error);
 				  // 异常处理
@@ -236,10 +240,10 @@
 		<script type="text/javascript">
 			next = function(){
 				if(window.groupid==1 && window.type==0){
-					window.location.href="acknowledgement.html?userid="+window.userid;
+					window.location.href="acknowledgement.html?userid="+window.userid+"&groupid="+window.groupid;
 				}
 				else if(window.groupid==2 && window.type==1){
-					window.location.href="acknowledgement.html?userid="+window.userid;
+					window.location.href="acknowledgement.html?userid="+window.userid+"&groupid="+window.groupid;
 				}
 				else{
 					window.location.href="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;

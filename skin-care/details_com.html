@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Details</title>
-		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-min.js"></script>
@@ -18,6 +18,7 @@
 			window.userid = $.Request("userid");
 			window.groupid = $.Request("groupid");
 			window.type = $.Request("type");
+			window.pageid = 4;
 			console.log(userid);
 			console.log(groupid);
 			const { Query, User } = AV;
@@ -35,7 +36,7 @@
  				const Track = AV.Object.extend('track_'+window.userid);
 				const track = new Track();
 				track.set('userid',window.userid);
-				track.set('pageid',4);
+				track.set('pageid',window.pageid);
 				track.set('time',time);
 				track.set('products',window.type);
 				// 将对象保存到云端
@@ -291,10 +292,10 @@
 		<script type="text/javascript">
 			next = function(){
 				if(window.groupid==1 && window.type==0){
-					window.location.href="acknowledgement.html?userid="+window.userid;
+					window.location.href="acknowledgement.html?userid="+window.userid+"&groupid="+window.groupid;
 				}
 				else if(window.groupid==2){
-					window.location.href="acknowledgement.html?userid="+window.userid;
+					window.location.href="acknowledgement.html?userid="+window.userid+"&groupid="+window.groupid;
 				}
 				else{
 					window.location.href="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;

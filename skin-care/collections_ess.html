@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Collection</title>
-		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-min.js"></script>
@@ -15,6 +15,7 @@
 			window.userid = $.Request("userid");
 			window.groupid = $.Request("groupid");
 			window.type = 0;
+			window.pageid = 1;
 			console.log(userid);
 			console.log(groupid);
 			const { Query, User } = AV;
@@ -31,7 +32,7 @@
  				const Track = AV.Object.extend('track_'+window.userid);
 				const track = new Track();
 				track.set('userid',window.userid);
-				track.set('pageid',4);
+				track.set('pageid',window.pageid);
 				track.set('time',time);
 				track.set('products',window.type);
 				// 将对象保存到云端
@@ -46,29 +47,7 @@
 		</script>
 	</head>
 	<body>
-		<!-- container -->
-			<!-- header -->
-<!-- 			<div class="header">
-				<div class="container"> -->
-				<!-- logo -->
-<!-- 				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" title="baku" /></a>
-				</div> -->
-				<!-- logo -->
-				<!-- cart-info -->
-<!-- 				<div class="cart-info">
-					<ul>
-						<li><a href="#">Login</a></li>
-						<li><a href="#">Help</a></li>
-						<li><a href="#">Stores</a></li>
-						<li class="cartinfo"><a href="#"><span> </span>My bag (0) items</a></li>
-						<div class="clearfix"> </div>
-					</ul>
-				</div> -->
-				<!-- /cart-info -->
-<!-- 			</div> -->
-			<!-- header -->
-<!-- 		</div> -->
+
 		<!-- sub-header -->
 		<div class="sub-header">
 			<div class="container">
@@ -78,12 +57,6 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="404.html">About</a></li>
-					<!-- 	<li><a href="collections_ess.html">ESSENCE</a></li>
-						<li><a href="collections_eye.html">EYE CREAM</a></li> -->
-					<!-- 	<li><a href="collections.html">What's new</a></li> -->
-				<!-- 		<li class="active"><a href="collections_ess.html">Collections</a></li> -->
-						<!-- <li><a href="404.html">Baku Club</a></li> -->
-				<!-- 		<li><a href="404.html">Store Loation</a></li> -->
 						<li><a href="contact.html">Contact</a></li>
 						<div class="clearfix"> </div>
 					</ul>
@@ -97,35 +70,9 @@
 						});
 						// get_plan();
 					});
-					// function get_plan(){
-					// 	var plan=$.Request("plan");
-					// 	window.plan=plan;
-					// 	if(plan==1 || plan==2){
-					// 		window.pic_path='images/essence/';
-					// 	}
-					// 	else{
-					// 		window.pic_path='images/eye/';
-					// 	}
-					// 	document.getElementById("11").src=pic_path+'iteam1.jpg';
-					// 	document.getElementById("12").src=pic_path+'iteam2.jpg';
-					// 	document.getElementById("13").src=pic_path+'iteam3.jpg';
-					// 	document.getElementById("14").src=pic_path+'iteam4.jpg';
-					// 	document.getElementById("21").src=pic_path+'iteam5.jpg';
-					// 	document.getElementById("22").src=pic_path+'iteam6.jpg';
-					// 	document.getElementById("23").src=pic_path+'iteam7.jpg';
-					// 	document.getElementById("24").src=pic_path+'iteam8.jpg';
 
-						
-					// }
 				</script>
 				<!-- script-for-nav -->
-				<!-- search-form -->
-<!-- 				<div class="search-form">
-					<form>
-						<input type="text" class="text" value="Keyword or product code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Keyword or product code';}">
-						<input type="submit" value="" />
-					</form>
-				</div> -->
 				<div class="clearfix"> </div>
 				<!-- /search-form -->
 			</div>
@@ -251,7 +198,7 @@
 		<script type="text/javascript">
 			next = function(){
 				if(window.groupid==1){
-					window.location.href="acknowledgement.html?userid="+window.userid;
+					window.location.href="acknowledgement.html?userid="+window.userid+"&groupid="+window.groupid;
 				}
 				else{
 					window.location.href="collections_eye.html?userid="+window.userid+"&groupid="+window.groupid;

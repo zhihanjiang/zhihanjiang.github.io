@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 		<title>Skin Care</title>
 		<script src="js/jquery.min.js"></script>
-		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- <link href="css/bootstrap.css" rel='stylesheet' type='text/css' /> -->
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-min.js"></script>
 		 <!-- Custom Theme files -->
@@ -16,39 +16,17 @@
 			addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); 
 			function hideURLbar(){ window.scrollTo(0,1); }
 
-			const { Query, User } = AV;
-			AV.init({
-			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
-			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
-			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
-			}); 
+			// const { Query, User } = AV;
+			// AV.init({
+			//   appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
+			//   appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
+			//   serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
+			// }); 
 			// localStorage.getItem('AV',AV);
 		</script>
 	</head>
 	<body>
-		<script type="text/javascript">
-			window.pageOpen=new Date();
-			time = pageOpen.getTime();
-			upload_data(time);
 
-			function upload_data(time) {
-
- 				console.log(time);
-
- 				const Todo = AV.Object.extend('Todo');
-				const todo = new Todo();
-				todo.set('time',time);
-				// 将对象保存到云端
-				todo.save().then((todo) => {
-				  // 成功保存之后，执行其他逻辑
-				  console.log(`Success, objectId: ${todo.id}`);
-				}, (error) => {
-					console.log(error);
-				  // 异常处理
-				});
-			}
-
-		</script>
 	    <nav class="navbar navbar-default" id="header">
 	            <div class="container">
 	                <h2 style="text-align: center;">说明</h2>
@@ -84,29 +62,26 @@
 		    	// display user id selection list
 		    	var user_id=document.getElementById("input_userid");
 		    	user_id.style.display="inline";
-
 		    }
 		    else{
 		    	//jump to finish.html
 		    	window.location.href="finish.html";
-
 		    }
 		    
 		    set_userid = function(){
 		    	var user_id=document.getElementById("userid_select").value;
 		    	window.userid = user_id;
-		    	// upload userid ?
 		    }
 		    next = function(){
 		    	// check choose user id or not
-		    	console.log(userid)
-		    	if(userid==""){
+		    	console.log(window.userid)
+		    	if(window.userid=="1"){
 		    		alert("请选择您的编号！")
 		    	}
 		    	else{
 		    		// jump to corresponding page according to user id
-		    		if(userid=="1"){
-		    			window.groupid="1";
+		    		if(window.userid=="1"){
+		    			window.groupid=1;
 		    			window.location.href="collections_eye.html?userid="+userid+"&groupid="+groupid;
 		    		}
 		    		
