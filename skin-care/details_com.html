@@ -24,10 +24,6 @@
 			window.type = product_info[pic]["id"];
 			// window.type = $.Request("type");
 			window.pageid = 4;
-			about_path="about.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
-			contact_path="contact.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
-			document.getElementById("about").setAttribute("href",about_path);
-			document.getElementById("contact").setAttribute("href",contact_path);
 			console.log(userid);
 			console.log(groupid);
 			const { Query, User } = AV;
@@ -74,6 +70,12 @@
 						<div class="clearfix"> </div>
 					</ul>
 				</div>
+				<script type="text/javascript">
+					about_path="about.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
+					contact_path="contact.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
+					document.getElementById("about").setAttribute("href",about_path);
+					document.getElementById("contact").setAttribute("href",contact_path);
+				</script>
 				<!-- top-nav -->
 				<!-- script-for-nav -->
 				<script>
