@@ -14,7 +14,9 @@
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
 			window.userid = $.Request("userid");
 			window.groupid = $.Request("groupid");
-			window.type = $.Request("type");
+
+			// window.type = $.Request("type");
+
 			window.pageid = 3;
 			console.log(userid);
 			console.log(groupid);
@@ -25,7 +27,7 @@
 			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
 			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
 			}); 
-			upload_data(); 
+			
 			function upload_data() {
 				window.pageOpen=new Date();
 				time = pageOpen.getTime();
@@ -65,12 +67,14 @@
 				<!-- top-nav -->
 				<!-- script-for-nav -->
 				<script>
-					window.product_info={"essence/iteam1.jpg":{"name":"SK-II GENOPTICS AURA ESSENCE","price":"1540 RMB","description":"Packed with radiance-enhancing ingredients, this lightweight serum absorbs quickly to improve dullness and help reduce appearance of dark spots caused by sun damage for even, glowing skin."},"essence/iteam2.jpg":{"name":"ABEILLE ROYALE HUILE-EN-EAU JEUNESSE YOUTH WATERY OIL","price":"690 RMB","description":"Abeille Royale Youth Watery Oil offers the skin all the power of Guerlain-exclusive ingredients: Ouessant Black Bee Honey and exclusive Royal Jelly. "},"essence/iteam3.jpg":{"name":"ESTEE LAUDER ADVANCED NIGHT REPAIR","price":"590 RMB","description":"Powerful nighttime renewal serum for radiant, youthful-looking skin. Instantly adds radiance. Intensely hydrates. Advanced Night Repair significantly reduces the look of key signs of aging."},"essence/iteam4.jpg":{"name":"CLARINS BRIGHT PLUS","price":"720 RMB","description":"Powerful illuminating serum that helps revive dull skin and targets all types of dark spots for a visibly brighter, more even complexion."},"essence/iteam5.jpg":{"name":"CLINQUE EVEN BETTER CLINICAL","price":"495 RMB","description":"A powerful brightening serum that helps visibly correct discoloration and acne scars, while interrupting future dark spots."},"essence/iteam6.jpg":{"name":"SULWHASOO FIRST CARE ACTIVATING SERUM","price":"610 RMB","description":"Formulated with JAUM Balancing Complex, a potent cocktail of five Korean herbs, this unique prepping serum designed to be the first step post-cleanse that hydrates, nourishes and visibly firms, while boosting absorption of subsequent products that are applied on top."},"essence/iteam7.jpg":{"name":"KIEHL'S CLEARLY CORRECTIVE DARK SPOT SOLUTION","price":"540 RMB","description":"This brightening face serum is formulated with a potent form of vitamin C, peony extract, and white birch extract. After use, skin is left appearing even and the look of dark spots appear reduced."},"essence/iteam8.jpg":{"name":"SHISEIDO ULTIMATE POWER INFUSING CONCENTRATE","price":"1040 RMB","description":"Strengthen Skin. Resist Damage. The Ultimune serum strengthens skin against daily damage and visible signs of aging for skin that’s 28% stronger in just 1 week."},"eye/iteam1.jpg":{"name":"ESTEE LAUDER ADVANCED NIGHT REPAIR EYE","price":"510 RMB","description":"test"}};
+					window.product_info={"essence/iteam1.jpg":{"id":1,"name":"SK-II GENOPTICS AURA ESSENCE","price":"1540 RMB","description":"Packed with radiance-enhancing ingredients, this lightweight serum absorbs quickly to improve dullness and help reduce appearance of dark spots caused by sun damage for even, glowing skin."},"essence/iteam2.jpg":{"id":2,"name":"ABEILLE ROYALE HUILE-EN-EAU JEUNESSE YOUTH WATERY OIL","price":"690 RMB","description":"Abeille Royale Youth Watery Oil offers the skin all the power of Guerlain-exclusive ingredients: Ouessant Black Bee Honey and exclusive Royal Jelly. "},"essence/iteam3.jpg":{"id":3,"name":"ESTEE LAUDER ADVANCED NIGHT REPAIR","price":"590 RMB","description":"Powerful nighttime renewal serum for radiant, youthful-looking skin. Instantly adds radiance. Intensely hydrates. Advanced Night Repair significantly reduces the look of key signs of aging."},"essence/iteam4.jpg":{"id":4,"name":"CLARINS BRIGHT PLUS","price":"720 RMB","description":"Powerful illuminating serum that helps revive dull skin and targets all types of dark spots for a visibly brighter, more even complexion."},"essence/iteam5.jpg":{"id":5,"name":"CLINQUE EVEN BETTER CLINICAL","price":"495 RMB","description":"A powerful brightening serum that helps visibly correct discoloration and acne scars, while interrupting future dark spots."},"essence/iteam6.jpg":{"id":6,"name":"SULWHASOO FIRST CARE ACTIVATING SERUM","price":"610 RMB","description":"Formulated with JAUM Balancing Complex, a potent cocktail of five Korean herbs, this unique prepping serum designed to be the first step post-cleanse that hydrates, nourishes and visibly firms, while boosting absorption of subsequent products that are applied on top."},"essence/iteam7.jpg":{"id":7,"name":"KIEHL'S CLEARLY CORRECTIVE DARK SPOT SOLUTION","price":"540 RMB","description":"This brightening face serum is formulated with a potent form of vitamin C, peony extract, and white birch extract. After use, skin is left appearing even and the look of dark spots appear reduced."},"essence/iteam8.jpg":{"id":8,"name":"SHISEIDO ULTIMATE POWER INFUSING CONCENTRATE","price":"1040 RMB","description":"Strengthen Skin. Resist Damage. The Ultimune serum strengthens skin against daily damage and visible signs of aging for skin that’s 28% stronger in just 1 week."},"eye/iteam1.jpg":{"id":9,"name":"ESTEE LAUDER ADVANCED NIGHT REPAIR EYE","price":"510 RMB","description":"test"}};
 					$(document).ready(function(){
 						$("span.menu").click(function(){
 							$(".top-nav ul").slideToggle(300);
 						});
 						var pic=$.Request("pic");
+						window.type = product_info[pic]["id"];
+						upload_data(); 
 						get_pic(pic);
 						document.getElementById("name").innerText=product_info[pic]["name"];
 						document.getElementById("price").innerText='Price: '+product_info[pic]["price"];
