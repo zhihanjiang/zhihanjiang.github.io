@@ -31,10 +31,10 @@
  				console.log(time);
  				const Track = AV.Object.extend('track_'+window.userid);
 				const track = new Track();
-				track.set('userid',parseInt(window.userid));
-				track.set('pageid',parseInt(window.pageid));
+				track.set('userid',window.userid);
+				track.set('pageid',window.pageid);
 				track.set('time',time);
-				track.set('products',parseInt(window.type));
+				track.set('products',window.type);
 				// 将对象保存到云端
 				track.save().then((track) => {
 				  // 成功保存之后，执行其他逻辑
