@@ -245,10 +245,10 @@
 		</div>
 		<script type="text/javascript">
 			next = function(){
-				if(window.groupid==1 && window.type==0){
+				if(window.groupid==1 && window.type<=8){
 					window.location.href="acknowledgement.html?userid="+window.userid+"&groupid="+window.groupid;
 				}
-				else if(window.groupid==2 && window.type==1){
+				else if(window.groupid==2 && window.type>8){
 					window.location.href="acknowledgement.html?userid="+window.userid+"&groupid="+window.groupid;
 				}
 				else{
