@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Contact</title>
+		<title>Instruction</title>
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -10,12 +10,13 @@
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
    		<meta name="viewport" content="width=device-width, initial-scale=1">
+   		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
    		<script src="js/getparam.js"></script>
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 			window.userid = $.Request("userid");
 			window.groupid = $.Request("groupid");
-			window.type = parseInt($.Request("type"));
-			window.pageid = 6;
+			// window.type = parseInt($.Request("type"));
+			window.pageid = 9;
 			const { Query, User } = AV;
 			AV.init({
 			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
@@ -48,28 +49,12 @@
 		<div class="sub-header">
 			<div class="container">
 				<!-- top-nav -->
-				<div class="top-nav">
+<!-- 				<div class="top-nav">
 					<span class="menu"> </span>
 					<ul>
-						<li><a id="collections" href="#">产品集</a></li>
-						<li><a id="about" href="#">关于</a></li>
-						<li><a id="contact" href="#">联系我们</a></li>
-						<div class="clearfix"> </div>
+						<li><a id="instructions" href="#">Instructions</a></li>
 					</ul>
-				</div>
-				<script type="text/javascript">
-					about_path="about.html?&userid="+window.userid+"&groupid="+window.groupid+"&type="+window.type;
-					if(window.type==0 || (window.type>0 && window.type<=8)){
-						collections_path="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;
-					}
-					else{
-						collections_path="collections_eye.html?userid="+window.userid+"&groupid="+window.groupid;
-					}
-					document.getElementById("about").setAttribute("href",about_path);
-					document.getElementById("collections").setAttribute("href",collections_path);
-				</script>
-				<!-- top-nav -->
-				<!-- script-for-nav -->
+				</div> -->
 				<script>
 					$(document).ready(function(){
 						$("span.menu").click(function(){
@@ -86,11 +71,25 @@
 		<div class="contact">
 			<div class="container">
 				<div class="contact-head text-center">
-					<h2>Contact us</h2>
-					<span>email, phone, etc.</span>
+					<nav class="navbar navbar-default" id="header">
+				            <div class="container">
+				                <h2 style="text-align: center;">说 明</h2>
+				            </div>
+				    </nav>
+				    <div style="position:absolute;text-align: left;margin-left:250px;width: 600px;height: 500px;">
+            			<table cellSpacing="0" cellpadding="1" width="80%" class="ctl" border=1 >
+                			<p style="text-align: left;">接下来您将进入一个面部精华产品的页面，请在页面上浏览选择您感兴趣的精华产品。点击商品可进入详情页面，在商品详情页面中有商品的介绍，点击评论可查看该商品的评论，在完成该商品的浏览后，可以点击返回回到商品列表，也可点击结束按钮结束该类商品的选择，进入下一类商品的页面。</p>
+            			</table>
+        			</div>
 				</div>
+				<input type="button" name="next" onclick="next()" style="position: absolute;margin-top: 350px;margin-left: 600px;" value="下一步">
 			</div>
 		</div>
+		<script type="text/javascript">
+			next = function(){
+				window.location.href="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;
+			}
+		</script>
 </body>
 </html>
 
