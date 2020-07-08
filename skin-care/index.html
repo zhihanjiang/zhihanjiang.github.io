@@ -50,8 +50,88 @@
 			  <option value="2">2</option>
 			  <option value="3">3</option>
 			  <option value="4">4</option>
+			  <option value="5">5</option>
+			  <option value="6">6</option>
+			  <option value="7">7</option>
+			  <option value="8">8</option>
+			  <option value="9">9</option>
+			  <option value="10">10</option>
+			  <option value="11">11</option>
+			  <option value="12">12</option>
+			  <option value="13">13</option>
+			  <option value="14">14</option>
+			  <option value="15">15</option>
+			  <option value="16">16</option>
+			  <option value="17">17</option>
+			  <option value="18">18</option>
+			  <option value="19">19</option>
+			  <option value="20">20</option>
+			  <option value="21">21</option>
+			  <option value="22">22</option>
+			  <option value="23">23</option>
+			  <option value="24">24</option>
+			  <option value="25">25</option>
+			  <option value="26">26</option>
+			  <option value="27">27</option>
+			  <option value="28">28</option>
 			</select>
-			<input type="button" name="next" onclick="next()" style="position: absolute;margin-top: 400px;margin-left: 550px;" value="next">
+			<div>
+				<p style="position: absolute;margin-top: 430px;margin-left: 350px;">请上传您的整脸图片：</p>
+				<input type="file" id="file1" style="position:absolute;margin-top: 430px;margin-left: 510px;">
+	    		<img src="" alt="" id="file_img1" width="42" height="42" style="margin-top: 460px;margin-left: 530px;">
+			</div>
+
+			<div>
+				<p style="position: absolute;margin-top: 30px;margin-left: 350px;">请上传您的眼部图片：</p>
+				<input type="file" id="file2" style="position:absolute;margin-top:30px;margin-left: 510px;">
+	    		<img src="" alt="" id="file_img2" width="42" height="42" style="margin-top: 60px;margin-left: 530px;">
+			</div>
+
+    		<input type="button" name="next" onclick="next()" style="position: absolute;margin-top: 50px;margin-left: 600px;margin-bottom: 50px;" value="next">
+    		<script>
+    			window.file_upload1=0;
+        		var input1  = document.getElementById("file1");
+        		input1.onchange = function(){
+            	// 这个方法是输入框进行改变时触发的方法
+	            	var file = this.files[0];
+	            	// 这里取的是传入文件的信息
+	            	if(!!file){
+	                	var reader = new FileReader();
+	                	reader.readAsDataURL(file);
+	                	// 将文件变为base64格式
+	                	reader.onload = function(){
+	                    	// 当文件操作完成就会返回一个result
+	                    	document.getElementById("file_img1").src = this.result
+	                    	window.file_upload1=1;
+	                	}
+	            	}
+	            	
+        		}
+        		window.file_upload2=0;
+        		var input2  = document.getElementById("file2");
+        		input2.onchange = function(){
+            	// 这个方法是输入框进行改变时触发的方法
+	            	var file = this.files[0];
+	            	// 这里取的是传入文件的信息
+	            	if(!!file){
+	                	var reader = new FileReader();
+	                	reader.readAsDataURL(file);
+	                	// 将文件变为base64格式
+	                	reader.onload = function(){
+	                    	// 当文件操作完成就会返回一个result
+	                    	document.getElementById("file_img2").src = this.result
+	                    	window.file_upload2=1;
+	                	}
+	            	}
+	            	
+        		}
+    		</script>
+<!--     		<input id="upload" type="button" value="upload file" onclick="JavaScript:upload_click();"/>
+    		<script>
+    			function upload_click(){
+    				alert("上传成功！");
+    			}
+    		</script> -->
   
     	</div>
     	<script type="text/javascript">
@@ -78,12 +158,31 @@
 		    	if(window.userid==""){
 		    		alert("请选择您的编号！")
 		    	}
+		    	else if(window.file_upload1==0){
+		    		alert("请上传您的整脸图片！")
+		    	}
+		    	else if(window.file_upload2==0){
+		    		alert("请上传您的眼部图片！")
+		    	}
 		    	else{
 		    		// jump to corresponding page according to user id
-		    		if(window.userid=="1"){
+		    		if(parseInt(window.userid)<=7){
 		    			window.groupid=1;
 		    			window.location.href="instructions_eye.html?userid="+userid+"&groupid="+groupid;
 		    			// window.location.href="collections_eye.html?userid="+userid+"&groupid="+groupid;
+		    		}
+		    		else if(parseInt(window.userid)<=14){
+		    			window.groupid=2;
+		    			window.location.href="instructions_ess.html?userid="+userid+"&groupid="+groupid;
+		    		}
+		    		else if(parseInt(window.userid)<=21){
+		    			window.groupid=3;
+		    			window.location.href="instructions_ess.html?userid="+userid+"&groupid="+groupid;
+
+		    		}
+		    		else{
+		    			window.groupid=4;
+		    			window.location.href="instructions_eye.html?userid="+userid+"&groupid="+groupid;
 		    		}
 		    		
 		    	}
