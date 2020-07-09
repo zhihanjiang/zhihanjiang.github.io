@@ -75,20 +75,16 @@
 			  <option value="27">27</option>
 			  <option value="28">28</option>
 			</select>
-			<div>
-				<p style="position: absolute;margin-top: 430px;margin-left: 350px;">请上传您的整脸图片：</p>
-				<input type="file" id="file1" style="position:absolute;margin-top: 430px;margin-left: 510px;">
-	    		<img src="" alt="" id="file_img1" width="42" height="42" style="margin-top: 460px;margin-left: 530px;">
-			</div>
 
-			<div>
+
+<!-- 			<div>
 				<p style="position: absolute;margin-top: 30px;margin-left: 350px;">请上传您的眼部图片：</p>
 				<input type="file" id="file2" style="position:absolute;margin-top:30px;margin-left: 510px;">
 	    		<img src="" alt="" id="file_img2" width="42" height="42" style="margin-top: 60px;margin-left: 530px;">
-			</div>
+			</div> -->
 
-    		<input type="button" name="next" onclick="next()" style="position: absolute;margin-top: 50px;margin-left: 600px;margin-bottom: 50px;" value="next">
-    		<script>
+    		<input type="button" name="next" onclick="next()" style="position: absolute;margin-top: 400px;margin-left: 600px;margin-bottom: 50px;" value="next">
+<!--     		<script>
     			window.file_upload1=0;
         		var input1  = document.getElementById("file1");
         		input1.onchange = function(){
@@ -125,7 +121,7 @@
 	            	}
 	            	
         		}
-    		</script>
+    		</script> -->
 <!--     		<input id="upload" type="button" value="upload file" onclick="JavaScript:upload_click();"/>
     		<script>
     			function upload_click(){
@@ -137,16 +133,17 @@
     	<script type="text/javascript">
     		window.userid="";
     		submit = function (){
-		    var radios = document.getElementById("agree");
-		    if(radios.checked==true){
-		    	// display user id selection list
-		    	var user_id=document.getElementById("input_userid");
-		    	user_id.style.display="inline";
-		    }
-		    else{
-		    	//jump to finish.html
-		    	window.location.href="finish.html";
-		    }
+			    var radios = document.getElementById("agree");
+			    if(radios.checked==true){
+			    	// display user id selection list
+			    	var user_id=document.getElementById("input_userid");
+			    	user_id.style.display="inline";
+			    }
+			    else{
+			    	//jump to finish.html
+			    	window.location.href="finish.html";
+			    }
+			}
 		    
 		    set_userid = function(){
 		    	var user_id=document.getElementById("userid_select").value;
@@ -158,12 +155,12 @@
 		    	if(window.userid==""){
 		    		alert("请选择您的编号！")
 		    	}
-		    	else if(window.file_upload1==0){
-		    		alert("请上传您的整脸图片！")
-		    	}
-		    	else if(window.file_upload2==0){
-		    		alert("请上传您的眼部图片！")
-		    	}
+		    	// else if(window.file_upload1==0){
+		    	// 	alert("请上传您的整脸图片！")
+		    	// }
+		    	// else if(window.file_upload2==0){
+		    	// 	alert("请上传您的眼部图片！")
+		    	// }
 		    	else{
 		    		// jump to corresponding page according to user id
 		    		if(parseInt(window.userid)<=7){
@@ -189,7 +186,6 @@
 
 		    }
 
-		}
     	</script>
 	
 	</body>

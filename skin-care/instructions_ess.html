@@ -76,18 +76,58 @@
 				                <h2 style="text-align: center;">说 明</h2>
 				            </div>
 				    </nav>
-				    <div style="position:absolute;text-align: left;margin-left:250px;width: 600px;height: 500px;">
+				    <div style="position:absolute;text-align: left;margin-left:250px;width: 600px;height: auto;">
             			<table cellSpacing="0" cellpadding="1" width="80%" class="ctl" border=1 >
-                			<p style="text-align: left;">接下来您将进入一个面部精华产品的页面，请在页面上浏览选择您感兴趣的精华产品。点击商品可进入详情页面，在产品详情页面中有您点击的产品的介绍，点击评论可查看该产品的评论信息。在完成该类型商品的选择后，可在产品集页面或者商品详情页面点击结束按钮进入下一类商品的页面。在选择产品时请注意以下几点：<br>(1) 产品价格经过处理，请不要将价格作为产品选择的标准;<br>(2) 在列出的产品中，也许有部分您之前有使用过或者比较熟悉，而有部分则比较陌生，请以页面提供产品信息为依据进行选择，而不是自己已经具备的对产品的了解;<br>(3) 您不需要对所有产品进行浏览，一旦确定了某种产品适合自己，即可在产品详情页面或者产品集页面右下角点击结束按钮，进入下一种产品的浏览。</p>
+                			<p style="text-align: left;line-height: 30px;">&emsp;&emsp;&emsp;&emsp;接下来您将进入一个<strong style="color: red;">面部精华</strong>产品的页面，请在页面上浏览选择您感兴趣的精华产品。点击商品可进入详情页面，在产品详情页面中有您点击的产品的介绍，点击评论可查看该产品的评论信息。在完成该类型商品的选择后，可在产品集页面或者商品详情页面点击结束按钮进入下一类商品的页面。在选择产品时请注意以下几点：<br>&emsp;&emsp;&emsp;&emsp;（1）请您根据本网站提供的各种产品信息选择最适合自己的产品，产品的价格以本网站为准;<br>&emsp;&emsp;&emsp;&emsp;（2）在列出的产品中，也许有部分您之前有使用过或者比较熟悉，而有部分则比较陌生，请以页面提供产品信息为依据进行选择，而不是自己已经具备的对产品的了解;<br>&emsp;&emsp;&emsp;&emsp;（3）您不需要对所有产品进行浏览，一旦确定了某种最适合自己的产品后，即可在产品集页面右下角点击结束按钮，进入下一种产品的浏览。</p>
             			</table>
         			</div>
 				</div>
-				<input type="button" name="next" onclick="next()" style="position: absolute;margin-top: 350px;margin-left: 600px;" value="下一步">
+				<div id="pic_div" style="display: none;position: absolute;margin-left: 250px;margin-top: 350px;width: 600px;line-height: 30px;">
+					<p>&emsp;&emsp;&emsp;&emsp;我们提供了一款插件来辅助您进行产品的选择，您只要上传您的面部图片，该插件就会在商品详情页面中显示您在使用该产品前后可能产生的效果，如图所示。</p>
+					<div>
+						<p style="position: absolute;margin-top: 430px;margin-left: 350px;">请上传您的整脸图片：</p>
+						<input type="file" id="file" style="position:absolute;margin-top: 430px;margin-left: 510px;">
+			    		<img src="" alt="" id="file_img" width="42" height="42" style="margin-top: 460px;margin-left: 530px;">
+					</div>
+					<script>
+		    			window.file_upload=0;
+		        		var input  = document.getElementById("file");
+		        		input.onchange = function(){
+		            	// 这个方法是输入框进行改变时触发的方法
+			            	var file = this.files[0];
+			            	// 这里取的是传入文件的信息
+			            	if(!!file){
+			                	var reader = new FileReader();
+			                	reader.readAsDataURL(file);
+			                	// 将文件变为base64格式
+			                	reader.onload = function(){
+			                    	// 当文件操作完成就会返回一个result
+			                    	document.getElementById("file_img").src = this.result
+			                    	window.file_upload=1;
+			                	}
+			            	}
+			            	
+		        		}
+	        		</script>
+				</div>
+				<script type="text/javascript">
+					if(parseInt(window.groupid)==3 || parseInt(window.groupid)==4){
+				    	var pic_div = document.getElementById("pic_div");
+				    	pic_div.style.display="inline";
+				    }
+				</script>
+				<input type="button" name="next" onclick="next()" style="position: absolute;margin-top: 650px;margin-left: 600px;" value="下一步">
 			</div>
 		</div>
 		<script type="text/javascript">
 			next = function(){
-				window.location.href="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;
+				if(window.file_upload==0 && (parseInt(window.groupid)==3 || parseInt(window.groupid)==4)){
+		    		alert("请上传您的整脸图片！")
+		    	}
+		    	else{
+		    		window.location.href="collections_ess.html?userid="+window.userid+"&groupid="+window.groupid;
+		    	}
+				
 			}
 		</script>
 </body>
