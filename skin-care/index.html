@@ -15,14 +15,6 @@
 		<script type="application/x-javascript"> 
 			addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); 
 			function hideURLbar(){ window.scrollTo(0,1); }
-
-			// const { Query, User } = AV;
-			// AV.init({
-			//   appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
-			//   appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
-			//   serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
-			// }); 
-			// localStorage.getItem('AV',AV);
 		</script>
 	</head>
 	<body>
@@ -32,164 +24,32 @@
 	                <h2 style="text-align: center;">说明</h2>
 	            </div>
 	    </nav>
-		<div style="text-align: center;margin: 0 auto; width: 600px;height: auto;line-height: 30px;">
-            <table cellSpacing="0" cellpadding="1" width="80%" class="ctl" border=1 >
-                
-                <p style="text-align: left;">&emsp;&emsp;&emsp;&emsp;本网站用于研究一款购物指导插件。为保证被试者的隐私，我们不要求提供真实姓名。在这项研究中，研究人员将采取以下步骤来保护参与者的身份：<br/>&emsp;&emsp;&emsp;&emsp;（1）为每个参与者分配一个号码；<br/>&emsp;&emsp;&emsp;&emsp;（2）研究人员将按此号码记录研究期间收集的所有数据，而不是按名称记录；<br/>&emsp;&emsp;&emsp;&emsp;（3）分析过程中您在网页上的操作数据会被收集用于特征提取，但研究者不会查看其具体内容；<br/>&emsp;&emsp;&emsp;&emsp;（4）分析过程中您的个人信息/隐私将被预先移除，您的身份标识将被隐藏；<br/>&emsp;&emsp;&emsp;&emsp;（5）任何数据将被存储在安全的位置，只能由授权的研究人员访问，不会透露给第三方；<br/>&emsp;&emsp;&emsp;&emsp;（6）一旦研究结束，数据将会被全部删除。</p>
-            </table>
-            <p><strong style="color: red;text-align: left;">我自愿参加这个实验，并且理解收集的数据将被用于学术研究的目的，我允许研究者在保护我的隐私的情况下使用我的数据。</strong></p>
-        </div>
-
-        
-        <input type="radio"  name="choose" id="disagree" value=0 checked="true" style="position: absolute;margin-top: 350px;margin-left: 300px;" /> <p id="p1" style="position: absolute;margin-top: 350px;margin-left: 320px;">不同意</p>
-    	<input type="radio"  name="choose" id="agree" value=1 style="position: absolute;margin-top: 350px;margin-left: 390px;" /> <p id="p2" style="position: absolute;margin-top: 350px;margin-left: 410px;">同意</p>
-    	<input type="button" name="submit" onclick="submit()" style="position: absolute;margin-top: 350px;margin-left: 600px;" value="提交">
-    	<div id="input_userid" style="display: none;">
-    		<p style="position: absolute;margin-top: 400px;margin-left: 350px;">请选择您的编码：</p>
-    		<select id="userid_select" style="position: absolute;margin-top: 400px;margin-left: 470px;" onchange="set_userid()" >
-    		  <option value="" selected:disabled style="diaplay:none">None</option>
-			  <option value="1">1</option>
-			  <option value="2">2</option>
-			  <option value="3">3</option>
-			  <option value="4">4</option>
-			  <option value="5">5</option>
-			  <option value="6">6</option>
-			  <option value="7">7</option>
-			  <option value="8">8</option>
-			  <option value="9">9</option>
-			  <option value="10">10</option>
-			  <option value="11">11</option>
-			  <option value="12">12</option>
-			  <option value="13">13</option>
-			  <option value="14">14</option>
-			  <option value="15">15</option>
-			  <option value="16">16</option>
-			  <option value="17">17</option>
-			  <option value="18">18</option>
-			  <option value="19">19</option>
-			  <option value="20">20</option>
-			  <option value="21">21</option>
-			  <option value="22">22</option>
-			  <option value="23">23</option>
-			  <option value="24">24</option>
-			  <option value="25">25</option>
-			  <option value="26">26</option>
-			  <option value="27">27</option>
-			  <option value="28">28</option>
-			</select>
+	    <div style="width: 700px;height: auto;margin: 0 auto;line-height: 30px;">
+	    	<div style="text-align: center;width: 100%">
+	            <table cellSpacing="0" cellpadding="1" width="80%" class="ctl" border=1 >
+	                <p style="text-align: left;">&emsp;&emsp;&emsp;&emsp;本网站用于研究一款购物指导插件的效用。为保证被试者的隐私，我们不要求提供真实姓名。在这项研究中，研究人员将采取以下步骤来保护参与者的身份：<br/>&emsp;&emsp;&emsp;&emsp;（1）为每个参与者分配一个号码；<br/>&emsp;&emsp;&emsp;&emsp;（2）研究人员将按此号码记录研究期间收集的所有数据，而不是按名称记录；<br/>&emsp;&emsp;&emsp;&emsp;（3）分析过程中您在网页上的操作数据会被收集用于特征提取，但研究者不会查看其具体内容；<br/>&emsp;&emsp;&emsp;&emsp;（4）分析过程中您的个人信息/隐私将被预先移除，您的身份标识将被隐藏；<br/>&emsp;&emsp;&emsp;&emsp;（5）任何数据将被存储在安全的位置，只能由授权的研究人员访问，不会透露给第三方；<br/>&emsp;&emsp;&emsp;&emsp;（6）一旦研究结束，数据将会被全部删除。</p>
+	            </table>
+	            <p style="text-align: left;margin-left: 0;"><strong style="color: red;text-align: left;">我自愿参加这个实验，并且理解收集的数据将被用于学术研究的目的，我允许研究者在保护我的隐私的情况下使用我的数据。</strong></p>
+	            <input type="radio"  name="choose" id="disagree" value=0 checked="true" style="margin-left:50%;display: inline;float: left;" /> <p id="p1" style=" margin-left:10px; display: inline;float: left;"  >不同意</p>
+	            <input type="radio"  name="choose" id="agree" value=1 style="margin-left: 50px; display: inline;float: left;"  /> <p id="p2" style="margin-left: 10px;display: inline;float: left;" >同意</p>
+	            <input type="button" name="submit" onclick="submit()" style="display: inline;float: right;" value="提交">
+	        </div>
 
 
-<!-- 			<div>
-				<p style="position: absolute;margin-top: 30px;margin-left: 350px;">请上传您的眼部图片：</p>
-				<input type="file" id="file2" style="position:absolute;margin-top:30px;margin-left: 510px;">
-	    		<img src="" alt="" id="file_img2" width="42" height="42" style="margin-top: 60px;margin-left: 530px;">
-			</div> -->
-
-    		<input type="button" name="next" onclick="next()" style="position: absolute;margin-top: 400px;margin-left: 600px;margin-bottom: 50px;" value="next">
-<!--     		<script>
-    			window.file_upload1=0;
-        		var input1  = document.getElementById("file1");
-        		input1.onchange = function(){
-            	// 这个方法是输入框进行改变时触发的方法
-	            	var file = this.files[0];
-	            	// 这里取的是传入文件的信息
-	            	if(!!file){
-	                	var reader = new FileReader();
-	                	reader.readAsDataURL(file);
-	                	// 将文件变为base64格式
-	                	reader.onload = function(){
-	                    	// 当文件操作完成就会返回一个result
-	                    	document.getElementById("file_img1").src = this.result
-	                    	window.file_upload1=1;
-	                	}
-	            	}
-	            	
-        		}
-        		window.file_upload2=0;
-        		var input2  = document.getElementById("file2");
-        		input2.onchange = function(){
-            	// 这个方法是输入框进行改变时触发的方法
-	            	var file = this.files[0];
-	            	// 这里取的是传入文件的信息
-	            	if(!!file){
-	                	var reader = new FileReader();
-	                	reader.readAsDataURL(file);
-	                	// 将文件变为base64格式
-	                	reader.onload = function(){
-	                    	// 当文件操作完成就会返回一个result
-	                    	document.getElementById("file_img2").src = this.result
-	                    	window.file_upload2=1;
-	                	}
-	            	}
-	            	
-        		}
-    		</script> -->
-<!--     		<input id="upload" type="button" value="upload file" onclick="JavaScript:upload_click();"/>
-    		<script>
-    			function upload_click(){
-    				alert("上传成功！");
-    			}
-    		</script> -->
-  
-    	</div>
-    	<script type="text/javascript">
-    		window.userid="";
-    		submit = function (){
+	    </div>
+        <script type="text/javascript">
+        	submit = function (){
 			    var radios = document.getElementById("agree");
 			    if(radios.checked==true){
-			    	// display user id selection list
-			    	var user_id=document.getElementById("input_userid");
-			    	user_id.style.display="inline";
+			    	window.location.href="input_id.html";
 			    }
 			    else{
 			    	//jump to finish.html
 			    	window.location.href="finish.html";
 			    }
 			}
-		    
-		    set_userid = function(){
-		    	var user_id=document.getElementById("userid_select").value;
-		    	window.userid = user_id;
-		    }
-		    next = function(){
-		    	// check choose user id or not
-		    	console.log(window.userid)
-		    	if(window.userid==""){
-		    		alert("请选择您的编号！")
-		    	}
-		    	// else if(window.file_upload1==0){
-		    	// 	alert("请上传您的整脸图片！")
-		    	// }
-		    	// else if(window.file_upload2==0){
-		    	// 	alert("请上传您的眼部图片！")
-		    	// }
-		    	else{
-		    		// jump to corresponding page according to user id
-		    		if(parseInt(window.userid)<=7){
-		    			window.groupid=1;
-		    			window.location.href="instructions_eye.html?userid="+userid+"&groupid="+groupid;
-		    			// window.location.href="collections_eye.html?userid="+userid+"&groupid="+groupid;
-		    		}
-		    		else if(parseInt(window.userid)<=14){
-		    			window.groupid=2;
-		    			window.location.href="instructions_ess.html?userid="+userid+"&groupid="+groupid;
-		    		}
-		    		else if(parseInt(window.userid)<=21){
-		    			window.groupid=3;
-		    			window.location.href="instructions_ess.html?userid="+userid+"&groupid="+groupid;
-
-		    		}
-		    		else{
-		    			window.groupid=4;
-		    			window.location.href="instructions_eye.html?userid="+userid+"&groupid="+groupid;
-		    		}
-		    		
-		    	}
-
-		    }
-
-    	</script>
-	
+        </script>
+    	
 	</body>
 </html>
 

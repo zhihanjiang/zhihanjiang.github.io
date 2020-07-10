@@ -270,21 +270,70 @@
 				<!-- iteam-grids -->
 		</div>
 		<!-- content -->
-		<div style="text-align: center;float: center;margin-right: 100px;">
-			<input type="button" name="finish" onclick="next()" value="结束" style="float: right;"><p style="float: right;margin-right: 10px;">点击结束按钮当您完成了该类产品的选择:</p>
+        <div class="news-letter" id="decision" style="margin:0px auto;text-align:center;margin-top: 30px;width: 100%;height: auto;">
+			<div style="width: 80%;text-align: center;margin: 0px auto;">
+				<p style="float:left;display: inline-block;">当您选中了认为<b style="color: red;">最合适自己的产品</b>，请在下拉列表中选择该产品对应的编号，点击<b style="color: red;">提交</b>按钮，进入下一步实验。</p>
+				<select id="product_select" style="display:inline-block;float:left;margin-top:20px;margin-left: 20%;height: 30px;width: 100px;" onchange="set_product()" >
+			  	<option value="" selected:disabled style="diaplay:none">None</option>
+				  <option value="1">1</option>
+				  <option value="2">2</option>
+				  <option value="3">3</option>
+				  <option value="4">4</option>
+				  <option value="5">5</option>
+				  <option value="6">6</option>
+				  <option value="7">7</option>
+				  <option value="8">8</option>
+				  <option value="9">9</option>
+				  <option value="10">10</option>
+				  <option value="11">11</option>
+				  <option value="12">12</option>
+				  <option value="13">13</option>
+				  <option value="14">14</option>
+				  <option value="15">15</option>
+				  <option value="16">16</option>
+				  <option value="17">17</option>
+				  <option value="18">18</option>
+				  <option value="19">19</option>
+				  <option value="20">20</option>
+				  <option value="21">21</option>
+				  <option value="22">22</option>
+				  <option value="23">23</option>
+				  <option value="24">24</option>
+				  <option value="25">25</option>
+				  <option value="26">26</option>
+				  <option value="27">27</option>
+				  <option value="28">28</option>
+				</select>
+				<input type="button" name="next" onclick="next()" style="display: inline-block;margin-top:20px;margin-left:40px;float:left;" value="提交">
+
+			</div>
+			
+
 		</div>
+
 		<script type="text/javascript">
+			window.selected_product_id="";
+
+		    set_product = function(){
+		    	var product_id=document.getElementById("product_select").value;
+		    	window.selected_product_id = product_id;
+		    }
+
 			next = function(){
-				if(window.groupid==1 || window.groupid==4){
-					window.location.href="acknowledgement.html?userid="+window.userid+"&groupid="+window.groupid;
-				}
-				else{
-					window.location.href="collections_eye.html?userid="+window.userid+"&groupid="+window.groupid;
-				}
+				console.log(window.userid)
+		    	if(window.selected_product_id==""){
+		    		alert("请选择您选中的产品！")
+		    	}
+		    	else{
+		    		window.location.href = "interview.html?userid="+window.userid+"&groupid="+window.groupid+"&selected_product_id="+window.selected_product_id;
+		    	}
 
 			}
 		</script>
-
+		<div class="clearfix"> </div>
+		<div class="copy-right" style="margin-top: 30px;">
+				<p>Contact us if you have any problem.</p>
+		</div>
 	
 </body>
 </html>
