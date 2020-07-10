@@ -381,8 +381,8 @@
 						<!-- price-details -->
 						<!-- product-description -->
 						<div id="skincareAnchor"></div>
-						<div id="skincare" class="price-details" style="width: 100%;">
-							<div class="product-description" id="skin-care" style="display: none; width: 100%;line-height: 30px;">
+						<div id="skin-care" class="price-details" style="width: 100%;display: none;">
+							<div class="product-description"  style=" width: 100%;line-height: 30px;">
 								<h3>您使用该产品可能达到的效果</h3>
 									<div class="col-md-3" style="margin-right: 50px;width: 45%">
 										<span>使用前：</span>
@@ -407,10 +407,13 @@
 							</div>
 						</div>
 						<script type="text/javascript">
+							
 							if(parseInt(groupid)==3 || parseInt(groupid)==4){
 								var skin_care=document.getElementById("skin-care");
-		    				skin_care.style.display="inline";
+		    					skin_care.style.display="inline";
+		    					
 							}
+			
 						</script>
 						<div id="commentsAnchor"></div>
 						<div class="price-details" style="width: 100%;">
@@ -468,6 +471,51 @@
 			</div>
 			<!-- product-single-details -->
 		</div>
+		<div id="anchors"></div>
+		<script type="text/javascript">
+			var anchors = document.getElementById("anchors");
+			if(parseInt(groupid)==3 || parseInt(groupid)==4){
+				
+				var anchor = document.createElement("a");
+				anchor.href="#skincareAnchor";
+				anchor.style="position:fixed;right:0;bottom:20px;";
+				anchor.innerHTML="回到插件";
+				anchors.appendChild(anchor);
+				var anchor = document.createElement("a");
+				anchor.href="#topAnchor";
+				anchor.style="position:fixed;right:0;bottom:0px;";
+				anchor.innerHTML="回到顶部";
+				anchors.appendChild(anchor);
+				var anchor = document.createElement("a");
+				anchor.href="#detailsAnchor";
+				anchor.style="position:fixed;right:0;bottom:40px;";
+				anchor.innerHTML="回到详情";
+				anchors.appendChild(anchor);
+				var anchor = document.createElement("a");
+				anchor.href="#commentsAnchor";
+				anchor.style="position:fixed;right:0;bottom:60px;";
+				anchor.innerHTML="回到评论";
+				anchors.appendChild(anchor);
+			}
+			else{
+				var anchor = document.createElement("a");
+				anchor.href="#topAnchor";
+				anchor.style="position:fixed;right:0;bottom:0px;";
+				anchor.innerHTML="回到顶部";
+				anchors.appendChild(anchor);
+				var anchor = document.createElement("a");
+				anchor.href="#detailsAnchor";
+				anchor.style="position:fixed;right:0;bottom:20px;";
+				anchor.innerHTML="回到详情";
+				anchors.appendChild(anchor);
+				var anchor = document.createElement("a");
+				anchor.href="#commentsAnchor";
+				anchor.style="position:fixed;right:0;bottom:40px;";
+				anchor.innerHTML="回到评论";
+				anchors.appendChild(anchor);
+			}
+
+		</script>
 		<!-- details -->
 		<!-- content -->
 		<!-- footer -->
@@ -475,10 +523,7 @@
 			<input type="button" name="finish" onclick="next()" value="Finish" style="float: right;"><p style="float: right;margin-right: 10px;">点击结束按钮当您完成了该类产品的选择:</p>
 
 		</div> -->
-		<a href="#topAnchor" style="position:fixed;right:0;bottom:0">回到顶部</a>
-		<a href="#skincareAnchor" style="position:fixed;right:0;bottom:20px;">回到插件</a>
-		<a href="#detailsAnchor" style="position:fixed;right:0;bottom:40px;">回到详情</a>
-		<a href="#commentsAnchor" style="position:fixed;right:0;bottom:60px;">回到评论</a>
+		
 <!-- 		<script type="text/javascript">
 			next = function(){
 				if(((window.groupid==1 ||window.groupid==4) && window.type<50) || ((window.groupid==2 || window.groupid==3) && window.type>=50)){

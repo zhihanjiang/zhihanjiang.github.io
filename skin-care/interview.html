@@ -97,7 +97,7 @@
 					alert("请先提交反馈信息！");
 				}
 				else{
-					if((parseInt(window.selected_product_id)<50 && ( parseInt(window.groupid)==1 || parseInt(window.groupid)==4)) || (parseInt(window.selected_product_id)>=50 && (parseInt(window.groupid)==2 ||parseInt(window.groupid)==3))){
+					if((parseInt(window.selected_product_id)<50 && ( parseInt(window.groupid)==1 || parseInt(window.groupid)==4 )) || (parseInt(window.selected_product_id)>=50 && (parseInt(window.groupid)==2 ||parseInt(window.groupid)==3))){
 						window.location.href="acknowledgement.html?userid="+window.userid+"&groupid="+window.groupid;
 					}
 					else if(parseInt(window.selected_product_id)<50){
