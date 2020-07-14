@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+		<title>Skin Care</title>
+		<script src="js/jquery.min.js"></script>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-min.js"></script>
+		 <!-- Custom Theme files -->
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+   		 <!-- Custom Theme files -->
+   		<meta name="viewport" content="width=device-width, initial-scale=1">
+   		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   		<script src="js/getparam.js"></script>
+		<script type="application/x-javascript"> 
+			addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); 
+			function hideURLbar(){ window.scrollTo(0,1); }
+			window.userid = $.Request("userid");
+			window.groupid = $.Request("groupid");
+			window.selected_product_id = $.Request("selected_product_id");
+			window.pageid = 12;
+			console.log(userid);
+			console.log(groupid);
+			const { Query, User } = AV;
+			AV.init({
+			  appId: "lAWk7PNDwJERDV05iFeearHA-gzGzoHsz",
+			  appKey: "bJSjx6pAu5cIrPvxknTKBD2O",
+			  serverURL: "https://lawk7pnd.lc-cn-n1-shared.com"
+			}); 
+			// upload_data(); 
+		</script>
+	</head>
+	<body>
+
+	    <nav class="navbar navbar-default" id="header">
+	            <div class="container">
+	                <h2 style="text-align: center;">反馈</h2>
+	            </div>
+	    </nav>
+	    <div style="width: 700px;height: auto;margin: 0 auto; text-align:center; line-height: 30px;">
+            <div id="input_feedback" style="margin-top: 30px;width: 100%;height: auto;">
+				
+    			<p style="width: 100%; text-align: left;">请在下方输入您选择该产品的原因，完成后点击<b style="color: red;">提交</b>按钮上传您的反馈信息，您可修改您的反馈，再次点击提交按钮更新您的反馈。在提交完成后，点击<b style="color: red;">下一步</b>按钮进入下一步实验。</p>
+    			<textarea id="input_texts" style="width: 100%;height: 300px;"></textarea>
+
+				<input type="button" name="next" onclick="submit()" style="display: inline-block;margin-top:20px;margin-left:40px;float:right;" value="提交">
+    		</div>
+	    </div>
+	    <script type="text/javascript">
+	    	//window.upload_texts=0;
+	    	window.upload_texts=0;
+		    submit = function(){
+		    	window.texts = document.getElementById("input_texts").value;
+		    	console.log(texts);
+		    	if(window.texts==""){
+		    		alert("请填写反馈！");
+		    	}
+		    	else{
+		    		window.pageOpen=new Date();
+					time = pageOpen.getTime();
+	 				console.log(time);
+	 				const Feedback = AV.Object.extend('feedback_'+window.userid);
+					const feedback = new Feedback();
+					feedback.set('userid',parseInt(window.userid));
+					feedback.set('time',time);
+					feedback.set('productid',parseInt(window.selected_product_id));
+					feedback.set('feedback',window.texts);
+					// 将对象保存到云端
+					feedback.save().then((feedback) => {
+					  // 成功保存之后，执行其他逻辑
+					  console.log(`Success, objectId: ${feedback.id}`);
+					  alert("提交成功！");
+					  window.upload_texts=1;
+					}, (error) => {
+						console.log(error);
+						alert("出现错误！请重试或者联系管理员。");
+					  // 异常处理
+					});
+		    	}
+				
+			}
+	    </script>
+	    <div class="clearfix"> </div>
+	    <div class="news-letter">
+	    	<div style="width: 50%;margin: 0 auto; text-align:center;">
+	    		<p style="text-align: left;display: inline-block;float: left;">完成反馈信息提交后，请点击<b style="color: red;">下一步</b>按钮进入下一步实验。</p>
+				<input type="button" name="next" onclick="next()" style="display: inline-block;margin-left:40px;float:left;" value="下一步">
+	    	</div>
+	    	
+
+	    </div>
+
+    	<script type="text/javascript">
+			next = function(){
+				if(window.upload_texts==0){
+					alert("请先提交反馈信息！");
+				}
+				else{
+					if((parseInt(window.selected_product_id)<50 && ( parseInt(window.groupid)==1 || parseInt(window.groupid)==4 )) || (parseInt(window.selected_product_id)>=50 && (parseInt(window.groupid)==2 ||parseInt(window.groupid)==3))){
+						window.location.href="acknowledgement.html?userid="+window.userid+"&groupid="+window.groupid;
+					}
+					else if(parseInt(window.selected_product_id)<50){
+						window.location.href="instructions_eye.html?userid="+window.userid+"&groupid="+window.groupid;
+					}
+					else{
+						window.location.href="instructions_ess.html?userid="+window.userid+"&groupid="+window.groupid;
+					}
+				}
+		    	
+
+		    }
+
+    	</script>
+	
+	</body>
+</html>
