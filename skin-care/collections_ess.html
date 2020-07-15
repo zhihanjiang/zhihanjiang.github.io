@@ -1086,13 +1086,33 @@
 					</div>
 				</div>
 				<script type="text/javascript">
+					function shift(keys){
+						var temp=[];
+						for(var i=0;i<keys.length;i++){
+							if(i%2==0){
+								temp.push(keys[i]);
+							}
+						}
+						for(var i=0;i<keys.length;i++){
+							if(i%2!=0){
+								temp.push(keys[i]);
+							}
+						}
+						return temp;
+					}
 					count=0;
+					keys=[];
 					for(var key in product_info){
 						if(count>37){
 							break;
 						}
+						keys.push(key);
 						count=count+1;
-						product_info[key]
+					}
+					keys = shift(keys);
+					for(var i=0;i<keys.length;++i){
+						key=keys[i];
+						//console.log(key);
 						var div = document.createElement("div");
 						div.className = "col-md-3";
 						var sub_div = document.createElement("div");
@@ -1121,7 +1141,7 @@
 						div.appendChild(sub_div);
 						var container = document.getElementById("products");
 						container.appendChild(div);
-						if(count%4==0){
+						if((i+1)%4==0){
 							var clear_div = document.createElement("div");
 							clear_div.className = "clearfix";
 							container.appendChild(clear_div);
