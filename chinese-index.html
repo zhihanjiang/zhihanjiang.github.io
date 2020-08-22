@@ -41,8 +41,9 @@
                              <div class="ace-nav-container ace-container hidden-sm hidden-xs">
                                  <nav id="ace-main-nav">
                                     <ul class="clear-list">
-										<li><a href="index.html">about</a></li>
-										<li><a href="#publications">publications</a>
+										<li><a href="#">About</a></li>
+                                        <li><a href="#experience">Experience</a>
+										<li><a href="#publications">Publications</a>
 										<li><a href="#portfolio">Portfolio</a></li>
 										<li><a href="index.html">English</a></li>
 									</ul>
@@ -240,6 +241,83 @@
             </div><!-- .row -->
         </section><!-- .section -->
 
+
+              <section class="section brd-btm">
+            <div class="row">
+                <div class="col-sm-12 clear-mrg">
+                    <a name="experience"></a>
+                    <h2 class="title-thin text-muted"><b>科研经历</b></h2>
+            <!--         <a name="publications"></a>
+                    <h4>Publications</h4> -->
+                    <ol>
+                        <li><b>Urban Traffic Violation Hotspot Sensing, Prediction and Response</b></li>
+                            <ul>
+                            <li>Traffic violations have become one of the major threats to urban transportation systems, undermining human safety and causing economic loss. Based on crowd-sensed, large scale vehicle trajectories and road environment data, we first propose <b>a low-cost, dynamic, comprehensive framework to infer traffic violation-prone locations in cities</b>, and then we propose <b>a data-driven framework to accurately predict traffic violation hotspots and schedule patrol tasks accordingly</b>. </li>
+                            <li><b>In the traffic violation-prone location inference framework</b>, we first normalize the GPS trajectories with the HMM-based map matching method and extract the driving behaviors. Second, we model driver perspectives based on regression to augment the spatiotemporal contexts of driving behaviors. Third, we extract three types of traffic restrictions from those contexts, i.e., no- parking, no-turning, and speed restrictions. After matching those restrictions with driving behaviors, we get the traffic violation distribution and extract the spatiotemporal patterns of traffic violations to sense traffic violation hotspots. Finally, we build a visualization system to showcase the sensed traffic violation-prone locations.</li>
+                            <li><b>In traffic violation hotspot prediction and patrol task scheduling framework</b>, we first cluster scattered traffic violations into traffic violation hotspot candidates with a proposed road network-based clustering algorithm (RCA).Then we leverage cross-domain heterogeneous environment data to predict traffic violation hotspots with a proposed context-aware self-adaptive learning model (CSTA). In the patrol task allocation phase, we propose a tensor-based integer linear problem modeling method (TILP) to find optimal vertex-disjoint patrol routes with maximal coverage of traffic violation hotspots under resource constraints.</li>
+                            <li>Demos: [<a class="btn-thin" href="tv-infer-web/index.html">Traffic Violation Visualization</a>] [<a class="btn-thin" href="traffic-sign-web/traffic-signs/index.html">Traffic Sign Visualization</a>][<a class="btn-thin" href="patrolroutes-viz-web/index.html">Patrol Route Visualization</a>]</li>
+                            </ul>
+                        <li><b>Understanding Urban Structures and Crowd Dynamics Leveraging Large-Scale Vehicle Mobility Data</b> </li>
+                            <ul>
+                            <li>In order to facilitate efficient urban planning and effective city management, we propose a two-phase framework to analyze urban structures and crowd dynamics leveraging vehicle mobility data. <b>In the urban structure portrait phase</b>, we divide the city into fine-grained mobility grids, and propose a distance-constrained clustering algorithm (DCCA) to cluster the grids with similar mobility features into structured urban areas. <b>In the crowd dynamic characterization phase</b>, we detect irregular mobility traffic patterns in each area leveraging an ARIMA-based anomaly detection algorithm (ADAM), and correlate them to the urban social and emergency events extracted from social media.</li>
+                            <li>Demo: [<a class="btn-thin" href="fcs/viz/viz-en.html">Urban Structure and Crowd Dynamic Visualization</a>]</li>
+                            </ul>
+                        
+                        <li><b>Optimizing Fog Radio Access Networks for 5G Leveraging User Mobility and Traffic Data</b></li>
+                            <ul>
+                            <li>In order to optimize the fog-computing-based radio access network (Fog-RAN), we proposed a two-phase data-driven framework to cluster base stations (RRHs) into communities and find optimal data processing unit (BBU) allocation schemes that maximize BBU utilization rate. <b>In the RRH clustering phase</b>, we build a weighted graph model to characterize user mobility patterns across RRHs, and propose a size-constrained community detection (SCUD) algorithm to cluster RRHs into communities with frequent internal handover events. <b>In the BBU allocation phase</b>, we formulate BBU allocation in each community fog server as a set partitioning problem, and propose a column-reduced integer programming (CLIP) algorithm to find optimal BBU allocation schemes that maximize BBU utilization rate. </li>
+                            <li>Demo: [<a class="btn-thin" href="fogran/viz/index.html"> Fog-RAN Optimization Visualization</a>]</li>
+                            </ul>
+                        <li><b>Deep Bike Demand Forecast and Crowd-Driven Station Re-balancing for Bike Sharing Systems</b></li>
+                            <ul>
+                            <li>Bike sharing systems are widely operated in many cities as a green transportation means to solve the last mile problem and to reduce traffic congestion. In this work, we propose a crowd-driven station re-balancing mechanism to accurately forecast city-wide bike demands and effectively re-balance bike stations. <b>First</b>, we represent the bike demand trend pattern as the slope and duration to accurately forecast over-demand stations at the station-level. Then we propose a spatiotemporal graph neural networks (ST-GNN) to model and forecast station-level bike demands trends. <b>Second</b>, we generate candidate station re-balancing tasks by formulating the task generation problem as a transportation problem under the lowest cycling distance objective. <b>Finally</b>, we select potential commuting participants from existing cyclists and Uber riders and propose an incentive mechanism to effectively allocate station re-balancing tasks to these users by sending them red packets.</li>
+                            </ul>
+
+                    </ol>
+               
+                </div><!-- .col-sm-12 -->
+
+            </div><!-- .row -->
+        </section><!-- .section -->
+
+        <section class="section brd-btm">
+            <div class="row">
+                <div class="col-sm-12 clear-mrg">
+                    <a name="publications"></a>
+                    <h2 class="title-thin text-muted"><b>论文发表</b></h2>
+                    <ol>
+                        <li><b>Zhihan Jiang</b>, Longbiao Chen, Binbin Zhou, Jinchun Huang, Tianqi Xie, Xiaoliang Fan, Cheng Wang. iTV: Inferring Traffic Violation-Prone Locations with Vehicle Trajectories and Road Environment. IEEE Systems Journal (JCR-Q1, IF: 3.987), DOI: 10.1109/JSYST.2020.3012743, 2020.[<a class="btn-thin" href="papers/isj20.pdf">pdf</a>][<a class="btn-thin" href="https://ieeexplore.ieee.org/document/9171429">link</a>]</li>
+
+             
+                        <li><b>Zhihan JIiang</b>, Yan Liu, Xiaoliang Fan, Cheng Wang, Jonathan Li, Longbiao Chen. Understanding Urban Structures and Crowd Dynamics Leveraging Large-Scale Vehicle Mobility Data. Frontiers of Computer Science (JCR-Q2, IF: 1.275), DOI: 10.1007/s11704-019-9034-z, 2019. [<a class="btn-thin" href="papers/fcs.pdf">pdf</a>]</li>
+
+                        <li>Ruiying Guo, <b>Zhihan Jiang</b>, Jingchun Huang, Jianrong Tao, Cheng Wang, Jonathan Li, Longbiao Chen*. BikeNet: Accurate Bike Demand Prediction Using Graph Neural Networks for Station Rebalancing. The 16th IEEE International Conference on Ubiquitous Intelligence and Computing (UIC’19), Leicester, UK, DOI: 10.1109/SmartWorld-UIC-ATC-SCALCOM-IOP-SCI.2019.00153, 2019.[<a class="btn-thin" href="papers/uic19-bikenet.pdf">pdf</a>]</li>
+
+                        <li>Longbiao Chen, <b>Zhihan Jiang</b>, Jiangtao Wang, Yasha Wang. Data-Driven Bike Sharing System Optimization: State of the Art and Future Opportunities. The 2019 International Conference on Embedded Wireless Systems and Networks (EWSN’19), Beijing, China, DOI: 10.5555/3324320.3324406, 2019.[<a class="btn-thin" href="papers/ewsn-2019.pdf">pdf</a>]</li>
+                    </ol>
+               
+                </div><!-- .col-sm-12 -->
+
+            </div><!-- .row -->
+        </section><!-- .section -->
+
+        <section class="section brd-btm">
+            <div class="row">
+                <div class="col-sm-12 clear-mrg">
+                    <a name="patents"></a>
+                    <h2 class="title-thin text-muted"><b>专利
+                    </b></h2>
+                    <ol>
+                        <li>
+                        陈龙彪 蒋之晗 范晓亮 王程 洪虹. 《基于交通违法热点预测的巡逻路线规划方法、系统和可读存储介质》申请号：202010693026.4 (初审)</li>
+                        <li>陈龙彪 蒋之晗 王程. 《基于交通数据及街景数据的交通违法行为识别方法和系统》. 公开号：111259767A (实审)</li>
+                    </ol>
+               
+                </div><!-- .col-sm-12 -->
+
+            </div><!-- .row -->
+        </section><!-- .section -->
+
         <section class="section brd-btm">
             <h2 class="title-thin text-muted"><b>获奖经历</b></h2>
             <div class="row">
@@ -251,70 +329,20 @@
                     </tr>
                     <tr>
                     <td>2018</td><td>优秀本科毕业设计 (A)</td>
-                	</tr>
-                   	<tr>
-                   	<td>2017</td><td>优秀共青团员</td>
+                    </tr>
+                    <tr>
+                    <td>2017</td><td>优秀共青团员</td>
                     </tr>
                     <tr>
                     <td>2017</td><td>学术创新奖学金</td>
                     </tr>
                     <tr>
                     <td>2016</td><td>全国大学生数学建模竞赛福建赛区本科组一等奖</td>
-                	</tr>
-                	<tr><td width="130">2015——2018</td><td>四次学业优秀奖学金</td></tr>
+                    </tr>
+                    <tr><td width="130">2015——2018</td><td>四次学业优秀奖学金</td></tr>
                     </table>
 
                 </div><!-- .col-sm-12 -->
-            </div><!-- .row -->
-        </section><!-- .section -->
-
-        <section class="section brd-btm">
-            <div class="row">
-                <div class="col-sm-12 clear-mrg">
-                	<a name="experience"></a>
-                    <h2 class="title-thin text-muted"><b>科研经历</b></h2>
-                    <a name="publications"></a>
-                    <h4>Publications</h4>
-                    <ol>
-                        <li><b>Inferring Traffic Violation-Prone Locations with Vehicle Trajectories and Road Environment Data</b> [<a class="btn-thin" href="tv-infer-web/index.html">traffic violation visualization</a>] [<a class="btn-thin" href="traffic-sign-web/traffic-signs/index.html">traffic sign visualization</a>][<a class="btn-thin" href="papers/isj20.pdf">pdf</a>][<a class="btn-thin" href="https://ieeexplore.ieee.org/document/9171429">link</a>]</li>
-                            <ul>
-                            <li>Based on the large-scale vehicle trajectories and road environment data, we proposed a low-cost, dynamic, and comprehensive framework to infer traffic violation-prone locations in cities to help authorities improve the utility and effectiveness of the traffic enforcement strategies. </li>
-                            <li><b>Zhihan Jiang</b>, Longbiao Chen, Binbin Zhou, Jinchun Huang, Tianqi Xie, Xiaoliang Fan, Cheng Wang. iTV: Inferring Traffic Violation-Prone Locations with Vehicle Trajectories and Road Environment. IEEE Systems Journal (中科院SCI分区: 2区, IF: 3.987), DOI: 10.1109/JSYST.2020.3012743, 2020.</li>
-                            </ul>
-                    	<li><b>Understanding Urban Structures and Crowd Dynamics Leveraging Large-Scale Vehicle Mobility Data</b> [<a class="btn-thin" href="papers/fcs.pdf">pdf</a>] [<a class="btn-thin" href="fcs/viz/viz-en.html">visualization</a>]</li>
-		                   	<ul>
-							<li>In order to facilitate efficient urban planning and effective city management, we proposed a data-driven framework to understand the city functions of different areas with a distance-constrained clustering algorithm (DCCA) and detect irregular patterns in crowd dynamics with an ARIMA-based anomaly detection algorithm (ADAM).</li>
-							<li><b>Zhihan JIANG</b>, Yan LIU, Xiaoliang FAN, Cheng WANG, Jonathan LI, Longbiao CHEN. Understanding Urban Structures and Crowd Dynamics Leveraging Large-Scale Vehicle Mobility Data[J]. Frontiers of Computer Science (中科院SCI分区: 3区, IF: 1.275), DOI: 10.1007/s11704-019-9034-z, 2019.</li>
-							</ul>
-                    	<li><b>BikeNet: Accurate Bike Demand Prediction Using Graph Neural Networks for Station Rebalancing</b> [<a class="btn-thin" href="papers/uic19-bikenet.pdf">pdf</a>]</li>
-		                   	<ul>
-							<li>In order to improve the quality of bike sharing systems, we proposed a two-phase framework to accurately predict city-wide bike demands by spatiotemporal graph neural network (ST-GNN) and effectively rebalance bikes stations with Integer Linear Programming (ILP) algorithm.</li>
-							<li>Ruiying Guo, <b>Zhihan Jiang</b>, Jingchun Huang, Jianrong Tao, Cheng Wang, Jonathan Li, Longbiao Chen*. BikeNet: Accurate Bike Demand Prediction Using Graph Neural Networks for Station Rebalancing. The 16th IEEE International Conference on Ubiquitous Intelligence and Computing (UIC’19), Leicester (CCF-C类会议), UK, DOI: 10.1109/SmartWorld-UIC-ATC-SCALCOM-IOP-SCI.2019.00153, 2019.</li>
-							</ul>
-                    	<li><b>Data-Driven Bike Sharing System Optimization: State of the Art and Future Opportunities</b> [<a class="btn-thin" href="papers/ewsn-2019.pdf">pdf</a>]</li>
-		                   	<ul>
-							<li>This paper specifically focus on the data-driven BSS optimization problem and provide a comprehensive literature review with future research opportunities.</li>
-							<li>Longbiao Chen, <b>Zhihan Jiang</b>, Jiangtao Wang, Yasha Wang. Data-Driven Bike Sharing System Optimization: State of the Art and Future Opportunities. The 2019 International Conference on Embedded Wireless Systems and Networks (EWSN’19)(EI会议), Beijing, China, DOI: 10.5555/3324320.3324406, 2019.</li>
-							</ul>
-                	</ol>
-
-                    <h4>In Submission</h4>
-					<ol>
-						<li><b>A Data-Driven Patrol Task Scheduling Framework based on Traffic Violation Hotspot Prediction</b> [<a class="btn-thin" href="patrolroutes-viz-web/index.html">visualization</a>] </li>
-                            <ul>
-                            <li>Based on the scattered traffic violations and road environment data, we propose a three-phase data-driven framework to accurately predict traffic violation hotspots in cities and dynamically schedule patrol tasks with maximal coverage of traffic violation hotspots under resource constraints. </li>
-                            <li><b>Zhihan Jiang</b>, Longbiao Chen, Binbin Zhou, Xiaojuan Ma, Mingfei Sun, Xiaoliang Fan, Cheng Wang. A Data-Driven Patrol Task Scheduling Framework based on Traffic Violation Hotspot Prediction.</li>
-                            </ul>
-						<li><b>Optimizing Fog Radio Access Networks for 5G Leveraging User Mobility and Traffic Data</b> [<a class="btn-thin" href="fogran/viz/index.html">visualization</a>]</li>
-		                   	<ul>
-							<li>In order to optimize the fog-computing-based radio access network (Fog-RAN), we proposed a two-phase data-driven framework to cluster base stations (RRHs) into communities and find optimal data processing unit (BBU) allocation schemes that maximize BBU utilization rate. </li>
-							<li>Longbiao Chen, <b>Zhihan Jiang</b>, Dingqi Yang, Thi-Mai-Trang Nguyen, Cheng Wang. Optimizing Fog Radio Access Networks for 5G Leveraging User Mobility and Traffic Data.</li>
-							</ul>
-					</ol>
-<!--                     <h4>Work-in-Progress</h4> -->
-               
-                </div><!-- .col-sm-12 -->
-
             </div><!-- .row -->
         </section><!-- .section -->
 
