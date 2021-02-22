@@ -437,6 +437,7 @@
         </section><!-- .section -->
 
         <section class="section brd-btm">
+            <a name="scholarships"></a>
             <h2 class="title-thin text-muted"><b>Scholarships & Awards</b></h2>
             <div class="row">
                 <div class="col-sm-12 clear-mrg">
@@ -471,7 +472,9 @@
         </section><!-- .section -->
 
         <section class="section brd-btm">
+            <a name="interships"></a>
             <h2 class="title-thin text-muted"><b>Internships & Academic Activities</b></h2>
+            
             <div class="row">
                 <div class="col-sm-12 clear-mrg">
                     <table border="0px">
@@ -684,17 +687,17 @@
         var anchors = document.getElementById("anchors");
         var anchor = document.createElement("a");
         anchor.href="#topAnchor";
-        anchor.style="position:fixed;right:5px;bottom:0px;";
+        anchor.style="position:fixed;right:5px;bottom:120px;";
         anchor.innerHTML="Top";
         anchors.appendChild(anchor);
         var anchor = document.createElement("a");
         anchor.href="#education";
-        anchor.style="position:fixed;right:5px;bottom:20px;";
+        anchor.style="position:fixed;right:5px;bottom:100px;";
         anchor.innerHTML="Education";
         anchors.appendChild(anchor);
         var anchor = document.createElement("a");
         anchor.href="#experience";
-        anchor.style="position:fixed;right:5px;bottom:40px;";
+        anchor.style="position:fixed;right:5px;bottom:80px;";
         anchor.innerHTML="Experience";
         anchors.appendChild(anchor);
         var anchor = document.createElement("a");
@@ -704,8 +707,18 @@
         anchors.appendChild(anchor);
         var anchor = document.createElement("a");
         anchor.href="#publications";
-        anchor.style="position:fixed;right:5px;bottom:80px;";
-        anchor.innerHTML="Publications";
+        anchor.style="position:fixed;right:5px;bottom:40px;";
+        anchor.innerHTML="Publications & Patents";
+        anchors.appendChild(anchor);
+        var anchor = document.createElement("a");
+        anchor.href="#scholarships";
+        anchor.style="position:fixed;right:5px;bottom:20px;";
+        anchor.innerHTML="Scholarships & Awards";
+        anchors.appendChild(anchor);
+        var anchor = document.createElement("a");
+        anchor.href="#interships";
+        anchor.style="position:fixed;right:5px;bottom:0px;";
+        anchor.innerHTML="Internships & Academic Activities";
         anchors.appendChild(anchor);
     </script>
 

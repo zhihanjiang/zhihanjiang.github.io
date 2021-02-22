@@ -433,6 +433,7 @@
         </section><!-- .section -->
 
         <section class="section brd-btm">
+            <a name="scholarships"></a>
             <h2 class="title-thin text-muted"><b>获奖经历</b></h2>
             <div class="row">
                 <div class="col-sm-12 clear-mrg">
@@ -466,6 +467,7 @@
         </section><!-- .section -->
 
         <section class="section brd-btm">
+            <a name="interships"></a>
             <h2 class="title-thin text-muted"><b>实习经历及学术活动</b></h2>
             <div class="row">
                 <div class="col-sm-12 clear-mrg">
@@ -678,17 +680,17 @@
         var anchors = document.getElementById("anchors");
         var anchor = document.createElement("a");
         anchor.href="#topAnchor";
-        anchor.style="position:fixed;right:5px;bottom:0px;";
+        anchor.style="position:fixed;right:5px;bottom:120px;";
         anchor.innerHTML="顶部";
         anchors.appendChild(anchor);
         var anchor = document.createElement("a");
         anchor.href="#education";
-        anchor.style="position:fixed;right:5px;bottom:20px;";
+        anchor.style="position:fixed;right:5px;bottom:100px;";
         anchor.innerHTML="教育经历";
         anchors.appendChild(anchor);
         var anchor = document.createElement("a");
         anchor.href="#experience";
-        anchor.style="position:fixed;right:5px;bottom:40px;";
+        anchor.style="position:fixed;right:5px;bottom:80px;";
         anchor.innerHTML="科研经历";
         anchors.appendChild(anchor);
         var anchor = document.createElement("a");
@@ -698,8 +700,18 @@
         anchors.appendChild(anchor);
         var anchor = document.createElement("a");
         anchor.href="#publications";
-        anchor.style="position:fixed;right:5px;bottom:80px;";
-        anchor.innerHTML="论文发表";
+        anchor.style="position:fixed;right:5px;bottom:40px;";
+        anchor.innerHTML="论文发表及专利";
+        anchors.appendChild(anchor);
+        var anchor = document.createElement("a");
+        anchor.href="#scholarships";
+        anchor.style="position:fixed;right:5px;bottom:20px;";
+        anchor.innerHTML="获奖经历";
+        anchors.appendChild(anchor);
+        var anchor = document.createElement("a");
+        anchor.href="#interships";
+        anchor.style="position:fixed;right:5px;bottom:0px;";
+        anchor.innerHTML="实习经历及学术活动";
         anchors.appendChild(anchor);
     </script>
     <footer id="ace-footer" class="ace-container-shift">
