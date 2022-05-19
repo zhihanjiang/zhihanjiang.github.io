@@ -49,6 +49,8 @@
 0,0,0,0,0,0,0,0,0,0.5,0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.5,0,0,0,0,0,0,0,0,0,0,0
 0,0,0,0,0.3,0,0,0,0,0.3,0,0,0.5,0.5,0.5,0,0,0,0,0,0.2,0,0,0.2,0,0,0.5</textarea>
+<textarea id="prob_mat" cols="50" rows="3">1,0
+0.5,0.5</textarea><br>
 <input type="number" id="dimension" value=27>
 <button id="random_gen" onclick="random_matrix();">Generate Random Matrix</button>
 		</div>
@@ -193,7 +195,20 @@
 					var dim = document.getElementById("dimension").value;
 					var mat = new Array(dim);
 
-					var sets = [[0.1,0.7,0.2],[0.1,0.9],[0.8,0.2],[0.3,0.7]]
+					let prob = document.getElementById('prob_mat').value;
+					console.log(prob);
+					let lines = prob.split('\n');
+					var sets = new Array(lines.length)
+					for(var i = 0; i<lines.length; i++){
+						sets[i]=lines[i].toString().split(',');
+						console.log(sets[i]);
+						for(var j = 0; j<sets[i].length; j++){
+							sets[i][j] = parseFloat(sets[i][j])
+						}
+					}
+
+					// var sets = [[0.1,0.7,0.2],[0.1,0.9],[0.8,0.2],[0.3,0.7]]
+					// var sets = [[0,1],[0.5,0.5]];
 
 					// [0.4,0.6],[0.5,0.5]
 
@@ -204,18 +219,19 @@
 						}
 					}
 					for(var i = 0; i < dim; i++){
-						// var ind = Math.floor(Math.random() * (sets.length-1));
-						// var k = sets[ind];
-						// for(var j=0; j<k.length; j++){
-						// 	var ind2 = Math.floor(Math.random() * (dim-1));
-						// 	if(mat[ind2][i]!=0){
-						// 		i--;
-						// 		continue;
-						// 	}
-						// 	mat[ind2][i] = k[j];
-						// }
-						var ind = Math.floor(Math.random() * (dim-1));
-						mat[ind][i] = 1;
+						var ind1 = Math.floor(Math.random() * (sets.length));
+						// console.log(ind1);
+						var set = sets[ind1];
+						for(var j=0; j<set.length; j++){
+							var ind2 = Math.floor(Math.random() * (dim-1));
+							if(mat[ind2][i]!=0){
+								i--;
+								continue;
+							}
+							mat[ind2][i] = set[j];
+						}
+						// var ind = Math.floor(Math.random() * (dim-1));
+						// mat[ind][i] = 1;
 					}
 					console.log(mat);
 
