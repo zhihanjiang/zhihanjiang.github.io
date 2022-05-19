@@ -112,6 +112,7 @@
 					for(var i = 0; i<sets_updated.length; i++){
 						output_str += '{'+sets_updated[i].toString()+'}\n';
 					}
+					output_str += "<br>Quotient Number: "+sets_updated.length.toString();
 					document.getElementById('output_view').innerHTML =output_str;
 				}
 				function iter_generate_set(sets, mat){
