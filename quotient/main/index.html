@@ -56,7 +56,7 @@
 <label>Matrix dimension (please input an integer)</label><br>
 <input type="number" id="dimension" value=27>
 <button id="random_gen" onclick="random_matrix();">Generate Random Matrix</button>
-<button id="random_gen_diag" onclick="random_matrix_diag();">Generate Random Matrix (Diag)</button>
+<button id="random_gen_diag" onclick="random_matrix_diag();">Generate Random 0-1 Matrix</button>
 		</div>
 		<div id="input_view2">
 			<label>Preliminary partition: <br>(please use a comma to distinguish entries in every partition, and use / to distinguish different partition)</label>
@@ -330,46 +330,18 @@
 					}
 					var mat = new Array(dim);
 
-					var prob_element = document.getElementById('prob_mat');
-					var prob = prob_element.value;
-					if(prob==""){
-						document.getElementById('output_view').innerHTML = "<font color=\"red\">Invalid input: Please input the probabilities.</font>";
-						return 0;
-					}
-					console.log(prob);
-					let lines = prob.split('\n');
-					
-					var sets = new Array()
-					for(var i = 0; i<lines.length; i++){
-						if(lines[i]==""){
-							continue;
-						}
-						sets[i]=lines[i].toString().split(',');
-						console.log(sets[i]);
-						for(var j = 0; j<sets[i].length; j++){
-							sets[i][j] = parseFloat(sets[i][j])
-						}
-					}
-
 					for(var i = 0; i < dim; i++){
 						mat[i] = new Array(dim);
 						for(var j = 0; j < dim; j++){
 							mat[i][j] = 0;
 						}
 					}
-					for(var i = 0; i < dim; i++){
-						var ind1 = Math.floor(Math.random() * (sets.length));
-						// console.log(ind1);
-						var set = sets[ind1];
-						for(var j=0; j<set.length; j++){
-							var ind2 = Math.floor(Math.random() * (dim-1));
-							if(mat[ind2][i]!=0){
-								i--;
-								continue;
-							}
-							mat[ind2][i] = set[j];
-						}
+
+					for(var j=0; j < dim; j++){
+						var i = Math.floor(Math.random() * (dim-1));
+						mat[i][j] = 1;
 					}
+
 					for(var j = 0; j<dim; j++){
 						flag = 0;
 						for(var i=0; i<dim; i++){
