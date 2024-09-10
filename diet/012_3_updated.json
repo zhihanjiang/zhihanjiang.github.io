@@ -1,0 +1,97 @@
+{
+    "food_journal": {
+        "date": "2024-07-21 10:16",
+        "description": "Meal captured during breakfast session. The meal includes a slice of ham, a portion of scrambled eggs, some corn, a slice of toast, and a cup of lemon water.",
+        "food": [
+            {
+                "name": "Ham slice",
+                "weight": 30,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Scrambled eggs",
+                "weight": 50,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Corn",
+                "weight": 20,
+                "consumption_percentage": 0.95
+            },
+            {
+                "name": "Toast slice",
+                "weight": 25,
+                "consumption_percentage": 0.9
+            }
+        ],
+        "drink": [
+            {
+                "name": "Lemon water",
+                "volume": 200,
+                "consumption_percentage": 0.8
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Ham slice": {
+            "energy_original": 46,
+            "protein_original": 4.2,
+            "carbohydrate_original": 0.3,
+            "total_fat_original": 3.0,
+            "sodium_original": 360,
+            "consumed_percentage": 0.9
+        },
+        "Scrambled eggs": {
+            "energy_original": 70,
+            "protein_original": 6,
+            "carbohydrate_original": 1,
+            "total_fat_original": 4.5,
+            "cholesterol_original": 140,
+            "sodium_original": 65,
+            "consumed_percentage": 0.9
+        },
+        "Corn": {
+            "energy_original": 20,
+            "protein_original": 0.7,
+            "carbohydrate_original": 4.5,
+            "total_fat_original": 0.2,
+            "dietary_fibre_original": 0.5,
+            "sodium_original": 0,
+            "consumed_percentage": 0.95
+        },
+        "Toast slice": {
+            "energy_original": 65,
+            "protein_original": 2.0,
+            "carbohydrate_original": 12.5,
+            "total_fat_original": 1.0,
+            "sodium_original": 110,
+            "consumed_percentage": 0.9
+        },
+        "Lemon water": {
+            "energy_original": 5,
+            "vitamin_c_original": 7,
+            "consumed_percentage": 0.8
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

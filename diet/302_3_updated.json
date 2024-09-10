@@ -1,0 +1,118 @@
+{
+    "food_journal": {
+        "date": "2024-08-10 19:19 - 19:37",
+        "description": "A 18-minute meal captured during a dinner session. The meal includes congee, corn on the cob, steamed fish, pork liver, and a side of mixed legumes and vegetables.",
+        "food": [
+            {
+                "name": "Congee",
+                "weight": 250,
+                "consumption_percentage": 0.85
+            },
+            {
+                "name": "Corn on the Cob",
+                "weight": 150,
+                "consumption_percentage": 0.75
+            },
+            {
+                "name": "Steamed Fish",
+                "weight": 200,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Pork Liver",
+                "weight": 100,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Mixed Legumes and Vegetables",
+                "weight": 100,
+                "consumption_percentage": 0.7
+            }
+        ],
+        "drink": []
+    },
+    "detailed_breakdown": {
+        "Congee": {
+            "energy_original": 120.00,
+            "protein_original": 3.00,
+            "carbohydrate_original": 26.00,
+            "total_fat_original": 0.50,
+            "dietary_fibre_original": 1.00,
+            "sodium_original": 0.00,
+            "calcium_original": 20.00,
+            "iron_original": 1.00,
+            "consumed_percentage": 0.85
+        },
+        "Corn on the Cob": {
+            "energy_original": 110.00,
+            "protein_original": 4.00,
+            "carbohydrate_original": 25.00,
+            "total_fat_original": 1.50,
+            "dietary_fibre_original": 3.00,
+            "sodium_original": 1.00,
+            "potassium_original": 150.00,
+            "calcium_original": 10.00,
+            "iron_original": 1.00,
+            "consumed_percentage": 0.75
+        },
+        "Steamed Fish": {
+            "energy_original": 180.00,
+            "protein_original": 35.00,
+            "carbohydrate_original": 0.00,
+            "total_fat_original": 4.00,
+            "dietary_fibre_original": 0.00,
+            "cholesterol_original": 70.00,
+            "sodium_original": 60.00,
+            "calcium_original": 30.00,
+            "iron_original": 1.00,
+            "phosphorus_original": 220.00,
+            "potassium_original": 400.00,
+            "consumed_percentage": 0.9
+        },
+        "Pork Liver": {
+            "energy_original": 130.00,
+            "protein_original": 20.00,
+            "carbohydrate_original": 4.00,
+            "total_fat_original": 4.00,
+            "cholesterol_original": 280.00,
+            "sodium_original": 70.00,
+            "iron_original": 6.00,
+            "vitamin_a_original": 3000.00,
+            "consumed_percentage": 0.8
+        },
+        "Mixed Legumes and Vegetables": {
+            "energy_original": 90.00,
+            "protein_original": 5.00,
+            "carbohydrate_original": 18.00,
+            "total_fat_original": 1.00,
+            "dietary_fibre_original": 6.00,
+            "vitamin_c_original": 15.00,
+            "potassium_original": 250.00,
+            "calcium_original": 50.00,
+            "iron_original": 2.00,
+            "consumed_percentage": 0.7
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg",
+        "vitamin_a": "{:.2f} IU"
+    }
+}

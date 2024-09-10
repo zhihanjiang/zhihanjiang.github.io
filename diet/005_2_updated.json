@@ -1,0 +1,110 @@
+{
+    "food_journal": {
+        "date": "2024-07-21 12:53",
+        "description": "Meal captured during a snack session. The meal includes roasted chicken, corn on the cob, cherry tomatoes, grapes, and a hot drink in a mug.",
+        "food": [
+            {
+                "name": "Roasted Chicken",
+                "weight": 150,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Corn on the Cob",
+                "weight": 100,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Cherry Tomatoes",
+                "weight": 100,
+                "consumption_percentage": 0.75
+            },
+            {
+                "name": "Grapes",
+                "weight": 50,
+                "consumption_percentage": 0.75
+            }
+        ],
+        "drink": [
+            {
+                "name": "Hot Drink",
+                "volume": 200,
+                "consumption_percentage": 0.9
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Roasted Chicken": {
+            "energy_original": 200,
+            "protein_original": 35,
+            "total_fat_original": 7,
+            "saturated_fat_original": 2,
+            "cholesterol_original": 120,
+            "potassium_original": 300,
+            "sodium_original": 500,
+            "consumed_percentage": 0.8
+        },
+        "Corn on the Cob": {
+            "energy_original": 90,
+            "protein_original": 3,
+            "carbohydrate_original": 19,
+            "total_fat_original": 1,
+            "dietary_fibre_original": 2,
+            "sugars_original": 6,
+            "potassium_original": 250,
+            "sodium_original": 15,
+            "consumed_percentage": 0.9
+        },
+        "Cherry Tomatoes": {
+            "energy_original": 20,
+            "protein_original": 1,
+            "carbohydrate_original": 4,
+            "total_fat_original": 0.2,
+            "dietary_fibre_original": 1,
+            "sugars_original": 3,
+            "potassium_original": 300,
+            "sodium_original": 5,
+            "vitamin_c_original": 15,
+            "consumed_percentage": 0.75
+        },
+        "Grapes": {
+            "energy_original": 30,
+            "protein_original": 0.3,
+            "carbohydrate_original": 8,
+            "total_fat_original": 0.2,
+            "dietary_fibre_original": 0.8,
+            "sugars_original": 7,
+            "potassium_original": 90,
+            "sodium_original": 2,
+            "vitamin_c_original": 4,
+            "consumed_percentage": 0.75
+        },
+        "Hot Drink": {
+            "energy_original": 50,
+            "carbohydrate_original": 10,
+            "total_fat_original": 1,
+            "sugars_original": 8,
+            "consumed_percentage": 0.9
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

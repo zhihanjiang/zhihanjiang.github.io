@@ -1,0 +1,65 @@
+{
+    "food_journal": {
+        "date": "2024-07-02 18:28",
+        "description": "Meal captured during dinner at a social setting, including chicken with eggplant and rice.",
+        "food": [
+            {
+                "name": "Chicken with eggplant",
+                "weight": 150,
+                "consumption_percentage": 0.75
+            },
+            {
+                "name": "Rice",
+                "weight": 200,
+                "consumption_percentage": 0.50
+            }
+        ],
+        "drink": []
+    },
+    "detailed_breakdown": {
+        "Chicken with eggplant": {
+            "energy_original": 240,
+            "protein_original": 22,
+            "carbohydrate_original": 8,
+            "total_fat_original": 14,
+            "dietary_fibre_original": 3,
+            "sugars_original": 4,
+            "saturated_fat_original": 4,
+            "sodium_original": 350,
+            "vitamin_c_original": 5,
+            "consumed_percentage": 0.75
+        },
+        "Rice": {
+            "energy_original": 260,
+            "protein_original": 4,
+            "carbohydrate_original": 58,
+            "dietary_fibre_original": 1,
+            "sugars_original": 0.4,
+            "total_fat_original": 0.5,
+            "saturated_fat_original": 0.1,
+            "sodium_original": 2,
+            "consumed_percentage": 0.50
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

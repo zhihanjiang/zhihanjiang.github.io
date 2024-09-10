@@ -1,0 +1,98 @@
+{
+    "food_journal": {
+        "date": "2024-07-22 12:34",
+        "description": "Meal captured during a lunch session. The meal includes rice, various dishes, and a glass of green drink.",
+        "food": [
+            {
+                "name": "Rice",
+                "weight": 200,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Potato and Meat Dish",
+                "weight": 150,
+                "consumption_percentage": 0.7
+            },
+            {
+                "name": "Chicken and Vegetable Soup",
+                "weight": 200,
+                "consumption_percentage": 0.6
+            },
+            {
+                "name": "Tofu and Vegetable Dish",
+                "weight": 150,
+                "consumption_percentage": 0.5
+            }
+        ],
+        "drink": [
+            {
+                "name": "Green Drink",
+                "volume": 300,
+                "consumption_percentage": 0.9
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Rice": {
+            "energy_original": 240,
+            "protein_original": 4.2,
+            "carbohydrate_original": 53,
+            "total_fat_original": 0.4,
+            "sodium_original": 0.002,
+            "consumed_percentage": 0.8
+        },
+        "Potato and Meat Dish": {
+            "energy_original": 200,
+            "protein_original": 10,
+            "carbohydrate_original": 20,
+            "total_fat_original": 8,
+            "sodium_original": 0.7,
+            "consumed_percentage": 0.7
+        },
+        "Chicken and Vegetable Soup": {
+            "energy_original": 150,
+            "protein_original": 15,
+            "carbohydrate_original": 10,
+            "total_fat_original": 5,
+            "sodium_original": 0.6,
+            "consumed_percentage": 0.6
+        },
+        "Tofu and Vegetable Dish": {
+            "energy_original": 100,
+            "protein_original": 8,
+            "carbohydrate_original": 10,
+            "total_fat_original": 4,
+            "sodium_original": 0.4,
+            "consumed_percentage": 0.5
+        },
+        "Green Drink": {
+            "energy_original": 120,
+            "protein_original": 0,
+            "carbohydrate_original": 30,
+            "total_fat_original": 0,
+            "sodium_original": 0.02,
+            "consumed_percentage": 0.9
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

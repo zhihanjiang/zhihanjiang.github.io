@@ -1,0 +1,60 @@
+{
+    "food_journal": {
+        "date": "2024-07-21 09:32",
+        "description": "Meal captured during a snack session. The meal includes a small cup of dumplings and a drink in a metal tumbler.",
+        "food": [
+            {
+                "name": "Dumplings",
+                "weight": 50,
+                "consumption_percentage": 0.85
+            }
+        ],
+        "drink": [
+            {
+                "name": "Tea",
+                "volume": 350,
+                "consumption_percentage": 0.70
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Dumplings": {
+            "energy_original": 250,
+            "protein_original": 5,
+            "carbohydrate_original": 30,
+            "total_fat_original": 10,
+            "dietary_fibre_original": 2,
+            "sugars_original": 2,
+            "saturated_fat_original": 2,
+            "sodium_original": 400,
+            "consumed_percentage": 0.85
+        },
+        "Tea": {
+            "energy_original": 2,
+            "protein_original": 0.1,
+            "calcium_original": 2,
+            "consumed_percentage": 0.70
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

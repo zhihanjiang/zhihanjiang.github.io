@@ -1,0 +1,55 @@
+{
+    "food_journal": {
+        "date": "2024-07-01 08:18",
+        "description": "Meal captured during a breakfast session. The meal includes a packaged sandwich and a can of cola.",
+        "food": [
+            {
+                "name": "Packaged Sandwich",
+                "weight": 150,
+                "consumption_percentage": 0.85
+            }
+        ],
+        "drink": [
+            {
+                "name": "Cola",
+                "volume": 355,
+                "consumption_percentage": 0.75
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Packaged Sandwich": {
+            "energy_original": 300,
+            "protein_original": 10,
+            "carbohydrate_original": 50,
+            "total_fat_original": 5,
+            "consumed_percentage": 0.85
+        },
+        "Cola": {
+            "energy_original": 140,
+            "carbohydrate_original": 39,
+            "consumed_percentage": 0.75
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

@@ -1,0 +1,135 @@
+{
+    "food_journal": {
+        "date": "2024-07-20 12:43",
+        "description": "Meal captured during lunch session. The meal includes steamed rice, braised chicken, vegetable soup, tofu with mushrooms, mixed vegetables, and iced coffee.",
+        "food": [
+            {
+                "name": "Steamed Rice",
+                "weight": 200,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Braised Chicken",
+                "weight": 150,
+                "consumption_percentage": 0.7
+            },
+            {
+                "name": "Vegetable Soup",
+                "weight": 300,
+                "consumption_percentage": 0.6
+            },
+            {
+                "name": "Tofu with Mushrooms",
+                "weight": 100,
+                "consumption_percentage": 0.5
+            },
+            {
+                "name": "Mixed Vegetables",
+                "weight": 100,
+                "consumption_percentage": 0.9
+            }
+        ],
+        "drink": [
+            {
+                "name": "Iced Coffee",
+                "volume": 250,
+                "consumption_percentage": 0.9
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Steamed Rice": {
+            "energy_original": 200,
+            "protein_original": 4,
+            "carbohydrate_original": 45,
+            "total_fat_original": 0.5,
+            "dietary_fibre_original": 1,
+            "sugars_original": 0.5,
+            "saturated_fat_original": 0.1,
+            "iron_original": 1.5,
+            "magnesium_original": 10,
+            "phosphorus_original": 50,
+            "potassium_original": 60,
+            "sodium_original": 2,
+            "consumed_percentage": 0.8
+        },
+        "Braised Chicken": {
+            "energy_original": 300,
+            "protein_original": 20,
+            "carbohydrate_original": 10,
+            "total_fat_original": 15,
+            "dietary_fibre_original": 2,
+            "sugars_original": 1,
+            "saturated_fat_original": 3,
+            "iron_original": 1.2,
+            "sodium_original": 70,
+            "consumed_percentage": 0.7
+        },
+        "Vegetable Soup": {
+            "energy_original": 50,
+            "protein_original": 2,
+            "carbohydrate_original": 10,
+            "total_fat_original": 1,
+            "dietary_fibre_original": 2,
+            "sugars_original": 3,
+            "saturated_fat_original": 0.2,
+            "sodium_original": 300,
+            "consumed_percentage": 0.6
+        },
+        "Tofu with Mushrooms": {
+            "energy_original": 150,
+            "protein_original": 10,
+            "carbohydrate_original": 5,
+            "total_fat_original": 8,
+            "dietary_fibre_original": 3,
+            "sugars_original": 2,
+            "saturated_fat_original": 1,
+            "iron_original": 1,
+            "sodium_original": 20,
+            "consumed_percentage": 0.5
+        },
+        "Mixed Vegetables": {
+            "energy_original": 80,
+            "protein_original": 3,
+            "carbohydrate_original": 10,
+            "total_fat_original": 2,
+            "dietary_fibre_original": 4,
+            "sugars_original": 5,
+            "saturated_fat_original": 0.5,
+            "iron_original": 0.5,
+            "sodium_original": 5,
+            "consumed_percentage": 0.9
+        },
+        "Iced Coffee": {
+            "energy_original": 120,
+            "protein_original": 2,
+            "carbohydrate_original": 20,
+            "total_fat_original": 3,
+            "sugars_original": 18,
+            "saturated_fat_original": 2,
+            "calcium_original": 50,
+            "sodium_original": 60,
+            "consumed_percentage": 0.9
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

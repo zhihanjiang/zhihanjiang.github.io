@@ -1,0 +1,89 @@
+{
+    "food_journal": {
+        "date": "2024-05-31",
+        "description": "Meal captured during a lunch session. The meal includes rice, a dish with vegetables and meat, a side of pickled vegetables, and a lemon water drink.",
+        "food": [
+            {
+                "name": "Rice",
+                "weight": 200,
+                "consumption_percentage": 0.6
+            },
+            {
+                "name": "Vegetables and Meat Dish",
+                "weight": 150,
+                "consumption_percentage": 0.7
+            },
+            {
+                "name": "Pickled Vegetables",
+                "weight": 50,
+                "consumption_percentage": 0.8
+            }
+        ],
+        "drink": [
+            {
+                "name": "Lemon Water",
+                "volume": 300,
+                "consumption_percentage": 0.9
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Rice": {
+            "energy_original": 260,
+            "protein_original": 5,
+            "carbohydrate_original": 58,
+            "total_fat_original": 0.5,
+            "dietary_fibre_original": 0.5,
+            "sodium_original": 10,
+            "consumed_percentage": 0.6
+        },
+        "Vegetables and Meat Dish": {
+            "energy_original": 180,
+            "protein_original": 10,
+            "carbohydrate_original": 15,
+            "total_fat_original": 8,
+            "dietary_fibre_original": 3,
+            "sugars_original": 4,
+            "saturated_fat_original": 2,
+            "cholesterol_original": 30,
+            "sodium_original": 400,
+            "consumed_percentage": 0.7
+        },
+        "Pickled Vegetables": {
+            "energy_original": 25,
+            "carbohydrate_original": 6,
+            "total_fat_original": 0.2,
+            "dietary_fibre_original": 1,
+            "sugars_original": 2,
+            "sodium_original": 300,
+            "consumed_percentage": 0.8
+        },
+        "Lemon Water": {
+            "energy_original": 10,
+            "carbohydrate_original": 2,
+            "vitamin_c_original": 20,
+            "consumed_percentage": 0.9
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

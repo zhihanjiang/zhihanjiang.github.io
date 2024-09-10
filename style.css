@@ -13,6 +13,8 @@ body {
     letter-spacing: 0.08em;
     padding: 0;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 article,
@@ -4829,6 +4831,7 @@ h1, h2, h3, h4, h5, h6 {
 
     #ace-content {
         background: none;
+/*        margin-top: 5%;*/
     }
 
     .ace-paper {
@@ -4839,6 +4842,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .ace-card-on .ace-container-shift {
         margin-left: 288px;
+/*        margin-top: 20px;*/
     }
 
     .ace-card-on .ace-paper-cont {
@@ -4885,6 +4889,7 @@ h1, h2, h3, h4, h5, h6 {
     #ace-card {
         float: left;
         width: 288px;
+/*        margin-top: 5%;*/
     }
 }
 
@@ -4977,6 +4982,16 @@ h1, h2, h3, h4, h5, h6 {
 .ace-head-col {
     display: table-cell;
     vertical-align: middle;
+    text-align: right;
+    position: fixed;  /* Make it fixed */
+/*    margin-bottom: 30px;*/
+    top: 0;           /* Stick to the top of the page */
+    left: 0;
+    width: 100%;      /* Ensure it spans the full width */
+    z-index: 1000;    /* Make sure it's above other content */
+    background-color: #f2f2f2; /* Set background to prevent transparency */
+    border-bottom: 1px solid #ddd; /* Optional: Add a bottom border for clarity */
+    font-size: 14px;
 }
 
 .ace-logo {
@@ -5097,7 +5112,7 @@ h1, h2, h3, h4, h5, h6 {
     content: "\f0d7";
     color: inherit;
     font-size: 0.8em;
-    font-family: icomoon;
+/*    font-family: icomoon;*/
     position: absolute;
     top: 50%;
     right: 0;
@@ -5172,6 +5187,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow-y: hidden;
     text-align: center;
     white-space: nowrap;
+/*    margin-top: 60px;  /* Adjust the padding to avoid content overlap */*/
     -webkit-overflow-scrolling: touch;
 }
 
@@ -5526,7 +5542,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 992px) {
     .ace-sidebar-on .ace-head-col {
-        height: 60px;
+/*        height: 60px;*/
     }
 }
 

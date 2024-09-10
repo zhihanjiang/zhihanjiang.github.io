@@ -1,0 +1,71 @@
+{
+    "food_journal": {
+        "date": "2024-07-02 17:53",
+        "description": "Meal captured during a dinner session. The meal includes grilled fish with rice and vegetables, soup, and iced milk tea.",
+        "food": [
+            {
+                "name": "Grilled Fish with Rice and Vegetables",
+                "weight": 350,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Soup",
+                "weight": 150,
+                "consumption_percentage": 0.9
+            }
+        ],
+        "drink": [
+            {
+                "name": "Iced Milk Tea",
+                "volume": 300,
+                "consumption_percentage": 0.75
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Grilled Fish with Rice and Vegetables": {
+            "energy_original": 550,
+            "protein_original": 28,
+            "carbohydrate_original": 65,
+            "total_fat_original": 18,
+            "dietary_fibre_original": 5,
+            "consumed_percentage": 0.9
+        },
+        "Soup": {
+            "energy_original": 30,
+            "protein_original": 2,
+            "carbohydrate_original": 5,
+            "total_fat_original": 1,
+            "consumed_percentage": 0.9
+        },
+        "Iced Milk Tea": {
+            "energy_original": 150,
+            "protein_original": 3,
+            "carbohydrate_original": 30,
+            "total_fat_original": 3,
+            "sugars_original": 28,
+            "consumed_percentage": 0.75
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

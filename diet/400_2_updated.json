@@ -1,0 +1,73 @@
+{
+    "food_journal": {
+        "date": "2024-08-06 13:06 - 13:16",
+        "description": "A 10-minute meal captured during lunch. The meal includes a plate of rice with grilled meat and sauce, stir-fried vegetables, and a glass of Sprite.",
+        "food": [
+            {
+                "name": "Rice with Grilled Meat and Sauce",
+                "weight": 200,
+                "consumption_percentage": 1.0
+            },
+            {
+                "name": "Stir-fried Vegetables",
+                "weight": 100,
+                "consumption_percentage": 1.0
+            }
+        ],
+        "drink": [
+            {
+                "name": "Sprite",
+                "volume": 250,
+                "consumption_percentage": 0.7
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Rice with Grilled Meat and Sauce": {
+            "energy_original": 300,
+            "protein_original": 20.0,
+            "carbohydrate_original": 40.0,
+            "total_fat_original": 10.0,
+            "saturated_fat_original": 3.0,
+            "sodium_original": 800.0,
+            "consumed_percentage": 1.0
+        },
+        "Stir-fried Vegetables": {
+            "energy_original": 50,
+            "protein_original": 2.0,
+            "carbohydrate_original": 7.0,
+            "total_fat_original": 2.0,
+            "dietary_fibre_original": 3.0,
+            "sugars_original": 3.0,
+            "sodium_original": 300.0,
+            "consumed_percentage": 1.0
+        },
+        "Sprite": {
+            "energy_original": 105,
+            "carbohydrate_original": 26.0,
+            "sugars_original": 26.0,
+            "sodium_original": 45.0,
+            "consumed_percentage": 0.7
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

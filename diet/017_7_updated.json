@@ -1,0 +1,87 @@
+{
+    "food_journal": {
+        "date": "2024-08-03 18:02",
+        "description": "Meal captured during a dining session. The meal includes a plate of mixed vegetables and tofu, followed by a drink of lemon water.",
+        "food": [
+            {
+                "name": "Mixed Vegetables and Tofu",
+                "weight": 250,
+                "consumption_percentage": 0.98
+            }
+        ],
+        "drink": [
+            {
+                "name": "Lemon Water",
+                "volume": 300,
+                "consumption_percentage": 0.80
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Mixed Vegetables and Tofu": {
+            "energy_original": 180,
+            "protein_original": 12,
+            "carbohydrate_original": 20,
+            "total_fat_original": 8,
+            "dietary_fibre_original": 6,
+            "sugars_original": 4,
+            "saturated_fat_original": 1,
+            "trans_fat_original": 0,
+            "cholesterol_original": 0,
+            "calcium_original": 100,
+            "copper_original": 0.4,
+            "iron_original": 2,
+            "magnesium_original": 30,
+            "manganese_original": 0.8,
+            "phosphorus_original": 120,
+            "potassium_original": 350,
+            "sodium_original": 70,
+            "zinc_original": 1,
+            "vitamin_c_original": 25,
+            "consumed_percentage": 0.98
+        },
+        "Lemon Water": {
+            "energy_original": 10,
+            "protein_original": 0,
+            "carbohydrate_original": 3,
+            "total_fat_original": 0,
+            "dietary_fibre_original": 0,
+            "sugars_original": 0,
+            "saturated_fat_original": 0,
+            "trans_fat_original": 0,
+            "cholesterol_original": 0,
+            "calcium_original": 5,
+            "copper_original": 0,
+            "iron_original": 0,
+            "magnesium_original": 1,
+            "manganese_original": 0,
+            "phosphorus_original": 1,
+            "potassium_original": 10,
+            "sodium_original": 0,
+            "zinc_original": 0,
+            "vitamin_c_original": 20,
+            "consumed_percentage": 0.80
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

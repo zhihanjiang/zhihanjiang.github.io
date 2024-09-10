@@ -1,0 +1,71 @@
+{
+    "food_journal": {
+        "date": "2024-07-25 09:26",
+        "description": "Meal captured during breakfast. The meal includes a slice of bread with butter, a bowl of porridge, and a cup of tea.",
+        "food": [
+            {
+                "name": "Bread with Butter",
+                "weight": 50,
+                "consumption_percentage": 1.0
+            },
+            {
+                "name": "Porridge",
+                "weight": 200,
+                "consumption_percentage": 1.0
+            }
+        ],
+        "drink": [
+            {
+                "name": "Tea",
+                "volume": 250,
+                "consumption_percentage": 1.0
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Bread with Butter": {
+            "energy_original": 133,
+            "protein_original": 2.8,
+            "carbohydrate_original": 17.0,
+            "total_fat_original": 6.0,
+            "saturated_fat_original": 3.5,
+            "sodium_original": 150,
+            "consumed_percentage": 1.0
+        },
+        "Porridge": {
+            "energy_original": 70,
+            "protein_original": 2.1,
+            "carbohydrate_original": 12.0,
+            "dietary_fibre_original": 1.5,
+            "sodium_original": 1,
+            "consumed_percentage": 1.0
+        },
+        "Tea": {
+            "energy_original": 2,
+            "carbohydrate_original": 0.4,
+            "sodium_original": 1,
+            "consumed_percentage": 1.0
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

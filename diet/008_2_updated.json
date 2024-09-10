@@ -1,0 +1,105 @@
+{
+    "food_journal": {
+        "date": "2024-07-20 18:09",
+        "description": "Meal captured during a dinner session. The meal includes a variety of Chinese dishes with rice, tofu, vegetables, and a beverage.",
+        "food": [
+            {
+                "name": "Rice",
+                "weight": 150,
+                "consumption_percentage": 0.95
+            },
+            {
+                "name": "Mapo Tofu",
+                "weight": 200,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Vegetable Stir Fry",
+                "weight": 100,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Steamed Egg",
+                "weight": 100,
+                "consumption_percentage": 0.85
+            }
+        ],
+        "drink": [
+            {
+                "name": "Milk Tea",
+                "volume": 250,
+                "consumption_percentage": 0.75
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Rice": {
+            "energy_original": 204.0,
+            "protein_original": 4.2,
+            "carbohydrate_original": 44.2,
+            "total_fat_original": 0.44,
+            "sugars_original": 0.08,
+            "consumed_percentage": 0.95
+        },
+        "Mapo Tofu": {
+            "energy_original": 240.0,
+            "protein_original": 11.0,
+            "carbohydrate_original": 14.0,
+            "total_fat_original": 14.0,
+            "sugars_original": 6.0,
+            "saturated_fat_original": 4.0,
+            "sodium_original": 720.0,
+            "consumed_percentage": 0.9
+        },
+        "Vegetable Stir Fry": {
+            "energy_original": 60.0,
+            "protein_original": 3.0,
+            "carbohydrate_original": 10.0,
+            "total_fat_original": 2.0,
+            "sugars_original": 2.0,
+            "sodium_original": 200.0,
+            "consumed_percentage": 0.8
+        },
+        "Steamed Egg": {
+            "energy_original": 70.0,
+            "protein_original": 6.0,
+            "carbohydrate_original": 1.0,
+            "total_fat_original": 4.0,
+            "saturated_fat_original": 1.5,
+            "cholesterol_original": 160.0,
+            "sodium_original": 120.0,
+            "consumed_percentage": 0.85
+        },
+        "Milk Tea": {
+            "energy_original": 130.0,
+            "protein_original": 3.0,
+            "carbohydrate_original": 23.0,
+            "total_fat_original": 3.5,
+            "saturated_fat_original": 2.0,
+            "sugars_original": 21.0,
+            "sodium_original": 65.0,
+            "consumed_percentage": 0.75
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

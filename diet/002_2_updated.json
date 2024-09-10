@@ -1,0 +1,63 @@
+{
+    "food_journal": {
+        "date": "2024-07-01 12:24",
+        "description": "Meal captured during lunch. The meal includes a plate of fried rice with vegetables and shrimp, accompanied by a cola-like beverage.",
+        "food": [
+            {
+                "name": "Fried Rice with Vegetables and Shrimp",
+                "weight": 350,
+                "consumption_percentage": 0.95
+            }
+        ],
+        "drink": [
+            {
+                "name": "Cola-like Beverage",
+                "volume": 330,
+                "consumption_percentage": 0.9
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Fried Rice with Vegetables and Shrimp": {
+            "energy_original": 550,
+            "protein_original": 20,
+            "carbohydrate_original": 85,
+            "total_fat_original": 15,
+            "dietary_fibre_original": 3,
+            "sugars_original": 3,
+            "saturated_fat_original": 3,
+            "cholesterol_original": 120,
+            "sodium_original": 1200,
+            "consumed_percentage": 0.95
+        },
+        "Cola-like Beverage": {
+            "energy_original": 140,
+            "carbohydrate_original": 35,
+            "sugars_original": 35,
+            "caffeine_original": 34,
+            "sodium_original": 45,
+            "consumed_percentage": 0.9
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

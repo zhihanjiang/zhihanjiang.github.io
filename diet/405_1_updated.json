@@ -1,0 +1,84 @@
+{
+    "food_journal": {
+        "date": "2024-07-24 12:00 - 12:09",
+        "description": "A 9-minute lunch meal captured during a lunch session. The meal includes Hainanese chicken rice with soup and sauces, along with a drink.",
+        "food": [
+            {
+                "name": "Hainanese Chicken",
+                "weight": 150,
+                "consumption_percentage": 0.85
+            },
+            {
+                "name": "Chicken Rice",
+                "weight": 120,
+                "consumption_percentage": 0.80
+            }
+        ],
+        "drink": [
+            {
+                "name": "Soup",
+                "volume": 100,
+                "consumption_percentage": 0.90
+            },
+            {
+                "name": "Sprite",
+                "volume": 200,
+                "consumption_percentage": 0.70
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Hainanese Chicken": {
+            "energy_original": 242.0,
+            "protein_original": 27.0,
+            "carbohydrate_original": 2.0,
+            "total_fat_original": 14.0,
+            "saturated_fat_original": 4.0,
+            "cholesterol_original": 70.0,
+            "sodium_original": 70.0,
+            "consumed_percentage": 0.85
+        },
+        "Chicken Rice": {
+            "energy_original": 242.0,
+            "protein_original": 4.0,
+            "carbohydrate_original": 42.0,
+            "total_fat_original": 6.0,
+            "cholesterol_original": 0.0,
+            "sodium_original": 400.0,
+            "consumed_percentage": 0.80
+        },
+        "Soup": {
+            "energy_original": 20.0,
+            "sodium_original": 200.0,
+            "consumed_percentage": 0.90
+        },
+        "Sprite": {
+            "energy_original": 84.0,
+            "carbohydrate_original": 21.0,
+            "sugars_original": 21.0,
+            "sodium_original": 40.0,
+            "consumed_percentage": 0.70
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

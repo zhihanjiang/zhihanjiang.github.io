@@ -1,0 +1,117 @@
+{
+    "food_journal": {
+        "date": "2024-07-20 14:18",
+        "description": "Meal captured during a lunch session. The meal includes various seafood items such as salmon, shrimp, and oysters, along with rice and vegetables.",
+        "food": [
+            {
+                "name": "Salmon",
+                "weight": 100,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Shrimp",
+                "weight": 120,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Oysters",
+                "weight": 60,
+                "consumption_percentage": 0.5
+            },
+            {
+                "name": "Rice",
+                "weight": 200,
+                "consumption_percentage": 0.7
+            },
+            {
+                "name": "Vegetables",
+                "weight": 80,
+                "consumption_percentage": 0.6
+            }
+        ],
+        "drink": [
+            {
+                "name": "Water",
+                "volume": 300,
+                "consumption_percentage": 0.8
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Salmon": {
+            "energy_original": 208,
+            "protein_original": 22.1,
+            "total_fat_original": 12.3,
+            "saturated_fat_original": 2.5,
+            "cholesterol_original": 55,
+            "sodium_original": 59,
+            "potassium_original": 363,
+            "vitamin_c_original": 4,
+            "consumed_percentage": 0.9
+        },
+        "Shrimp": {
+            "energy_original": 85,
+            "protein_original": 20.3,
+            "total_fat_original": 0.5,
+            "cholesterol_original": 165,
+            "sodium_original": 111,
+            "potassium_original": 220,
+            "vitamin_c_original": 2,
+            "consumed_percentage": 0.8
+        },
+        "Oysters": {
+            "energy_original": 57,
+            "protein_original": 5.9,
+            "total_fat_original": 3.3,
+            "cholesterol_original": 47,
+            "sodium_original": 75,
+            "potassium_original": 150,
+            "vitamin_c_original": 3,
+            "consumed_percentage": 0.5
+        },
+        "Rice": {
+            "energy_original": 242,
+            "protein_original": 4.4,
+            "carbohydrate_original": 53,
+            "total_fat_original": 0.4,
+            "sodium_original": 5,
+            "potassium_original": 35,
+            "consumed_percentage": 0.7
+        },
+        "Vegetables": {
+            "energy_original": 30,
+            "protein_original": 2,
+            "carbohydrate_original": 6,
+            "total_fat_original": 0.2,
+            "dietary_fibre_original": 2,
+            "sodium_original": 30,
+            "potassium_original": 300,
+            "vitamin_c_original": 20,
+            "consumed_percentage": 0.6
+        },
+        "Water": {
+            "consumed_percentage": 0.8
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

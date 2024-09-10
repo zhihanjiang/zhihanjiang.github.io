@@ -1,0 +1,135 @@
+{
+    "food_journal": {
+        "date": "2024-07-01 17:30",
+        "description": "Meal captured during a dinner session. The meal includes pasta, pizza, seafood, and dessert.",
+        "food": [
+            {
+                "name": "Pasta",
+                "weight": 200,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Pizza",
+                "weight": 300,
+                "consumption_percentage": 0.75
+            },
+            {
+                "name": "Seafood",
+                "weight": 150,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Mango Dessert",
+                "weight": 100,
+                "consumption_percentage": 1.0
+            },
+            {
+                "name": "Ice Cream",
+                "weight": 120,
+                "consumption_percentage": 0.85
+            }
+        ],
+        "drink": [
+            {
+                "name": "Lemon Water",
+                "volume": 250,
+                "consumption_percentage": 0.9
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Pasta": {
+            "energy_original": 320,
+            "protein_original": 12,
+            "carbohydrate_original": 64,
+            "total_fat_original": 4,
+            "dietary_fibre_original": 3,
+            "sugars_original": 4,
+            "saturated_fat_original": 1,
+            "cholesterol_original": 30,
+            "sodium_original": 400,
+            "consumed_percentage": 0.9
+        },
+        "Pizza": {
+            "energy_original": 800,
+            "protein_original": 30,
+            "carbohydrate_original": 90,
+            "total_fat_original": 35,
+            "dietary_fibre_original": 5,
+            "sugars_original": 8,
+            "saturated_fat_original": 15,
+            "cholesterol_original": 60,
+            "sodium_original": 1000,
+            "consumed_percentage": 0.75
+        },
+        "Seafood": {
+            "energy_original": 150,
+            "protein_original": 30,
+            "carbohydrate_original": 0,
+            "total_fat_original": 2,
+            "dietary_fibre_original": 0,
+            "sugars_original": 0,
+            "saturated_fat_original": 1,
+            "cholesterol_original": 100,
+            "sodium_original": 500,
+            "consumed_percentage": 0.8
+        },
+        "Mango Dessert": {
+            "energy_original": 150,
+            "protein_original": 2,
+            "carbohydrate_original": 30,
+            "total_fat_original": 5,
+            "dietary_fibre_original": 2,
+            "sugars_original": 25,
+            "saturated_fat_original": 2,
+            "cholesterol_original": 10,
+            "sodium_original": 50,
+            "consumed_percentage": 1.0
+        },
+        "Ice Cream": {
+            "energy_original": 240,
+            "protein_original": 4,
+            "carbohydrate_original": 28,
+            "total_fat_original": 12,
+            "dietary_fibre_original": 1,
+            "sugars_original": 20,
+            "saturated_fat_original": 7,
+            "cholesterol_original": 40,
+            "sodium_original": 80,
+            "consumed_percentage": 0.85
+        },
+        "Lemon Water": {
+            "energy_original": 10,
+            "protein_original": 0,
+            "carbohydrate_original": 2,
+            "total_fat_original": 0,
+            "dietary_fibre_original": 0,
+            "sugars_original": 1,
+            "saturated_fat_original": 0,
+            "cholesterol_original": 0,
+            "sodium_original": 5,
+            "consumed_percentage": 0.9
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

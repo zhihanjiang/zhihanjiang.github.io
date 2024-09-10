@@ -1,0 +1,100 @@
+{
+    "food_journal": {
+        "date": "2024-08-04 18:10",
+        "description": "Meal captured during a dinner session. The meal includes various dishes such as rice, mixed vegetables, a seafood salad, and grilled meats.",
+        "food": [
+            {
+                "name": "Mixed vegetables",
+                "weight": 100,
+                "consumption_percentage": 0.85
+            },
+            {
+                "name": "Seafood salad",
+                "weight": 150,
+                "consumption_percentage": 0.70
+            },
+            {
+                "name": "Grilled meats",
+                "weight": 200,
+                "consumption_percentage": 0.50
+            },
+            {
+                "name": "Rice",
+                "weight": 180,
+                "consumption_percentage": 0.90
+            }
+        ],
+        "drink": [
+            {
+                "name": "Green tea",
+                "volume": 200,
+                "consumption_percentage": 0.75
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Mixed vegetables": {
+            "energy_original": 65,
+            "protein_original": 2,
+            "carbohydrate_original": 14,
+            "total_fat_original": 0.5,
+            "dietary_fibre_original": 5,
+            "sugars_original": 4,
+            "vitamin_c_original": 20,
+            "consumed_percentage": 0.85
+        },
+        "Seafood salad": {
+            "energy_original": 180,
+            "protein_original": 22,
+            "carbohydrate_original": 5,
+            "total_fat_original": 8,
+            "cholesterol_original": 145,
+            "sodium_original": 500,
+            "consumed_percentage": 0.70
+        },
+        "Grilled meats": {
+            "energy_original": 300,
+            "protein_original": 25,
+            "total_fat_original": 20,
+            "saturated_fat_original": 7,
+            "cholesterol_original": 80,
+            "sodium_original": 600,
+            "consumed_percentage": 0.50
+        },
+        "Rice": {
+            "energy_original": 205,
+            "protein_original": 4,
+            "carbohydrate_original": 45,
+            "dietary_fibre_original": 0.6,
+            "sugars_original": 0.1,
+            "sodium_original": 1,
+            "consumed_percentage": 0.90
+        },
+        "Green tea": {
+            "energy_original": 0,
+            "carbohydrate_original": 0,
+            "consumed_percentage": 0.75
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

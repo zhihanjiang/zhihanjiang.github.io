@@ -1,0 +1,90 @@
+{
+    "food_journal": {
+        "date": "2024-07-18 18:15",
+        "description": "Meal captured during a dinner session. The meal includes various dishes and drinks.",
+        "food": [
+            {
+                "name": "Fried Chicken Wings",
+                "weight": 200,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Toast with Scrambled Eggs",
+                "weight": 150,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Ramen Soup",
+                "weight": 400,
+                "consumption_percentage": 0.75
+            }
+        ],
+        "drink": [
+            {
+                "name": "Milk Tea with Tapioca Pearls",
+                "volume": 500,
+                "consumption_percentage": 0.95
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Fried Chicken Wings": {
+            "energy_original": 500,
+            "protein_original": 40,
+            "carbohydrate_original": 10,
+            "total_fat_original": 35,
+            "sugars_original": 0,
+            "sodium_original": 1200,
+            "consumed_percentage": 0.9
+        },
+        "Toast with Scrambled Eggs": {
+            "energy_original": 300,
+            "protein_original": 12,
+            "carbohydrate_original": 30,
+            "total_fat_original": 15,
+            "sugars_original": 5,
+            "sodium_original": 600,
+            "consumed_percentage": 0.8
+        },
+        "Ramen Soup": {
+            "energy_original": 450,
+            "protein_original": 15,
+            "carbohydrate_original": 60,
+            "total_fat_original": 10,
+            "sugars_original": 3,
+            "sodium_original": 1800,
+            "consumed_percentage": 0.75
+        },
+        "Milk Tea with Tapioca Pearls": {
+            "energy_original": 300,
+            "protein_original": 3,
+            "carbohydrate_original": 50,
+            "total_fat_original": 7,
+            "sugars_original": 35,
+            "saturated_fat_original": 4,
+            "sodium_original": 100,
+            "consumed_percentage": 0.95
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

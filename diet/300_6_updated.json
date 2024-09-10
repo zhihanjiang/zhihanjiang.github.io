@@ -1,0 +1,73 @@
+{
+    "food_journal": {
+        "date": "2024-07-24 19:46",
+        "description": "Meal captured during a dinner session. The meal includes rice, stir-fried vegetables, and meat.",
+        "food": [
+            {
+                "name": "Rice",
+                "weight": 100,
+                "consumption_percentage": 0.90
+            },
+            {
+                "name": "Stir-fried vegetables",
+                "weight": 80,
+                "consumption_percentage": 0.85
+            },
+            {
+                "name": "Meat (likely beef or pork)",
+                "weight": 120,
+                "consumption_percentage": 0.75
+            }
+        ],
+        "drink": []
+    },
+    "detailed_breakdown": {
+        "Rice": {
+            "energy_original": 130,
+            "protein_original": 2.7,
+            "carbohydrate_original": 28,
+            "total_fat_original": 0.3,
+            "consumed_percentage": 0.9
+        },
+        "Stir-fried vegetables": {
+            "energy_original": 35,
+            "protein_original": 2,
+            "carbohydrate_original": 7,
+            "total_fat_original": 0.5,
+            "dietary_fibre_original": 2.5,
+            "sugars_original": 3,
+            "consumed_percentage": 0.85
+        },
+        "Meat (likely beef or pork)": {
+            "energy_original": 250,
+            "protein_original": 21,
+            "carbohydrate_original": 0,
+            "total_fat_original": 18,
+            "cholesterol_original": 80,
+            "iron_original": 2.1,
+            "sodium_original": 60,
+            "consumed_percentage": 0.75
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

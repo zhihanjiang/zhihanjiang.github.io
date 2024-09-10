@@ -1,0 +1,132 @@
+{
+    "food_journal": {
+        "date": "2024-07-30 13:04 - 13:13",
+        "description": "A 9-minute meal captured during a lunch session. The meal includes instant noodles, scrambled eggs, and broccoli, with an additional side plate containing ham, hash browns, and chicken wings. The user consumed iced lemon tea and water as drinks.",
+        "food": [
+            {
+                "name": "Instant Noodles",
+                "weight": 200,
+                "consumption_percentage": 0.85
+            },
+            {
+                "name": "Scrambled Eggs",
+                "weight": 100,
+                "consumption_percentage": 0.85
+            },
+            {
+                "name": "Broccoli",
+                "weight": 50,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Ham",
+                "weight": 30,
+                "consumption_percentage": 1.0
+            },
+            {
+                "name": "Hash Brown",
+                "weight": 50,
+                "consumption_percentage": 1.0
+            },
+            {
+                "name": "Chicken Wing",
+                "weight": 40,
+                "consumption_percentage": 0.9
+            }
+        ],
+        "drink": [
+            {
+                "name": "Iced Lemon Tea",
+                "volume": 350,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Water",
+                "volume": 200,
+                "consumption_percentage": 0.7
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Instant Noodles": {
+            "energy_original": 350,
+            "protein_original": 8,
+            "carbohydrate_original": 50,
+            "total_fat_original": 12,
+            "saturated_fat_original": 3,
+            "sodium_original": 1000,
+            "consumed_percentage": 0.85
+        },
+        "Scrambled Eggs": {
+            "energy_original": 150,
+            "protein_original": 12,
+            "total_fat_original": 10,
+            "saturated_fat_original": 3,
+            "cholesterol_original": 210,
+            "sodium_original": 150,
+            "consumed_percentage": 0.85
+        },
+        "Broccoli": {
+            "energy_original": 25,
+            "protein_original": 2,
+            "carbohydrate_original": 4,
+            "dietary_fibre_original": 2,
+            "vitamin_c_original": 40,
+            "sodium_original": 30,
+            "consumed_percentage": 0.9
+        },
+        "Ham": {
+            "energy_original": 70,
+            "protein_original": 5,
+            "carbohydrate_original": 1,
+            "total_fat_original": 5,
+            "sodium_original": 200,
+            "consumed_percentage": 1.0
+        },
+        "Hash Brown": {
+            "energy_original": 130,
+            "protein_original": 2,
+            "carbohydrate_original": 20,
+            "total_fat_original": 7,
+            "saturated_fat_original": 2,
+            "sodium_original": 150,
+            "consumed_percentage": 1.0
+        },
+        "Chicken Wing": {
+            "energy_original": 100,
+            "protein_original": 9,
+            "total_fat_original": 7,
+            "sodium_original": 150,
+            "consumed_percentage": 0.9
+        },
+        "Iced Lemon Tea": {
+            "energy_original": 90,
+            "sugars_original": 22,
+            "sodium_original": 10,
+            "consumed_percentage": 0.8
+        },
+        "Water": {
+            "consumed_percentage": 0.7
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

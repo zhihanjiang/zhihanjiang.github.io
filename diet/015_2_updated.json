@@ -1,0 +1,100 @@
+{
+    "food_journal": {
+        "date": "2024-08-02 12:39",
+        "description": "Meal captured during a lunch session in a cafeteria setting. The meal includes rice, sweet and sour pork, sautéed green beans, and a bowl of soup. Accompanied by cola.",
+        "food": [
+            {
+                "name": "Steamed White Rice",
+                "weight": 200,
+                "consumption_percentage": 0.85
+            },
+            {
+                "name": "Sweet and Sour Pork",
+                "weight": 180,
+                "consumption_percentage": 0.95
+            },
+            {
+                "name": "Sautéed Green Beans",
+                "weight": 120,
+                "consumption_percentage": 0.80
+            }
+        ],
+        "drink": [
+            {
+                "name": "Cola",
+                "volume": 350,
+                "consumption_percentage": 0.75
+            },
+            {
+                "name": "Soup",
+                "volume": 250,
+                "consumption_percentage": 0.70
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Steamed White Rice": {
+            "energy_original": 260,
+            "protein_original": 4,
+            "carbohydrate_original": 58,
+            "total_fat_original": 0.5,
+            "sodium_original": 1,
+            "consumed_percentage": 0.85
+        },
+        "Sweet and Sour Pork": {
+            "energy_original": 320,
+            "protein_original": 14,
+            "carbohydrate_original": 25,
+            "total_fat_original": 18,
+            "sugars_original": 15,
+            "saturated_fat_original": 6,
+            "cholesterol_original": 45,
+            "sodium_original": 300,
+            "consumed_percentage": 0.95
+        },
+        "Sautéed Green Beans": {
+            "energy_original": 44,
+            "protein_original": 2,
+            "carbohydrate_original": 10,
+            "total_fat_original": 0.2,
+            "dietary_fibre_original": 4,
+            "iron_original": 1,
+            "vitamin_c_original": 12,
+            "consumed_percentage": 0.80
+        },
+        "Soup": {
+            "energy_original": 75,
+            "protein_original": 4,
+            "carbohydrate_original": 9,
+            "total_fat_original": 3,
+            "sodium_original": 860,
+            "consumed_percentage": 0.70
+        },
+        "Cola": {
+            "energy_original": 140,
+            "sugars_original": 39,
+            "consumed_percentage": 0.75
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

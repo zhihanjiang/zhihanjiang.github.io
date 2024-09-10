@@ -1,0 +1,62 @@
+{
+    "food_journal": {
+        "date": "2024-07-20 12:28",
+        "description": "Meal captured during lunch. The meal includes a plate of stir-fried noodles with vegetables and meat, accompanied by a glass of cola.",
+        "food": [
+            {
+                "name": "Stir-fried Noodles with Vegetables and Meat",
+                "weight": 350,
+                "consumption_percentage": 0.85
+            }
+        ],
+        "drink": [
+            {
+                "name": "Cola",
+                "volume": 250,
+                "consumption_percentage": 0.95
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Stir-fried Noodles with Vegetables and Meat": {
+            "energy_original": 550,
+            "protein_original": 18,
+            "carbohydrate_original": 70,
+            "total_fat_original": 20,
+            "dietary_fibre_original": 5,
+            "sugars_original": 8,
+            "saturated_fat_original": 3,
+            "cholesterol_original": 45,
+            "sodium_original": 1200,
+            "consumed_percentage": 0.85
+        },
+        "Cola": {
+            "energy_original": 105,
+            "carbohydrate_original": 27,
+            "sugars_original": 27,
+            "sodium_original": 30,
+            "consumed_percentage": 0.95
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

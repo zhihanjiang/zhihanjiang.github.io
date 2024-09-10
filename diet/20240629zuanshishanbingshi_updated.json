@@ -1,0 +1,89 @@
+{
+    "food_journal": {
+        "date": "2024-06-29 13:21",
+        "description": "Meal captured during a lunch session. The meal includes rice, a vegetable stew with okra and tomatoes, and fried fish, accompanied by a bowl of soup.",
+        "food": [
+            {
+                "name": "Rice",
+                "weight": 200,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Vegetable Stew with Okra and Tomatoes",
+                "weight": 150,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Fried Fish",
+                "weight": 100,
+                "consumption_percentage": 0.7
+            }
+        ],
+        "drink": [
+            {
+                "name": "Soup",
+                "volume": 250,
+                "consumption_percentage": 0.85
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Rice": {
+            "energy_original": 260,
+            "carbohydrate_original": 57.0,
+            "protein_original": 5.0,
+            "total_fat_original": 0.4,
+            "sodium_original": 0.2,
+            "consumed_percentage": 0.8
+        },
+        "Vegetable Stew with Okra and Tomatoes": {
+            "energy_original": 90,
+            "carbohydrate_original": 14.0,
+            "protein_original": 3.0,
+            "total_fat_original": 3.0,
+            "dietary_fibre_original": 4.0,
+            "vitamin_c_original": 20.0,
+            "iron_original": 1.5,
+            "calcium_original": 60.0,
+            "consumed_percentage": 0.9
+        },
+        "Fried Fish": {
+            "energy_original": 210,
+            "carbohydrate_original": 0.0,
+            "protein_original": 22.0,
+            "total_fat_original": 12.0,
+            "cholesterol_original": 70.0,
+            "sodium_original": 90.0,
+            "consumed_percentage": 0.7
+        },
+        "Soup": {
+            "energy_original": 40,
+            "carbohydrate_original": 8.0,
+            "protein_original": 2.0,
+            "total_fat_original": 0.5,
+            "sodium_original": 400.0,
+            "consumed_percentage": 0.85
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

@@ -1,0 +1,90 @@
+{
+    "food_journal": {
+        "date": "2024-07-20 19:07",
+        "description": "Meal captured during a dinner session. The meal includes a dish of green vegetables with meat and a side dish of white porridge.",
+        "food": [
+            {
+                "name": "Green Vegetables with Meat",
+                "weight": 200,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "White Porridge",
+                "weight": 100,
+                "consumption_percentage": 0.7
+            }
+        ],
+        "drink": [
+            {
+                "name": "Water",
+                "volume": 250,
+                "consumption_percentage": 0.9
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Green Vegetables with Meat": {
+            "energy_original": 150,
+            "protein_original": 10,
+            "carbohydrate_original": 15,
+            "total_fat_original": 5,
+            "dietary_fibre_original": 7,
+            "sugars_original": 3,
+            "saturated_fat_original": 1.5,
+            "trans_fat_original": 0.1,
+            "cholesterol_original": 20,
+            "calcium_original": 60,
+            "iron_original": 2,
+            "magnesium_original": 50,
+            "phosphorus_original": 100,
+            "potassium_original": 300,
+            "sodium_original": 500,
+            "zinc_original": 1.5,
+            "vitamin_c_original": 30,
+            "consumed_percentage": 0.8
+        },
+        "White Porridge": {
+            "energy_original": 70,
+            "protein_original": 2,
+            "carbohydrate_original": 15,
+            "total_fat_original": 0.5,
+            "dietary_fibre_original": 1,
+            "sugars_original": 0.5,
+            "saturated_fat_original": 0.1,
+            "cholesterol_original": 1,
+            "calcium_original": 20,
+            "iron_original": 0.3,
+            "magnesium_original": 10,
+            "phosphorus_original": 30,
+            "potassium_original": 50,
+            "sodium_original": 150,
+            "zinc_original": 0.2,
+            "vitamin_c_original": 2,
+            "consumed_percentage": 0.7
+        },
+        "Water": {
+            "consumed_percentage": 0.9
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

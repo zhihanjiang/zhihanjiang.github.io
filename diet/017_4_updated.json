@@ -1,0 +1,104 @@
+{
+    "food_journal": {
+        "date": "2024-08-02 12:22",
+        "description": "Meal captured during a lunch session. The meal includes stir-fried bok choy, braised pork with potatoes, soup, rice, and lemon water.",
+        "food": [
+            {
+                "name": "Stir-fried Bok Choy",
+                "weight": 150,
+                "consumption_percentage": 0.85
+            },
+            {
+                "name": "Braised Pork with Potatoes",
+                "weight": 200,
+                "consumption_percentage": 0.6
+            },
+            {
+                "name": "Rice",
+                "weight": 200,
+                "consumption_percentage": 0.7
+            }
+        ],
+        "drink": [
+            {
+                "name": "Soup",
+                "volume": 250,
+                "consumption_percentage": 0.4
+            },
+            {
+                "name": "Lemon Water",
+                "volume": 300,
+                "consumption_percentage": 0.5
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Stir-fried Bok Choy": {
+            "energy_original": 20,
+            "protein_original": 1.5,
+            "carbohydrate_original": 3.8,
+            "total_fat_original": 0.2,
+            "dietary_fibre_original": 1.3,
+            "vitamin_c_original": 45,
+            "calcium_original": 105,
+            "iron_original": 0.8,
+            "consumed_percentage": 0.85
+        },
+        "Braised Pork with Potatoes": {
+            "energy_original": 280,
+            "protein_original": 19,
+            "carbohydrate_original": 23,
+            "total_fat_original": 15,
+            "dietary_fibre_original": 3,
+            "sugars_original": 5,
+            "saturated_fat_original": 6,
+            "trans_fat_original": 0.5,
+            "cholesterol_original": 80,
+            "sodium_original": 870,
+            "consumed_percentage": 0.6
+        },
+        "Rice": {
+            "energy_original": 260,
+            "protein_original": 4,
+            "carbohydrate_original": 58,
+            "total_fat_original": 0.4,
+            "dietary_fibre_original": 0.6,
+            "iron_original": 0.5,
+            "consumed_percentage": 0.7
+        },
+        "Soup": {
+            "energy_original": 50,
+            "protein_original": 3,
+            "carbohydrate_original": 6,
+            "total_fat_original": 1.5,
+            "sodium_original": 600,
+            "consumed_percentage": 0.4
+        },
+        "Lemon Water": {
+            "energy_original": 10,
+            "vitamin_c_original": 6,
+            "consumed_percentage": 0.5
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

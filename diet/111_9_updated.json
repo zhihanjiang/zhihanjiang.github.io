@@ -1,0 +1,64 @@
+{
+    "food_journal": {
+        "date": "2024-04-29 21:15 - 21:25",
+        "description": "A 10-minute snack session. The snack includes a slice of cheesecake and a large iced coffee.",
+        "food": [
+            {
+                "name": "Cheesecake",
+                "weight": 120,
+                "consumption_percentage": 0.95
+            }
+        ],
+        "drink": [
+            {
+                "name": "Iced Coffee",
+                "volume": 400,
+                "consumption_percentage": 0.85
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Cheesecake": {
+            "energy_original": 350.0,
+            "carbohydrate_original": 32.0,
+            "protein_original": 6.0,
+            "total_fat_original": 22.0,
+            "sodium_original": 300.0,
+            "sugars_original": 25.0,
+            "calcium_original": 150.0,
+            "consumed_percentage": 0.95
+        },
+        "Iced Coffee": {
+            "energy_original": 180.0,
+            "carbohydrate_original": 20.0,
+            "sugars_original": 18.0,
+            "protein_original": 3.0,
+            "calcium_original": 120.0,
+            "sodium_original": 100.0,
+            "consumed_percentage": 0.85
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}
+
+

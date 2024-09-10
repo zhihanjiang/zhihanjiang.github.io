@@ -1,0 +1,97 @@
+{
+    "food_journal": {
+        "date": "2024-08-01 12:22",
+        "description": "Meal captured during a lunch session. The meal includes potatoes with sauce and sausages, tomato-based chicken stew, a bowl of rice, and lemon water.",
+        "food": [
+            {
+                "name": "Potatoes with sauce and sausages",
+                "weight": 150,
+                "consumption_percentage": 0.8
+            },
+            {
+                "name": "Tomato-based chicken stew",
+                "weight": 180,
+                "consumption_percentage": 0.75
+            },
+            {
+                "name": "Bowl of rice",
+                "weight": 130,
+                "consumption_percentage": 0.85
+            }
+        ],
+        "drink": [
+            {
+                "name": "Lemon water",
+                "volume": 200,
+                "consumption_percentage": 0.6
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Potatoes with sauce and sausages": {
+            "energy_original": 315.0,
+            "protein_original": 7.5,
+            "carbohydrate_original": 35.0,
+            "total_fat_original": 18.0,
+            "dietary_fibre_original": 5.0,
+            "sugars_original": 4.0,
+            "saturated_fat_original": 6.0,
+            "sodium_original": 850.0,
+            "potassium_original": 900.0,
+            "vitamin_c_original": 19.0,
+            "consumed_percentage": 0.8
+        },
+        "Tomato-based chicken stew": {
+            "energy_original": 240.0,
+            "protein_original": 28.0,
+            "carbohydrate_original": 15.0,
+            "total_fat_original": 9.0,
+            "dietary_fibre_original": 3.0,
+            "sugars_original": 8.0,
+            "saturated_fat_original": 2.5,
+            "cholesterol_original": 75.0,
+            "iron_original": 2.4,
+            "vitamin_c_original": 10.5,
+            "consumed_percentage": 0.75
+        },
+        "Bowl of rice": {
+            "energy_original": 205.0,
+            "protein_original": 4.3,
+            "carbohydrate_original": 44.5,
+            "total_fat_original": 0.44,
+            "dietary_fibre_original": 0.6,
+            "sugars_original": 0.12,
+            "sodium_original": 1.6,
+            "potassium_original": 55.0,
+            "consumed_percentage": 0.85
+        },
+        "Lemon water": {
+            "energy_original": 6.0,
+            "carbohydrate_original": 2.0,
+            "sugars_original": 0.6,
+            "vitamin_c_original": 9.7,
+            "consumed_percentage": 0.6
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

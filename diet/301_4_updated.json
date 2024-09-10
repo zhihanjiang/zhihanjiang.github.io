@@ -1,0 +1,116 @@
+{
+    "food_journal": {
+        "date": "2024-07-27 12:27",
+        "description": "Meal captured during a lunch session. The meal includes rice, stir-fried noodles with vegetables, steamed dumplings, tofu, and green vegetables.",
+        "food": [
+            {
+                "name": "Rice",
+                "weight": 200,
+                "consumption_percentage": 0.98
+            },
+            {
+                "name": "Stir-fried Noodles with Vegetables",
+                "weight": 150,
+                "consumption_percentage": 0.85
+            },
+            {
+                "name": "Steamed Dumplings",
+                "weight": 120,
+                "consumption_percentage": 0.90
+            },
+            {
+                "name": "Tofu",
+                "weight": 100,
+                "consumption_percentage": 0.75
+            },
+            {
+                "name": "Green Vegetables",
+                "weight": 80,
+                "consumption_percentage": 0.95
+            }
+        ],
+        "drink": [
+            {
+                "name": "Water",
+                "volume": 300,
+                "consumption_percentage": 0.70
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Rice": {
+            "energy_original": 260,
+            "protein_original": 4,
+            "carbohydrate_original": 58,
+            "total_fat_original": 0.4,
+            "dietary_fibre_original": 1.2,
+            "sugars_original": 0.1,
+            "sodium_original": 2,
+            "consumed_percentage": 0.98
+        },
+        "Stir-fried Noodles with Vegetables": {
+            "energy_original": 320,
+            "protein_original": 8,
+            "carbohydrate_original": 42,
+            "total_fat_original": 14,
+            "dietary_fibre_original": 4,
+            "sugars_original": 4,
+            "sodium_original": 700,
+            "consumed_percentage": 0.85
+        },
+        "Steamed Dumplings": {
+            "energy_original": 220,
+            "protein_original": 12,
+            "carbohydrate_original": 30,
+            "total_fat_original": 6,
+            "dietary_fibre_original": 2,
+            "sugars_original": 2,
+            "sodium_original": 540,
+            "consumed_percentage": 0.90
+        },
+        "Tofu": {
+            "energy_original": 120,
+            "protein_original": 12,
+            "carbohydrate_original": 3,
+            "total_fat_original": 7,
+            "dietary_fibre_original": 0.9,
+            "calcium_original": 350,
+            "iron_original": 2.7,
+            "consumed_percentage": 0.75
+        },
+        "Green Vegetables": {
+            "energy_original": 40,
+            "protein_original": 3,
+            "carbohydrate_original": 7,
+            "total_fat_original": 0.4,
+            "dietary_fibre_original": 2.8,
+            "vitamin_c_original": 12,
+            "consumed_percentage": 0.95
+        },
+        "Water": {
+            "energy_original": 0,
+            "consumed_percentage": 0.70
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

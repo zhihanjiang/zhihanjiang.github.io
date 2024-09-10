@@ -1,0 +1,75 @@
+{
+    "food_journal": {
+        "date": "2024-04-29 19:40 - 19:55",
+        "description": "A 15-minute meal session. The meal includes a plate with a breakfast sandwich consisting of a fried egg, a slice of ham, and a bun, a bowl of instant noodles with braised pork and broccoli, and a glass of milk tea.",
+        "food": [
+            {
+                "name": "Breakfast Sandwich (Fried Egg, Ham, Bun)",
+                "weight": 150,
+                "consumption_percentage": 0.9
+            },
+            {
+                "name": "Instant Noodles with Braised Pork and Broccoli",
+                "weight": 200,
+                "consumption_percentage": 0.85
+            }
+        ],
+        "drink": [
+            {
+                "name": "Milk Tea",
+                "volume": 300,
+                "consumption_percentage": 0.8
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Breakfast Sandwich (Fried Egg, Ham, Bun)": {
+            "energy_original": 300.0,
+            "carbohydrate_original": 30.0,
+            "protein_original": 15.0,
+            "total_fat_original": 15.0,
+            "sodium_original": 700.0,
+            "consumed_percentage": 0.9
+        },
+        "Instant Noodles with Braised Pork and Broccoli": {
+            "energy_original": 350.0,
+            "carbohydrate_original": 40.0,
+            "protein_original": 18.0,
+            "total_fat_original": 20.0,
+            "sodium_original": 1000.0,
+            "dietary_fibre_original": 5.0,
+            "vitamin_c_original": 20.0,
+            "consumed_percentage": 0.85
+        },
+        "Milk Tea": {
+            "energy_original": 180.0,
+            "carbohydrate_original": 25.0,
+            "sugars_original": 20.0,
+            "protein_original": 6.0,
+            "calcium_original": 200.0,
+            "consumed_percentage": 0.8
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}
+

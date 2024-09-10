@@ -1,0 +1,59 @@
+{
+    "food_journal": {
+        "date": "2024-07-24 12:28",
+        "description": "Meal captured during a lunch session. The meal includes a bowl of beef noodle soup and a glass of soda.",
+        "food": [
+            {
+                "name": "Beef Noodle Soup",
+                "weight": 500,
+                "consumption_percentage": 0.9
+            }
+        ],
+        "drink": [
+            {
+                "name": "Soda",
+                "volume": 300,
+                "consumption_percentage": 0.75
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Beef Noodle Soup": {
+            "energy_original": 450,
+            "protein_original": 25,
+            "carbohydrate_original": 60,
+            "total_fat_original": 15,
+            "sodium_original": 1200,
+            "iron_original": 4,
+            "consumed_percentage": 0.9
+        },
+        "Soda": {
+            "energy_original": 150,
+            "carbohydrate_original": 39,
+            "sugars_original": 39,
+            "sodium_original": 45,
+            "consumed_percentage": 0.75
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}

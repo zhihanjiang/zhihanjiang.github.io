@@ -1,0 +1,59 @@
+{
+    "food_journal": {
+        "date": "2024-07-22 09:21",
+        "description": "Meal captured during a breakfast session. The meal includes a wrap with a filling and a bottle of water.",
+        "food": [
+            {
+                "name": "Wrap with Filling",
+                "weight": 150,
+                "consumption_percentage": 0.85
+            }
+        ],
+        "drink": [
+            {
+                "name": "Bottle of Water",
+                "volume": 500,
+                "consumption_percentage": 0.7
+            }
+        ]
+    },
+    "detailed_breakdown": {
+        "Wrap with Filling": {
+            "energy_original": 300,
+            "protein_original": 10,
+            "carbohydrate_original": 35,
+            "total_fat_original": 12,
+            "dietary_fibre_original": 4,
+            "sugars_original": 5,
+            "saturated_fat_original": 4,
+            "cholesterol_original": 20,
+            "sodium_original": 500,
+            "potassium_original": 300,
+            "consumed_percentage": 0.85
+        },
+        "Bottle of Water": {
+            "consumed_percentage": 0.7
+        }
+    },
+    "nutrient_formats": {
+        "energy": "{:.2f} kcal",
+        "protein": "{:.2f} g",
+        "carbohydrate": "{:.2f} g",
+        "total_fat": "{:.2f} g",
+        "dietary_fibre": "{:.2f} g",
+        "sugars": "{:.2f} g",
+        "saturated_fat": "{:.2f} g",
+        "trans_fat": "{:.2f} g",
+        "cholesterol": "{:.2f} mg",
+        "calcium": "{:.2f} mg",
+        "copper": "{:.2f} mg",
+        "iron": "{:.2f} mg",
+        "magnesium": "{:.2f} mg",
+        "manganese": "{:.2f} mg",
+        "phosphorus": "{:.2f} mg",
+        "potassium": "{:.2f} mg",
+        "sodium": "{:.2f} mg",
+        "zinc": "{:.2f} mg",
+        "vitamin_c": "{:.2f} mg"
+    }
+}
