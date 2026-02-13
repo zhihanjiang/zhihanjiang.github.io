@@ -1,0 +1,1538 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Hear You in Silence: Designing for Active Listening in Human Interaction with Conversational Agents Using Context-Aware Pacing</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Open Graph -->
+        <meta property="og:url" content="https://hear-you-in-silence.github.io/" />
+        <meta property="og:image" content="static/img/preview.png" />
+        <meta property="og:title" content="Hear You in Silence: Designing for Active Listening in Human Interaction with Conversational Agents Using Context-Aware Pacing" />
+        <meta property="og:description" content="A context-aware pacing system for conversational agents that uses strategic silence to convey active listening, featuring five pacing strategies: Reflective Silence, Facilitative Silence, Empathic Silence, Holding Space, and Immediate Response." />
+
+        <!-- Twitter -->
+        <meta name="twitter:url" content="https://hear-you-in-silence.github.io/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="static/img/preview.png" />
+        <meta name="twitter:title" content="Hear You in Silence: Designing for Active Listening in Human Interaction with Conversational Agents Using Context-Aware Pacing" />
+        <meta name="twitter:description" content="A context-aware pacing system for conversational agents that uses strategic silence to convey active listening." />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+        <style>
+            :root {
+                --color-bg: #faf9f7;
+                --color-bg-alt: #f0eeea;
+                --color-text: #2d2a26;
+                --color-text-muted: #6b6560;
+                --color-accent: #c97c5d;
+                --color-accent-light: #e8b4a0;
+                --color-accent-dark: #a65d40;
+                --color-silence: #7b9e89;
+                --color-silence-light: #a8c5b3;
+                --color-response: #d4a574;
+                --color-border: #d8d4cf;
+                --font-display: 'Cormorant Garamond', Georgia, serif;
+                --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+                --max-width: 1200px;
+                --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: var(--font-body);
+                background: var(--color-bg);
+                color: var(--color-text);
+                line-height: 1.7;
+                font-size: 16px;
+            }
+
+            /* Header */
+            .header-wrapper {
+                background: linear-gradient(135deg, #2d2a26 0%, #4a453e 50%, #3d3833 100%);
+                color: white;
+                padding: 80px 20px 60px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .header-wrapper::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: 
+                    radial-gradient(circle at 20% 80%, rgba(201, 124, 93, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(123, 158, 137, 0.15) 0%, transparent 50%);
+                pointer-events: none;
+            }
+
+            .header-container {
+                max-width: var(--max-width);
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 20px 60px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .header-titles {
+                grid-column: 1 / -1;
+                margin-bottom: 20px;
+            }
+
+            .header-content {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .header-right {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .header-main-row {
+                margin-bottom: 40px;
+            }
+
+            .header-titles h1 {
+                font-family: var(--font-display);
+                font-size: 2.8rem;
+                font-weight: 500;
+                line-height: 1.2;
+                margin-bottom: 20px;
+                letter-spacing: -0.02em;
+            }
+
+            .header-titles h1 em {
+                font-style: italic;
+                color: var(--color-accent-light);
+            }
+
+            .header-titles h2 {
+                font-family: var(--font-body);
+                font-size: 1.1rem;
+                font-weight: 400;
+                opacity: 0.85;
+                margin-bottom: 0;
+                line-height: 1.6;
+            }
+
+            /* Icon Container */
+            .icon-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .icon-item {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 12px;
+                padding: 20px;
+                display: flex;
+                gap: 15px;
+                transition: var(--transition);
+            }
+
+            .icon-item:hover {
+                background: rgba(255, 255, 255, 0.08);
+                transform: translateY(-2px);
+            }
+
+            .icon-item img {
+                width: 40px;
+                height: 40px;
+                filter: brightness(0) invert(1) opacity(0.8);
+            }
+
+            .icon-item div {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                opacity: 0.9;
+            }
+
+            .icon-item strong {
+                display: block;
+                color: var(--color-accent-light);
+                margin-bottom: 4px;
+                font-weight: 600;
+            }
+
+            /* Buttons */
+            .button-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .button {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 24px;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 8px;
+                color: white;
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 500;
+                transition: var(--transition);
+            }
+
+            .button:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+
+            .button.paper-link {
+                background: var(--color-accent);
+                border-color: var(--color-accent);
+            }
+
+            .button.paper-link:hover {
+                background: var(--color-accent-dark);
+            }
+
+            .button .icon {
+                font-size: 1.1rem;
+            }
+
+            /* Teaser Image */
+            .header-image {
+                position: relative;
+            }
+
+            .teaser-image {
+                width: 100%;
+                border-radius: 16px;
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            }
+            /* Header BibTeX */
+            .header-bibtex {
+                margin-top: 20px;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            .bibtex-toggle {
+                padding: 12px 20px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                transition: var(--transition);
+            }
+
+            .bibtex-toggle:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .bibtex-toggle .fa-chevron-down {
+                margin-left: auto;
+                transition: transform 0.3s ease;
+            }
+
+            .header-bibtex.expanded .bibtex-toggle .fa-chevron-down {
+                transform: rotate(180deg);
+            }
+
+            .header-bibtex .bibtex {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                margin: 0;
+                border-radius: 0 0 12px 12px;
+                font-size: 0.75rem;
+                padding: 0 20px;
+            }
+
+            .header-bibtex.expanded .bibtex {
+                max-height: 300px;
+                padding: 15px 20px;
+            }
+
+            .bibtex-content {
+                position: relative;
+            }
+
+            .copy-btn {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background: rgba(255, 255, 255, 0.15);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: white;
+                padding: 6px 12px;
+                border-radius: 6px;
+                font-size: 0.8rem;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                transition: var(--transition);
+                z-index: 10;
+            }
+
+            .copy-btn:hover {
+                background: rgba(255, 255, 255, 0.25);
+            }
+
+            .copy-btn.copied {
+                background: var(--color-silence);
+                border-color: var(--color-silence);
+            }
+            .appendix-copy-btn {
+                background: rgba(0, 0, 0, 0.3);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            .appendix-copy-btn:hover {
+                background: rgba(0, 0, 0, 0.5);
+            }
+            /* Authors Section */
+            .byline {
+                background: var(--color-bg-alt);
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .byline-container {
+                max-width: var(--max-width);
+                margin: 0 auto;
+            }
+
+            .byline p {
+                margin-bottom: 15px;
+            }
+
+            .author-link {
+                color: var(--color-text);
+                text-decoration: none;
+                font-weight: 500;
+                margin: 0 8px;
+                transition: var(--transition);
+            }
+
+            .author-link:hover {
+                color: var(--color-accent);
+            }
+
+            .affiliation-link {
+                text-decoration: none;
+                font-size: 0.95rem;
+            }
+
+            .venue-badge {
+                display: inline-block;
+                background: var(--color-accent);
+                color: white;
+                padding: 8px 20px;
+                border-radius: 30px;
+                font-weight: 600;
+                text-decoration: none;
+                margin: 15px 0;
+                transition: var(--transition);
+            }
+
+            .venue-badge:hover {
+                background: var(--color-accent-dark);
+                transform: scale(1.02);
+            }
+
+            .author-note {
+                color: var(--color-text-muted);
+                font-size: 0.85rem;
+            }
+
+            /* Main Content */
+            .article {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 60px 20px;
+            }
+
+            .article h1 {
+                font-family: var(--font-display);
+                font-size: 2.2rem;
+                font-weight: 600;
+                margin-bottom: 30px;
+                color: var(--color-text);
+                position: relative;
+                padding-bottom: 15px;
+            }
+
+            .article h1::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 60px;
+                height: 3px;
+                background: var(--color-accent);
+                border-radius: 2px;
+            }
+
+            .article h3 {
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin: 40px 0 20px;
+                color: var(--color-text);
+            }
+
+            .article p {
+                margin-bottom: 20px;
+                text-align: justify;
+            }
+
+            .abstract {
+                font-size: 1.05rem;
+                color: var(--color-text-muted);
+            }
+
+            /* Figures */
+            figure {
+                margin: 40px 0;
+                text-align: center;
+            }
+
+            figure img {
+                max-width: 100%;
+                border-radius: 12px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+            }
+
+            figure img:hover {
+                transform: scale(1.02);
+                box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            }
+
+            figcaption {
+                margin-top: 15px;
+                font-size: 0.9rem;
+                color: var(--color-text-muted);
+                text-align: left;
+                padding: 0 20px;
+            }
+
+            /* Strategy Table */
+            .strategy-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 30px 0;
+                font-size: 0.9rem;
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+
+            .strategy-table th {
+                background: var(--color-text);
+                color: white;
+                padding: 15px;
+                text-align: left;
+                font-weight: 600;
+            }
+
+            .strategy-table td {
+                padding: 12px 15px;
+                border-bottom: 1px solid var(--color-border);
+                vertical-align: top;
+            }
+
+            .strategy-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .strategy-table tr:nth-child(even) {
+                background: var(--color-bg-alt);
+            }
+
+            .strategy-badge {
+                display: inline-block;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                white-space: nowrap;
+            }
+
+            .strategy-reflective { background: #e8f4ec; color: #2d5a3d; }
+            .strategy-facilitative { background: #e8f0f8; color: #2d4a6d; }
+            .strategy-empathic { background: #f8e8f4; color: #6d2d5a; }
+            .strategy-holding { background: #f8f0e8; color: #6d4a2d; }
+            .strategy-immediate { background: #f0f0f0; color: #4d4d4d; }
+
+            /* Navigation Icons */
+            .icon-row {
+                display: flex;
+                justify-content: center;
+                gap: 40px;
+                margin: 40px 0;
+                flex-wrap: wrap;
+            }
+
+            .icon-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                color: var(--color-text);
+                transition: var(--transition);
+            }
+
+            .icon-link:hover {
+                transform: translateY(-5px);
+            }
+
+            .icon-link:hover .icon-circle {
+                background: var(--color-accent);
+                color: white;
+            }
+
+            .icon-circle {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                background: var(--color-bg-alt);
+                border: 2px solid var(--color-border);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+                transition: var(--transition);
+            }
+
+            .icon-link span {
+                font-size: 0.85rem;
+                text-align: center;
+                font-weight: 500;
+            }
+
+            /* Section Blocks */
+            .section-block {
+                background: white;
+                border-radius: 16px;
+                padding: 50px;
+                margin: 40px 0;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+            }
+
+            /* Video Container */
+            .video-container {
+                position: relative;
+                width: 100%;
+                height: auto !important;
+                padding-bottom: 0 !important;
+                margin: 30px 0;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            }
+
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+
+            .video-container video {
+                width: 100%;
+                height: auto;
+                display: block; /* Removes the tiny gap at the bottom of inline elements */
+            }
+
+            /* Results Grid */
+            .results-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+                margin: 30px 0;
+            }
+
+            .result-card {
+                background: var(--color-bg-alt);
+                border-radius: 12px;
+                padding: 25px;
+                text-align: center;
+                transition: var(--transition);
+            }
+
+            .result-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .result-value {
+                font-family: var(--font-display);
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: var(--color-accent);
+                margin-bottom: 10px;
+            }
+
+            .result-label {
+                font-size: 0.9rem;
+                color: var(--color-text-muted);
+            }
+
+            /* Highlight Box */
+            .highlight-box {
+                background: linear-gradient(135deg, var(--color-silence-light) 0%, var(--color-silence) 100%);
+                color: white;
+                border-radius: 12px;
+                padding: 25px;
+                margin: 25px 0;
+            }
+
+            .highlight-box h4 {
+                font-family: var(--font-display);
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+
+            /* Quote */
+            blockquote {
+                border-left: 4px solid var(--color-accent);
+                padding-left: 25px;
+                margin: 30px 0;
+                font-style: italic;
+                color: var(--color-text-muted);
+                font-size: 1.1rem;
+            }
+
+            blockquote cite {
+                display: block;
+                margin-top: 10px;
+                font-size: 0.9rem;
+                font-style: normal;
+                color: var(--color-accent);
+            }
+
+            /* Research Questions */
+            .research-questions {
+                background: linear-gradient(135deg, var(--color-bg-alt) 0%, #e8e4df 100%);
+                border-radius: 12px;
+                padding: 25px 30px;
+                margin: 30px 0;
+                border-left: 4px solid var(--color-accent);
+            }
+
+            .research-questions h4 {
+                font-family: var(--font-display);
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+                color: var(--color-accent-dark);
+            }
+
+            .research-questions p {
+                margin-bottom: 12px;
+                text-align: left;
+            }
+
+            .research-questions p:last-child {
+                margin-bottom: 0;
+            }
+
+            /* Limitation List */
+            .limitation-list {
+                list-style: none;
+                padding: 0;
+                margin: 20px 0;
+            }
+
+            .limitation-list li {
+                background: white;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 15px;
+                border-left: 4px solid var(--color-accent);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            }
+
+            .limitation-list li:last-child {
+                margin-bottom: 0;
+            }
+
+            /* Feedback Cards */
+            .feedback-quotes {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+                margin: 30px 0;
+            }
+
+            .feedback-card {
+                background: white;
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                border-left: 4px solid var(--color-border);
+            }
+
+            .feedback-card.positive {
+                border-left-color: var(--color-silence);
+            }
+
+            .feedback-card.negative {
+                border-left-color: var(--color-accent);
+            }
+
+            .feedback-header {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 15px;
+                font-weight: 600;
+                font-size: 0.9rem;
+            }
+
+            .feedback-card.positive .feedback-header {
+                color: var(--color-silence);
+            }
+
+            .feedback-card.negative .feedback-header {
+                color: var(--color-accent);
+            }
+
+            .feedback-card blockquote {
+                border-left: none;
+                padding-left: 0;
+                margin: 0;
+                font-size: 0.95rem;
+            }
+
+            .feedback-card blockquote cite {
+                margin-top: 12px;
+            }
+
+            /* Divider */
+            hr {
+                border: none;
+                height: 1px;
+                background: var(--color-border);
+                margin: 60px 0;
+            }
+
+            /* Appendix / BibTeX */
+            .appendix {
+                background: var(--color-bg-alt);
+                padding: 50px 20px;
+            }
+
+            .appendix-content {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+            .appendix h3 {
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            .bibtex {
+                background: var(--color-text);
+                color: #a8e6cf;
+                padding: 25px;
+                border-radius: 12px;
+                font-family: 'Monaco', 'Menlo', monospace;
+                font-size: 0.85rem;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                line-height: 1.6;
+            }
+
+            /* Inline BibTeX */
+            .bibtex-inline {
+                background: var(--color-bg-alt);
+                border-radius: 12px;
+                padding: 25px;
+                margin: 30px 0;
+                border: 1px solid var(--color-border);
+            }
+
+            .bibtex-inline h4 {
+                font-family: var(--font-display);
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+                color: var(--color-text);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .bibtex-inline h4 i {
+                color: var(--color-accent);
+            }
+
+            .bibtex-inline .bibtex {
+                margin: 0;
+                font-size: 0.8rem;
+            }
+
+            /* Responsive */
+            @media (max-width: 900px) {
+                .header-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .header-content h1 {
+                    font-size: 2rem;
+                }
+
+                .icon-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .section-block {
+                    padding: 30px 20px;
+                }
+            }
+
+            /* Animations */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .animate-in {
+                animation: fadeInUp 0.6s ease-out forwards;
+            }
+
+            .delay-1 { animation-delay: 0.1s; }
+            .delay-2 { animation-delay: 0.2s; }
+            .delay-3 { animation-delay: 0.3s; }
+            .delay-4 { animation-delay: 0.4s; }
+
+            /* Pacing Visualization */
+            .pacing-demo {
+                display: flex;
+                gap: 30px;
+                margin: 30px 0;
+                flex-wrap: wrap;
+            }
+
+            .pacing-card {
+                flex: 1;
+                min-width: 280px;
+                background: white;
+                border-radius: 12px;
+                padding: 25px;
+                border: 2px solid var(--color-border);
+            }
+
+            .pacing-card h4 {
+                font-size: 1rem;
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .pacing-card.context-aware {
+                border-color: var(--color-silence);
+            }
+
+            .pacing-card.static {
+                border-color: var(--color-text-muted);
+            }
+
+            .chat-bubble {
+                background: var(--color-bg-alt);
+                border-radius: 12px;
+                padding: 12px 16px;
+                margin: 10px 0;
+                font-size: 0.9rem;
+            }
+
+            .chat-bubble.user {
+                background: var(--color-accent-light);
+                color: var(--color-text);
+                margin-left: 20%;
+            }
+
+            .chat-bubble.agent {
+                background: var(--color-silence-light);
+                margin-right: 20%;
+            }
+
+            .silence-indicator {
+                text-align: center;
+                padding: 15px;
+                color: var(--color-silence);
+                font-style: italic;
+                font-size: 0.85rem;
+            }
+
+            .silence-indicator i {
+                margin-right: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header-wrapper">
+            <div class="header-container">
+                <div class="header-titles animate-in">
+                    <h1><em>Hear You in Silence</em></h1>
+                    <h2>Designing for Active Listening in Human Interaction with Conversational Agents Using Context-Aware Pacing</h2>
+                </div>
+
+                <div class="header-content animate-in">
+                    <div class="header-main-row">
+                        <div class="icon-container">
+                            <div class="icon-item delay-1">
+                                <i class="fas fa-comments" style="font-size: 2rem; opacity: 0.8;"></i>
+                                <div><strong>Pacing for Active Listening</strong> We systematically introduce conversational pacing into CA design, providing empirical evidence that strategic use of silence is critical for developing empathic human-AI relationships.</div>
+                            </div>
+                            <div class="icon-item delay-2">
+                                <i class="fas fa-brain" style="font-size: 2rem; opacity: 0.8;"></i>
+                                <div><strong>Context-Aware Pacing CA</strong> We designed and evaluated a context-aware pacing CA under two supportive scenarios (career and relationship) investigating effects on interaction quality and behaviors.</div>
+                            </div>
+                            <div class="icon-item delay-3">
+                                <i class="fas fa-chart-line" style="font-size: 2rem; opacity: 0.8;"></i>
+                                <div><strong>Five Pacing Strategies</strong> Reflective Silence, Facilitative Silence, Empathic Silence, Holding Space, and Immediate Response—concrete, implementable mechanisms for empathic human-AI communication.</div>
+                            </div>
+                            <div class="icon-item delay-4">
+                                <i class="fas fa-lightbulb" style="font-size: 2rem; opacity: 0.8;"></i>
+                                <div><strong>Design Implications</strong> Practical pathways centered on dynamic pacing modulation for creating more empathic human-AI communication.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="https://arxiv.org/abs/2602.06134" class="button paper-link">
+                            <span class="icon"><i class="ai ai-arxiv"></i></span>
+                            arXiv
+                        </a>
+                        <a href="static/sns25_content_dep_pausing.pdf" class="button paper-link">
+                            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                            Paper
+                        </a>
+                        <br>
+                        <a href="#" class="button">
+                            <span class="icon"><i class="fab fa-youtube"></i></span>
+                            Presentation
+                        </a>
+                        <a href="#video" class="button">
+                            <span class="icon"><i class="fab fa-youtube"></i></span>
+                            Demo
+                        </a>
+                    </div>
+                </div>
+                <div class="header-image animate-in delay-2">
+                    <img draggable="false" src="static/img/teaser.png" alt="Hear You in Silence - Context-Aware Pacing Comparison" class="teaser-image">
+                    <div class="header-bibtex expanded">
+                        <div class="bibtex-toggle" onclick="this.parentElement.classList.toggle('expanded')">
+                            <i class="fas fa-quote-left"></i> BibTeX <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="bibtex-content">
+                            <button class="copy-btn" onclick="copyBibtex(this)">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <pre class="bibtex">@inproceedings{jiang2026hearyouinsilence,
+  title={Hear You in Silence: Designing for Active Listening in Human Interaction with Conversational Agents Using Context-Aware Pacing},
+  author={Jiang, Zhihan and Chen, Qianhui and Zhang, Chu and Li, Yanheng and LC, RAY},
+  booktitle={Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
+  year={2026},
+  publisher={ACM},
+  doi={10.1145/3772318.3791238}
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="byline">
+            <div class="byline-container">
+                <p>
+                    <a href="https://zhihanjiang.com" class="author-link">Zhihan Jiang<sup><span style="color: #087321;">♠</span><span style="color: #4285F4;">♣</span></sup></a>
+                    <a href="#" class="author-link">Qianhui Chen<sup><span style="color: #c41e3a;">♦</span></sup></a>
+                    <a href="#" class="author-link">Chu Zhang<sup><span style="color: #7d0ca3;">♥</span><span style="color: #e67e22;">▲</span></sup></a>
+                    <a href="#" class="author-link">Yanheng Li<sup><span style="color: #7d0ca3;">♥</span></sup></a>
+                    <a href="#" class="author-link">RAY LC<sup><span style="color: #7d0ca3;">♥</span></sup></a>
+                </p>
+                <a href="https://chi2026.acm.org/" class="venue-badge" target="_blank">CHI 2026 (Conditionally Accepted)</a>
+                <p style="margin-top: 20px;">
+                    <a style="text-align: center;" class="affiliation-link" target="_blank"><sup><span style="color: #087321;">♠</span></sup><span style="color: #087321;">The University of Hong Kong</span></a> &emsp;
+                    <a style="text-align: center;" class="affiliation-link" target="_blank"><sup><span style="color: #4285F4;">♣</span></sup><span style="color: #4285F4;">Columbia University</span></a> &emsp;
+                    <a style="text-align: center;" class="affiliation-link" target="_blank"><sup><span style="color: #c41e3a;">♦</span></sup><span style="color: #c41e3a;">Renmin University of China</span></a> &emsp;
+                </p>
+                <p style="margin-top: 10px;">
+                    <a style="text-align: center;" class="affiliation-link" target="_blank"><sup><span style="color: #7d0ca3;">♥</span></sup><span style="color: #7d0ca3;">City University of Hong Kong</span></a> &emsp;
+                    <a style="text-align: center;" class="affiliation-link" target="_blank"><sup><span style="color: #e67e22;">▲</span></sup><span style="color: #e67e22;">Guangdong University of Technology</span></a>
+                </p>
+            </div>
+        </div>
+
+        <article class="article">
+            <p class="abstract">
+                In human conversation, empathic dialogue requires nuanced temporal cues indicating whether the conversational partner is paying attention. This type of "active listening" is overlooked in the design of Conversational Agents (CAs), which use the same pacing for one conversation. To model the temporal cues in human conversation, we need CAs that dynamically adjust response pacing according to user input.
+            </p>
+
+            <figure>
+                <img src="static/img/teaser.png" alt="Comparison of two conversational pacing models">
+                <figcaption>
+                    <strong>Figure 1:</strong> Comparison of two conversational pacing models. (A) A Conversational Agent (CA) with Context-Aware Pacing adapts its response timing to the situation. For example, when a user shares a rigid belief ①, the agent employs a Reconsider strategy ②, briefly pausing to reflect before responding. When encountering intense negative emotions ③, it uses a Holding strategy ④, creating a prolonged, supportive silence that allows the user to become emotionally ready to continue. (B) In contrast, a CA with Static Pacing defaults to technical delays and immediate responses regardless of context.
+                </figcaption>
+            </figure>
+
+            <p class="abstract">
+                We qualitatively analyzed ten cases of active listening to distill five context-aware pacing strategies: <strong>Reflective Silence</strong>, <strong>Facilitative Silence</strong>, <strong>Empathic Silence</strong>, <strong>Holding Space</strong>, and <strong>Immediate Response</strong>. In a between-subjects study (N=50) with two conversational scenarios (relationship and career-support), the context-aware agent scored higher than static-pacing control on perceived human-likeness, smoothness, and interactivity, supporting deeper self-disclosure and higher engagement. In the career-support scenario, the CA yielded higher perceived listening quality and affective trust. This work shows how insights from human conversation like context-aware pacing can empower the design of more empathic human-AI communication.
+            </p>
+
+            <div class="research-questions">
+                <h4>Research Questions</h4>
+                <p><strong>RQ1:</strong> How do CAs using context-aware pacing strategies impact users' perceived quality of interaction and experience, specifically in terms of listening quality, affective trust, cognitive trust, human-likeness, smoothness, and interactivity?</p>
+                <p><strong>RQ2:</strong> How does context-aware pacing influence user interaction behaviors in text-based supportive conversations with CAs, specifically in terms of depth of self-disclosure and level of engagement?</p>
+            </div>
+
+            <div class="icon-row">
+                <a href="#design_space" class="icon-link">
+                    <div class="icon-circle"><i class="fas fa-drafting-compass"></i></div>
+                    <span>Design<br>Space</span>
+                </a>
+                <a href="#system" class="icon-link">
+                    <div class="icon-circle"><i class="fas fa-cogs"></i></div>
+                    <span>System<br>Overview</span>
+                </a>
+                <a href="#strategies" class="icon-link">
+                    <div class="icon-circle"><i class="fas fa-pause-circle"></i></div>
+                    <span>Pacing<br>Strategies</span>
+                </a>
+                <a href="#evaluation" class="icon-link">
+                    <div class="icon-circle"><i class="fas fa-poll"></i></div>
+                    <span>Evaluation<br>Results</span>
+                </a>
+                <a href="#implications" class="icon-link">
+                    <div class="icon-circle"><i class="fas fa-lightbulb"></i></div>
+                    <span>Design<br>Implications</span>
+                </a>
+            </div>
+
+            <p style="text-align: center; color: var(--color-text-muted); font-size: 0.9rem;">
+                <i class="fas fa-hand-pointer"></i> <strong>Click to jump to each section.</strong>
+            </p>
+
+            <hr>
+
+            <div id="video" class="section-block">
+                <h1>Video Preview</h1>
+                <div class="video-container">
+                    <video controls width="100%">
+                        <source src="static/img/supp_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <hr>
+
+            <div id="design_space" class="section-block">
+                <h1>Design Space</h1>
+
+                <h3>The Problem with Current CAs</h3>
+                <p>
+                    Despite the increasing integration of Conversational Agents (CAs) into socially significant roles like emotional support, their design largely ignores subtle but crucial forms of human communication such as pacing. Current systems typically adopt a static and mechanistic interaction style, prioritizing efficiency and immediate responses. This efficiency-first paradigm creates a critical disconnect, resulting in interactions that feel robotic and superficial.
+                </p>
+
+                <blockquote>
+                    "The responses feel very mechanical, unlike a real human interaction."
+                    <cite>— N1</cite>
+                </blockquote>
+
+                <blockquote>
+                    "It generates large chunks of text so fast that it scrolls past what I'm trying to read, forcing me to wait for it to finish before I can review everything."
+                    <cite>— N20</cite>
+                </blockquote>
+
+                <h3>Limitations of Previous Research</h3>
+                <p>
+                    Previous research attempting to bridge this gap has faced two major limitations:
+                </p>
+                <ul class="limitation-list">
+                    <li><strong>Superficial Models of Timing:</strong> Attempts to manage conversation timing in CAs have often treated pauses as simple, static delays—technical signals to simulate "thinking" or reduce perceived automation. This perspective overlooks the potential for silence to serve as a dynamic, relational tool embedded within the conversation's context.</li>
+                    <li><strong>Over-emphasis on Verbal Content:</strong> Research on implementing active listening in CAs has focused almost exclusively on verbal strategies, such as paraphrasing and asking follow-up questions. While valuable, these efforts ignore the non-verbal dimension of pacing, which communication psychology has long established as an intentional communicative act essential for building rapport.</li>
+                </ul>
+
+                <h3>Understanding Active Listening</h3>
+                <p>
+                    Active listening is a dynamic process that combines attentiveness, understanding, and constructive intention. It conveys unconditional acceptance and unbiased attitudes towards speakers' experience. In human conversation, appropriate conversational pacing is a key non-verbal component of active listening.
+                </p>
+
+                <div class="highlight-box">
+                    <h4>Key Insight</h4>
+                    <p>
+                        Silence is not an empty void but a powerful communicative tool to show attention and interest. It can be used strategically to hold space for a speaker, encourage deeper self-disclosure, or convey empathy.
+                    </p>
+                </div>
+
+                <h3>Formative Study: Distilling Pacing Strategies from Human Active Listening</h3>
+                <p>
+                    To ground our design in authentic human behavior, we sourced videos from YouTube using the term "Active Listening Counseling" and selected videos that explicitly mentioned "active listening" in their title or description. Videos were screened based on the following criteria: (1) content centered around real or simulated counseling dialogues; (2) duration of over 20 minutes; (3) clear visibility of listener behavior; and (4) English as the primary language.
+                </p>
+
+                <p>
+                    From this corpus, we selected <strong>10 cases</strong> (ranging in length from 20 to 60 minutes each) covering diverse topics (e.g., exam anxiety, relationship issues, body image). Three researchers independently coded the data using an open coding approach, focusing on "strategic use of silence segments" as the unit of analysis. Rather than treating silence as an isolated phenomenon, we analyzed how it was embedded in context, responded to prior utterances, and guided the dialogue.
+                </p>
+
+                <figure>
+                    <img src="static/img/analysis.png" alt="Data analysis process">
+                    <figcaption>
+                        <strong>Figure 2:</strong> Data analysis process and an analysis example for a video where the speaker faced dating anxiety. The coding scheme captured dimensions such as strategy type, contextual trigger, silence duration, timing, and surrounding verbal responses.
+                    </figcaption>
+                </figure>
+
+                <div class="highlight-box">
+                    <h4>Key Finding from Formative Study</h4>
+                    <p>
+                        We identified <strong>five key types of pacing-based strategies</strong>, each serving distinct communicative and psychological support functions: Reflective Silence, Facilitative Silence, Empathic Silence, Holding Space, and Immediate Response.
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div id="strategies" class="section-block">
+                <h1>Context-Aware Pacing Strategies</h1>
+
+                <p>
+                    From our formative study, we identified five key types of pacing-based strategies, each serving distinct communicative and psychological support functions within conversation:
+                </p>
+
+                <table class="strategy-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Strategy</th>
+                            <th>Context Trigger</th>
+                            <th>Silence Duration</th>
+                            <th>Timing</th>
+                            <th>Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="strategy-badge strategy-reflective">Reflective Silence</span></td>
+                            <td>Recognize</td>
+                            <td>User needs experiences or feelings acknowledged or validated</td>
+                            <td>1–2s</td>
+                            <td>After transition words</td>
+                            <td>21.5%</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2"><span class="strategy-badge strategy-facilitative">Facilitative Silence</span></td>
+                            <td>Reconfirm</td>
+                            <td>User says something vague, contradictory, or unclear</td>
+                            <td>2–3s</td>
+                            <td>Before response</td>
+                            <td>27.3%</td>
+                        </tr>
+                        <tr>
+                            <td>Re-engage</td>
+                            <td>User's story fades out or they pause awkwardly</td>
+                            <td>2–3s</td>
+                            <td>Before response</td>
+                            <td>4.2%</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"><span class="strategy-badge strategy-empathic">Empathic Silence</span></td>
+                            <td>Reposition</td>
+                            <td>User seems stuck in rigid or negative perspective</td>
+                            <td>5–6s</td>
+                            <td>Before response</td>
+                            <td>4.2%</td>
+                        </tr>
+                        <tr>
+                            <td>Reconsider</td>
+                            <td>User expresses rigid belief or automatic thought</td>
+                            <td>2–3s</td>
+                            <td>Before response</td>
+                            <td>5.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Resonate</td>
+                            <td>User is immersed in emotion of their story</td>
+                            <td>3–15s</td>
+                            <td>Before response</td>
+                            <td>5.9%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="strategy-badge strategy-holding">Holding Space</span></td>
+                            <td>Holding</td>
+                            <td>User repeatedly shares intense, painful, or vulnerable content</td>
+                            <td>3–16s</td>
+                            <td>Before response</td>
+                            <td>2.1%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="strategy-badge strategy-immediate">Immediate Response</span></td>
+                            <td>Resolve</td>
+                            <td>User seeks information and answers directly</td>
+                            <td>0s</td>
+                            <td>Immediate</td>
+                            <td>29.1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr>
+
+            <div id="system" class="section-block">
+                <h1>System Overview</h1>
+
+                <p>
+                    We designed and implemented a context-aware pacing CA that incorporates the five pacing types via eight concrete strategies. The system combines a user-facing front-end with a sophisticated Python backend utilizing Flask, LangChain, and the OpenAI GPT-4o API.
+                </p>
+
+                <figure>
+                    <img src="static/img/pipeline.png" alt="System Pipeline">
+                    <figcaption>
+                        <strong>Figure 3:</strong> Pipeline and visual elements of the context-aware pacing CA. It consists of three core backend modules: Context Analysis, Response Generation, and Conversational Memory. After receiving user input, the Context Analysis Module selects the most appropriate pacing strategy. Then its output and user input are fed into the Response Generation Module to generate responses and apply corresponding pacing strategies.
+                    </figcaption>
+                </figure>
+
+                <h3>Key Components</h3>
+
+                <p><strong>Context Analysis Module:</strong> When a user sends a message, this module classifies the user's intent and emotional state based on the conversational triggers, selecting exactly one of the eight strategies and generating a control signal with the strategy label and appropriate silence duration.</p>
+
+                <p><strong>Response Generation Module:</strong> This module dynamically generates responses and adjusts behaviors through punctuation-aware micro-pauses and applying silence duration calculated by the Context Analysis Module.</p>
+
+                <p><strong>Conversational Memory Module:</strong> Manages dialogue history using a summarization technique where a token budgeter reserves space for future replies, ensuring context-aware decisions.</p>
+
+                <h3>User Interface</h3>
+                <p>
+                    A central design goal was to ensure the agent's context-aware pacing felt natural and non-disruptive. The visual feedback subtly communicates the agent's processing state through a dynamic status indicator that varies based on the strategy, such as "Assistant is reflecting quietly" for Empathic Silence or "Assistant is in holding space" for the Holding strategy.
+                </p>
+            </div>
+
+            <hr>
+
+            <div id="evaluation" class="section-block">
+                <h1>Evaluation Results</h1>
+
+                <h3>User Study Design</h3>
+                <p>
+                    We conducted a between-subjects study (N=50) comparing our context-aware CA against a static-pacing baseline CA across two supportive scenarios: career support and relationship support. Participants interacted with the CA for at least 10 minutes per scenario.
+                </p>
+
+                <figure>
+                    <img src="static/img/study_process.png" alt="Overview of the user study procedure">
+                    <figcaption>
+                        <strong>Figure 4:</strong> Overview of the user study procedure. The user first lands on the welcome page, and then interacts with the conversational agent under two scenarios, career and relationship support, in a counterbalanced sequence. After completing every scenario, the user completes a survey evaluating the corresponding experience. Finally, a semi-structured interview is conducted.
+                    </figcaption>
+                </figure>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value">50</div>
+                        <div class="result-label">Participants</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">86.2%</div>
+                        <div class="result-label">Context Classification Accuracy</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">2</div>
+                        <div class="result-label">Support Scenarios</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value">8</div>
+                        <div class="result-label">Pacing Strategies</div>
+                    </div>
+                </div>
+
+                <h3>Key Findings</h3>
+
+                <figure>
+                    <img src="static/img/results_career.png" alt="Statistical analysis results for career scenario">
+                    <figcaption>
+                        <strong>Figure 5:</strong> Statistical analysis on questionnaire results in career-support scenario, with G<sub>N</sub> referring to the control group, and the context-aware pacing group G<sub>P</sub>. These figures show the significant difference between the control and experimental group in terms of perceived listening quality, affective trust, human-likeness, smoothness, and interactivity.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="static/img/results_relationship.png" alt="Statistical analysis results for relationship scenario">
+                    <figcaption>
+                        <strong>Figure 6:</strong> Statistical analysis on questionnaire results in relation-support scenario, with G<sub>N</sub> referring to the control group, and the context-aware pacing group G<sub>P</sub>. These figures show the significant difference between the control and experimental group in terms of perceived human-likeness, smoothness, and interactivity.
+                    </figcaption>
+                </figure>
+
+                <div class="highlight-box">
+                    <h4>Significant Improvements</h4>
+                    <p>
+                        Context-aware pacing significantly enhanced: <strong>perceived human-likeness</strong> (p=0.011 career, p=0.039 relationship), <strong>smoothness</strong> (p=0.024 career, p=0.010 relationship), and <strong>interactivity</strong> (p=0.001 career, p=0.002 relationship) in both scenarios. Affective trust and perceived listening quality were also significantly enhanced in the career-support scenario.
+                    </p>
+                </div>
+
+                <h3>Qualitative Feedback</h3>
+                <p>
+                    Qualitative feedback explains how context-aware pacing built affective trust: participants interpreted silence as evidence of cognitive effort and care. This perception of "thinking" enhanced the credibility of the agent's advice and made it feel more supportive.
+                </p>
+
+                <figure>
+                    <img src="static/img/qualitative_feedback.png" alt="Qualitative feedback on pacing effects">
+                    <figcaption>
+                        <strong>Figure 7:</strong> Pacing enhanced both persuasion and human-likeness by simulating a more deliberate interaction, boosting trust and listening quality, while creating a stronger sense of social presence. This made the interaction feel more natural and human-like.
+                    </figcaption>
+                </figure>
+
+                <div class="feedback-quotes">
+                    <div class="feedback-card positive">
+                        <div class="feedback-header">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Enhanced Persuasion</span>
+                        </div>
+                        <blockquote>
+                            "If I reply slowly, it also means I am thinking carefully... When I asked whether I could check my partner's phone, the chatbot took longer to respond and corrected my behavior. I felt that its advice was more convincing than if it had responded quickly."
+                            <cite>— P21</cite>
+                        </blockquote>
+                    </div>
+                    <div class="feedback-card positive">
+                        <div class="feedback-header">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Human-like Presence</span>
+                        </div>
+                        <blockquote>
+                            "(Silence is) like a faint breath in conversation... makes me feel the other person is there."
+                            <cite>— P10</cite>
+                        </blockquote>
+                    </div>
+                    <div class="feedback-card negative">
+                        <div class="feedback-header">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>Machine Heuristic Violation</span>
+                        </div>
+                        <blockquote>
+                            "If it is an intelligent robot, it should be able to respond quickly."
+                            <cite>— P23</cite>
+                        </blockquote>
+                    </div>
+                    <div class="feedback-card negative">
+                        <div class="feedback-header">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>System Malfunction Perception</span>
+                        </div>
+                        <blockquote>
+                            "(Slowing down) makes me feel irritated and wonder if the system is malfunctioning."
+                            <cite>— P13</cite>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <h3>Deeper Self-Disclosure</h3>
+                <p>
+                    Participants interacting with the context-aware agent used significantly more total emotion words (U=359.0, p=0.04, r=0.301) and first-person pronouns (U=382.0, p=.001, r=0.384), indicating deeper affective self-disclosure. This suggests users adopted a higher degree of self-focus and personal ownership, more frequently referencing their own experiences, thoughts, and feelings.
+                </p>
+
+                <h3>The Double-Edged Sword of Pacing</h3>
+                <p>
+                    Despite widespread benefits, pacing was not universally positive. For some participants, slowness violated the "machine heuristic"—the expectation that AI should be faster and more efficient than humans.
+                </p>
+
+                <figure>
+                    <img src="static/img/double_edged.png" alt="The double-edged sword of pacing">
+                    <figcaption>
+                        <strong>Figure 8:</strong> Some participants expressed that they would prefer a quick response over slow-paced emotional support. Otherwise, it feels more like a malfunction of the AI than an empathetic strategy.
+                    </figcaption>
+                </figure>
+
+                <blockquote>
+                    "AI's unique advantage is that it could provide instant feedback... If you are an AI and still slow as such, it means you didn't even put in the effort."
+                    <cite>— P11</cite>
+                </blockquote>
+
+                <h3>Emotion Word Analysis</h3>
+                <p>
+                    We analyzed the emotion word count distribution across different groups using the NRC Word-Emotion Association Lexicon. Participants' inputs consistently contained more emotion words across different emotions in the experimental group than those in the control group.
+                </p>
+
+                <figure>
+                    <img src="static/img/emotion_distribution.png" alt="Emotion word count distribution">
+                    <figcaption>
+                        <strong>Figure 9:</strong> The emotion word count distribution across different groups. U is the test statistic. p is the p-value. r is the effect size.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <hr>
+
+            <div id="implications" class="section-block">
+                <h1>Design Implications</h1>
+
+                <p>
+                    Our findings offer a new lens for designing empathic human-CA interactions, shifting focus from <em>what</em> an agent says to <em>how</em> and <em>when</em> it says it.
+                </p>
+
+                <h3>1. Beyond Context: Learning Individual Pacing Personas</h3>
+                <p>
+                    Our framework of five strategies (Reflective Silence, Facilitative Silence, Empathic Silence, Holding Space, and Immediate Response) provides a functional vocabulary for implementation. However, our findings reveal a critical next step beyond situational context-awareness: personalization. Future systems should not only adapt to the conversation's context but also to the user's individual communication style, learning a user's "pacing persona" by observing how they react to different pacing strategies over time.
+                </p>
+
+                <h3>2. Integrate Pacing with High-Quality Response</h3>
+                <p>
+                    Pacing acts as a multiplier for user expectations. A deliberate silence signals thoughtful deliberation; if the subsequent response is generic or low-quality, the user's trust can be more significantly damaged than by an immediate low-quality response. Pacing functions as a "promissory note" to the user, implying that the upcoming content will be valuable and tailored.
+                </p>
+
+                <h3>3. Overcoming Interaction Inertia Through Gradual Adaptation</h3>
+                <p>
+                    Some users' negative reactions to pacing stem from a strong interaction inertia related to the Machine Heuristic, where impressions are conditioned by long-term AI experience. A potential design implication is to introduce context-aware pacing gradually. A CA could initially interact with a new user using a faster, more "machine-like" pace, then progressively introduce more nuanced strategies as the user becomes accustomed.
+                </p>
+
+                <h3>4. Balancing Routine Efficiency with Critical Affective Pacing</h3>
+                <p>
+                    Informational strategies (Resolve, Reconfirm) are more frequently used and constitute the "hygiene factor" of the interaction—they must be efficient to establish baseline competence. Affective strategies (Holding, Resonate) reside in the "long tail"—statistically rare but contextually critical. These sparse moments represent high-stakes pivots of user vulnerability where errors are most damaging.
+                </p>
+
+                <h3>5. From Artificial Pacing to Real Cognition: The Active Listening Chain-of-Thought</h3>
+                <p>
+                    As reasoning models increasingly require actual computational time (e.g., Chain-of-Thought processing), our framework can humanize this latency. By framing processing time as context-aware silence in supportive scenarios, designers can transform a technical bottleneck into a relational asset. Future systems could explicitly incorporate affective reflection into the model's reasoning chain itself—an "Active Listening Chain-of-Thought."
+                </p>
+
+                <h3>6. From Understanding to Design: Modeling Pacing as a State Transition System</h3>
+                <p>
+                    Our formative analysis reveals that pacing is not merely a reaction to the current input, but a function of the conversational state. This implies that future CAs should not treat pacing selection as an isolated classification task. Instead, pacing could be modeled as a State Transition System, preserving "Supportive Arcs" to prevent unnatural oscillations between fast and slow responses.
+                </p>
+
+                <div class="highlight-box">
+                    <h4>Core Principle</h4>
+                    <p>
+                        This work provides empirical evidence encouraging designers to move beyond optimizing response content and strategically incorporate the communicative power of silence and pacing. We hope this research serves as an exploratory step toward promoting more human-centric and emotionally attuned CAs by encouraging a design paradigm that values strategic listening as highly as articulate responding.
+                    </p>
+                </div>
+            </div>
+        </article>
+        <div class="section-block" id="implications">
+    <h1>Broader Implications and Ethical Considerations</h1> <p>
+        <p>
+        By being perceived as more "caring" and "deliberate," context-aware agents could improve access to mental health tools。
+    </p>
+
+    <div class="highlight-box" style="background: #fff9f5; color: var(--color-text); border: 1px solid var(--color-accent-light); border-left: 4px solid var(--color-accent);">
+        <h4 style="color: var(--color-accent-dark); margin-bottom: 15px;">
+            <i class="fas fa-exclamation-triangle"></i> Ethical Risks & Future Safeguards
+        </h4>
+        <p style="margin-bottom: 15px;">
+            While pacing effectively promotes trust, our research highlights profound ethical risks that <strong>future systems must address before deployment</strong>:
+        </p>
+        
+        <div class="icon-container" style="margin-bottom: 0;">
+            <div class="icon-item" style="border: none; background: rgba(201, 124, 93, 0.05); padding: 15px;">
+                <i class="fas fa-heart-broken" style="font-size: 1.5rem; color: var(--color-accent);"></i>
+                <div>
+                    <strong>Preventing Active Invalidation</strong><br>
+                    Low-quality content following a "deliberate silence" can cause emotional harm. We argue that future pacing systems must be linked to <strong>risk assessment modules</strong> that can detect distress and fall back to safe, pre-defined templates when model confidence is low.
+                </div>
+            </div>
+
+            <div class="icon-item" style="border: none; background: rgba(201, 124, 93, 0.05); padding: 15px;">
+                <i class="fas fa-user-shield" style="font-size: 1.5rem; color: var(--color-accent);"></i>
+                <div>
+                    <strong>Trust & Privacy</strong><br>
+                    Techniques that build affective trust can be exploited. To mitigate the risk of manipulation, future designs require strict <strong>policy safeguards</strong> (such as continuous auditing) and <strong>technical safeguards</strong> (like on-device processing) to protect user vulnerability.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="appendix">
+            <div class="appendix-content">
+                <h3>BibTeX</h3>
+                <div class="bibtex-content">
+                    <button class="copy-btn appendix-copy-btn" onclick="copyBibtex(this)">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                    <pre class="bibtex">@inproceedings{jiang2026hearyouinsilence,
+    title={Hear You in Silence: Designing for Active Listening in Human 
+           Interaction with Conversational Agents Using Context-Aware Pacing},
+    author={Jiang, Zhihan and Chen, Qianhui and Zhang, Chu and Li, Yanheng and LC, Ray},
+    booktitle={Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
+    year={2026},
+    publisher={ACM},
+    doi={10.1145/3772318.3791238}
+}</pre>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            // Copy BibTeX function
+            function copyBibtex(btn) {
+                const bibtex = btn.parentElement.querySelector('.bibtex').textContent;
+                navigator.clipboard.writeText(bibtex).then(() => {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                });
+            }
+            // Simple scroll animation
+            document.addEventListener('DOMContentLoaded', function() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.section-block').forEach(block => {
+                    block.style.opacity = '0';
+                    block.style.transform = 'translateY(30px)';
+                    block.style.transition = 'all 0.6s ease-out';
+                    observer.observe(block);
+                });
+            });
+        </script>
+    </body>
+</html>

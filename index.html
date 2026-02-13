@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="ace ace-card-on ace-tab-nav-on ace-main-nav-on ace-sidebar-on" data-theme-color="#c0e3e7">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Zhihan JIANG</title>
+    <meta name="description" content="Zhihan Jiang - Postdoctoral Researcher at Columbia University. Research in Health Sensing, Generative AI, Data Visualization, and Ubiquitous Computing.">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Add new font here -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Fonts -->
+    <link href="fonts/icomoon/style.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="js/plugins/highlight/solarized-light.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        /* Publication table */
+        .pub-table {
+            font-size: 13px;
+            width: 100%;
+        }
+
+        .pub-table tr {
+            border-bottom: 1px solid #D3D3D3;
+        }
+
+        .pub-table td {
+            padding: 8px;
+            vertical-align: top;
+        }
+
+        .pub-table td:first-child {
+            width: 200px;
+            border: 2px solid #d3d3d3;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+            border-radius: 6px;
+        }
+
+        .pub-table img {
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .pub-table td:first-child {
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pub-table td:first-child {
+                display: none;
+            }
+        }
+
+        .pub-venue {
+            display: inline-block;
+            background: #c0e3e7;
+            color: #2a6e75;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 4px;
+        }
+
+        .pub-title {
+            color: #2c5f6e;
+        }
+    </style>
+
+    <!-- Bulma Version 0.7.5-->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.5/css/bulma.min.css" /> -->
+    <!-- <link href='css/style.css?_t=20200916' rel='stylesheet' type='text/css'> -->
+<!-- 
+    <script defer src="font-awesome-5.9.0/js/brands.min.js"></script>
+    <script defer src="font-awesome-5.9.0/js/fontawesome.min.js"></script> -->
+
+    <!-- Modernizer -->
+    <script type="text/javascript" src="js/vendor/modernizr-3.3.1.min.js"></script>
+
+    <!-- Anti-bot detection -->
+    <script>
+    (function() {
+        var isBot = false;
+        // 1. navigator.webdriver is true in automated browsers
+        if (navigator.webdriver) isBot = true;
+        // 2. Headless Chrome has no plugins
+        if (navigator.plugins && navigator.plugins.length === 0) isBot = true;
+        // 3. Headless Chrome has no languages
+        if (!navigator.languages || navigator.languages.length === 0) isBot = true;
+        // 4. Check for phantom/nightmare/selenium artifacts
+        if (window._phantom || window.__nightmare || window.callPhantom) isBot = true;
+        // 5. Check for Chrome DevTools protocol
+        if (window.chrome && !window.chrome.runtime) {
+            // Normal Chrome also lacks chrome.runtime on non-extension pages,
+            // so combine with other signals
+        }
+
+        if (isBot) {
+            document.addEventListener('DOMContentLoaded', function() {
+                document.body.innerHTML = '<div style="text-align:center;margin-top:20%;font-size:24px;">Access Denied</div>';
+            });
+        }
+    })();
+    </script>
+</head>
+
+  <body>
+     <div class="ace-wrapper">
+         <header id="ace-header" class="ace-container-shift ace-logo-in ace-head-boxed ace-nav-right">
+             <div class="ace-head-inner">
+                 <div class="ace-head-container ace-container">
+                     <div class="ace-head-row">
+                              <div id="ace-head-col2" class="ace-head-col text-right">
+                             <div class="ace-nav-container ace-container hidden-sm hidden-xs" style="display: flex;">
+                                 <nav id="ace-main-nav">
+                                    <ul class="clear-list" style="margin-left: 200px;">
+                                        <li style="margin-right: 50px;"><a href="#">About Me</a></li>
+                                        <li style="margin-right: 50px;"><a href="#publications" onclick="scrollToSection(event)">Research</a></li>
+                                        <li style="margin-right: 50px;"><a href="#education" onclick="scrollToSection(event)">Education</a></li>
+                                        <!-- <li><a href="#teaching">Teaching & Visiting & Service</a></li> -->
+                                        <li style="margin-right: 50px;"><a href="#service" onclick="scrollToSection(event)">Services</a></li>
+                                        <li><a href="papers/CV_zhihanjiang_public.pdf">CV</a></li>
+                                    </ul>
+                                 </nav>
+                             </div>
+                         </div>
+                     </div>
+                 </div><!-- .ace-container -->
+             </div><!-- .ace-head-inner -->
+        </header><!-- #ace-header -->
+
+        
+        <nav id="ace-nav-sm" class="ace-nav hidden-lg hidden-md">
+            <ul class="clear-list">
+				<li>
+					<a href="index.html" data-tooltip="Home"><img class="avatar avatar-42" src="img/uploads/avatar/avatar4.jpg" alt=""></a>
+				</li>
+				<li>
+					<a href="mailto:jiang-zh@outlook.com" data-tooltip="Contact"><span class="ace-icon ace-icon-contact"></span></a>
+				</li>
+
+               
+			</ul>
+        </nav><!-- #ace-tab-nav-sm -->
+
+        <article id="ace-card" class="ace-card">
+			<div class="ace-card-inner text-center">
+				<img class="avatar avatar-195" src="img/uploads/avatar/avatar4.jpg" width="195" height="195" alt="">
+				<h1>Zhihan JIANG</h1>
+				<p class="text-muted"  style="color: #000000;">Postdoctoral Researcher<br>Columbia University<br><a href="mailto:jiang-zh@outlook.com">jiang-zh@outlook.com</a></p>
+				<div style="margin-top: 12px;">
+					<a href="mailto:jiang-zh@outlook.com" style="margin: 0 6px;"><img src="img/email.svg" height="28" width="28" alt="Email"></a>
+					<a href="https://github.com/zhihanjiang" style="margin: 0 6px;"><img src="img/github.png" height="28" width="28" alt="Github"></a>
+					<a href="https://scholar.google.com/citations?user=ABK3vzEAAAAJ&hl=en" style="margin: 0 6px;"><img src="img/googlescholar.png" height="28" width="28" alt="Google Scholar"></a>
+					<a href="https://www.linkedin.com/in/zhihan-jiang-0b4108b0" style="margin: 0 6px;"><img src="img/linkedin.svg" height="28" width="28" alt="LinkedIn"></a>
+					<a href="https://x.com/zhihan2023" style="margin: 0 6px;"><img src="img/x.svg" height="28" width="28" alt="X"></a>
+				</div>
+			</div>
+
+            <div class="ace-card-inner text-center">
+
+            <h2 style="font-size: 25px;">News</h2>
+            <div style="font-size:12px;text-align: left;overflow: auto;height: 2500px;border: solid;">
+                <ul style="list-style-type:disc;margin-left: 15px;padding: 5px;color: #000;">
+
+
+                <li style="margin-top: 10px;">Feb, 2026: Our survey on causality with federated learning has been accepted by <b>TKDD</b>! In this survey, we discuss how federated learning enable decentralized causal analysis and how causality tackles federated challenges. Congrats to Jing!</li>
+                <li style="margin-top: 10px;">Feb, 2026: Our paper on dietary monitoring and personalized analysis using AI glasses has been accepted to ACM Transactions on Computing for Healthcare <b>(ACM HEALTH)</b>!</li>
+                <li style="margin-top: 10px;">Jan, 2026: Our paper on designing for active listening in human–conversational agent interaction using context-aware pacing has been conditionally accepted to <b>CHI 2026</b>. Many thanks to Prof. RAY LC, Qianhui, Chu, and Lydia!</li>
+                <li style="margin-top: 10px;">Jan, 2026: Our paper on multi-agent systems for personalized mindfulness meditation has been conditionally accepted to <b>CHI 2026</b>! Congrats to Millie!</li>
+                <li style="margin-top: 10px;">Dec, 2025: Excited to share that our research project has received the <strong>NVIDIA Academic Grant</strong>. Thank you to NVIDIA for the generous compute support!</li>
+                <li style="margin-top: 10px;">Oct, 2025: Our paper on ultra-sensitive ion detection, which combines nanomaterial chemistry and advanced optical physics, has been accepted by <b>Advanced Functional Materials</b> (Top materials science journal, IF=19.0). This work represents a fantastic, year-long interdisciplinary effort. Congratulations to Ran & Prof. Zhao's team! </li>
+                <li style="margin-top: 10px;">Aug, 2025: I will be starting a new position as a Postdoctoral Research Scientist in Prof. Xuhai "Orson" Xu's SEA Lab!</li>
+                <li style="margin-top: 10px;">Aug, 2025: I'm thrilled to announce that I am officially <b>Dr. Jiang</b>! 🎉 This achievement would not have been possible without the invaluable guidance and and unwavering support of my PhD supervisor, Prof. Edith C.H. Ngai.</li>
+                <li style="margin-top: 10px;">Jul, 2025: Our paper about a system converting instructional videos to interactable notes through multimodal understanding has been accepted by <b>UIST 2025</b>! See you in Busan, Korea! Feel free to reach out for any conversation. </li>
+                <li style="margin-top: 10px;">Mar, 2025: Our paper about connectivity determination algorithm for complex directed networks is accepted by <b>IEEE TNSE</b>. Congrat to Zhiyi and Lin!</li>
+                <li style="margin-top: 10px;">Feb, 2025: Our paper about the opportunities and challenges in Edge General Intelligence is accepted by <b>IEEE Network Magazine</b>. Congrat to Handi and Weipeng!</li>
+                <li style="margin-top: 10px;">Dec, 2024: Our paper about continual learning with strategic selection and forgetting for network intrusion detection is accepted by <b>Infocom 2025</b>. Congrat to Xinchen!</li>
+                <li style="margin-top: 10px;">Nov, 2024: Our feasibility study for diagnosing Attention-Deficit/Hyperactivity Disorder (ADHD) in adolescents using commercial activity trackers has been accepted by <b>Journal of American Academy of Child & Adolescent Psychiatry Open</b>. Many thanks to Adrienne & Prof. Wong's team (Department of Pharmacology and Pharmacy @ HKU)!</li>
+                <li style="margin-top: 10px;">Oct, 2024: Our paper about a lightweight blockchain for verifiable and scalable federated learning in massive edge networks is accepted by <b>IEEE TMC</b>. Congrat to Handi!</li>
+                <li style="margin-top: 10px;">July, 2024: I am very happy and honored to have been selected as one of the recipients of the <b>HKU Foundation First Year Excellent PhD Award</b>!
+                <li style="margin-top: 10px;">Jun, 2024: I give a talk at Tam Wing Fan Innovation Wing Two @ HKU titled "Empowering Pervasive Healthcare: Mobile Analytics Systems Leveraging Multimodal Data". [<a class="btn-thin" href="img/pub/techtalk.jpg">Poster</a>]</li> 
+                <li style="margin-top: 10px;">Jun, 2024: Our paper about an anomaly detection system using isomorphic analysis for false data injection attacks in industrial control systems is accepted by <b>Journal of the Franklin Institute</b>. Congrat to Xinchen!</li> 
+                <li style="margin-top: 10px;">Apr, 2024: Our paper about an open-environment robot management system for on-campus services is accepted by <b>ACM IMWUT 2024</b>. Congrat to Yufei & Prof. Chen's team!</li> 
+                <li style="margin-top: 10px;">Jan, 2024: Our paper about internal cross-layer gradients for extending homogeneity to heterogeneity in Federated Learning is accepted by <b>ICLR 2024</b>. Congrat to Yun-Hin! [<a class="btn-thin" href="https://openreview.net/forum?id=Cc0qk6r4Nd">OpenReview</a>]</li>
+                <li style="margin-top: 10px;">Dec, 2023: Our paper about an autonomous online framework with contrastive learning for intrusion detection is accepted by <b>Infocom 2024</b>. Congrat to Xinchen!</li>
+
+                <li style="margin-top: 10px;">Dec, 2023: News release of our work on Health Inference System during School Closures on <b>@HKUniversity</b> on Twitter 📢!  [<a class="btn-thin" href="https://twitter.com/HKUniversity/status/1734066396613812389?t=ewbFjM0MfFEDxvgI2XG3Rw&s=19">Link</a>]</li>
+                
+                <li style="margin-top: 10px;">Oct, 2023: Presented our work <i>HealthPrism</i> at IEEE VIS 2023 😄! [<a class="btn-thin" href="video/demo.mp4">Demo</a>]</li>
+                <li style="margin-top: 10px;">Oct, 2023: Presented our work at UbiComp 2023. It was the first time I presented at an international conference😄! [<a class="btn-thin" href="https://youtu.be/cMB5PCw73Bc?si=ow1JKZfXENKOQ_-L">Presentations</a>][<a class="btn-thin" href="papers/poster_new.pdf">Poster</a>]</li>
+                <li style="margin-top: 10px;">Sep, 2023: One survey paper about disease diagnoses using wearable devices and machine learning is accepted by <b>IEEE IoTJ</b>!</li>
+                <li style="margin-top: 10px;">Aug, 2023: I give a talk at MARS Group @ Xiamen University titled "Interactive Visual Analytics for Healthcare with Multimodal Data".</li>
+                <li style="margin-top: 10px;">July, 2023: Our paper about the stability of stochastic
+finite-field networks is accepted by <b>IEEE TCNS</b>. Congrat to Lin & Prof. Lam!</li>
+                <li style="margin-top: 10px;">July, 2023: Our paper about predicting the queue state of hospital emergency department using crowdsensing mobility data-driven models is accepted by <b>ACM IMWUT 2023</b>. Congrat to Tieqi & Prof. Chen's team!</li>
+                <li style="margin-top: 10px;">July, 2023: One paper about visual analytics of children's health with multimodal data is accepted by <b>IEEE VIS 2023</b>. See you in <b>Melbourne, Australia</b>!</li>
+                <li style="margin-top: 10px;">June, 2023: Present a <a href="papers/ICASSP_poster.pdf">poster</a> at <b>Ambient AI Workshop @ ICASSP2023</b>, Rhodes, Greece. </li>
+                <li style="margin-top: 10px;">May, 2023: Pass the RPG probationary interview! My <b>Ph.D. candidature</b> is confirmed on 01 March 2023. </li>
+                <li style="margin-top: 10px;">Jan, 2023: One paper about children's health inference during school closures is accepted by <b>ACM IMWUT 2023</b>. Many thanks to Prof. Ip's team (Department of Paediatrics & Adolescent Medicine @ HKU)! See you in <b>UbiComp/ISWC 2023</b> at <b>Cancun, Mexico</b>!</li>
+                <li style="margin-top: 10px;">Aug, 2022: One paper about understanding drivers’ visual and comprehension Loads in traffic violation hotspots is accepted by <b>IEEE TITS 2022</b>!</li>
+                <li style="margin-top: 10px;">Aug, 2022: One paper about identifying the high-risk population for COVID-19 transmission in Hong Kong is accepted by <b>Healthcare 2022</b>. Many thanks to Ka Man & Dr. So's team (Department of Paediatrics & Adolescent Medicine @ HKU)!</li>
+                <li style="margin-top: 10px;">May, 2022: Our paper about graph-based demand modeling and station rebalancing for bike sharing system is accepted by <b>IEEE TMC 2022</b>. Congrat to Hang & Prof. Chen's team!</li>
+                <li style="margin-top: 10px;">Feb, 2022: Our paper about personalized visual aid for appearance building products selection is accepted by <b>CHI 2022</b>. Congrat to Chuhan & Prof. Ma!</li>
+                <li style="margin-top: 10px;">Sept, 2021: Attend the virtual conference <b>UbiComp/ISWC 2021</b>.</li>
+                <li style="margin-top: 10px;">Sept, 2021: Join <b>Dr. Ngai's IoT Lab</b> to <b>pursue Ph.D. degree</b> at the Department of Electrical and Electronic Engineering, HKU.</li>
+                </ul>
+            </div>
+            <hr>
+
+        <div class="award-box">
+                        <a href="https://clustrmaps.com/site/1bidx"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=q4_5Fkc_gT4HgKjF_V9OAgfdgUtnl3AYnVaJvT3DiIo&cl=ffffff" /></a>
+                        <!-- <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=q4_5Fkc_gT4HgKjF_V9OAgfdgUtnl3AYnVaJvT3DiIo"></script> -->
+              </div>  
+        </div>
+
+
+
+		</article><!-- #ace-card -->
+
+
+        <div id="ace-content" class="ace-container-shift">
+            <div class="ace-container">
+                    <div id="ace-nav-wrap" class="hidden-sm hidden-xs">
+                        <div class="ace-nav-cont">
+                            <div id="ace-nav-scroll">
+                                <nav id="ace-nav" class="ace-nav">
+                                    <ul class="clear-list">
+										<li>
+											<a href="index.html" data-tooltip="Home"><img class="avatar avatar-42" src="img/uploads/avatar/avatar4.jpg" alt=""></a>
+										</li>									
+										<li>
+											<a href="#publications"  onclick="scrollToSection(event)" data-tooltip="Publications"><span class="ace-icon ace-icon-experience"></span></a>
+										</li>
+							
+										<li>
+											<a href="mailto:jiang-zh@outlook.com" data-tooltip="Contact"><span class="ace-icon ace-icon-contact"></span></a>
+										</li>
+
+									</ul>
+                                </nav>
+                            </div>
+
+                            <div id="ace-nav-tools" class="hidden">
+                                <span class="ace-icon ace-icon-dots-three-horizontal"></span>
+
+                                <button id="ace-nav-arrow" class="clear-btn">
+                                    <span class="ace-icon ace-icon-chevron-thin-down"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ace-nav-btm"></div>
+                    </div><!-- .ace-nav-wrap -->
+
+                <div class="ace-paper-stock">
+                    <main class="ace-paper clearfix">
+                        <div class="ace-paper-cont clear-mrg">
+						
+						<!-- START: PAGE CONTENT -->
+    <div class="padd-box clear-mrg">
+        <section class="section brd-btm" >
+            <div class="row">
+                <div class="col-sm-12 clear-mrg text-box">
+                    <h2 class="title-lg text-upper">About Me</h2>
+
+                    <p style="line-height: 1.5;color: #000000;font-size: 15px;text-align: justify;">Hello, I'm <b><u>Zhihan Jiang</u></b>, a Postdoctoral Research Scientist at the <a href="https://sea-lab.space/">SEA Lab</a> in the Department of Biomedical Informatics (DBMI) at Columbia University, working with <a href="https://orsonxu.com/">Prof. Xuhai "Orson" Xu</a>. Previously, I received my Ph.D. in Electrical and Electronic Engineering from The University of Hong Kong (Advisor: <a href="https://www.eee.hku.hk/people/echngai/">Prof. Edith C.H. Ngai</a>), and B.E./M.E. in Computer Science and Technology from Xiamen University (Advisor: <a href="https://longbiao.crowdsensing.cn/index.html">Prof. Longbiao Chen</a>).
+
+                    <p style="line-height: 1.5;color: #000000;font-size: 15px;text-align: justify;">I design and build <b>multimodal AI systems</b> for <b>health sensemaking</b> and <b>actionable intervention</b>. By integrating <b>generative AI</b>, <b>interactive visual analytics</b>, and <b>wearable sensing</b>, I empower individuals and experts to transform heterogeneous health and well-being data into personalized, evidence-based support. My work lies at the intersection of <b>Human-Computer Interaction (HCI)</b>, <b>Data Visualization (VIS)</b>, and <b>Ubiquitous Computing (UbiComp)</b>.
+                    <div style="display:flex;">
+                        <img src="img/vision1.png" width="55%" style="margin-right:20px">
+                        <img src="img/vision2.png" width="40%">
+                    </div>
+
+                    <p style="text-align: justify;margin-top: 20px;"><i>I always welcome the opportunity for research collaboration and I'm eager to explore potential research ideas. If you're interested, please feel free to <a href="mailto:jiang-zh@outlook.com">drop me an email</a>.</i></p>
+
+
+                </div>
+            </div>
+        </section><!-- .section -->
+
+
+
+<section class="section brd-btm">
+            <div class="row">
+                <div class="col-sm-12 clear-mrg">
+                    <a id="publications"></a>
+                    <h2 class="title-thin text-muted" style="color: #000000;"><b>Selected Publications</b> <a class="btn-thin" href="all_pub.html" style="text-decoration: underline;font-size: 15px;">[Click here to view the full list]</a>
+                        <a class="btn-thin" href="https://scholar.google.com/citations?user=ABK3vzEAAAAJ&hl=en" style="text-decoration: underline;font-size: 15px;">[Google Scholar]</a>
+                    </h2>
+                    <p style="font-size: 15px;">(* indicates equal contribution)</p>
+
+                    <div style="margin-top: 20px; margin-bottom: 0; display: flex; gap: 0;">
+                        <button class="pub-tab" onclick="switchTab('all', this)" style="width: 20%; padding: 8px 10px; font-size: 14px; font-weight: bold; cursor: pointer; border: 2px solid #ddd; border-bottom: none; background: #f5f5f5; color: #999; border-radius: 6px 6px 0 0;">All</button>
+                        <button class="pub-tab active" onclick="switchTab('health', this)" style="width: 40%; padding: 8px 20px; font-size: 14px; font-weight: bold; cursor: pointer; border: 2px solid #8bbfc5; border-bottom: none; background: #c0e3e7; color: #333; border-radius: 6px 6px 0 0;">Multimodal Health Sensemaking <br> Human-AI Collaboration</button>
+                        <button class="pub-tab" onclick="switchTab('urban', this)" style="width: 40%; padding: 8px 20px; font-size: 14px; font-weight: bold; cursor: pointer; border: 2px solid #ddd; border-bottom: none; background: #f5f5f5; color: #999; border-radius: 6px 6px 0 0;">Spatiotemporal Crowdsensing <br> Urban Intelligence</button>
+                    </div>
+                    <div style="border-top: 2px solid #8bbfc5;"></div>
+
+                    <div id="tab-all" style="display: none;">
+                    <table class="pub-table">
+                        <tr><td><img src="img/pub/silent.jpg" style="margin-top: 8px;"></td><td><span class="pub-venue">[CHI'26a]</span><br><b><u>Zhihan Jiang</u></b>, Qianhui Chen, Chu Zhang, Yanheng Li, RAY LC.<br><b class="pub-title">Hear You in Silence: Designing for Active Listening in Human Interaction with Conversational Agents Using Context-Aware Pacing.</b><br>(conditionally accepted) [<a class="btn-thin" href="pacing/index.html">website</a>][<a class="btn-thin" href="https://arxiv.org/abs/2602.06134">arXiv</a>]</td></tr>
+                        <tr><td><img src="img/pub/diet.png"></td><td><span class="pub-venue">[ACM HEALTH'26]</span><br><b><u>Zhihan Jiang</u></b>*, Running Zhao*, Lin Lin, Yue Yu, Handi Chen, Xinchen Zhang, Xuhai Xu, Yifang Wang, Xiaojuan Ma, Edith CH Ngai.<br><b class="pub-title">DietGlance: Dietary Monitoring and Personalized Analysis at a Glance with Knowledge-Empowered AI Assistant.</b><br>(accepted) [<a class="btn-thin" href="https://arxiv.org/abs/2502.01317">arXiv</a>]</td></tr>
+                        <tr><td><img src="img/pub/mindfulagent.png"></td><td><span class="pub-venue">[CHI'26b]</span><br>Mengyuan Wu, <b><u>Zhihan Jiang</u></b>*, Yuang Fan*, Richard Feng, Sahiti Dharmavaram, Mathew Polowitz, Shawn Fallon, Bashima Islam, Lizbeth Benson, Irene Tung, David Creswell, Xuhai Xu.<br><b class="pub-title">MindfulAgents: Personalizing Mindfulness Meditation via an Expert-Aligned Multi-Agent System.</b><br>(conditionally accepted)</td></tr>
+                        <tr><td><img src="img/pub/noteit.png"></td><td><span class="pub-venue">[UIST'25]</span><br>Running Zhao*, <b><u>Zhihan Jiang</u></b>*, Xinchen Zhang, Chirui Chang, Handi Chen, Weipeng Deng, Luyao Jin, Xiaojuan Qi, Xun Qian, Edith CH Ngai.<br><b class="pub-title">NoteIt: A System Converting Instructional Videos to Interactable Notes Through Multimodal Video Understanding.</b><br>[<a class="btn-thin" href="https://zhaorunning.github.io/NoteIt/">website</a>][<a class="btn-thin" href="https://www.youtube.com/watch?v=vORspE4lXMc">demo</a>][<a class="btn-thin" href="https://arxiv.org/pdf/2508.14395v1">arXiv</a>]</td></tr>
+                        <tr><td><img src="img/pub/adhd.png"></td><td><span class="pub-venue">[JAACAPOpen'24]</span><br><b><u>Zhihan Jiang</u></b>*, Adrienne Y.L. Chan*, Dawn Lum, Kirstie HTY Wong, Janice CN Leung, Patrick Ip, David Coghill, Rosa S Wong, Edith C.H. Ngai, Ian C.K. Wong.<br><b class="pub-title">Wearable Signals for Diagnosing Attention-Deficit/Hyperactivity Disorder in Adolescents: A Feasibility Study.</b><br>[<a class="btn-thin" href="https://www.jaacapopen.org/article/S2949-7329(24)00091-7/fulltext">link</a>]</td></tr>
+                        <tr><td><img src="img/pub/summary.png"></td><td><span class="pub-venue">[IoTJ'23]</span><br><b><u>Zhihan Jiang</u></b>, Vera van Zoest, Weipeng Deng, Edith C.H. Ngai, Jiangchuan Liu.<br><b class="pub-title">Leveraging Machine Learning for Disease Diagnoses based on Wearable Devices: A Survey.</b><br>[<a class="btn-thin" href="https://ieeexplore.ieee.org/document/10243618">link</a>][<a class="btn-thin" href="papers/iotj2023.pdf">pdf</a>]</td></tr>
+                        <tr><td><img src="img/pub/vis2023.png"></td><td><span class="pub-venue">[VIS'23]</span><br><b><u>Zhihan Jiang</u></b>, Handi Chen, Rui Zhou, Jing Deng, Xinchen Zhang, Running Zhao, Cong Xie, Yifang Wang, Edith C.H. Ngai.<br><b class="pub-title">HealthPrism: A Visual Analytics System for Exploring Children's Physical and Mental Health Profiles with Multimodal Data.</b><br>[<a class="btn-thin" href="https://arxiv.org/abs/2307.12242">arXiv</a>][<a class="btn-thin" href="video/demo.mp4">demo</a>][<a class="btn-thin" href="https://ieeexplore.ieee.org/document/10294211">link</a>][<a class="btn-thin" href="papers/appendices.pdf">appendix</a>]</td></tr>
+                        <tr><td><img src="img/pub/imwut2023.png"></td><td><span class="pub-venue">[UbiComp'23]</span><br><b><u>Zhihan Jiang</u></b>, Lin Lin, Xinchen Zhang, Jianduo Luan, Running Zhao, Longbiao Chen, James Lam, Ka Man Yip, Hung Kwan So, Wilfred HS Wong, Patrick Ip, Edith C.H. Ngai.<br><b class="pub-title">A Data-Driven Context-Aware Health Inference System for Children during School Closures.</b><br>[<a class="btn-thin" href="https://dl.acm.org/doi/10.1145/3580800">link</a>][<a class="btn-thin" href="papers/3580800.pdf">pdf</a>][<a class="btn-thin" href="https://youtu.be/cMB5PCw73Bc?si=ow1JKZfXENKOQ_-L">presentation</a>][<a class="btn-thin" href="papers/poster_new.pdf">poster</a>]</td></tr>
+                        <tr><td><img src="img/pub/tits2022.png"></td><td><span class="pub-venue">[TITS'22]</span><br><b><u>Zhihan Jiang</u></b>, Xin He, Chenhui Lu, Binbin Zhou, Xiaoliang Fan, Cheng Wang, Xiaojuan Ma, Edith C.H. Ngai, Longbiao Chen.<br><b class="pub-title">Understanding Drivers' Visual and Comprehension Loads in Traffic Violation Hotspots Leveraging Crowd-Based Driving Simulation.</b><br>[<a class="btn-thin" href="https://ieeexplore.ieee.org/document/9894372">link</a>][<a class="btn-thin" href="papers/tits2022.pdf">pdf</a>]</td></tr>
+                        <tr><td><img src="img/pub/chi2022.png"></td><td><span class="pub-venue">[CHI'22]</span><br>Chuhan Shi, <b><u>Zhihan Jiang</u></b>, Xiaojuan Ma, Qiong Luo.<br><b class="pub-title">A Personalized Visual Aid for Selections of Appearance Building Products with Long-term Effects.</b><br>[<a class="btn-thin" href="https://dl.acm.org/doi/10.1145/3491102.3517659">link</a>][<a class="btn-thin" href="papers/chi2022.pdf">pdf</a>]</td></tr>
+                        <tr><td><a href="crowdpatrol/index.html"><img src="img/pub/tmc2022.png"></a></td><td><span class="pub-venue">[TMC'21]</span><br><b><u>Zhihan Jiang</u></b>, Hang Zhu, Binbin Zhou, Chenhui Lu, Mingfei Sun, Xiaojuan Ma, Xiaoliang Fan, Cheng Wang, Longbiao Chen.<br><b class="pub-title">CrowdPatrol: A Mobile Crowdsensing Framework for Traffic Violation Hotspot Patrolling.</b><br>[<a class="btn-thin" href="https://ieeexplore.ieee.org/document/9531409">link</a>][<a class="btn-thin" href="papers/tmc2022.pdf">pdf</a>][<a class="btn-thin" href="crowdpatrol/index.html">system</a>][<a href="patrolroutes-viz-web/index.html">patrol routes</a>]</td></tr>
+                        <tr><td><a href="fogran/viz/index.html"><img src="img/pub/jnca.png"></a></td><td><span class="pub-venue">[JNCA'21]</span><br>Longbiao Chen, <b><u>Zhihan Jiang</u></b>, Dingqi Yang, Thi-Mai-Trang Nguyen, Cheng Wang.<br><b class="pub-title">Fog Radio Access Network Optimization for 5G Leveraging User Mobility and Traffic Data.</b><br>[<a class="btn-thin" href="https://doi.org/10.1016/j.jnca.2021.103083">link</a>][<a class="btn-thin" href="papers/jnca2021.pdf">pdf</a>]</td></tr>
+                        <tr><td><a href="traffic-sign-web/traffic-signs/index.html"><img src="img/pub/isj.png"></a></td><td><span class="pub-venue">[ISJ'20]</span><br><b><u>Zhihan Jiang</u></b>, Longbiao Chen, Binbin Zhou, Jinchun Huang, Tianqi Xie, Xiaoliang Fan, Cheng Wang.<br><b class="pub-title">iTV: Inferring Traffic Violation-Prone Locations with Vehicle Trajectories and Road Environment.</b><br>[<a class="btn-thin" href="https://ieeexplore.ieee.org/document/9171429">link</a>][<a class="btn-thin" href="papers/isj20.pdf">pdf</a>][<a href="tv-infer-web/index.html">system</a>]</td></tr>
+                        <tr><td><a href="fcs/viz/viz-en.html"><img src="img/pub/fcs.png"></a></td><td><span class="pub-venue">[FCS'20]</span><br><b><u>Zhihan Jiang</u></b>, Yan Liu, Xiaoliang Fan, Cheng Wang, Jonathan Li, Longbiao Chen.<br><b class="pub-title">Understanding Urban Structures and Crowd Dynamics Leveraging Large-Scale Vehicle Mobility Data.</b><br>[<a class="btn-thin" href="https://link.springer.com/article/10.1007/s11704-019-9034-z">link</a>][<a class="btn-thin" href="papers/fcs.pdf">pdf</a>][<a href="fcs/viz/viz-en.html">system</a>]</td></tr>
+                    </table>
+                    </div>
+
+                    <div id="tab-health">
+                    <table class="pub-table">
+                        <tr><td><img src="img/pub/silent.jpg" style="margin-top: 8px;"></td><td><span class="pub-venue">[CHI'26a]</span><br><b><u>Zhihan Jiang</u></b>, Qianhui Chen, Chu Zhang, Yanheng Li, RAY LC.<br><b class="pub-title">Hear You in Silence: Designing for Active Listening in Human Interaction with Conversational Agents Using Context-Aware Pacing.</b><br>(conditionally accepted) [<a class="btn-thin" href="pacing/index.html">website</a>][<a class="btn-thin" href="https://arxiv.org/abs/2602.06134">arXiv</a>]</td></tr>
+                        <tr><td><img src="img/pub/diet.png"></td><td><span class="pub-venue">[ACM HEALTH'26]</span><br><b><u>Zhihan Jiang</u></b>*, Running Zhao*, Lin Lin, Yue Yu, Handi Chen, Xinchen Zhang, Xuhai Xu, Yifang Wang, Xiaojuan Ma, Edith CH Ngai.<br><b class="pub-title">DietGlance: Dietary Monitoring and Personalized Analysis at a Glance with Knowledge-Empowered AI Assistant.</b><br>(accepted) [<a class="btn-thin" href="https://arxiv.org/abs/2502.01317">arXiv</a>]</td></tr>
+                        <tr><td><img src="img/pub/mindfulagent.png"></td><td><span class="pub-venue">[CHI'26b]</span><br>Mengyuan Wu, <b><u>Zhihan Jiang</u></b>*, Yuang Fan*, Richard Feng, Sahiti Dharmavaram, Mathew Polowitz, Shawn Fallon, Bashima Islam, Lizbeth Benson, Irene Tung, David Creswell, Xuhai Xu.<br><b class="pub-title">MindfulAgents: Personalizing Mindfulness Meditation via an Expert-Aligned Multi-Agent System.</b><br>(conditionally accepted)</td></tr>
+                        <tr><td><img src="img/pub/noteit.png"></td><td><span class="pub-venue">[UIST'25]</span><br>Running Zhao*, <b><u>Zhihan Jiang</u></b>*, Xinchen Zhang, Chirui Chang, Handi Chen, Weipeng Deng, Luyao Jin, Xiaojuan Qi, Xun Qian, Edith CH Ngai.<br><b class="pub-title">NoteIt: A System Converting Instructional Videos to Interactable Notes Through Multimodal Video Understanding.</b><br>[<a class="btn-thin" href="https://zhaorunning.github.io/NoteIt/">website</a>][<a class="btn-thin" href="https://www.youtube.com/watch?v=vORspE4lXMc">demo</a>][<a class="btn-thin" href="https://arxiv.org/pdf/2508.14395v1">arXiv</a>]</td></tr>
+                        <tr><td><img src="img/pub/adhd.png"></td><td><span class="pub-venue">[JAACAPOpen'24]</span><br><b><u>Zhihan Jiang</u></b>*, Adrienne Y.L. Chan*, Dawn Lum, Kirstie HTY Wong, Janice CN Leung, Patrick Ip, David Coghill, Rosa S Wong, Edith C.H. Ngai, Ian C.K. Wong.<br><b class="pub-title">Wearable Signals for Diagnosing Attention-Deficit/Hyperactivity Disorder in Adolescents: A Feasibility Study.</b><br>[<a class="btn-thin" href="https://www.jaacapopen.org/article/S2949-7329(24)00091-7/fulltext">link</a>]</td></tr>
+                        <tr><td><img src="img/pub/summary.png"></td><td><span class="pub-venue">[IoTJ'23]</span><br><b><u>Zhihan Jiang</u></b>, Vera van Zoest, Weipeng Deng, Edith C.H. Ngai, Jiangchuan Liu.<br><b class="pub-title">Leveraging Machine Learning for Disease Diagnoses based on Wearable Devices: A Survey.</b><br>[<a class="btn-thin" href="https://ieeexplore.ieee.org/document/10243618">link</a>][<a class="btn-thin" href="papers/iotj2023.pdf">pdf</a>]</td></tr>
+                        <tr><td><img src="img/pub/vis2023.png"></td><td><span class="pub-venue">[VIS'23]</span><br><b><u>Zhihan Jiang</u></b>, Handi Chen, Rui Zhou, Jing Deng, Xinchen Zhang, Running Zhao, Cong Xie, Yifang Wang, Edith C.H. Ngai.<br><b class="pub-title">HealthPrism: A Visual Analytics System for Exploring Children's Physical and Mental Health Profiles with Multimodal Data.</b><br>[<a class="btn-thin" href="https://arxiv.org/abs/2307.12242">arXiv</a>][<a class="btn-thin" href="video/demo.mp4">demo</a>][<a class="btn-thin" href="https://ieeexplore.ieee.org/document/10294211">link</a>][<a class="btn-thin" href="papers/appendices.pdf">appendix</a>]</td></tr>
+                        <tr><td><img src="img/pub/imwut2023.png"></td><td><span class="pub-venue">[UbiComp'23]</span><br><b><u>Zhihan Jiang</u></b>, Lin Lin, Xinchen Zhang, Jianduo Luan, Running Zhao, Longbiao Chen, James Lam, Ka Man Yip, Hung Kwan So, Wilfred HS Wong, Patrick Ip, Edith C.H. Ngai.<br><b class="pub-title">A Data-Driven Context-Aware Health Inference System for Children during School Closures.</b><br>[<a class="btn-thin" href="https://dl.acm.org/doi/10.1145/3580800">link</a>][<a class="btn-thin" href="papers/3580800.pdf">pdf</a>][<a class="btn-thin" href="https://youtu.be/cMB5PCw73Bc?si=ow1JKZfXENKOQ_-L">presentation</a>][<a class="btn-thin" href="papers/poster_new.pdf">poster</a>]</td></tr>
+                        <tr><td><img src="img/pub/chi2022.png"></td><td><span class="pub-venue">[CHI'22]</span><br>Chuhan Shi, <b><u>Zhihan Jiang</u></b>, Xiaojuan Ma, Qiong Luo.<br><b class="pub-title">A Personalized Visual Aid for Selections of Appearance Building Products with Long-term Effects.</b><br>[<a class="btn-thin" href="https://dl.acm.org/doi/10.1145/3491102.3517659">link</a>][<a class="btn-thin" href="papers/chi2022.pdf">pdf</a>]</td></tr>
+                    </table>
+                    </div>
+
+                    <div id="tab-urban" style="display: none;">
+                    <table class="pub-table">
+                        <tr><td><img src="img/pub/tits2022.png"></td><td><span class="pub-venue">[TITS'22]</span><br><b><u>Zhihan Jiang</u></b>, Xin He, Chenhui Lu, Binbin Zhou, Xiaoliang Fan, Cheng Wang, Xiaojuan Ma, Edith C.H. Ngai, Longbiao Chen.<br><b class="pub-title">Understanding Drivers' Visual and Comprehension Loads in Traffic Violation Hotspots Leveraging Crowd-Based Driving Simulation.</b><br>[<a class="btn-thin" href="https://ieeexplore.ieee.org/document/9894372">link</a>][<a class="btn-thin" href="papers/tits2022.pdf">pdf</a>]</td></tr>
+                        <tr><td><a href="crowdpatrol/index.html"><img src="img/pub/tmc2022.png"></a></td><td><span class="pub-venue">[TMC'21]</span><br><b><u>Zhihan Jiang</u></b>, Hang Zhu, Binbin Zhou, Chenhui Lu, Mingfei Sun, Xiaojuan Ma, Xiaoliang Fan, Cheng Wang, Longbiao Chen.<br><b class="pub-title">CrowdPatrol: A Mobile Crowdsensing Framework for Traffic Violation Hotspot Patrolling.</b><br>[<a class="btn-thin" href="https://ieeexplore.ieee.org/document/9531409">link</a>][<a class="btn-thin" href="papers/tmc2022.pdf">pdf</a>][<a class="btn-thin" href="crowdpatrol/index.html">system</a>][<a href="patrolroutes-viz-web/index.html">patrol routes</a>]</td></tr>
+                        <tr><td><a href="traffic-sign-web/traffic-signs/index.html"><img src="img/pub/isj.png"></a></td><td><span class="pub-venue">[ISJ'20]</span><br><b><u>Zhihan Jiang</u></b>, Longbiao Chen, Binbin Zhou, Jinchun Huang, Tianqi Xie, Xiaoliang Fan, Cheng Wang.<br><b class="pub-title">iTV: Inferring Traffic Violation-Prone Locations with Vehicle Trajectories and Road Environment.</b><br>[<a class="btn-thin" href="https://ieeexplore.ieee.org/document/9171429">link</a>][<a class="btn-thin" href="papers/isj20.pdf">pdf</a>][<a href="tv-infer-web/index.html">system</a>]</td></tr>
+                        <tr><td><a href="fcs/viz/viz-en.html"><img src="img/pub/fcs.png"></a></td><td><span class="pub-venue">[FCS'20]</span><br><b><u>Zhihan Jiang</u></b>, Yan Liu, Xiaoliang Fan, Cheng Wang, Jonathan Li, Longbiao Chen.<br><b class="pub-title">Understanding Urban Structures and Crowd Dynamics Leveraging Large-Scale Vehicle Mobility Data.</b><br>[<a class="btn-thin" href="https://link.springer.com/article/10.1007/s11704-019-9034-z">link</a>][<a class="btn-thin" href="papers/fcs.pdf">pdf</a>][<a href="fcs/viz/viz-en.html">system</a>]</td></tr>
+                        <tr><td><a href="fogran/viz/index.html"><img src="img/pub/jnca.png"></a></td><td><span class="pub-venue">[JNCA'21]</span><br>Longbiao Chen, <b><u>Zhihan Jiang</u></b>, Dingqi Yang, Thi-Mai-Trang Nguyen, Cheng Wang.<br><b class="pub-title">Fog Radio Access Network Optimization for 5G Leveraging User Mobility and Traffic Data.</b><br>[<a class="btn-thin" href="https://doi.org/10.1016/j.jnca.2021.103083">link</a>][<a class="btn-thin" href="papers/jnca2021.pdf">pdf</a>]</td></tr>
+                    </table>
+                    </div>
+
+
+                </div><!-- .col-sm-12 -->
+
+            </div><!-- .row -->
+        </section><!-- .section -->
+
+
+
+        <section class="section brd-btm">
+            <div class="row">
+                <div class="col-sm-12 clear-mrg">
+                <a id="education"></a>
+                <h2 class="title-thin text-muted" style="color: #000000;"><b>Education</b></h2>
+                    <table border="0px" style="color: #000000;font-size: 15px;">
+                    <tr>
+                    <td>2021—2025</td><td><b>Ph.D.</b></td><td></td><td><b>The University of Hong Kong</b>, Electrical and Electronic Engineering</td>
+                    </tr>
+                    <tr>
+                    <td></td><td></td><td></td><td>Advisor: <a href="https://www.eee.hku.hk/people/echngai/">Edith C.H. Ngai</a>, Faculty of Engineering</td>
+                    </tr>
+                    <tr>
+                    <td>2018—2021</td><td><b>M.E.</b></td><td></td><td><b>Xiamen University</b>, Computer Science & Technology</td>
+                    </tr>
+                    <tr>
+                    <td></td><td></td><td></td><td>Advisor: <a href="https://longbiao.crowdsensing.cn/index.html">Longbiao Chen</a>, School of Informatics</td>
+                    </tr>
+                    <tr>
+                    <td>2014—2018</td><td><b>B.E.</b></td><td></td><td><b>Xiamen University</b>, Computer Science & Technology</td>
+                    </tr>           
+                    <tr>
+                    <td></td><td></td><td></td><td>School of Informatics</td>
+                    </tr>
+                    <tr>
+                    <td></td><td><b>Minor</b></td><td>&ensp;</td><td><b>Xiamen University</b>, Mathematical Finance</td>
+                    </tr>
+                    <tr>
+                    <td></td><td></td><td>&ensp;</td><td>The Wang Yanan Institute for Studies in Economics</td>
+                    </tr>
+                    </table>
+                </div>
+            </div><!-- .row -->
+        </section><!-- .section -->
+
+       
+
+<section class="section brd-btm">
+                        <a id="service"></a>
+            <h2 class="title-thin text-muted" style="color: #000000;"><b>Services</b></h2>
+            <!-- <h3 style="margin-bottom: 10px;" style="color: #000000;"><b>Reviewer</b> of </h3>  -->
+            <h3 style="margin-bottom: 10px;" style="color: #000000;"><b>Journal Reviewer</b></h3> 
+            <ul style="list-style-type:disc;color: #000000;font-size: 15px;margin-left: 20px;margin-bottom: 20px;">
+                <li>ACM Transactions on Computing for Healthcare (HEALTH)</li>
+                <li>IEEE Transactions on Visualization and Computer Graphics (TVCG)</li>
+                <li>IEEE Transactions on Intelligent Transportation Systems (TITS)</li>
+                <li>IEEE Transactions on Industrial Informatics (TII)</li>
+                <li>IEEE Transactions on Computational Social Systems (TCSS)</li>
+                <li>IEEE Transactions on Mobile Computing (TMC)</li>
+                <li>Proc. of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT)</li>
+                <li>Journal of Network and Computer Applications (JNCA)</li>
+                <li>IEEE Internet of Things Journal (IoTJ)</li>
+            </ul>
+            <h3 style="margin-bottom: 10px;" style="color: #000000;"><b>Conference Reviewer</b></h3> 
+            <ul style="list-style-type:disc;color: #000000;font-size: 15px;margin-left: 20px;">
+                <li>ACM Conference on Intelligent User Interfaces (IUI), 2026</li>
+                <li>IEEE Pacific Visualization Conference (PacificVis), 2026</li>
+                <li>International Joint Conference on Neural Networks (IJCNN), 2025</li>
+                <li>ACM Conference on Human Factors in Computing Systems (CHI), 2025</li>
+                <li>ACM International Conference on Tangible, Embedded, and Embodied Interaction (TEI), 2025</li>
+                <li>IEEE International Conference on Computer Communications (INFOCOM), 2023-2025</li>
+                <li>ACM Conference on Embedded Networked Sensor Systems (SenSys), 2022-2025</li>
+                <li>IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2024-2026</li>
+                <li>IEEE International Conference on Distributed Computing Systems (ICDCS), 2022-2023</li>
+                <li>IEEE/ACM International Workshop on Quality of Service (IWQoS), 2023</li>
+                <li>IEEE International Conference on Ubiquitous Intelligence and Computing (UIC), 2020-2022</li>
+                <li>Chinese Conference on Computer Supported Cooperative Work and Social Computing (ChineseCSCW), 2020</li>
+                <li>IEEE International Conference on Communications (ICC), 2020</li>
+            </ul>
+        </section>
+
+
+
+    </div><!-- .padd-box -->
+<!-- END: PAGE CONTENT -->
+						
+                </div><!-- .ace-paper-cont -->
+            </main><!-- .ace-paper -->
+        </div><!-- .ace-paper-stock -->
+
+        </div><!-- .ace-container -->
+    </div><!-- #ace-content -->
+
+    <div id="ace-sidebar">
+		<button id="ace-sidebar-close" class="btn btn-icon btn-light btn-shade">
+			<span class="ace-icon ace-icon-close"></span>
+		</button>
+
+		<div id="ace-sidebar-inner">
+			<nav id="ace-main-nav-sm" class="visible-xs visible-sm text-center">
+				<ul class="clear-list">
+					<li><a href="index.html">about</a></li>
+		
+					<li><a href="mailto:jiang-zh@outlook.com">contact</a></li>
+
+				</ul>
+			</nav><!-- #ace-main-nav-sm -->
+
+			<article class="ace-card bg-primary">
+				<div class="ace-card-inner text-center">
+					<img class="avatar avatar-195" src="img/uploads/avatar/avatar4.jpg" width="195" height="195" alt="">
+					<h1>Zhihan Jiang</h1>
+					<p class="text-muted">Postdoctoral Researcher <br> Columbia University<br><a href="mailto:jiang-zh@outlook.com">jiang-zh@outlook.com</a></p>
+                    
+
+				</div>				
+			</article><!-- #ace-card -->
+
+			<aside class="widget-area">			
+
+			</aside>
+
+		</div><!-- #ace-sidebar-inner -->
+	</div><!-- #ace-sidebar -->
+
+    <footer id="ace-footer" class="ace-container-shift">
+        <div class="ace-container">
+			<div class="ace-footer-cont clear-mrg">
+				<p class="text-center">Last Updated: Feb, 2026</p>		
+			</div>
+        </div><!-- .ace-container -->
+    </footer><!-- #ace-footer -->
+
+    <!-- Triangle Shapes -->
+    <svg id="ace-bg-shape-1" class="hidden-sm hidden-xs" height="519" width="758">
+        <polygon points="0,455,693,352,173,0,92,0,0,71" style="fill:#d2d2d2;stroke:purple;stroke-width:0; opacity: 0.5">
+    </svg>
+
+    <svg id="ace-bg-shape-2" class="hidden-sm hidden-xs" height="536" width="633">
+        <polygon points="0,0,633,0,633,536" style="fill:#c0e3e7;stroke:purple;stroke-width:0" />
+    </svg>
+</div><!-- .ace-wrapper -->
+
+<!-- Scripts -->
+<script>
+function switchTab(tab, btn) {
+  document.getElementById('tab-all').style.display = tab === 'all' ? 'block' : 'none';
+  document.getElementById('tab-health').style.display = tab === 'health' ? 'block' : 'none';
+  document.getElementById('tab-urban').style.display = tab === 'urban' ? 'block' : 'none';
+  var tabs = document.querySelectorAll('.pub-tab');
+  tabs.forEach(function(t) {
+    t.style.background = '#f5f5f5';
+    t.style.color = '#999';
+    t.style.borderColor = '#ddd';
+  });
+  btn.style.background = '#c0e3e7';
+  btn.style.color = '#333';
+  btn.style.borderColor = '#8bbfc5';
+}
+
+function scrollToSection(event) {
+  event.preventDefault();
+  const targetId = event.currentTarget.getAttribute('href');
+  const target = document.querySelector(targetId);
+  if (!target) return;
+  
+  const offset = 0;
+  const y = target.getBoundingClientRect().top + window.scrollY - offset;
+  
+  window.scrollTo({ top: y, behavior: 'smooth' });
+}
+</script>
+<script type="text/javascript" src="js/vendor/jquery-3.5.0.slim.min.js"></script>
+
+
+<script type="text/javascript" src="js/plugins/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.mCustomScrollbar.min.js"></script>
+<script type="text/javascript" src="js/plugins/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="js/plugins/progressbar.min.js"></script>
+<script type="text/javascript" src="js/plugins/slick.min.js"></script>
+
+<script type="text/javascript" src="js/options.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
