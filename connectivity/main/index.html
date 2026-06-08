@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+	<!-- <script type="text/javascript" src="gra.js"></script> -->
+	<title>connectivity</title>
+	<link href="index.css" rel="stylesheet">
+<!-- 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" /> -->
+
+</head>
+
+<body>
+	<nav class="navbar navbar-default" id="header">
+		<div class="container">
+			<h2>Connectivity Calculator for Complex Directed Networks</h2>
+		</div>
+	</nav>
+	<div class="container" id="content">
+		<div id="input_view1" >
+			<label>Please input the adjacency matrix here:<br>(each line represents a row, and use a comma to distinguish entries in rows)</label>
+			<textarea id="matrix" cols="80" rows="25">
+0,1,1,0,0,0,0,0
+0,0,0,1,1,0,0,0
+0,0,0,0,1,0,0,0
+0,0,0,0,0,1,1,0
+1,0,0,0,0,1,0,0
+0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0
+0,0,0,0,0,1,0,0
+</textarea>
+<!-- <label>For deterministic FFNs, please input 1,0 here.<br>For SFFNs, please input the possible probabilities, such as 0.2,0.3,0.5 </label>
+<textarea id="prob_mat" cols="50" rows="3">1,0
+0.5,0.5</textarea><br>
+<label>Matrix dimension (please input an integer)</label><br> -->
+<!-- <input type="number" id="dimension" value=27> -->
+<!-- <button id="random_gen" onclick="random_matrix();">Generate Random Matrix</button>
+<button id="random_gen_diag" onclick="random_matrix_diag();">Generate Random 0-1 Matrix</button> -->
+		</div>
+		<div style="margin-left: 20px;">
+		<div id="input_view2">
+			<button id="quotient" onclick="generate_quotinent();">Generate Accessible Matrix</button>
+			
+		</div>
+<!-- 		<div id="action_view">
+			<button id="quotient" onclick="generate_quotinent();">Generate Accessible Matrix</button>
+		</div> -->
+		<div id="graph_view_input"><b>Input Graph: </b> (The nodes in <span style="color:red;">red</span> are with circles.)<div id="graph_view_input_draw"></div></div>
+		<div id="output_view"><b>SCC Node List: <br></b></div>
+		<div id="graph_view_scc"><b>SCC Graph: </b>(The nodes in <span style="color:red;">red</span> are with circles.)<div id="graph_view_scc_draw"></div></div>
+		<div id="node_map"><b>Node Map List: </b><div id="node_map_list"></div></div>
+		<div id="connectivity"><b>Connectivity: </b></div>
+		<div id="reachability"><b>Accessible Matrix: </b></div>
+		
+		</div>
+	</div>
+	<script type="text/javascript">
+
+				var scc = new Array();
+				var k = 0;
+				// Tarjan's algorithm
+				// This class represents a directed graph
+				// using adjacency list representation
+				class Graph{
+				     
+					// Constructor
+					constructor(v)
+					{
+					    this.V = v;
+					    this.adj = new Array(v);
+					   
+					    for(let i = 0; i < v; ++i)
+					        this.adj[i] = [];
+					       
+					    this.Time = 0;
+					}
+					 
+					// Function to add an edge into the graph
+					addEdge(v, w)
+					{
+					    this.adj[v].push(w);
+					}
+					 
+					// A recursive function that finds and prints strongly
+					// connected components using DFS traversal
+					// u --> The vertex to be visited next
+					// disc[] --> Stores discovery times of visited vertices
+					// low[] -- >> earliest visited vertex (the vertex with
+					//             minimum discovery time) that can be reached
+					//             from subtree rooted with current vertex
+					// st -- >> To store all the connected ancestors (could be
+					//          part of SCC)
+					// stackMember[] --> bit/index array for faster check
+					//                   whether a node is in stack
+					SCCUtil(u, low, disc, stackMember, st)
+					{
+					     
+					    // Initialize discovery time and low value
+					    disc[u] = this.Time;
+					    low[u] = this.Time;
+					    this.Time += 1;
+					    stackMember[u] = true;
+					    st.push(u);
+					   
+					    let n;
+					       
+					    // Go through all vertices adjacent to this
+					    for(let i of this.adj[u])
+					    {
+					        n = i;
+					           
+					        if (disc[n] == -1)
+					        {
+					            this.SCCUtil(n, low, disc, stackMember, st);
+					               
+					            // Check if the subtree rooted with v
+					            // has a connection to one of the
+					            // ancestors of u
+					            // Case 1 (per above discussion on
+					            // Disc and Low value)
+					            low[u] = Math.min(low[u], low[n]);
+					        }
+					        else if (stackMember[n] == true)
+					        {
+					               
+					            // Update low value of 'u' only if 'v' is
+					            // still in stack (i.e. it's a back edge,
+					            // not cross edge).
+					            // Case 2 (per above discussion on Disc
+					            // and Low value)
+					            low[u] = Math.min(low[u], disc[n]);
+					        }
+					    }
+					   
+					    // Head node found, pop the stack and print an SCC
+					    // To store stack extracted vertices
+					    let w = -1;
+					    
+					    
+					    if (low[u] == disc[u])
+					    {
+					    	scc[k] = new Array();
+					        while (w != u)
+					        {
+					            w = st.pop();
+					            document.getElementById('output_view').innerHTML =document.getElementById('output_view').innerHTML + (w+1) + " ";
+					            scc[k].push(w);
+					            stackMember[w] = false;
+					        }
+					        document.getElementById('output_view').innerHTML =document.getElementById('output_view').innerHTML +"<br>";
+					        k++;
+					    }
+					    return scc;
+					  }
+					     
+					// The function to do DFS traversal.
+					// It uses SCCUtil()
+					SCC()
+					{
+					     
+					    // Mark all the vertices as not visited
+					    // and Initialize parent and visited,
+					    // and ap(articulation point) arrays
+					    let disc = new Array(this.V);
+					    let low = new Array(this.V);
+					    for(let i = 0;i < this.V; i++)
+					    {
+					        disc[i] = -1;
+					        low[i] = -1;
+					    }
+					       
+					    let stackMember = new Array(this.V);
+					    let st = [];
+					       
+					    // Call the recursive helper function
+					    // to find articulation points
+					    // in DFS tree rooted with vertex 'i'
+					    for(let i = 0; i < this.V; i++)
+					    {
+					        if (disc[i] == -1)
+					            this.SCCUtil(i, low, disc,
+					                         stackMember, st);
+					      
+					    }
+					}
+				}
+				 
+				// Driver code
+
+				function generate_quotinent(){
+					// decode probability transition matrix
+					let s_elements = document.getElementById('matrix');
+					var s = s_elements.value;
+					scc = new Array();
+					k = 0;
+					console.log(s);
+					if(s==""){
+						document.getElementById('output_view').innerHTML = "<font color=\"red\">Invalid input: Please input the adjacency transition matrix.</font>";
+						// s_elements.style.color="red";
+						return 0;
+					}
+					// s_elements.style.color="black";
+					let lines = s.split('\n');
+					var mat = new Array()
+					for(var i = 0; i<lines.length; i++){
+						if(lines[i]==""){
+							continue;
+						}
+						mat[i]=lines[i].toString().split(',');
+						// console.log(mat[i]);
+						for(var j = 0; j<mat[i].length; j++){
+							mat[i][j] = parseFloat(mat[i][j])
+						}
+					}
+					console.log(mat)
+					generate_data_for_graph_input(mat);
+
+					// generate_graph
+					let g = new Graph(mat.length);
+					for(var i=0;i<mat.length;i++){
+						for(var j=0;j<mat.length;j++){
+							if(mat[i][j]>0){
+								g.addEdge(i,j);
+							}
+							
+						}
+					}
+					//generate connections
+					document.getElementById('output_view').innerHTML ="<b>SCC Node List: <br></b>";
+					document.getElementById('connectivity').innerHTML ="<b>Connectivity: </b>";
+					document.getElementById('reachability').innerHTML ="<b>Reachability Matrix: </b>"
+					g.SCC();
+					console.log(scc);
+					
+					var scc_graph = buildGraphfromSCC(mat,scc);
+					generate_data_for_graph_scc(scc_graph);
+					var conn = checkConnected(scc_graph,scc_graph.length,0);
+					reachability_matrix(mat);
+					
+
+				
+				}
+				function buildGraphfromSCC(mat,scc){
+					var scc_map_list = new Array(scc.length);
+					// console.log(scc.length);
+					for(var i=0;i<scc.length;i++){
+						var l = mat.length;
+						// console.log(scc[i].length);
+						if(scc[i].length==1){
+							scc_map_list[i]=scc[i][0];
+							// console.log(scc[i][0]);
+						}
+						else if(scc[i].length>1){
+							scc[i].sort();
+							scc_map_list[i]=scc[i][0];
+							// console.log(scc[i][0]);
+							// var flag = 0;
+							// for(var j=0;j<scc[i].length;j++){
+							// 	if(mat[scc[i][j]][scc[i][j]]>0){
+							// 		flag = 1;
+							// 		break;
+							// 	}
+							// }
+							var sub_mat = new Array(scc[i].length);
+							for(var j=0;j<scc[i].length;j++){
+								sub_mat[j] = new Array(scc[i].length);
+								for(var p=0;p<scc[i].length;p++){
+									sub_mat[j][p] = mat[scc[i][j]][scc[i][p]];
+								}
+							}
+							console.log(sub_mat);
+							var conn = checkConnected(sub_mat,sub_mat.length,1);
+							console.log(conn);
+							for(var j=1;j<scc[i].length;j++){
+								for(var p=0;p<l;p++){
+									mat[scc[i][0]][p]+=mat[scc[i][j]][p];
+									mat[p][scc[i][0]]+=mat[p][scc[i][j]];
+								}
+							}
+							var temp_mat = new Array(l-scc[i].length+1);
+							var k1=0;
+							var k2=0;
+							for(var j=0;j<l-scc[i].length+1;j++){
+								temp_mat[j] = new Array();
+							}
+							for(var j=0;j<l;j++){
+								for(var p=0;p<l;p++){
+									if(scc[i].indexOf(j)>0 || scc[i].indexOf(p)>0){
+										continue;
+									}
+									else{
+										temp_mat[k1].push(mat[j][p]);
+										if(temp_mat[k1][k2]>1){
+											temp_mat[k1][k2] = 1;
+										}
+										k2++;
+										if(k2>=l-scc[i].length+1){
+											k2=0;
+											k1+=1;
+										}
+									}
+								}
+							}
+							
+							// console.log(flag,scc[i][0]);
+
+							if(conn==0){
+								temp_mat[scc[i][0]][scc[i][0]]=1;
+							}
+							else{
+								temp_mat[scc[i][0]][scc[i][0]]=0;
+							}
+							for(var j=0;j<temp_mat.length;j++){
+								for(var p=0;p<temp_mat.length;p++){
+									if(temp_mat[j][p]>1){
+										temp_mat[j][p]=1;
+									}
+								}
+							}
+							console.log(temp_mat);
+							mat = temp_mat;
+						}
+
+						// else{
+						// 	console.log('xxx',scc[i][0]);
+						// }
+					
+						
+					}
+					// Create a copy of the array and sort it
+					console.log(scc_map_list);
+					var sorted = Array.from(scc_map_list).sort((a, b) => a - b);
+
+					// Generate a new array that indicates the order of each element in the original array
+					var order = scc_map_list.map((num) => sorted.indexOf(num));
+					console.log(order);
+					var node_map = [];
+					var str = '';
+					for(var i=0;i<order.length;i++){
+						str+='Original Node: ';
+						for(var j=0;j<scc[i].length;j++){
+							str+=(scc[i][j]+1).toString()+',';
+						}
+						str+=' New Node: '+(order[i]+1).toString()+'<br>';
+						// scc[i]
+						// order[i]+=1;
+					}
+					document.getElementById('node_map_list').innerHTML = str;
+
+					return mat;
+				}
+
+				// Function to find the characteristic 
+				// of the given graph 
+
+				function getPathMatrix(adjacencyMatrix) {
+					const size = adjacencyMatrix.length;
+					const pathMatrix = [];
+
+					// Initialize the path matrix with the adjacency matrix values
+					for (let i = 0; i < size; i++) {
+						pathMatrix[i] = [];
+						for (let j = 0; j < size; j++) {
+						pathMatrix[i][j] = adjacencyMatrix[i][j];
+						}
+					}
+
+					// Floyd-Warshall algorithm to update the path matrix
+					for (let k = 0; k < size; k++) {
+						for (let i = 0; i < size; i++) {
+						for (let j = 0; j < size; j++) {
+							pathMatrix[i][j] = pathMatrix[i][j] || (pathMatrix[i][k] && pathMatrix[k][j]);
+						}
+						}
+					}
+
+					return pathMatrix;
+				}
+				function checkConnected(graph, n, type) 
+				{ 
+				    // console.log(graph);
+				    // Check whether the graph is 
+				    // strongly connected or not 
+				    let strongly = true; 
+
+					graph_path = getPathMatrix(graph);
+
+				    // Traverse the path matrix 
+				    for(let i = 0; i < n; i++) 
+				    { 
+				        for(let j = 0; j < n; j++) 
+				        { 
+				            
+				            // If all the elements are 
+				            // not equal then the graph 
+				            // is not strongly connected 
+				            if (graph_path[i][j] != graph_path[j][i]) 
+				            { 
+				                strongly = false; 
+				                break; 
+				            } 
+				        } 
+				        
+				        // Break out of the loop if false 
+				        if (!strongly) 
+				        { 
+				            break; 
+				        } 
+				    } 
+				    
+				    // If true then print strongly 
+				    // connected and return 
+				    if (strongly) 
+				    { 
+						if(type==0){
+				        	document.getElementById('connectivity').innerHTML =document.getElementById('connectivity').innerHTML +"Strongly Connected"; 
+						}
+				        return 0; 
+				    } 
+
+				    // Check whether the graph is 
+				    // Unilaterally connected by 
+				    // checking Upper Triangle element 
+				    let uppertri = true; 
+
+				    // Traverse the path matrix 
+				    for(let i = 0; i < n; i++) 
+				    { 
+				        for(let j = 0; j < n; j++) 
+				        { 
+				            
+				            // If uppertriangle elements 
+				            // are 0 then break out of the 
+				            // loop and check the elements 
+				            // of lowertriangle matrix 
+				            if (i > j && graph_path[i][j] == 0) 
+				            { 
+				                uppertri = false; 
+				                break; 
+				            } 
+				        } 
+
+				        // Break out of the loop if false 
+				        if (!uppertri) 
+				        { 
+				            break; 
+				        } 
+				    } 
+
+				    // If true then print unilaterally 
+				    // connected and return 
+				    if (uppertri) 
+				    { 
+						if(type==0){
+				        	document.getElementById('connectivity').innerHTML =document.getElementById('connectivity').innerHTML +"Unilaterally Connected"; 
+						}
+						return 1; 
+				    } 
+
+				    // Check lowertraingle elements 
+				    let lowertri = true; 
+
+				    // Traverse the path matrix 
+				    for(let i = 0; i < n; i++) 
+				    { 
+				        for(let j = 0; j < n; j++) 
+				        { 
+				            
+				            // If lowertraingle elements 
+				            // are 0 then break cause 
+				            // 1's are expected 
+				            if (i < j && graph_path[i][j] == 0) 
+				            { 
+				                lowertri = false; 
+				                break; 
+				            } 
+				        } 
+				        
+				        // Break out of the loop if false 
+				        if (!lowertri) 
+				        { 
+				            break; 
+				        } 
+				    } 
+
+				    // If true then print unilaterally 
+				    // connected and return 
+				    if (lowertri) 
+				    { 
+						if(type==0){
+				        	document.getElementById('connectivity').innerHTML =document.getElementById('connectivity').innerHTML +"Unilaterally Connected"; 
+						}
+				        return 1; 
+				    } 
+
+				    // If elements are in random order 
+				    // unsynchronized then print weakly 
+				    // connected and return 
+				    else
+				    { 
+						if(type==0){
+				        	document.getElementById('connectivity').innerHTML =document.getElementById('connectivity').innerHTML +"Weakly Connected"; 
+						}
+				    } 
+				    return 2; 
+				} 
+				function reachability_matrix(graph){
+					/* reach[,] will be the output matrix that
+			        will finally have the shortest distances
+			        between every pair of vertices */
+			        var V = graph.length;
+			        var reach = Array.from(Array(V), () => new Array(V));
+			        var i, j, k;
+			 
+			        /* Initialize the solution matrix same as
+			        input graph matrix. Or we can say the
+			        initial values of shortest distances are
+			        based on shortest paths considering no
+			        intermediate vertex. */
+			        for (i = 0; i < V; i++)
+			          for (j = 0; j < V; j++) reach[i][j] = graph[i][j];
+			 
+			        /* Add all vertices one by one to the
+			        set of intermediate vertices.
+			        ---> Before start of a iteration, we have
+			            reachability values for all pairs of
+			            vertices such that the reachability
+			            values consider only the vertices in
+			            set {0, 1, 2, .. k-1} as intermediate vertices.
+			        ---> After the end of a iteration, vertex no.
+			            k is added to the set of intermediate
+			            vertices and the set becomes {0, 1, 2, .. k} */
+			        for (k = 0; k < V; k++) {
+			          // Pick all vertices as source one by one
+			          for (i = 0; i < V; i++) {
+			            // Pick all vertices as destination
+			            // for the above picked source
+			            for (j = 0; j < V; j++) {
+			              // If vertex k is on a path from i to j,
+			              // then make sure that the value of
+			              // reach[i,j] is 1
+			              reach[i][j] =
+			                reach[i][j] != 0 || (reach[i][k] != 0 && reach[k][j] != 0)
+			                  ? 1
+			                  : 0;
+			            }
+			          }
+			        }
+			 
+			        // Print the shortest distance matrix
+					for(var i=0;i<reach.length;i++){
+						if(graph[i][i]==1){
+							reach[i][i]=1;
+						}
+						else{
+							reach[i][i]=0;
+						}
+					}
+			
+			        printSolution(reach, V);
+				}
+				function printSolution(reach, V) {
+					
+			        document.getElementById('reachability').innerHTML =document.getElementById('reachability').innerHTML +
+			          "<br>";
+			        for (var i = 0; i < V; i++) {
+			          for (var j = 0; j < V; j++) {
+			            // if (i == j) document.getElementById('reachability').innerHTML =document.getElementById('reachability').innerHTML +"1 ";
+			            document.getElementById('reachability').innerHTML =document.getElementById('reachability').innerHTML +reach[j][i] + " ";
+			          }
+			          document.getElementById('reachability').innerHTML =document.getElementById('reachability').innerHTML +"<br>";
+			        }
+			      }
+			      var chartDom1 = document.getElementById('graph_view_input_draw');
+				var myChart1 = echarts.init(chartDom1);
+				var option1;
+				var chartDom2 = document.getElementById('graph_view_scc_draw');
+				var myChart2 = echarts.init(chartDom2);
+				var option2;
+			     function generate_data_for_graph_input(graph){
+					
+			     	// console.log('...');
+			     	var V = graph.length;
+			     	var data = [];
+			     	var links = [];
+			     	for(var i=0;i<V;i++){
+						if(graph[i][i]>0){
+							data.push({name:i+1,x:300+100*i,y:300,
+								itemStyle: {
+									color: 'red'
+								}
+							});
+						}
+						else{
+			     			data.push({name:i+1,x:300+100*i,y:300});
+						}
+			     	}
+					// var option1 = {
+					// 	name:data,
+					// 	data:graph
+					// };
+					// var gra = new Gra(chartDom1,option1);
+			     	for(var i=0;i<V;i++){
+			     		for(var j=0;j<V;j++){
+			     			var cur = 0.2;
+			     			if(Math.abs(i-j)==1){
+			     				cur = 0;
+			     			}
+							// if(Math.abs(i-j)==0){
+							// 	cur=1;
+							// }
+			     			if(graph[i][j]>0){
+			     				links.push({source:i,target:j,lineStyle: {
+						            width: 2,
+						            curveness: cur
+						          }});
+			     			}
+			     		}
+			     	}
+			     	option1 = {
+					//   title: {
+					//     text: 'Input Graph'
+					//   },
+					  tooltip: {},
+					  animationDurationUpdate: 1500,
+					  animationEasingUpdate: 'quinticInOut',
+					  series: [
+					    {
+					      type: 'graph',
+					      layout: 'none',
+					      symbolSize: 20,
+						//   symbolcolor: 'black',
+					      roam: true,
+					      label: {
+					        show: true
+					      },
+					      edgeSymbol: ['circle', 'arrow'],
+					      edgeSymbolSize: [4, 10],
+					      edgeLabel: {
+					        fontSize: 20
+					      },
+					      data: data,
+					      // links: [],
+					      links: links,
+					      lineStyle: {
+					        opacity: 0.9,
+					        width: 2,
+					        curveness: 0
+					      }
+					    }
+					  ]
+					};
+			     	myChart1.setOption(option1);
+			     }
+				 function generate_data_for_graph_scc(graph){
+			     	// console.log('...');
+			     	var V = graph.length;
+			     	var data = [];
+			     	var links = [];
+			     	for(var i=0;i<V;i++){
+
+			     		// data.push({name: i,x:300+100*i,y:300})
+
+						 if(graph[i][i]>0){
+							data.push({name:i+1,x:300+100*i,y:300,
+								itemStyle: {
+									color: 'red'
+								}
+							});
+						}
+						else{
+			     			data.push({name:i+1,x:300+100*i,y:300});
+						}
+
+			     	}
+			     	for(var i=0;i<V;i++){
+			     		for(var j=0;j<V;j++){
+			     			var cur = 0.2;
+			     			if(Math.abs(i-j)==1){
+			     				cur = 0;
+			     			}
+			     			if(graph[i][j]>0){
+			     				links.push({source:i,target:j,lineStyle: {
+						            width: 2,
+						            curveness: cur
+						          }});
+			     			}
+			     		}
+			     	}
+			     	option2 = {
+					//   title: {
+					//     text: 'SCC Graph'
+					//   },
+					  tooltip: {},
+					  animationDurationUpdate: 1500,
+					  animationEasingUpdate: 'quinticInOut',
+					  series: [
+					    {
+					      type: 'graph',
+					      layout: 'none',
+					      symbolSize: 20,
+						//   symbolcolor: 'black',
+					      roam: true,
+					      label: {
+					        show: true
+					      },
+					      edgeSymbol: ['circle', 'arrow'],
+					      edgeSymbolSize: [4, 10],
+					      edgeLabel: {
+					        fontSize: 20
+					      },
+					      data: data,
+					      // links: [],
+					      links: links,
+					      lineStyle: {
+					        opacity: 0.9,
+					        width: 2,
+					        curveness: 0
+					      }
+					    }
+					  ]
+					};
+			     	myChart2.setOption(option2);
+
+
+			     }
+			
+				
+
+			</script>
+	<!-- <nav class="navbar navbar-default" id="footer"> -->
+	<!-- </nav> -->
+</body>
+
+</html>

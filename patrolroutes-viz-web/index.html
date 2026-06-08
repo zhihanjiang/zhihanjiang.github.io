@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Patrol Route Visualization System</title>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/bmap.min.js"></script>
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=dlo1edizBEcDLzNDTyHQoLmxgnZTdHBC"></script>
+        <script type="text/javascript" src="https://api.map.baidu.com/getscript?v=2.0&ak=dlo1edizBEcDLzNDTyHQoLmxgnZTdHBC"></script>
+        <link href="index.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default" id="header">
+            <div class="container">
+                <h2>Patrol Route Visualization System</h2>
+                <h4 id="time"></h4>
+            </div>
+    </nav>
+    <input type="radio"  name="city" id="xm" value=0 checked="true" onclick="update_center()" style="position: absolute;margin-left: 130px;top:70px;" /> <p id="p1" style="position: absolute;margin-left: 150px;top:70px;font-size: 18px;font-weight: bolder;">Xiamen</p>
+    <input type="radio"  name="city" id="cd" value=1 onclick="update_center()" style="position: absolute;margin-left:400px;top:70px;" /> <p id="p1" style="position: absolute;margin-left:420px;top:70px;font-size: 18px;font-weight: bolder;">Chengdu</p>
+    <div class="container" id="content">
+<!--             <div class="note" id="note"></div> -->
+            <div class="scroll" id="scrollBar">
+                <div class="bar"></div>
+                <div class="mask"></div>
+            </div>
+            <div class="text" id="text"></div>
+            <div id="map" style="width: 600px;height:600px;"></div>
+            <div id="line" style="width: 600px;height:300px;"></div> 
+            <div id="violation" style="width: 600px;height:300px;"></div> 
+    <script src='index.js'></script>
+</body>
+</html>
