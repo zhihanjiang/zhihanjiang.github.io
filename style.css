@@ -13,7 +13,7 @@ body {
     letter-spacing: 0.08em;
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, serif;
 
 }
 
@@ -1913,7 +1913,7 @@ img.aligncenter {
     background: transparent;
     border: none;
     color: #707070;
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, serif;
     margin: 0 0 28px 0;
     max-width: 100%;
     padding: 0;
@@ -1996,7 +1996,7 @@ img.aligncenter {
     color: #707070;
     color: rgba(51, 51, 51, 0.7);
     display: block;
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, serif;
     font-size: 12px;
     line-height: 1.5;
     padding: 0.5em 0;
@@ -4776,11 +4776,11 @@ blockquote.quote-side:before,
  * Theme Font Families
  */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, serif;
 }
 
 .ace-logo {
