@@ -138,6 +138,38 @@ dialog::backdrop { background: rgba(19, 35, 46, .62); backdrop-filter: blur(3px)
 .distribution-table th:first-child, .distribution-table td:first-child { position: sticky; left: 0; color: var(--navy); background: white; text-align: left; }
 .detail-note { margin-top: 16px; padding: 12px 14px; border-left: 4px solid #9eb5c3; color: #5f6e77; background: #f2f6f8; font-size: 11px; }
 
+.activity-card-panel { width: min(1320px, calc(100% - 44px)); margin: 0 auto 28px; padding: clamp(22px, 3vw, 31px); border: 1px solid var(--line); border-radius: 15px; background: white; box-shadow: var(--shadow); }
+.activity-card-heading { display: flex; justify-content: space-between; gap: 28px; align-items: end; margin-bottom: 13px; }
+.activity-card-heading h2 { margin: 3px 0 5px; font-family: Georgia, "Times New Roman", serif; font-size: 32px; font-weight: 500; }
+.activity-card-heading p { max-width: 760px; margin: 0; color: var(--muted); font-size: 12px; }
+.profile-series-key { display: flex; gap: 14px; color: #61717a; font-size: 10px; font-weight: 750; white-space: nowrap; }
+.profile-series-key span { display: inline-flex; gap: 6px; align-items: center; }
+.profile-series-key i { width: 9px; height: 14px; border: 1px solid currentColor; }
+.profile-series-key .hh { color: #7556a8; }
+.profile-series-key .hh i { background: #ddd2ea; }
+.profile-series-key .ac { color: #0372b6; }
+.profile-series-key .ac i { background: #b9ddf0; }
+.activity-card-focus { display: flex; justify-content: space-between; gap: 18px; min-height: 38px; margin-bottom: 12px; padding: 9px 11px; color: #56656e; background: #f3f6f8; font-size: 10px; }
+.activity-card-focus strong { color: var(--navy); }
+.activity-card-focus span { text-align: right; font-variant-numeric: tabular-nums; }
+.activity-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.activity-profile-card { min-width: 0; padding: 11px; border: 1px solid #dce4e8; border-radius: 9px; background: white; background: color-mix(in srgb, var(--group) 32%, white); }
+.activity-profile-card > header { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; gap: 7px; align-items: start; min-height: 43px; }
+.activity-profile-card h3 { margin: 0; color: #263741; font-size: 13px; line-height: 1.2; }
+.activity-profile-card header > span:last-child { color: #697881; font-size: 9px; white-space: nowrap; }
+.profile-group-badge { display: grid; width: 24px; height: 24px; place-items: center; border-radius: 4px; color: white; background: var(--navy); font-size: 11px; font-weight: 850; }
+.profile-card-means { display: grid; justify-items: end; min-height: 35px; margin: 2px 0 6px; font-size: 10px; font-variant-numeric: tabular-nums; }
+.profile-card-means .hh { color: #7556a8; }
+.profile-card-means .ac { color: #0372b6; }
+.profile-bars { display: flex; gap: 2px; min-width: 0; height: 116px; align-items: stretch; }
+.profile-dimension { display: grid; flex: 1 1 0; min-width: 22px; grid-template-rows: 94px 20px; padding: 0; border: 0; color: #62717a; background: transparent; font-size: 9px; text-align: center; }
+.profile-dimension:hover, .profile-dimension:focus-visible { color: var(--navy); background: rgba(255, 255, 255, .72); outline: 2px solid #90aab9; outline-offset: 1px; }
+.profile-bar-pair { display: grid; min-width: 0; grid-template-columns: 1fr 1fr; align-items: end; border-bottom: 1px solid #7d8990; background: linear-gradient(to top, rgba(117, 130, 138, .12) 1px, transparent 1px) 0 25% / 100% 25%; }
+.profile-bar-pair i { min-height: 1px; border: 1px solid currentColor; border-bottom: 0; }
+.profile-bar-pair .hh { height: var(--hh); color: #7556a8; background: #ddd2ea; }
+.profile-bar-pair .ac { height: var(--ac); color: #0372b6; background: #b9ddf0; }
+.profile-dimension b { align-self: end; overflow: hidden; font-size: 9px; font-weight: 600; white-space: nowrap; }
+
 .dimension-atlas-panel { width: min(1320px, calc(100% - 44px)); margin: 0 auto 28px; padding: clamp(22px, 3vw, 31px); border: 1px solid var(--line); border-radius: 15px; background: white; box-shadow: var(--shadow); }
 .atlas-heading { display: flex; justify-content: space-between; gap: 28px; align-items: end; margin-bottom: 13px; }
 .atlas-heading h2 { margin: 3px 0 5px; font-family: Georgia, "Times New Roman", serif; font-size: 32px; font-weight: 500; }
@@ -228,6 +260,7 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
   .atlas-activity-meta { display: flex; justify-content: space-between; gap: 12px; }
   .atlas-tiles { grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); }
   .atlas-means { display: flex; gap: 13px; }
+  .activity-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 680px) {
   .hero-inner, .scope-note, .model-board { width: min(100% - 28px, 620px); }
@@ -245,10 +278,15 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
   .geometry-panel { width: min(100% - 20px, 660px); }
   .arm-geometry-panel { width: min(100% - 20px, 660px); }
   .dimension-atlas-panel { width: min(100% - 20px, 660px); }
+  .activity-card-panel { width: min(100% - 20px, 660px); }
   .geometry-heading { align-items: start; flex-direction: column; }
   .atlas-heading { align-items: start; flex-direction: column; }
+  .activity-card-heading { align-items: start; flex-direction: column; }
   .atlas-focus { align-items: start; flex-direction: column; }
   .atlas-focus span { text-align: left; }
+  .activity-card-focus { align-items: start; flex-direction: column; }
+  .activity-card-focus span { text-align: left; }
+  .activity-card-grid { grid-template-columns: 1fr; }
   .atlas-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .geometry-controls { flex-wrap: wrap; }
   #geometry-canvas { height: 430px; }
@@ -263,9 +301,11 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
   <main>
     <header class="hero"><div class="hero-inner"><div class="eyebrow">Supplementary material · review version</div><h1>HCI-Portrait Results Explorer</h1><p class="lede">Explore how Human and AI producer configurations distribute across 281 activity-specific dimensions.</p><div class="stats" id="stats"></div></div></header>
 
-    <section class="scope-note"><div class="section-kicker">How to read this page</div><h2>Explore configuration portraits</h2><p>Compare activity- and dimension-level category distributions across Human, GPT, Claude, and Gemini under Human-handoff and AI-chain. Select an activity or dimension to inspect its definitions, categories, and seven-arm distributions.</p></section>
+    <section class="scope-note"><div class="section-kicker">How to read this page</div><h2>Explore configuration portraits</h2><p>Compare activity- and dimension-level category distributions across Human, GPT, Claude, and Gemini under Human-handoff and AI-chain.</p></section>
 
-    <section class="dimension-atlas-panel"><div class="atlas-heading"><div><div class="section-kicker">Figure 4 · Interactive atlas</div><h2>Complete dimension-level activity portrait</h2><p>Each tile is one activity-specific dimension. HH is above AC; each band averages the GPT, Claude, and Gemini distances from Human. Select any dimension to inspect its definition, categories, and seven-arm distributions.</p></div><div class="atlas-legend" aria-label="Distance from Human color scale"><span>0</span><i class="atlas-gradient"></i><span>1</span></div></div><div class="atlas-focus" id="atlas-focus" aria-live="polite"><strong>281 dimensions across 27 activities</strong><span>Hover or focus a tile for its name; click for details.</span></div><div id="dimension-atlas"></div></section>
+    <section class="activity-card-panel"><div class="activity-card-heading"><div><div class="section-kicker">Figure 4 · Interactive profiles</div><h2>Activity-specific dimension profiles</h2><p>Each card keeps one activity's dimensions together. Purple left bars show Human-handoff (HH); blue right bars show AI-chain (AC). Bar height is the dimension's mean distance from Human across GPT, Claude, and Gemini.</p></div><div class="profile-series-key" aria-label="Profile bar legend"><span class="hh"><i></i>HH · left</span><span class="ac"><i></i>AC · right</span></div></div><div class="activity-card-focus" id="activity-card-focus" aria-live="polite"><strong>27 activities · 281 dimensions</strong><span>Hover or focus a D label; click to inspect its full seven-arm distribution.</span></div><div class="activity-card-grid" id="activity-card-grid"></div></section>
+
+    <section class="dimension-atlas-panel"><div class="atlas-heading"><div><div class="section-kicker">Dimension lookup</div><h2>Complete dimension-level activity portrait</h2><p>Each tile is one activity-specific dimension. HH is above AC; each band averages the GPT, Claude, and Gemini distances from Human. Select any dimension to inspect its definition, categories, and seven-arm distributions.</p></div><div class="atlas-legend" aria-label="Distance from Human color scale"><span>0</span><i class="atlas-gradient"></i><span>1</span></div></div><div class="atlas-focus" id="atlas-focus" aria-live="polite"><strong>281 dimensions across 27 activities</strong><span>Hover or focus a tile for its name; click for details.</span></div><div id="dimension-atlas"></div></section>
 
     <section class="arm-geometry-panel"><div class="geometry-heading"><div><div class="section-kicker">Seven-arm comparison</div><h2>3D configuration map</h2><p>Positions approximate all 21 pairwise distribution distances among Human and the six AI configurations. Rotate the map, filter its dimensions, or select any arm; the side panel reports its exact distances.</p></div><div class="geometry-controls"><label><span>Activity</span><select id="arm-geometry-activity"></select></label><label><span>Type</span><select id="arm-geometry-kind"><option value="all">All dimensions</option><option value="descriptive">Descriptive</option><option value="evaluative">Evaluative</option></select></label><label><span>View</span><select id="arm-geometry-view"><option value="overall">Overall</option><option value="ai">AI detail</option></select></label><button id="arm-geometry-reset" type="button">Reset view</button></div></div><div class="arm-geometry-layout"><div><div class="geometry-canvas-wrap arm-canvas-wrap"><canvas id="arm-geometry-canvas" tabindex="0" aria-label="Interactive 3D position map of seven producer configurations"></canvas><div class="geometry-tooltip" id="arm-geometry-tooltip" hidden></div></div><div class="arm-geometry-footer"><div class="arm-legend"><span><i class="human-shape"></i>Human</span><span><i class="hh-shape"></i>Human-handoff</span><span><i class="ac-shape"></i>AI-chain</span></div><div id="arm-geometry-readout"></div></div></div><aside class="human-ordering"><div class="section-kicker">Selected reference</div><h3 id="arm-order-title">Distance from Human</h3><p>Closest configurations appear first. The scale covers all 21 pairs under the current filter.</p><div id="human-distance-order"></div></aside></div></section>
 
@@ -415,6 +455,54 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
 
   function atlasConditionMean(dimension, conditionIndex) {
     return data.families.reduce((total, item) => total + dimension.distanceFromHuman[item.arms[conditionIndex]], 0) / data.families.length;
+  }
+
+  function activityDimensions(activityId) {
+    return data.dimensions
+      .filter((dimension) => dimension.activityId === activityId)
+      .sort((first, second) => first.id.localeCompare(second.id, undefined, { numeric: true }));
+  }
+
+  function renderActivityCardGrid() {
+    byId("activity-card-grid").innerHTML = data.activities.map((activity) => {
+      const dimensions = activityDimensions(activity.id).map((dimension) => ({
+        dimension,
+        hh: atlasConditionMean(dimension, 0),
+        ac: atlasConditionMean(dimension, 1),
+      }));
+      const hhMean = dimensions.reduce((total, item) => total + item.hh, 0) / dimensions.length;
+      const acMean = dimensions.reduce((total, item) => total + item.ac, 0) / dimensions.length;
+      const bars = dimensions.map(({ dimension, hh, ac }) => {
+        const name = dimensionDisplayName(dimension.key, dimension.name);
+        const label = `${activity.title}, ${dimension.id} ${name}. Human-handoff distance ${hh.toFixed(3)}; AI-chain distance ${ac.toFixed(3)}. Open seven-arm distributions.`;
+        return `<button class="profile-dimension" data-profile-dimension="${escapeHtml(dimension.key)}" style="--hh:${hh * 100}%;--ac:${ac * 100}%" type="button" title="${escapeHtml(`${dimension.id} · ${name}`)}" aria-label="${escapeHtml(label)}"><span class="profile-bar-pair"><i class="hh"></i><i class="ac"></i></span><b>${escapeHtml(dimension.id)}</b></button>`;
+      }).join("");
+      return `<article class="activity-profile-card" style="--group:${activity.groupColor}"><header><span class="profile-group-badge">${activity.groupId}</span><h3>${escapeHtml(activity.title)}</h3><span>${dimensions.length} dimensions</span></header><div class="profile-card-means"><strong class="hh">HH mean: ${hhMean.toFixed(2)}</strong><strong class="ac">AC mean: ${acMean.toFixed(2)}</strong></div><div class="profile-bars" role="group" aria-label="${escapeHtml(`${activity.title} dimension distances`)}">${bars}</div></article>`;
+    }).join("");
+  }
+
+  function showActivityCardDimension(key) {
+    const dimension = data.dimensions.find((candidate) => candidate.key === key);
+    if (!dimension) return;
+    const hh = atlasConditionMean(dimension, 0), ac = atlasConditionMean(dimension, 1);
+    const delta = ac - hh;
+    const signed = `${delta >= 0 ? "+" : "−"}${Math.abs(delta).toFixed(3)}`;
+    byId("activity-card-focus").innerHTML = `<strong>${dimension.groupId} · ${escapeHtml(dimension.activityTitle)} · ${escapeHtml(dimension.id)} ${escapeHtml(dimensionDisplayName(dimension.key, dimension.name))}</strong><span>HH ${hh.toFixed(3)} · AC ${ac.toFixed(3)} · AC−HH ${signed}</span>`;
+  }
+
+  function initActivityCardGrid() {
+    renderActivityCardGrid();
+    const grid = byId("activity-card-grid");
+    const update = (event) => {
+      const bar = event.target.closest("[data-profile-dimension]");
+      if (bar) showActivityCardDimension(bar.dataset.profileDimension);
+    };
+    grid.addEventListener("pointerover", update);
+    grid.addEventListener("focusin", update);
+    grid.addEventListener("click", (event) => {
+      const bar = event.target.closest("button[data-profile-dimension]");
+      if (bar) openDimension(bar.dataset.profileDimension);
+    });
   }
 
   function atlasColor(value) {
@@ -1078,6 +1166,7 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
 
   renderStats();
   render();
+  initActivityCardGrid();
   initDimensionAtlas();
   initArmGeometry();
   initGeometry();
