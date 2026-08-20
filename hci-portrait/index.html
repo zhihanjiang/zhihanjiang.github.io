@@ -57,7 +57,7 @@ a { color: inherit; }
 .family-card dt { color: #7b8991; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .family-card dd { margin: 1px 0 0; color: #3f4e57; font-size: 13px; font-weight: 700; }
 
-.explorer { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 28px; width: min(1320px, calc(100% - 44px)); margin: 0 auto 70px; align-items: start; }
+.explorer { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 28px; width: min(1220px, calc(100% - 56px)); margin: 0 auto 70px; align-items: start; }
 .controls { position: sticky; top: 18px; padding: 19px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.97); box-shadow: var(--shadow); }
 .controls h2 { margin: 0 0 4px; font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 500; }
 .controls > p { margin: 0 0 18px; color: var(--muted); font-size: 12px; }
@@ -138,7 +138,7 @@ dialog::backdrop { background: rgba(19, 35, 46, .62); backdrop-filter: blur(3px)
 .distribution-table th:first-child, .distribution-table td:first-child { position: sticky; left: 0; color: var(--navy); background: white; text-align: left; }
 .detail-note { margin-top: 16px; padding: 12px 14px; border-left: 4px solid #9eb5c3; color: #5f6e77; background: #f2f6f8; font-size: 11px; }
 
-.activity-card-panel { width: min(1320px, calc(100% - 44px)); margin: 0 auto 28px; padding: clamp(22px, 3vw, 31px); border: 1px solid var(--line); border-radius: 15px; background: white; box-shadow: var(--shadow); }
+.activity-card-panel { width: min(1220px, calc(100% - 56px)); margin: 0 auto 28px; padding: clamp(22px, 3vw, 31px); border: 1px solid var(--line); border-radius: 15px; background: white; box-shadow: var(--shadow); }
 .activity-card-heading { display: flex; justify-content: space-between; gap: 28px; align-items: end; margin-bottom: 13px; }
 .activity-card-heading h2 { margin: 3px 0 5px; font-family: Georgia, "Times New Roman", serif; font-size: 32px; font-weight: 500; }
 .activity-card-heading p { max-width: 760px; margin: 0; color: var(--muted); font-size: 12px; }
@@ -170,7 +170,7 @@ dialog::backdrop { background: rgba(19, 35, 46, .62); backdrop-filter: blur(3px)
 .profile-bar-pair .ac { height: var(--ac); color: #0372b6; background: #b9ddf0; }
 .profile-dimension b { align-self: end; overflow: hidden; font-size: 9px; font-weight: 600; white-space: nowrap; }
 
-.dimension-atlas-panel { width: min(1320px, calc(100% - 44px)); margin: 0 auto 28px; padding: clamp(22px, 3vw, 31px); border: 1px solid var(--line); border-radius: 15px; background: white; box-shadow: var(--shadow); }
+.dimension-atlas-panel { width: min(1220px, calc(100% - 56px)); margin: 0 auto 28px; padding: clamp(22px, 3vw, 31px); border: 1px solid var(--line); border-radius: 15px; background: white; box-shadow: var(--shadow); }
 .atlas-heading { display: flex; justify-content: space-between; gap: 28px; align-items: end; margin-bottom: 13px; }
 .atlas-heading h2 { margin: 3px 0 5px; font-family: Georgia, "Times New Roman", serif; font-size: 32px; font-weight: 500; }
 .atlas-heading p { max-width: 760px; margin: 0; color: var(--muted); font-size: 12px; }
@@ -263,8 +263,7 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
   .activity-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 680px) {
-  .hero-inner, .scope-note, .model-board { width: min(100% - 28px, 620px); }
-  .explorer { width: min(100% - 20px, 660px); }
+  .hero-inner, .scope-note, .model-board, .explorer, .geometry-panel, .arm-geometry-panel, .dimension-atlas-panel, .activity-card-panel { width: min(100% - 28px, 620px); }
   .board-heading, .panel-heading, .dimension-toolbar { align-items: start; flex-direction: column; }
   .controls { grid-template-columns: 1fr; }
   .activity-row { grid-template-columns: minmax(135px, 1.2fr) minmax(120px, 1fr) minmax(120px, 1fr); min-width: 520px; }
@@ -275,10 +274,6 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
   .arm-distance { grid-column: 2; }
   footer { flex-direction: column; }
   .hashes { text-align: left; }
-  .geometry-panel { width: min(100% - 20px, 660px); }
-  .arm-geometry-panel { width: min(100% - 20px, 660px); }
-  .dimension-atlas-panel { width: min(100% - 20px, 660px); }
-  .activity-card-panel { width: min(100% - 20px, 660px); }
   .geometry-heading { align-items: start; flex-direction: column; }
   .atlas-heading { align-items: start; flex-direction: column; }
   .activity-card-heading { align-items: start; flex-direction: column; }
