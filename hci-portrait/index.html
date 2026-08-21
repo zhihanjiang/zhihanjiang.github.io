@@ -297,11 +297,11 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
 
     <section class="activity-card-panel"><div class="activity-card-heading"><div><div class="section-kicker">Figure 4 · Interactive profiles</div><h2>Activity-specific dimension profiles</h2><p>Each card keeps one activity's dimensions together. Purple left bars show Human-handoff (HH); blue right bars show AI-chain (AC). Hover or focus a dimension for its local summary; on touch, tap once for the summary and again for the full distribution.</p></div><div class="profile-series-key" aria-label="Profile bar legend"><span class="hh"><i></i>HH · left</span><span class="ac"><i></i>AC · right</span></div></div><div class="activity-card-grid" id="activity-card-grid"></div></section>
 
-    <section class="dimension-atlas-panel"><div class="atlas-heading"><div><div class="section-kicker">Dimension lookup</div><h2>Complete dimension-level activity portrait</h2><p>Each tile is one activity-specific dimension. HH is above AC; each band averages the GPT, Claude, and Gemini distances from Human. Select any dimension to inspect its definition, categories, and seven-arm distributions.</p></div><div class="atlas-legend" aria-label="Distance from Human color scale"><span>0</span><i class="atlas-gradient"></i><span>1</span></div></div><div class="atlas-focus" id="atlas-focus" aria-live="polite"><strong>281 dimensions across 27 activities</strong><span>Hover or focus a tile for its name; click for details.</span></div><div id="dimension-atlas"></div></section>
+
 
     <section class="arm-geometry-panel"><div class="geometry-heading"><div><div class="section-kicker">Seven-arm comparison</div><h2>3D configuration map</h2><p>Large labeled marks are arm centroids. With global filters, 700 small marks show anonymized paper×arm embeddings behind them. Rotate the map, filter its dimensions, or select a centroid; the side panel reports exact arm distances.</p></div><div class="geometry-controls"><label><span>Activity</span><select id="arm-geometry-activity"></select></label><label><span>Type</span><select id="arm-geometry-kind"><option value="all">All dimensions</option><option value="descriptive">Descriptive</option><option value="evaluative">Evaluative</option></select></label><label><span>View</span><select id="arm-geometry-view"><option value="overall">Overall</option><option value="ai">AI detail</option></select></label><button id="arm-geometry-reset" type="button">Reset view</button></div></div><p class="paper-geometry-caveat">Per-paper embeddings are label-aligned exploratory views. Alignment uses known arm labels, so the cloud is not independent clustering evidence.</p><div class="arm-geometry-layout"><div><div class="geometry-canvas-wrap arm-canvas-wrap"><canvas id="arm-geometry-canvas" tabindex="0" aria-label="Interactive 3D position map of seven producer configurations and anonymized paper-by-arm embeddings"></canvas><div class="geometry-tooltip" id="arm-geometry-tooltip" hidden></div></div><div class="paper-geometry-status" id="paper-geometry-status" aria-live="polite"></div><div class="arm-geometry-footer"><div class="arm-legend"><span><i class="paper-point-shape"></i>Paper×arm</span><span><i class="centroid-shape"></i>Arm centroid</span><span><i class="human-shape"></i>Human</span><span><i class="hh-shape"></i>Human-handoff</span><span><i class="ac-shape"></i>AI-chain</span></div><div id="arm-geometry-readout"></div></div></div><aside class="human-ordering"><div class="section-kicker">Selected reference</div><h3 id="arm-order-title">Distance from Human</h3><p>Closest configurations appear first. The scale covers all 21 pairs under the current filter.</p><div id="human-distance-order"></div></aside></div></section>
 
-    <section class="model-board"><div class="board-heading"><div><div class="section-kicker">Assigned model-family routes</div><h2>Select a configuration portrait</h2></div><p>Each family contains Human-handoff (HH) and AI-chain (AC).</p></div><div class="family-cards" id="family-cards"></div></section>
+
 
     <section class="explorer" id="explorer">
       <aside class="controls">
@@ -412,7 +412,9 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
   }
 
   function renderFamilyCards() {
-    byId("family-cards").innerHTML = data.families.map((item) => {
+    const cards = byId("family-cards");
+    if (!cards) return;
+    cards.innerHTML = data.families.map((item) => {
       const most = activityById.get(item.mostDistinctActivity);
       const closest = activityById.get(item.closestActivity);
       const outputs = item.outputs.reduce((total, value) => total + value, 0).toLocaleString();
@@ -547,6 +549,7 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
   }
 
   function initDimensionAtlas() {
+    if (!byId("dimension-atlas")) return;
     renderDimensionAtlas();
     const atlas = byId("dimension-atlas");
     const update = (event) => {
@@ -1077,7 +1080,7 @@ footer p { margin: 4px 0 0; color: #afc3cf; font-size: 12px; }
     renderDimensions();
   }
 
-  byId("family-cards").addEventListener("click", (event) => {
+  byId("family-cards")?.addEventListener("click", (event) => {
     const card = event.target.closest("button[data-family]");
     if (!card) return;
     state.family = card.dataset.family;
