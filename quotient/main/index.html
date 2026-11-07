@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+	<title>Quotient Generator</title>
+	<link href="index.css" rel="stylesheet">
+<!-- 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" /> -->
+
+</head>
+
+<body>
+	<nav class="navbar navbar-default" id="header">
+		<div class="container">
+			<h2>Quotient Generator</h2>
+		</div>
+	</nav>
+	<div class="container" id="content">
+		<div id="input_view1" >
+			<label>Please input the probability transition matrix here:<br>(each line represents a row, and use a comma to distinguish entries in rows)</label>
+			<textarea id="matrix" cols="80" rows="25">1,0.5,0.5,0.2,0,0,0.2,0,0,0,0,0,0,0,0,0,0,0.3,0,0,0,0,0.3,0,0,0,0
+0,0,0,0,0,0,0.5,0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0.5,0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0.2,0,0,0.2,0,0,0.2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0.3,0,0,0,0,0.3,0,0,0,0,0,0,0,0.3,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0.2,0,0,0.2,0,0,0.2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0.3,0,0,0,0,0.3,0,0,0,0,0,0,0,0,0,0,0,0,0,0.3,0,0
+0,0.3,0,0,0,0,0,0,0,0,0,0,0,0,0,0.3,0,0,0,0,0,0,0,0.3,0,0,0
+0,0,0,0,0,0,0,0,0,0.2,0,0,0.2,0,0,0.2,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.5,0,0.5,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0.3,0,0.2,0,0,0.5,0,0,0.2,0,0.3,0.5,0,0,0,0,0.5,0.5,0.5
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.5,0.5,0.5,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0.2,0,0,0.2,0,0,0.2,0,0,0,0,0,0,0,0,0
+0,0,0,0.3,0,0,0,0,0,0,0,0.3,0,0,0,0,0,0,0,0.3,0,0,0,0,0,0.3,0
+0,0,0.3,0,0,0,0,0,0,0,0,0,0,0,0,0,0.3,0,0,0,0,0.3,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.5,0.5,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2,0,0,0.2,0,0,0.2,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0.3,0,0,0,0,0,0,0,0.3,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2,0,0,0.2,0,0,0.2,0
+0,0,0,0,0,0,0,0,0,0.5,0.5,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.5,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0.3,0,0,0,0,0.3,0,0,0.5,0.5,0.5,0,0,0,0,0,0.2,0,0,0.2,0,0,0.5</textarea>
+<label>For deterministic FFNs, please input 1,0 here.<br>For SFFNs, please input the possible probabilities, such as 0.2,0.3,0.5 </label>
+<textarea id="prob_mat" cols="50" rows="3">1,0
+0.5,0.5</textarea><br>
+<label>Matrix dimension (please input an integer)</label><br>
+<input type="number" id="dimension" value=27>
+<button id="random_gen" onclick="random_matrix();">Generate Random Matrix</button>
+<button id="random_gen_diag" onclick="random_matrix_diag();">Generate Random 0-1 Matrix</button>
+		</div>
+		<div style="margin-left: 20px;">
+		<div id="input_view2">
+			<label>Preliminary partition: <br>(please use a comma to distinguish entries in every partition, and use / to distinguish different partition)</label>
+			<textarea id="initial" cols="50" rows="3">1,14,27/2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22,23,24,25,26</textarea><br>
+			
+		</div>
+		<div id="action_view">
+			<button id="quotient" onclick="generate_quotinent();">quotient</button>
+		</div>
+		<div id="output_view"></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+				function generate_quotinent(){
+					// decode probability transition matrix
+					let s_elements = document.getElementById('matrix');
+					var s = s_elements.value;
+					console.log(s);
+					if(s==""){
+						document.getElementById('output_view').innerHTML = "<font color=\"red\">Invalid input: Please input the probability transition matrix.</font>";
+						// s_elements.style.color="red";
+						return 0;
+					}
+					// s_elements.style.color="black";
+					let lines = s.split('\n');
+					var mat = new Array()
+					for(var i = 0; i<lines.length; i++){
+						if(lines[i]==""){
+							continue;
+						}
+						mat[i]=lines[i].toString().split(',');
+						console.log(mat[i]);
+						for(var j = 0; j<mat[i].length; j++){
+							mat[i][j] = parseFloat(mat[i][j])
+						}
+					}
+					console.log(mat)
+
+					// decode initial sets
+					let s2 = document.getElementById('initial').value;
+
+					if(s2==""){
+						document.getElementById('output_view').innerHTML = "<font color=\"red\">Invalid input: Please input the preliminary partition.</font>";
+						// s_elements.style.color="red";
+						return 0;
+					}
+
+					console.log(s2);
+					var temp = s2.split('/');
+					var sets = new Array(temp.length);
+					for(var i = 0; i<temp.length; i++){
+						sets[i] = temp[i].split(',');
+						for(var j = 0; j<sets[i].length; j++){
+							sets[i][j] = parseFloat(sets[i][j])
+						}
+					}
+					console.log(sets)
+					var output_str = ""
+					sets_updated = iter_generate_set(sets,mat)
+					var count = 1;
+					while(sets_updated.length!=sets.length || !compareSets(sets_updated, sets)){
+						sets = sets_updated;
+						sets_updated = iter_generate_set(sets,mat,output_str);
+						output_str += '<b>The '+count.toString()+'th results:</b> ';
+						for(var i = 0; i<sets_updated.length; i++){
+							output_str += '{'+sets_updated[i].toString()+'} ';
+						}
+						output_str += '<br>';
+						console.log(sets_updated);
+						count += 1;
+					}
+					output_str += "<b>The final results:</b> "
+					for(var i = 0; i<sets_updated.length; i++){
+						output_str += '{'+sets_updated[i].toString()+'}\n';
+					}
+					output_str += "<br><b>Quotient Number:</b> "+sets_updated.length.toString();
+					document.getElementById('output_view').innerHTML =output_str;
+				}
+				function iter_generate_set(sets, mat){
+					var sets_updated = new Array()
+					for(var i = 0; i<sets.length; ++i){
+						check = sets[i];
+						probs = new Array(check.length);
+						uni = Array.from(Array(check.length).keys())
+						for(var k = 0; k<check.length; ++k){
+							probs[k] = new Array(sets.length).fill(0);
+							for(var j = 0; j<sets.length; ++j){
+								for(var t = 0; t<sets[j].length; ++t){
+									probs[k][j] += mat[sets[j][t]-1][check[k]-1]
+								}
+							}
+						}
+						console.log(check);
+						console.log(probs);
+						// console.log(uni);
+						// output_str += check.toString()+": "+probs.toString()+"\n";
+						prev = -1;
+						for (var k = 0; k < probs.length; k++) {
+							if(uni[k]<=prev){
+								continue;
+							}
+							for (var j = k+1; j < probs.length; j++) {
+								if(uni[j]==uni[k]){
+									continue;
+								}
+								// console.log(probs[k],probs[j]);
+								if(compareArrays(probs[k],probs[j])){
+									uni[j] = uni[k];
+								}
+							}
+							prev = uni[k];
+						}
+						temp = uni.filter(onlyUnique);
+						// console.log(temp);
+						for(var k = 0; k<temp.length; ++k){
+							var indexes = getAllIndexes(uni, temp[k]);
+							var sub = new Array(indexes.length);
+							for(var j = 0; j<indexes.length; ++j){
+								sub[j] = check[indexes[j]];
+							}
+							sets_updated.push(sub)
+						}
+						// console.log(sets_updated)
+					}
+					// console.log(sets_updated)
+					return sets_updated
+				}
+
+				function compareArrays(arr1, arr2) {
+
+				    // compare arrays
+				    var result = JSON.stringify(arr1) == JSON.stringify(arr2);
+
+				    return result;
+
+				}
+
+				function getAllIndexes(arr, val) {
+				    var indexes = [], i = -1;
+				    while ((i = arr.indexOf(val, i+1)) != -1){
+				        indexes.push(i);
+				    }
+				    return indexes;
+				}
+				function onlyUnique(value, index, self) {
+				  return self.indexOf(value) === index;
+				}
+				function compareSets(sets1, sets2){
+					for(var i = 0;i<sets1.length;++i){
+						if(!compareArrays(sets1[i],sets2[i])){
+							return false;
+						}
+					}
+					return true;
+				}
+				function random_matrix(){
+					var q = document.getElementById('initial');
+					var dim = document.getElementById("dimension").value;
+					if(Number(dim)!=parseInt(dim)){
+						document.getElementById('output_view').innerHTML = "<font color=\"red\">Invalid input: Please input an integer as the matrix dimension.</font>";
+						return 0;
+					}
+					var mat = new Array(dim);
+
+					var prob_element = document.getElementById('prob_mat');
+					var prob = prob_element.value;
+					if(prob==""){
+						document.getElementById('output_view').innerHTML = "<font color=\"red\">Invalid input: Please input the probabilities.</font>";
+						return 0;
+					}
+					console.log(prob);
+					let lines = prob.split('\n');
+					
+					var sets = new Array()
+					for(var i = 0; i<lines.length; i++){
+						if(lines[i]==""){
+							continue;
+						}
+						sets[i]=lines[i].toString().split(',');
+						console.log(sets[i]);
+						for(var j = 0; j<sets[i].length; j++){
+							sets[i][j] = parseFloat(sets[i][j])
+						}
+					}
+
+					// var sets = [[0.1,0.7,0.2],[0.1,0.9],[0.8,0.2],[0.3,0.7]]
+					// var sets = [[0,1],[0.5,0.5]];
+
+					// [0.4,0.6],[0.5,0.5]
+
+					for(var i = 0; i < dim; i++){
+						mat[i] = new Array(dim);
+						for(var j = 0; j < dim; j++){
+							mat[i][j] = 0;
+						}
+					}
+					for(var i = 0; i < dim; i++){
+						var ind1 = Math.floor(Math.random() * (sets.length));
+						// console.log(ind1);
+						var set = sets[ind1];
+						for(var j=0; j<set.length; j++){
+							var ind2 = Math.floor(Math.random() * (dim-1));
+							if(mat[ind2][i]!=0){
+								i--;
+								continue;
+							}
+							mat[ind2][i] = set[j];
+						}
+						// var ind = Math.floor(Math.random() * (dim-1));
+						// mat[ind][i] = 1;
+					}
+					console.log(mat);
+
+					var str = "1/";
+					for(var i = 2; i < dim; i++){
+						str+=i.toString()+",";
+					}
+
+					str+=dim.toString();
+
+					q.value = str;
+				
+					// for(var i = 0; i<dim; i++){
+					// 	mat[i] = new Array(dim);
+					// 	for(var j=0;j<dim;j++){
+					// 		var val = Math.floor(Math.random() * 10) + 1;
+					// 		mat[i][j]=val;
+					// 	}
+					// }
+
+					// // console.log(mat);
+					
+					// result = sum_col(mat);
+					
+				 //    // console.log(result)
+				 //    for(var j = 0; j<dim; j++){
+					// 	for(var i=0; i<dim; i++){
+					// 		mat[i][j] = (mat[i][j]/result[j]).toFixed(1);
+					// 	}
+					// }
+
+					// console.log(mat)
+					var output = '';
+					for(var i = 0; i<dim-1; i++){
+						output += mat[i].toString()+'\n'
+					}
+					output += mat[dim-1].toString();
+
+					var s = document.getElementById('matrix');
+					s.value = output;
+					document.getElementById('output_view').innerHTML = "";
+				}
+				function sum_col(arr){
+					var result = [];
+					arr.forEach(sub => {
+						sub.forEach((num, index) => {
+							if(result[index]){
+								result[index] += num;
+							}else{
+								result[index] = num;
+							}
+						});
+					});
+					return result;
+				}
+				function random_matrix_diag(){
+					var q = document.getElementById('initial');
+					var dim = document.getElementById("dimension").value;
+					if(Number(dim)!=parseInt(dim)){
+						document.getElementById('output_view').innerHTML = "<font color=\"red\">Invalid input: Please input an integer as the matrix dimension.</font>";
+						return 0;
+					}
+					var mat = new Array(dim);
+
+					for(var i = 0; i < dim; i++){
+						mat[i] = new Array(dim);
+						for(var j = 0; j < dim; j++){
+							mat[i][j] = 0;
+						}
+					}
+
+					for(var j=0; j < dim; j++){
+						var i = Math.floor(Math.random() * (dim-1));
+						mat[i][j] = 1;
+					}
+
+					for(var j = 0; j<dim; j++){
+						flag = 0;
+						for(var i=0; i<dim; i++){
+							if(i==j){
+								continue;
+							}
+							if(mat[i][j]>0){
+								flag=1;
+								break;
+							}
+						}
+						mat[j][j]=flag;
+					}
+
+					var str = "1/";
+					for(var i = 2; i < dim; i++){
+						str+=i.toString()+",";
+					}
+
+					str+=dim.toString();
+
+					q.value = str;
+				
+					var output = '';
+					for(var i = 0; i<dim-1; i++){
+						output += mat[i].toString()+'\n'
+					}
+					output += mat[dim-1].toString();
+
+					var s = document.getElementById('matrix');
+					s.value = output;
+					document.getElementById('output_view').innerHTML = "";
+				}
+
+			</script>
+	<!-- <nav class="navbar navbar-default" id="footer"> -->
+	<!-- </nav> -->
+</body>
+
+</html>
