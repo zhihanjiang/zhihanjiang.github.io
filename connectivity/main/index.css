@@ -1,0 +1,146 @@
+@import "../res/css/bootstrap.css";
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+  text-align: center;
+}
+
+#user {
+    float: right;
+    padding: 5px;
+    background-color: #2578b6;
+}
+
+#content {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#footer {
+    position: relative;
+    top: 800px;
+    text-align: center;
+}
+
+#input_view1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 650px;
+    height: auto;
+    /*z-index: 100;*/
+}
+
+#input_view2 {
+    position: relative;
+    top: 0;
+    left: 650px;
+    width: 550px;
+    height: 40px;
+    /*z-index: 100;*/
+}
+
+#action_view {
+    position: relative;
+    left: 780px;
+    top: 100px;
+ /*   border: 1px solid #ccc;*/
+   /* border-radius: 5px;*/
+}
+#graph_view_input {
+    position: relative;
+    top: 20px;
+    left: 650px;
+    width: 500px;
+    height: 100px;
+  /*  border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;*/
+  }
+#graph_view_input_draw {
+    position: relative;
+    /* top: 20px; */
+    /* left: 650px; */
+    width: 500px;
+    height: 100px;
+    /* margin-bottom: 20px; */
+  /*  border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;*/
+  }
+
+#output_view {
+  position: relative;
+  margin-top: 20px;
+  left: 650px;
+  /* width: 300px;
+  height: 350px; */
+/*  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;*/
+}
+
+  #graph_view_scc_draw {
+    position: relative;
+    /* top: 240px; */
+    /* left: 650px; */
+    width: 500px;
+    height: 100px;
+  /*  border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;*/
+  }
+  #graph_view_scc{
+    position: relative;
+    /* top: 240px; */
+    left: 650px;
+    width: 500px;
+    height: 100px;
+  /*  border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;*/
+  }
+#node_map_list{
+  position: relative;
+  /* top: 240px; */
+  left: 650px;
+  /* width: 500px; */
+  /* height: 100px; */
+}
+  #connectivity {
+    position: relative;
+    /* top: 240px; */
+    left: 650px;
+    /* width: 500px; */
+    /* height: 350px; */
+  /*  border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;*/
+  }
+  #reachability {
+    position: relative;
+    /* top:500px; */
+    left: 650px;
+    width: 500px;
+    height: 350px;
+  /*  border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;*/
+  }
+
+.alert {
+    display: none;
+}
+
+.marker {
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
